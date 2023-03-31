@@ -1,0 +1,1815 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mine</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!--slick min css-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="assets/css/font.awesome.css">
+    <!--ionicons min css-->
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="assets/css/slinky.menu.css">
+    <!--plugins css-->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!--modernizr min js here-->
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+        <style>
+            @media only screen and (max-width: 767px) {
+                .main_content_area{margin-top: 30px;padding-top: 0;}
+                .dashboard-list{display: inline-block;width: 100%;}
+                .dashboard-list li{width: 24%;display: inline-block;}
+                .dashboard-list li .nav-link{font-size: 13px;width: 100%;}
+        }
+        .tab-content .tab-pane h3{border-left: #012862 solid 5px;padding-left: 15px;margin: 15px 0;}
+        .tab-content .tab-pane p{margin-bottom: 10px!important;}
+        .post_wrapper a{font-size: 15px;margin-right: 20px;color: black!important;}
+        .post_wrapper a:hover{color: rgb(3, 83, 148)!important;}
+        .dashboard_tab_button{text-align: center;}
+
+        #myorder .card_dipult{
+            font-size:11px
+
+        }
+
+
+        .cart-list figure{display: inline-block;width: 100%; }
+        /* .cart-list .cart-del{float: right;font-size: 19px;color: #999999;margin-top:-5px} */
+        .cart-list .cart-color{display: inline-block;font-size: 9px;border:1px solid #e5e5e5;border-radius: 5px;margin-bottom:0;padding:1px 5px;margin-right: 5px;}
+        .cart-list .cart-size{display: inline-block;font-size: 9px;border:1px solid #e5e5e5;border-radius: 5px;margin-bottom: 0;padding:1px 5px;}
+        .cart-list .cart-price{color: #c92d2d;margin-left: 10px;font-size: 16px;}
+        .cart-list .cart-num{color: #646464;margin-left: 10px;font-size: 16px;}
+        .cart-list .product_thumb {
+            width: 50px;
+            float: left;
+        }
+        .cart-list .product_name{font-size: 12px;margin-top:0}
+
+        @media only screen and (max-width: 767px) {
+            .cart-list .product_name{max-width: 250px}
+        }
+        @media only screen and (max-width: 420px) {
+            .cart-list .product_name{max-width: 205px}
+       
+
+        }
+        .card-header.card_accor button.btn-link.collapsed {
+            background-color: #ffffff;
+        }
+        .shop_sidebar_product .single_product {padding-bottom: 0px;}
+        .ml-15{margin-left: 15px;}
+        #myorder .card-header .order-dfh{float: right;margin-right: 30px;color:#c7c7c7;font-weight: 700;}
+        #myorder .card-header .order-dsh{float: right;margin-right: 30px;color:#f25656;font-weight: 700;}
+        #myorder .card-header .order-ywc{float: right;margin-right: 30px;color:#56f297;font-weight: 700;}
+
+
+        #myorder .card-body p{margin-bottom: 5px;font-size: 15px;}
+        #myorder .card-body p .time{float: right;font-size: 13px;color: #646464;}
+        #myorder .card-body .order-mes{font-size: 13px;border-bottom: #e6e6e6 solid 1px; border-left: #e6e6e6  solid 1px;padding: 5px 5px 5px 10px;float: left;}
+        #myorder .card-body .order-kd{font-size: 13px;padding: 5px 5px 5px 10px;float: left;border-left: #e6e6e6  solid 1px;}
+
+        #myorder .card-body .order-mes .order-update{border: #0892ef solid 1px;border-radius: 2px;padding: 2px 3px;color: #0892ef;}
+        #myorder .card-body .order-mes .order-update:hover{border: #0892ef solid 1px;border-radius: 2px;padding: 2px 3px;background-color: #0892ef;color: #ffffff;}
+        
+        .fr{float:right}
+        .fl{float:left}
+        .mr-20{margin-right:20px ;}
+
+        
+
+
+
+        #mine2 .jf-time{font-size: 12px;color: #a7a7a7;line-height: 15px; }
+        #mine2 td{padding: 5px 5px;}
+        #mine2 .jf-add{color: #019647;}
+        #mine2 .jf-minus{color: #961f01;}
+
+     
+
+        </style>
+  
+</head>
+
+<body>
+   
+      <!--header area start-->
+    
+    <!--offcanvas menu area start-->
+    <div class="off_canvars_overlay">
+                
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="">
+                    <div class="header_account-list  mini_cart_wrapper" style="width: 60px;float: right;">
+                        <a href="javascript:void(0)" style="position:relative;top:35px;"><i class="icon icon-FullShoppingCart" ></i><span class="item_count">2</span></a>
+                         <!--mini cart-->
+                         <div class="mini_cart">
+                             <div class="cart_gallery">
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">Lorem ipsum dolor sit amet</a>
+                                         <p>1 x <span> 65000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                         <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">impedit dolor sed </a>
+                                         <p>1 x <span> 60000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                          <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_table">
+                                 <div class="cart_table_border">
+                                     
+                                     <div class="cart_total mt-15 mb-15" >
+                                         <span>总计:</span>
+                                         <span class="price">125000</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_footer">
+                                <div class="cart_button">
+                                     <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                 </div>
+                                
+
+                             </div>
+                         </div>
+                         <!--mini cart end-->
+                    </div>
+                    <div class="canvas_open">
+                        <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
+                      
+                    </div>
+                   
+                    
+                    <div class="offcanvas_menu_wrapper">
+                        <div class="canvas_close">
+                            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>  
+                        </div>
+                        <div  class="text-left mb-30">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="#">积分 <span style="float: right;">185,000,000</span></a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                      
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="#">游戏官网</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="./index.html">首页</a>
+                                </li>
+                              
+                                <li class="menu-item-has-children">
+                                    <a href="./product-list.html">礼品目录</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html">帮助中心 </a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html">我的账户</a> 
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html?type=4">联系客服</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="offcanvas_footer">
+                            <ul>
+                                <li class="facebook"><a href="#">En</a></li>
+                                <li class="twitter"><a href="#">简</a></li>
+                                <li class="pinterest"><a href="#">繁</a></li>
+                            
+                            </ul>
+                            <div class="cart_button mt-30">
+                                <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--offcanvas menu area end-->
+    <header>
+        <div class="main_header sticky-header color_four">
+            <!-- <div class="container-fluid"> -->
+            <div class="container">
+
+                <div class="header_container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <!--main menu start-->
+                            <div class="main_menu menu_position"> 
+                                <nav>  
+                                    <ul>
+                                        <li><a href="#">游戏官网</a></li>
+                                        <li><a  href="index.html">首页</a></li>
+                                        
+                                        <li><a   href="./product-list.html">礼品目录<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./product-list.html?type=0">全部</a></li>
+                                                <li><a href="./product-list.html?type=1">数码产品</a></li>
+                                                <li><a href="./product-list.html?type=2">奖金兑换</a></li>
+                                                <li><a href="./product-list.html?type=3">生活精品</a></li>
+                                                <li><a href="./product-list.html?type=4">奢华品</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="./help.html">帮助中心<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./help.html?type=1">关于积分</a></li>
+                                                <li><a href="./help.html?type=2">规则与条款</a></li>
+                                                <li><a href="./help.html?type=3">常见疑问</a></li>
+                                            </ul>
+                                        </li>
+                                      
+                                        <li><a class="active" href="./mine.html">我的账户</a></li>
+                                        <li><a href="./help.html?type=4">联系客服</a></li>
+                                    </ul>  
+                                </nav> 
+                            </div>
+                            <!--main menu end-->
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="header_account_area">
+                               
+                                <div class="header_account-list top_links">
+                                    <a href="./mine.html" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                    <div class="dropdown_links">
+                                        <div class="dropdown_links_list">
+                                            <h3><i class="icon icon-User"style="margin-right:10px"></i>Alion232</h3>
+                                            <ul>
+                                                <li><a href="#">我的积分  <span style="float: right;">84,240,000</span></a></li>
+                                                <li><a href="#">已用积分  <span style="float: right;">240,000</span></a></li>
+                                                <li><a href="#">剩余积分  <span style="float: right;">84,000,000</span></a></li>
+
+
+                                               
+                                            </ul>
+                                        </div>
+                                      
+                                        <div class="dropdown_links_list">
+                                            <div class="mini_cart_footer">
+                                                
+                                                 <div class="cart_button">
+                                                     <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                                                 </div>
+     
+                                             </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header_account-list top_links">
+                                    <a href="javascript:void(0)"><img src="./assets/img/icon/fy.png" alt="" width="40px"></a>
+                                    <div class="dropdown_links" style="width: 150px">
+                                        
+                                        <div class="dropdown_links_list" >
+                                            <h3> 简体中文</h3>
+                                            <ul>
+                                                <li><a href="#"> English</a></li>
+                                                <li><a href="#">  繁體中文</a></li>
+                                            </ul>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="header_account-list  mini_cart_wrapper">
+                                   <a href="javascript:void(0)"><i class="icon icon-FullShoppingCart"></i><span class="item_count">2</span></a>
+                                    <!--mini cart-->
+                                    <div class="mini_cart">
+                                        <div class="cart_gallery">
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">Lorem ipsum dolor sit amet </a>
+                                                    <p>1 x <span> 65,000</span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                    <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">impedit dolor sed soluta</a>
+                                                    <p>1 x <span> 60,000 </span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                     <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_table">
+                                            <div class="cart_table_border">
+                                                <div class="cart_total">
+                                                    <span>总计:</span>
+                                                    <span class="price">125,000</span>
+                                                </div>
+                                                <!-- <div class="cart_total mt-10">
+                                                    <span>total:</span>
+                                                    <span class="price">125,000</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_footer">
+                                           <div class="cart_button">
+                                                <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                            </div>
+                                       
+
+                                        </div>
+                                    </div>
+                                    <!--mini cart end-->
+                               </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <!--header area end-->
+ 
+    <hr>
+
+
+
+  
+  <!-- my account start  -->
+  <section class="main_content_area" >
+    <div class="container">   
+        <div class="account_dashboard">
+            <div class="row">
+                <div class="col-sm-12 col-md-2 col-lg-2 ">
+                    <!-- Nav tabs -->
+                    <div class="dashboard_tab_button">
+                        <ul role="tablist" class="nav flex-column dashboard-list">
+                            <li><a href="#mine1" data-toggle="tab" class="nav-link" id="minetab1">个人信息</a></li>
+                            <li> <a href="#mine2" data-toggle="tab" class="nav-link" id="minetab2">积分明细</a></li>
+                            <li><a href="#mine3" data-toggle="tab" class="nav-link" id="minetab3">我的订单</a></li>
+                
+                        </ul>
+                    </div>    
+                </div>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard_content">
+                        <div class="tab-pane fade show" id="mine1">
+                            <h3>Alodn235</h3>
+
+                            <div style="text-align: center;width: 100%!important;">
+                                <div class="alert alert-primary col-6 col-lg-3 fl" role="alert" >
+                                   昨日共获得积分<br><a href="#" class="alert-link">8,586</a>
+                                </div>
+                                <div class="alert alert-warning col-6 col-lg-3 fl" role="alert" >
+                                    月累计获得积分<br><a href="#" class="alert-link">1,862,000</a>
+                                 </div>
+                                 <div class="alert alert-danger col-6 col-lg-3 fl" role="alert" >
+                                    总获得积分<br><a href="#" class="alert-link">8,586,000</a>
+                                 </div>
+                                 <div class="alert alert-info col-6 col-lg-3 fl" role="alert" >
+                                    已使用<a href="#" class="alert-link"> 10,800</a><br>
+                                    剩余<a href="#" class="alert-link"> 40,547,250</a>
+
+
+                                 </div>
+                               
+                            </div>
+                            <hr>
+                            <div class="clearfix"></div>
+                            <h3>兑换过的商品</h3>
+                            
+                            <div class="cart-list">
+                                <div class="shop_sidebar_product">
+                                    <article class="single_product col-12 col-lg-12" >
+                                            <figure>
+                                            
+                                            <div class="product_thumb">
+                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                </div>
+                                                <figcaption class="product_content">
+                                                    <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                    <div>
+                                                        <span class="cart-color">
+                                                        黑色
+                                                        </span>
+                                                        <span class="cart-size">
+                                                        S码
+                                                        
+                                                        </span>
+                                                        <span class="cart-price">
+                                                            80,000 积分 
+                                                            
+                                                        </span>
+                                                    <span class="cart-num"> X1</span>
+                                                    </div>
+                                                
+                                                </figcaption>
+                                            
+                                            
+                                            </figure>
+                                    </article>
+                                    <article class="single_product col-12 col-lg-12" >
+                                        <figure>
+                                        
+                                        <div class="product_thumb">
+                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                            <figcaption class="product_content">
+                                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                <div>
+                                                    <span class="cart-color">
+                                                    黑色
+                                                    </span>
+                                                    <span class="cart-size">
+                                                    S码
+                                                    
+                                                    </span>
+                                                    <span class="cart-price">
+                                                        80,000 积分 
+                                                        
+                                                    </span>
+                                                <span class="cart-num"> X1</span>
+                                                </div>
+                                            
+                                            </figcaption>
+                                        
+                                        
+                                        </figure>
+                                    </article>
+                                    <article class="single_product col-12 col-lg-12" >
+                                        <figure>
+                                        
+                                        <div class="product_thumb">
+                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                            <figcaption class="product_content">
+                                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                <div>
+                                                    <span class="cart-color">
+                                                    黑色
+                                                    </span>
+                                                    <span class="cart-size">
+                                                    S码
+                                                    
+                                                    </span>
+                                                    <span class="cart-price">
+                                                        80,000 积分 
+                                                        
+                                                    </span>
+                                                <span class="cart-num"> X1</span>
+                                                </div>
+                                            
+                                            </figcaption>
+                                        
+                                        
+                                        </figure>
+                                    </article>
+                                    <article class="single_product col-12 col-lg-12" >
+                                        <figure>
+                                        
+                                        <div class="product_thumb">
+                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                            <figcaption class="product_content">
+                                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                <div>
+                                                    <span class="cart-color">
+                                                    黑色
+                                                    </span>
+                                                    <span class="cart-size">
+                                                    S码
+                                                    
+                                                    </span>
+                                                    <span class="cart-price">
+                                                        80,000 积分 
+                                                        
+                                                    </span>
+                                                <span class="cart-num"> X1</span>
+                                                </div>
+                                            
+                                            </figcaption>
+                                        
+                                        
+                                        </figure>
+                                    </article>
+                                    <article class="single_product col-12 col-lg-12" >
+                                        <figure>
+                                        
+                                        <div class="product_thumb">
+                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                            <figcaption class="product_content">
+                                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                <div>
+                                                    <span class="cart-color">
+                                                    黑色
+                                                    </span>
+                                                    <span class="cart-size">
+                                                    S码
+                                                    
+                                                    </span>
+                                                    <span class="cart-price">
+                                                        80,000 积分 
+                                                        
+                                                    </span>
+                                                <span class="cart-num"> X1</span>
+                                                </div>
+                                            
+                                            </figcaption>
+                                        
+                                        
+                                        </figure>
+                                    </article>
+                                    <article class="single_product col-12 col-lg-12" >
+                                        <figure>
+                                        
+                                        <div class="product_thumb">
+                                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                            <figcaption class="product_content">
+                                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                <div>
+                                                    <span class="cart-color">
+                                                    黑色
+                                                    </span>
+                                                    <span class="cart-size">
+                                                    S码
+                                                    
+                                                    </span>
+                                                    <span class="cart-price">
+                                                        80,000 积分 
+                                                        
+                                                    </span>
+                                                <span class="cart-num"> X1</span>
+                                                </div>
+                                            
+                                            </figcaption>
+                                        
+                                        
+                                        </figure>
+                                    </article>
+                                
+                            
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="mine2" style="line-height: 30px;">
+                            <h3>积分明细</h3>
+                            <div>
+                               <div>
+                                    <div class="fl mr-20">总积分 483,548,000</div>
+                                    <div class="fl mr-20">已消耗 4,548,000</div>
+
+                                    <div class="fl mr-20">剩余 28,500</div>
+
+                               </div>
+                               <br>
+
+                                   
+                            
+                                <select class="form-control" style="width: 65px;font-size: 15px;padding: 2px 3px;float: right;margin-bottom: 5px;margin-left: 5px;">
+                                    <option>全部</option>
+                                    <option>收入</option>
+                                    <option>支出</option>
+                                  </select>
+                                 <select class="form-control" style="width: 65px;font-size: 15px;padding: 2px 3px;float: right;margin-bottom: 5px;margin-left: 5px;">
+                                    <option>时间</option>
+                                    <option>2023.1</option>
+                                    <option>2023.2</option>
+                                    <option>2023.3</option>
+
+
+                                    
+                                  </select>
+                          
+                               
+                                
+                                
+                            </div>
+                            
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>明细</th>
+                                    <th>积分</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                       购买 Rolex 格林尼治型 II 机械腕表
+                                      <div class="jf-time">
+                                        2023.2.25 12:45
+                                      </div>
+                                    </td>
+                                    <td class="jf-minus">-75892</td>
+                                  </tr>
+                               
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        捕鱼达人大满贯
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        xxxxx游戏胜利
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                        xxxxx游戏胜利
+                                        <div class="jf-time">
+                                            2023.1.19 22:45
+                                        </div>
+
+                                    </td>
+                                    <td class="jf-add">+10,000</td>
+                                  </tr>
+                                  
+                                 
+                                </tbody>
+                            </table>
+                               <!--shop toolbar end-->
+                               <div class="shop_toolbar t_bottom">
+                                <div class="pagination">
+                                    <ul>
+                                        <li class="current">1</li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="next"><a href="#">next</a></li>
+                                        <li><a href="#">>></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--shop wrapper end-->
+                           
+                        </div>
+                        <div class="tab-pane fade" id="mine3">
+                           
+                            
+                            <div class="accordion_area">
+                               
+                                    
+                                    <div class="col-12" style="padding-right: 0;"> 
+                                        <div id="myorder" class="card__accordion">
+                                        <div class="card card_dipult">
+                                            <div class="card-header card_accor" id="headingOne">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    格林尼治型 II  机械腕表等  <span>共2件</span>  <span class='order-dsh'>待收货</span>  
+
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#myorder">
+                                                
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                    <figure>
+                                                                    
+                                                                    <div class="product_thumb">
+                                                                            <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                        </div>
+                                                                        <figcaption class="product_content">
+                                                                            <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                            <div>
+                                                                                <span class="cart-color">
+                                                                                黑色
+                                                                                </span>
+                                                                                <span class="cart-size">
+                                                                                S码
+                                                                                
+                                                                                </span>
+                                                                                <span class="cart-price">
+                                                                                    80,000 积分 
+                                                                                    
+                                                                                </span>
+                                                                            <span class="cart-num"> X1</span>
+                                                                            </div>
+                                                                        
+                                                                        </figcaption>
+                                                                    
+                                                                    
+                                                                    </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                
+                                                                <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    
+                                                                    </figcaption>
+                                                                
+                                                                
+                                                                </figure>
+                                                        </article>
+                                                      
+                                                        
+                                                    
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+
+        
+        
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn btn-info fr">确认收货</a>
+                                                    </div>
+                                                    
+                                                    
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingTwo">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Rolex 格林尼治型 II  机械腕表等  <span>共3件</span>  <span class='order-dfh'>待发货</span>  
+
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+
+                                                </button>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                    <figure>
+                                                                    
+                                                                    <div class="product_thumb">
+                                                                            <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                        </div>
+                                                                        <figcaption class="product_content">
+                                                                            <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                            <div>
+                                                                                <span class="cart-color">
+                                                                                黑色
+                                                                                </span>
+                                                                                <span class="cart-size">
+                                                                                S码
+                                                                                
+                                                                                </span>
+                                                                                <span class="cart-price">
+                                                                                    80,000 积分 
+                                                                                    
+                                                                                </span>
+                                                                            <span class="cart-num"> X1</span>
+                                                                            </div>
+                                                                        
+                                                                        </figcaption>
+                                                                    
+                                                                    
+                                                                    </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                
+                                                                <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    
+                                                                    </figcaption>
+                                                                
+                                                                
+                                                                </figure>
+                                                        </article>
+                                                        <article class="single_product col-12 col-lg-12" >
+                                                            <figure>
+                                                            
+                                                            <div class="product_thumb">
+                                                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                </div>
+                                                                <figcaption class="product_content">
+                                                                    <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                    <div>
+                                                                        <span class="cart-color">
+                                                                        黑色
+                                                                        </span>
+                                                                        <span class="cart-size">
+                                                                        S码
+                                                                        
+                                                                        </span>
+                                                                        <span class="cart-price">
+                                                                            80,000 积分 
+                                                                            
+                                                                        </span>
+                                                                    <span class="cart-num"> X1</span>
+                                                                    </div>
+                                                                
+                                                                </figcaption>
+                                                            
+                                                            
+                                                            </figure>
+                                                    </article>
+                                                        
+                                                    
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：<a href="#" class="order-update" >修改</a></div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >还未发货，预计今天下午发货，请耐心等待</div>
+        
+        
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div>
+                                                        <a href="#" class="btn btn-info fr">确认收货</a>
+                                                    </div> -->
+                                                    
+                                                    
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingThree">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingFour">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingFive">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingSix">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingSeven">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingEight">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingNine">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card  card_dipult">
+                                            <div class="card-header card_accor" id="headingTen">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    Casio 乔治天纵型 III  机械腕表等  <span>共2件</span>  <span class='order-ywc'>已完成</span>  
+                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#myorder">
+                                                <div class="card-body">
+                                                    <p>订单号：20230318146688 <i class="ml-15 time">2023.3.15 16:21</i></p>
+                                                    <div class="cart-list">
+                                                        <div class="shop_sidebar_product">
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                            <article class="single_product col-12 col-lg-12" >
+                                                                <figure>
+                                                                    <div class="product_thumb">
+                                                                        <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                                                    </div>
+                                                                    <figcaption class="product_content">
+                                                                        <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                                                        <div>
+                                                                            <span class="cart-color">
+                                                                            黑色
+                                                                            </span>
+                                                                            <span class="cart-size">
+                                                                            S码
+                                                                            
+                                                                            </span>
+                                                                            <span class="cart-price">
+                                                                                80,000 积分 
+                                                                                
+                                                                            </span>
+                                                                        <span class="cart-num"> X1</span>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12" style="display: inline-block;" >
+                                                        <div class="order-mes col-12 col-lg-6">
+                                                            <div >总计:80,000积分</div>
+                                                            <div>收货信息：</div>
+                                                            <div> 王某某 138 4000 8888</div>
+        
+                                                            <div> 辽宁省 沈阳市 大东区 xxxx xxxxx小区102</div>
+                                                        </div>
+                                                        <div class="order-kd col-12 col-lg-6">
+                                                            <div >快递单号 : SF1569422654892226</div>
+                                                            <div>3.15 13:45 快递在xxx完成分拣 准备发往辽宁</div>
+                                                            <div>3.15 18:20 快递达到辽宁中转站</div>
+                                                            <div>3.16 09:49 快递已到达菜鸟驿站 </div>
+                                                            <div>3.16 10:21 已签收</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        </div>
+                                    </div>
+                               
+                               
+                            </div>
+
+                            <!--shop toolbar end-->
+                            <div class="shop_toolbar t_bottom">
+                                <div class="pagination">
+                                    <ul>
+                                        <li class="current">1</li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="next"><a href="#">next</a></li>
+                                        <li><a href="#">>></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--shop wrapper end-->
+                      
+                        </div>
+                       
+                      
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>        	
+</section>			
+<!-- my account end   --> 
+
+    
+  
+
+
+    
+  
+    
+
+    <!--footer area start-->
+    <footer class="footer_widgets color_four">
+       
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer_social">
+                          
+                                <a href="#"><img src="assets/img/partner/footer_icon.png" alt=""></a>
+                             
+                          
+                        </div>
+                    </div>    
+                    <div class="col-lg-6 col-md-6">    
+                       
+                            <a href="#"><img src="assets/img/partner/bbin.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/dfjt.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/mg.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/ob.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/one.png" alt=""></a>
+                    </div>
+                    <div class="col-lg-12 col-md-12" style="margin-top: 20px;">
+                        <div class="copyright_area" style="text-align: center;">
+                            <p>Copyright &copy; 2023.Company name All rights reserved.<a target="_blank" href="#"></a></p>
+                        </div>
+                    </div>    
+                  
+                </div>
+            </div>
+        </div>   
+    </footer>
+    <!--footer area end-->
+   
+  
+    
+   
+    
+
+    
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+<script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+<!--popper min js-->
+<script src="assets/js/popper.js"></script>
+<!--bootstrap min js-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--owl carousel min js-->
+<script src="assets/js/owl.carousel.min.js"></script>
+<!--slick min js-->
+<script src="assets/js/slick.min.js"></script>
+<!--magnific popup min js-->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!--counterup min js-->
+<script src="assets/js/jquery.counterup.min.js"></script>
+<!--jquery countdown min js-->
+<script src="assets/js/jquery.countdown.js"></script>
+<!--jquery ui min js-->
+<script src="assets/js/jquery.ui.js"></script>
+<!--jquery elevatezoom min js-->
+<script src="assets/js/jquery.elevatezoom.js"></script>
+<!--isotope packaged min js-->
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<!--slinky menu js-->
+<script src="assets/js/slinky.menu.js"></script>
+<!-- Plugins JS -->
+<script src="assets/js/plugins.js"></script>
+
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+    // $(".p-type .lab").click(function () {
+    //        $(this).addClass("on").siblings().removeClass("on");
+    // })
+    window.onload=function(){
+        var purl=document.location.search;
+        purl=purl.substring(1,purl.length);
+        var ptype=purl.split("=");
+        ptype=ptype[1];
+        if(ptype=="1"){
+            $("#minetab1").addClass("active");
+            $("#mine1").addClass("active");
+           
+        }
+        else if(ptype=="2")
+        {
+            $("#minetab2").addClass("active");
+            $("#mine2").addClass("active");
+        }
+        else if(ptype=="3")
+        {
+            $("#minetab3").addClass("active");
+            $("#mine3").addClass("active");
+        }
+        
+        else
+        {
+            $("#minetab1").addClass("active");
+            $("#mine1").addClass("active");
+        }
+      
+    }
+</script>
+
+
+</body>
+
+</html>

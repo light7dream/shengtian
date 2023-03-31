@@ -1,0 +1,1125 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
+    
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <!--slick min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="{{asset('assets/css/font.awesome.css')}}">
+    <!--ionicons min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/ionicons.min.css')}}">
+    <!--animate css-->
+    <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.min.css')}}">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="{{asset('assets/css/slinky.menu.css')}}">
+    <!--plugins css-->
+    <link rel="stylesheet" href="{{asset('assets/css/plugins.css')}}">
+    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    
+    <!--modernizr min js here-->
+    <script src="{{asset('assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>
+    <style>
+        
+
+.main-group{
+	box-sizing: border-box;
+	width:100%;
+	min-height:280px;
+	padding:0 5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	background: linear-gradient(to bottom, #bea2e7 50%,#86b7e7 100%);
+}
+.main-group .items-group{
+	background: #fff;
+	max-width: 460px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 100px 20px 20px 100px;
+	padding: 6px 10px 6px 6px;
+	box-sizing: border-box;
+	animation: animate 10s linear infinite;
+	animation-delay: calc(2s * var(--delay));
+	position: absolute;
+	opacity: 0;
+    box-shadow: 0 0 5px #c1c1c1;
+}
+.main-group .items-group:last-child{
+	animation-delay: calc(-2s * var(--delay));
+}
+.main-group .items-group.no-animation{
+	animation-play-state: paused;
+}
+@keyframes animate {
+	0%{
+		opacity: 0;
+		transform: translateY(100%) scale(0.6);
+	}
+    
+	5%, 20%{
+		opacity: 0.4;
+		transform: translateY(100%) scale(0.8);
+	}
+	25%, 40%{
+		opacity: 1;
+		z-index: 1;
+		pointer-events: auto;
+		transform: translateY(0%) scale(1);
+	}
+	45%, 60%{
+		opacity: 0.4;
+		transform: translateY(-100%) scale(0.8);
+	}
+	65%,100%{
+		opacity: 0;
+		transform: translateY(-100%) scale(0.6);
+	}
+}
+.main-group .items-group .items-box{
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+}
+.main-group .items-group .img{
+	width: 50px;
+	height: 50px;
+}
+.items-group .img img{
+	width:100%;
+	height:100%;
+	border-radius: 50%;
+	box-shadow: 0 0 5px #989898;
+}
+.main-group .items-group .desc{
+	margin-left:8px;
+	font-size: 12px;
+    line-height: 18px;
+    max-width: 200px;
+}
+.main-group .items-group .desc .name{
+	font-size: 14px;
+	font-weight: bold;
+    /* float: left; */
+}
+.main-group .items-group .follow-btn{
+    margin-left: 10px;
+    font-size: 12px;
+	border-radius: 16px;
+	font-weight: 500;
+	padding:5px 8px;
+	color: #fff;
+	background: linear-gradient(to bottom, #bea2e7 0%,#86b7e7 100% );
+}
+.main-group .items-group .del-follow{
+	background: linear-gradient(to bottom, #1f1f1f 0%,#a8a8a8 100% );
+}
+    </style>
+</head>
+
+<body>
+   
+      <!--header area start-->
+    
+    <!--offcanvas menu area start-->
+    <div class="off_canvars_overlay">
+                
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="">
+                    <div class="header_account-list  mini_cart_wrapper" style="width: 60px;float: right;">
+                        <a href="javascript:void(0)" style="position:relative;top:35px;"><i class="icon icon-FullShoppingCart" ></i><span class="item_count">2</span></a>
+                         <!--mini cart-->
+                         <div class="mini_cart">
+                             <div class="cart_gallery">
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="{{asset('assets/img/s-product/product.jpg')}}" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">Lorem ipsum dolor sit amet</a>
+                                         <p>1 x <span> 65000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                         <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="{{asset('assets/img/s-product/product2.jpg')}}" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">impedit dolor sed </a>
+                                         <p>1 x <span> 60000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                          <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_table">
+                                 <div class="cart_table_border">
+                                     
+                                     <div class="cart_total mt-15 mb-15" >
+                                         <span>总计:</span>
+                                         <span class="price">125000</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_footer">
+                                <div class="cart_button">
+                                     <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                 </div>
+                                
+
+                             </div>
+                         </div>
+                         <!--mini cart end-->
+                    </div>
+                    <div class="canvas_open">
+                        <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
+                      
+                    </div>
+                   
+                    
+                    <div class="offcanvas_menu_wrapper">
+                        <div class="canvas_close">
+                            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>  
+                        </div>
+                        <div  class="text-left mb-30">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="#">积分 <span style="float: right;">185,000,000</span></a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                      
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="#">游戏官网</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="./index.html">首页</a>
+                                </li>
+                              
+                                <li class="menu-item-has-children">
+                                    <a href="./product-list.html">礼品目录</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html">帮助中心 </a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html">我的账户</a> 
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html?type=4">联系客服</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="offcanvas_footer">
+                            <ul>
+                                <li class="facebook"><a href="#">En</a></li>
+                                <li class="twitter"><a href="#">简</a></li>
+                                <li class="pinterest"><a href="#">繁</a></li>
+                            
+                            </ul>
+                            <div class="cart_button mt-30">
+                                <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- offcanvas menu area end-->
+    <header>
+        <div class="main_header sticky-header color_four">
+            <!-- <div class="container-fluid"> -->
+            <div class="container">
+
+                <div class="header_container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="{{asset('assets/img/logo/logo.svg')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <!--main menu start-->
+                            <div class="main_menu menu_position"> 
+                                <nav>  
+                                    <ul>
+                                        <li><a href="#">游戏官网</a></li>
+                                        <li><a class="active"  href="index.html">首页</a></li>
+                                        
+                                        <li><a  href="./product-list.html">礼品目录<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./product-list.html?type=0">全部</a></li>
+                                                <li><a href="./product-list.html?type=1">数码产品</a></li>
+                                                <li><a href="./product-list.html?type=2">奖金兑换</a></li>
+                                                <li><a href="./product-list.html?type=3">生活精品</a></li>
+                                                <li><a href="./product-list.html?type=4">奢华品</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="./help.html">帮助中心<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./help.html?type=1">关于积分</a></li>
+                                                <li><a href="./help.html?type=2">规则与条款</a></li>
+                                                <li><a href="./help.html?type=3">常见疑问</a></li>
+                                            </ul>
+                                        </li>
+                                      
+                                        <li><a href="./mine.html">我的账户</a></li>
+                                        <li><a href="./help.html?type=4">联系客服</a></li>
+                                    </ul>  
+                                </nav> 
+                            </div>
+                            <!--main menu end-->
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="header_account_area">
+                               
+                                <div class="header_account-list top_links">
+                                    <a href="./mine.html" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                    <div class="dropdown_links">
+                                        <div class="dropdown_links_list">
+                                            <h3><i class="icon icon-User"style="margin-right:10px"></i>Alion232</h3>
+                                            <ul>
+                                                <li><a href="#">我的积分  <span style="float: right;">84,240,000</span></a></li>
+                                                <li><a href="#">已用积分  <span style="float: right;">240,000</span></a></li>
+                                                <li><a href="#">剩余积分  <span style="float: right;">84,000,000</span></a></li>
+
+
+                                               
+                                            </ul>
+                                        </div>
+                                      
+                                        <div class="dropdown_links_list">
+                                            <div class="mini_cart_footer">
+                                                
+                                                 <div class="cart_button">
+                                                     <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                                                 </div>
+     
+                                             </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header_account-list top_links">
+                                    <a href="javascript:void(0)"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a>
+                                    <div class="dropdown_links" style="width: 150px">
+                                        
+                                        <div class="dropdown_links_list" >
+                                            <h3> 简体中文</h3>
+                                            <ul>
+                                                <li><a href="#"> English</a></li>
+                                                <li><a href="#">  繁體中文</a></li>
+                                            </ul>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="header_account-list  mini_cart_wrapper">
+                                   <a href="javascript:void(0)"><i class="icon icon-FullShoppingCart"></i><span class="item_count">2</span></a>
+                                    <!--mini cart-->
+                                    <div class="mini_cart">
+                                        <div class="cart_gallery">
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="{{asset('assets/img/s-product/product.jpg')}}" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">Lorem ipsum dolor sit amet </a>
+                                                    <p>1 x <span> 65,000</span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                    <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="{{asset('assets/img/s-product/product2.jpg')}}" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">impedit dolor sed soluta</a>
+                                                    <p>1 x <span> 60,000 </span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                     <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_table">
+                                            <div class="cart_table_border">
+                                                <div class="cart_total">
+                                                    <span>总计:</span>
+                                                    <span class="price">125,000</span>
+                                                </div>
+                                                <!-- <div class="cart_total mt-10">
+                                                    <span>total:</span>
+                                                    <span class="price">125,000</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_footer">
+                                           <div class="cart_button">
+                                                <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                            </div>
+                                       
+
+                                        </div>
+                                    </div>
+                                    <!--mini cart end-->
+                               </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <!--header area end -->
+    
+    <!--slider area start-->
+    <section class="slider_section mb-30 color_four">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    
+           
+        </div>
+        <div class="slider_area owl-carousel">
+            <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider3.jpg')}}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="slider_content" >
+                                <h3 style="color: #0869b8 ">安全配送</h3>
+                                <h1  style="color: #0869b8 ">胜天娱乐</h1>
+                                <p style="color: #196baf ">欢迎来到胜天娱乐积分商城</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider1.jpg')}}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="slider_content">
+                                <h3>玩游戏/赚积分/享快乐</h3>
+                                <h1>胜天娱乐 </h1>
+                                <p>欢迎来到胜天娱乐积分商城</p> 
+                                <a class="button" href="login.html">login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--slider area end-->
+  
+
+
+    <!--banner area start-->
+   
+    <div class="banner_area home1_banner mb-40 color_four">
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-6">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <a href="./product-list.html?type=1"><img src="{{asset('assets/img/bg/bbg1.jpg')}}" alt=""></a> 
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-6">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <a href="./product-list.html?type=2"><img src="{{asset('assets/img/bg/bbg2.jpg')}}" alt=""></a> 
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-6">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <a href="./product-list.html?type=3"><img src="{{asset('assets/img/bg/bbg3.jpg')}}" alt=""></a> 
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-6">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <a href="./product-list.html?type=4"><img src="{{asset('assets/img/bg/bbg4.jpg')}}" alt=""></a> 
+                        </div>
+                    </figure>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <!--banner area end-->
+        
+    <!--product area start-->
+    
+    <!--product area end-->
+    
+    <!--product area start-->
+    <div class="product_area  mb-40 color_four">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_title">
+                       <h2>Best <span>seller</span></h2>
+                       <!-- <p>Lorem ipsum dolor sit amet, consectetur elit.</p> -->
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-12">
+                    <!--shop wrapper start-->
+                    <!--shop toolbar start-->
+                    
+                     <!--shop toolbar end-->
+                     <div class="row shop_wrapper">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product3.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product4.jpg')}}" alt=""></a>
+                                       
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> quidem totam </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">145,000积分</span>
+                                         </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                      
+                                    </div>
+                                   
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product1.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product2.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html">Lorem ipsum dolor sit amet</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">155,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product5.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product6.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> iusto dignissimos illum</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">165,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product7.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product8.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> suscipit delectus  officia </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">130,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product9.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product10.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> modi nisi cum officia error</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">135,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product11.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product12.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> suscipit tempora officiaLorem ipsum dolor sit ame</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">155,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product1.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product2.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> quidem totam, voluptatem </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">162,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                 
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product13.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product14.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                       
+                                        <h4 class="product_name"><a href="product-details.html"> Lorem ipsum dolor sit amet</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">122,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                    
+                    </div>
+
+                   
+                    <!--shop toolbar end-->
+                    <!--shop wrapper end-->
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!--product area end-->
+
+    <!--product area start-->
+    <div class="product_area  mb-40 color_four">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_title">
+                       <h2>New <span>product</span></h2>
+                       <!-- <p>Lorem ipsum dolor sit amet, consectetur elit.</p> -->
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-12">
+                    <!--shop wrapper start-->
+                    <!--shop toolbar start-->
+                    
+                     <!--shop toolbar end-->
+                     <div class="row shop_wrapper">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product3.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product4.jpg')}}" alt=""></a>
+                                       
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> quidem totam </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">145,000积分</span>
+                                         </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                      
+                                    </div>
+                                   
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product1.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product2.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html">Lorem ipsum dolor sit amet</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">155,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product5.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product6.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> iusto dignissimos illum</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">165,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product7.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product8.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> suscipit delectus  officia </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">130,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product9.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product10.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> modi nisi cum officia error</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">135,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product11.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product12.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> suscipit tempora officia</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">155,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product1.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product2.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                        
+                                        <h4 class="product_name"><a href="product-details.html"> quidem totam, voluptatem </a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">162,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                 
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                       <div class="label_product">
+                                            <span class="label_new">new</span>
+                                            <span class="label_sale">hot!</span>
+                                        </div>
+                                        <a class="primary_img" href="product-details.html"><img src="{{asset('assets/img/product/product13.jpg')}}" alt=""></a>
+                                        <a class="secondary_img" href="product-details.html"><img src="{{asset('assets/img/product/product14.jpg')}}" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="product_content grid_content">
+                                       
+                                        <h4 class="product_name"><a href="product-details.html"> Lorem ipsum dolor sit amet</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="current_price">122,000积分</span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <a href="cart.html" title="Add to cart">Add to Cart</a>
+                                        </div>
+                                        <div class="swatches-colors">
+                                            <ul>
+                                                <li><a class="color1" href="javascript:void(0)"></a></li>
+                                                <li><a class="color2" href="javascript:void(0)"></a></li>
+                                                <li><a class="color3" href="javascript:void(0)"></a></li>
+                                                <li><a class="color4" href="javascript:void(0)"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                  
+                                </figure>
+                            </article>
+                        </div>
+                    
+                    </div>
+
+                   
+                    <!--shop toolbar end-->
+                    <!--shop wrapper end-->
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!--product area end-->
+    
+  
+    
+
+    <!--footer area start-->
+    <footer class="footer_widgets color_four">
+       
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer_social">
+                          
+                                <a href="#"><img src="{{asset('assets/img/partner/footer_icon.png')}}" alt=""></a>
+                             
+                          
+                        </div>
+                    </div>    
+                    <div class="col-lg-6 col-md-6">    
+                       
+                            <a href="#"><img src="{{asset('assets/img/partner/bbin.png')}}" alt=""></a>
+                            <a href="#"><img src="{{asset('assets/img/partner/dfjt.png')}}" alt=""></a>
+                            <a href="#"><img src="{{asset('assets/img/partner/mg.png')}}" alt=""></a>
+                            <a href="#"><img src="{{asset('assets/img/partner/ob.png')}}" alt=""></a>
+                            <a href="#"><img src="{{asset('assets/img/partner/one.png')}}" alt=""></a>
+                    </div>
+                    <div class="col-lg-12 col-md-12" style="margin-top: 20px;">
+                        <div class="copyright_area" style="text-align: center;">
+                            <p>Copyright &copy; 2023.Company name All rights reserved.<a target="_blank" href="#"></a></p>
+                        </div>
+                    </div>    
+                  
+                </div>
+            </div>
+        </div>   
+    </footer>
+    <!--footer area end-->
+   
+  
+    
+
+    
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+<script src="{{asset('assets/js/vendor/jquery-3.4.1.min.js')}}"></script>
+<!--popper min js-->
+<script src="{{asset('assets/js/popper.js')}}"></script>
+<!--bootstrap min js-->
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<!--owl carousel min js-->
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<!--slick min js-->
+<script src="{{asset('assets/js/slick.min.js')}}"></script>
+<!--magnific popup min js-->
+<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+<!--counterup min js-->
+<script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
+<!--jquery countdown min js-->
+<script src="{{asset('assets/js/jquery.countdown.js')}}"></script>
+<!--jquery ui min js-->
+<script src="{{asset('assets/js/jquery.ui.js')}}"></script>
+<!--jquery elevatezoom min js-->
+<script src="{{asset('assets/js/jquery.elevatezoom.js')}}"></script>
+<!--isotope packaged min js-->
+<script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
+<!--slinky menu js-->
+<script src="{{asset('assets/js/slinky.menu.js')}}"></script>
+<!-- Plugins JS -->
+<script src="{{asset('assets/js/plugins.js')}}"></script>
+
+<!-- Main JS -->
+<script src="{{asset('assets/js/main.js')}}"></script>
+
+<script>
+ 
+  
+
+
+     
+    setInterval(function () {
+        document.getElementsByClassName("owl-next")[0].click();
+     }, 8000);
+ 
+ 
+</script>
+
+</body>
+
+</html>

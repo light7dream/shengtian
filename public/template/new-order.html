@@ -1,0 +1,584 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>order</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!--slick min css-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="assets/css/font.awesome.css">
+    <!--ionicons min css-->
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="assets/css/slinky.menu.css">
+    <!--plugins css-->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!--modernizr min js here-->
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+  
+    <style>
+        .cart-list figure{display: inline-block;width: 100%; }
+        /* .cart-list .cart-del{float: right;font-size: 19px;color: #999999;margin-top:-5px} */
+        .cart-list .cart-color{display: inline-block;font-size: 10px;border:1px solid #e5e5e5;border-radius: 5px;margin-bottom:0;padding:3px 12px;margin-right: 5px;}
+        .cart-list .cart-size{display: inline-block;font-size: 10px;border:1px solid #e5e5e5;border-radius: 5px;margin-bottom: 0;padding:3px 12px;}
+        .cart-list .cart-price{color: #c92d2d;margin-left: 10px;font-size: 16px;}
+        .cart-list .cart-num{color: #646464;margin-left: 10px;font-size: 16px;}
+       
+
+        @media only screen and (max-width: 767px) {
+            .cart-list .product_name{max-width: 200px}
+        }
+        @media only screen and (max-width: 420px) {
+            .cart-list .product_name{max-width: 180px}
+       
+
+        }
+        .checkout_btn a{background-color: #0867cc;margin-top: 20px;}
+        .shop_sidebar_product .product_thumb {
+            width: 60px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+   
+      <!--header area start-->
+    
+    <!--offcanvas menu area start-->
+    <div class="off_canvars_overlay">
+                
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="">
+                    <div class="header_account-list  mini_cart_wrapper" style="width: 60px;float: right;">
+                        <a href="javascript:void(0)" style="position:relative;top:35px;"><i class="icon icon-FullShoppingCart" ></i><span class="item_count">2</span></a>
+                         <!--mini cart-->
+                         <div class="mini_cart">
+                             <div class="cart_gallery">
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">Lorem ipsum dolor sit amet</a>
+                                         <p>1 x <span> 65000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                         <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                                 <div class="cart_item">
+                                    <div class="cart_img">
+                                        <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                    </div>
+                                     <div class="cart_info">
+                                         <a href="#">impedit dolor sed </a>
+                                         <p>1 x <span> 60000 </span></p>    
+                                     </div>
+                                     <div class="cart_remove">
+                                          <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_table">
+                                 <div class="cart_table_border">
+                                     
+                                     <div class="cart_total mt-15 mb-15" >
+                                         <span>总计:</span>
+                                         <span class="price">125000</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="mini_cart_footer">
+                                <div class="cart_button">
+                                     <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                 </div>
+                                
+
+                             </div>
+                         </div>
+                         <!--mini cart end-->
+                    </div>
+                    <div class="canvas_open">
+                        <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
+                      
+                    </div>
+                   
+                    
+                    <div class="offcanvas_menu_wrapper">
+                        <div class="canvas_close">
+                            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>  
+                        </div>
+                        <div  class="text-left mb-30">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="#">积分 <span style="float: right;">185,000,000</span></a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                      
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="#">游戏官网</a>
+                                </li>
+                                <li class="menu-item-has-children ">
+                                    <a href="./index.html">首页</a>
+                                </li>
+                              
+                                <li class="menu-item-has-children">
+                                    <a href="./product-list.html">礼品目录</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html">帮助中心 </a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./mine.html">我的账户</a> 
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="./help.html?type=4">联系客服</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="offcanvas_footer">
+                            <ul>
+                                <li class="facebook"><a href="#">En</a></li>
+                                <li class="twitter"><a href="#">简</a></li>
+                                <li class="pinterest"><a href="#">繁</a></li>
+                            
+                            </ul>
+                            <div class="cart_button mt-30">
+                                <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--offcanvas menu area end-->
+    <header>
+        <div class="main_header sticky-header color_four">
+            <!-- <div class="container-fluid"> -->
+            <div class="container">
+
+                <div class="header_container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <!--main menu start-->
+                            <div class="main_menu menu_position"> 
+                                <nav>  
+                                    <ul>
+                                        <li><a href="#">游戏官网</a></li>
+                                        <li><a  href="index.html">首页</a></li>
+                                        
+                                        <li><a  href="./product-list.html">礼品目录<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./product-list.html?type=0">全部</a></li>
+                                                <li><a href="./product-list.html?type=1">数码产品</a></li>
+                                                <li><a href="./product-list.html?type=2">奖金兑换</a></li>
+                                                <li><a href="./product-list.html?type=3">生活精品</a></li>
+                                                <li><a href="./product-list.html?type=4">奢华品</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="./help.html">帮助中心<i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub_menu pages">
+                                                <li><a href="./help.html?type=1">关于积分</a></li>
+                                                <li><a href="./help.html?type=2">规则与条款</a></li>
+                                                <li><a href="./help.html?type=3">常见疑问</a></li>
+                                            </ul>
+                                        </li>
+                                      
+                                        <li><a href="./mine.html">我的账户</a></li>
+                                        <li><a href="./help.html?type=4">联系客服</a></li>
+                                    </ul>  
+                                </nav> 
+                            </div>
+                            <!--main menu end-->
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="header_account_area">
+                               
+                                <div class="header_account-list top_links">
+                                    <a href="./mine.html" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>Alion232</a>
+                                    <div class="dropdown_links">
+                                        <div class="dropdown_links_list">
+                                            <h3><i class="icon icon-User"style="margin-right:10px"></i>Alion232</h3>
+                                            <ul>
+                                                <li><a href="#">我的积分  <span style="float: right;">84,240,000</span></a></li>
+                                                <li><a href="#">已用积分  <span style="float: right;">240,000</span></a></li>
+                                                <li><a href="#">剩余积分  <span style="float: right;">84,000,000</span></a></li>
+
+
+                                               
+                                            </ul>
+                                        </div>
+                                      
+                                        <div class="dropdown_links_list">
+                                            <div class="mini_cart_footer">
+                                                
+                                                 <div class="cart_button">
+                                                     <a href="#"><i class="fa fa-sign-in"></i> 退出登录</a>
+                                                 </div>
+     
+                                             </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header_account-list top_links">
+                                    <a href="javascript:void(0)"><img src="./assets/img/icon/fy.png" alt="" width="40px"></a>
+                                    <div class="dropdown_links" style="width: 150px">
+                                        
+                                        <div class="dropdown_links_list" >
+                                            <h3> 简体中文</h3>
+                                            <ul>
+                                                <li><a href="#"> English</a></li>
+                                                <li><a href="#">  繁體中文</a></li>
+                                            </ul>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="header_account-list  mini_cart_wrapper">
+                                   <a href="javascript:void(0)"><i class="icon icon-FullShoppingCart"></i><span class="item_count">2</span></a>
+                                    <!--mini cart-->
+                                    <div class="mini_cart">
+                                        <div class="cart_gallery">
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">Lorem ipsum dolor sit amet </a>
+                                                    <p>1 x <span> 65,000</span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                    <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart_item">
+                                               <div class="cart_img">
+                                                   <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                               </div>
+                                                <div class="cart_info">
+                                                    <a href="#">impedit dolor sed soluta</a>
+                                                    <p>1 x <span> 60,000 </span></p>    
+                                                </div>
+                                                <div class="cart_remove">
+                                                     <a href="#"><i class="ion-ios-close-outline"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_table">
+                                            <div class="cart_table_border">
+                                                <div class="cart_total">
+                                                    <span>总计:</span>
+                                                    <span class="price">125,000</span>
+                                                </div>
+                                                <!-- <div class="cart_total mt-10">
+                                                    <span>total:</span>
+                                                    <span class="price">125,000</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_footer">
+                                           <div class="cart_button">
+                                                <a href="./cart.html"><i class="fa fa-shopping-cart"></i> 去购物车</a>
+                                            </div>
+                                       
+
+                                        </div>
+                                    </div>
+                                    <!--mini cart end-->
+                               </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <!--header area end-->
+ 
+    <!--cart area start-->
+    <div class="container">
+        
+            <div class="cart-list">
+                <div class="shop_sidebar_product">
+                    <article class="single_product col-12 col-lg-12" >
+                            <figure>
+                              
+                               <div class="product_thumb">
+                                    <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                                </div>
+                                <figcaption class="product_content">
+                                    <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                    <div>
+                                        <span class="cart-color">
+                                          黑色
+                                        </span>
+                                          <span class="cart-size">
+                                           S码
+                                          
+                                          </span>
+                                          <span class="cart-price">
+                                            80,000 积分 
+                                            
+                                        </span>
+                                       <span class="cart-num"> X1</span>
+                                    </div>
+                                  
+                                </figcaption>
+                               
+                              
+                            </figure>
+                    </article>
+                    <article class="single_product col-12 col-lg-12" >
+                        <figure>
+                          
+                           <div class="product_thumb">
+                                <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                            </div>
+                            <figcaption class="product_content">
+                                <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                                <div>
+                                    <span class="cart-color">
+                                      黑色
+                                    </span>
+                                      <span class="cart-size">
+                                       S码
+                                      
+                                      </span>
+                                      <span class="cart-price">
+                                        80,000 积分 
+                                        
+                                    </span>
+                                   <span class="cart-num"> X1</span>
+                                </div>
+                              
+                            </figcaption>
+                           
+                          
+                        </figure>
+                </article>
+                <article class="single_product col-12 col-lg-12" >
+                    <figure>
+                      
+                       <div class="product_thumb">
+                            <a class="primary_img" href="product-details.html"><img src="assets/img/product/product1.jpg" alt=""></a>
+                        </div>
+                        <figcaption class="product_content">
+                            <h4 class="product_name"><a href="product-details.html">Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表</a></h4>
+                            <div>
+                                <span class="cart-color">
+                                  黑色
+                                </span>
+                                  <span class="cart-size">
+                                   S码
+                                  
+                                  </span>
+                                  <span class="cart-price">
+                                    80,000 积分 
+                                    
+                                </span>
+                               <span class="cart-num"> X1</span>
+                            </div>
+                          
+                        </figcaption>
+                       
+                      
+                    </figure>
+            </article>
+                   
+               
+                </div>
+            </div>
+             <!--coupon code area start-->
+             <div class="coupon_area">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="coupon_code right">
+                            <h3>记账簿</h3>
+                            <div class="coupon_inner">
+                               <div class="cart_subtotal">
+                                   <p>订单合计</p>
+                                   <p class="cart_amount">210,000</p>
+                               </div>
+                              
+                               <a href="#"></a>
+
+                               <div class="cart_subtotal">
+                                   <p>我的积分</p>
+                                   <p class="cart_amount">200,000</p>
+                               </div>
+                               <div class="cart_subtotal">
+                                <p>还需积分</p>
+                                <p class="cart_amount" style="color: #c92d2d;">-10,000</p>
+                            </div>
+                           
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <div class="coupon_code left">
+                            <h3>收货地址</h3>
+                            <div class="coupon_inner">   
+                                <p>请写出正确的个人信息及详细地址，以确保您准确收到货.
+                                </p>   
+                                <div>
+                                    <span>收货人姓名：</span>
+                                    <input placeholder="" type="text">
+                                </div>    
+                                <div class="mt-10">
+                                    <span>收货人电话：</span>
+                                    <input placeholder="" type="tel">
+                                </div>    
+                                <div class="mt-10" >
+                                    <span>收货人地址：</span>
+                                    <input placeholder="" type="text" style="width: 100%;">
+                                </div>                     
+                                <span class="checkout_btn" >
+                                    <a href="./order-back.html">确认</a>
+                                </span>
+                                <span class="checkout_btn" >
+                                    <a href="./cart.html">返回购物车</a>
+                                </span>
+                            </div>    
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--coupon code area end-->
+       
+    </div>
+
+   
+    
+    <!--cart area end-->
+    
+   
+    
+
+    
+  
+    
+
+    <!--footer area start-->
+    <footer class="footer_widgets color_four">
+       
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer_social">
+                          
+                                <a href="#"><img src="assets/img/partner/footer_icon.png" alt=""></a>
+                             
+                          
+                        </div>
+                    </div>    
+                    <div class="col-lg-6 col-md-6">    
+                       
+                            <a href="#"><img src="assets/img/partner/bbin.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/dfjt.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/mg.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/ob.png" alt=""></a>
+                            <a href="#"><img src="assets/img/partner/one.png" alt=""></a>
+                    </div>
+                    <div class="col-lg-12 col-md-12" style="margin-top: 20px;">
+                        <div class="copyright_area" style="text-align: center;">
+                            <p>Copyright &copy; 2023.Company name All rights reserved.<a target="_blank" href="#"></a></p>
+                        </div>
+                    </div>    
+                  
+                </div>
+            </div>
+        </div>   
+    </footer>
+    <!--footer area end-->
+   
+ 
+    
+   
+    
+
+    
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+<script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+<!--popper min js-->
+<script src="assets/js/popper.js"></script>
+<!--bootstrap min js-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--owl carousel min js-->
+<script src="assets/js/owl.carousel.min.js"></script>
+<!--slick min js-->
+<script src="assets/js/slick.min.js"></script>
+<!--magnific popup min js-->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!--counterup min js-->
+<script src="assets/js/jquery.counterup.min.js"></script>
+<!--jquery countdown min js-->
+<script src="assets/js/jquery.countdown.js"></script>
+<!--jquery ui min js-->
+<script src="assets/js/jquery.ui.js"></script>
+<!--jquery elevatezoom min js-->
+<script src="assets/js/jquery.elevatezoom.js"></script>
+<!--isotope packaged min js-->
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<!--slinky menu js-->
+<script src="assets/js/slinky.menu.js"></script>
+<!-- Plugins JS -->
+<script src="assets/js/plugins.js"></script>
+
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+
+
+
+</body>
+
+</html>

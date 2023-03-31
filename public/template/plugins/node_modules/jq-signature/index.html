@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Signature Plugin</title>
+	<!-- Styles -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		* {
+			font-size: 16px;
+			font-family: Arial;
+		}
+		.site-title {
+			margin: 1em 0;
+		}
+		.center {
+			text-align: center;
+		}
+		td {
+			padding-top: 8px !important;
+			padding-bottom: 8px !important;
+		}
+		li {
+			margin: 8px 0;
+		}
+	</style>
+</head>
+<body>
+<!-- Body Content -->
+<div class="container">
+
+	<div class="row center">
+		<div class="col-xs-12">
+			<h1 class="site-title">jQuery Signature</h1>
+			<h4>A jQuery plugin for creating touch-friendly signature fields using the HTML5 canvas.</h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Basic Example</h3>
+			<p>Sign Below:</p>
+			<div class="js-signature"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+		<h3>Installation</h3>
+			<p>Download the file and include it in your HTML page:</p>
+			<ul>
+				<li>Development, uncompressed: <a href="https://raw.githubusercontent.com/bencentra/jq-signature/master/jq-signature.js">jq-signature.js</a></li>
+				<li>Production, compressed: <a href="https://raw.githubusercontent.com/bencentra/jq-signature/master/jq-signature.min.js">jq-signature.min.js</a></li>
+			</ul>
+			<p>You can also install it via Bower:</p>
+			<p><code>bower install jq-signature</code></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+		<h3>Browser Compatibility</h3>
+			<p>Tested and functioning in Chrome, Firefox, Safari 8, IE11, and Edge.</p>
+			<p>Developed using jQuery 2.1.4.</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+		<h3>Usage</h3>
+			<p>First, create a placeholder &lt;div&gt; for the signature canvas:</p>
+			<p><code>&lt;div class='js-signature'&gt;&lt;/div&gt;</code></p>
+			<p>Next, initialize the plugin in JavaScript:</p>
+			<p><code>$('.js-signature').jqSignature();</code></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Options</h3>
+			<p>Configuration options can be set with the options parameter or through data-attributes.</p>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr><td>Option</td><td>Description</td><td>Data Attribute</td><td>Options Example</td></tr>
+					</thead>
+					<tbody>
+						<tr><td><strong>Width</strong></td><td>The width of the signature canvas (in pixels). <em>Default: 300</em></td><td><code>data-width="600"</td><td><code>$().jqSignature({width: 600});</code></td></tr>
+						<tr><td><strong>Height</strong></td><td>The height of the signature canvas (in pixels). <em>Default: 100</em></td><td><code>data-height="200"</td><td><code>$().jqSignature({height: 200});</code></td></tr>
+						<tr><td><strong>Border</strong></td><td>The CSS for the border of the canvas. <em>Default: '1px solid #AAAAAA'</em></td><td><code>data-border="1px solid red"</td><td><code>$().jqSignature({border: '1px solid red'});</code></td></tr>
+						<tr><td><strong>Background</strong></td><td>The CSS for the background of the canvas. <em>Default: '#FFFFFF'</em></td><td><code>data-background="#EEEEEE"</td><td><code>$().jqSignature({background: '#EEEEEE'});</code></td></tr>
+						<tr><td><strong>Line Color</strong></td><td>The color of the signature (as hex). <em>Default: '#222222'</em></td><td><code>data-line-color="#ABCDEF"</td><td><code>$().jqSignature({lineColor: '#ABCDEF'});</code></td></tr>
+						<tr><td><strong>Line Width</strong></td><td>The width of the signature line (in pixels). <em>Default: 1</em></td><td><code>data-line-width="2"</td><td><code>$().jqSignature({lineWidth: 2});</code></td></tr>
+						<tr><td><strong>Auto Fit</strong></td><td>Make the canvas fill the width of its parent element. <em>Default: false</em></td><td><code>data-auto-fit="true"</td><td><code>$().jqSignature({autoFit: true});</code></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Methods</h3>
+			<ul>
+				<li><code>$().jqSignature('clearCanvas');</code> - Clears the signature canvas.</li>
+				<li><code>$().jqSignature('getDataURL');</code> - Get the contents of the signature canvas as a base64 data URL.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Events</h3>
+			<ul>
+				<li><code>jq.signature.changed</code> - Fired when the signature changes (on mouseup/touchend)</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Complete Example</h3>
+			<p>Sign Below:</p>
+			<div class="js-signature" data-width="600" data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+			<p><button id="clearBtn" class="btn btn-default" onclick="clearCanvas();">Clear Canvas</button>&nbsp;<button id="saveBtn" class="btn btn-default" onclick="saveSignature();" disabled>Save Signature</button></p>
+			<div id="signature">
+				<p><em>Your signature will appear here when you click "Save Signature"</em></p>
+			</div>
+		</div>
+	</div>
+
+	<br><hr><br>
+
+	<div class="row center">
+		<div class="col-xs-12">
+			<p><a href="https://github.com/bencentra/jq-signature">View on GitHub</a></p>
+		</div>
+	</div>
+
+	<br><br>
+</div>
+<!-- Scripts -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="jq-signature.js"></script>
+<script>
+	$(document).on('ready', function() {
+		if ($('.js-signature').length) {
+			$('.js-signature').jqSignature();
+		}
+	});
+
+	/*
+	* Demo
+	*/
+
+	function clearCanvas() {
+		$('#signature').html('<p><em>Your signature will appear here when you click "Save Signature"</em></p>');
+		$('.js-signature').eq(1).jqSignature('clearCanvas');
+		$('#saveBtn').attr('disabled', true);
+	}
+
+	function saveSignature() {
+		$('#signature').empty();
+		var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
+		var img = $('<img>').attr('src', dataUrl);
+		$('#signature').append($('<p>').text("Here's your signature:"));
+		$('#signature').append(img);
+	}
+
+	$('.js-signature').eq(1).on('jq.signature.changed', function() {
+		$('#saveBtn').attr('disabled', false);
+	});
+</script>
+</body>
+</html>
