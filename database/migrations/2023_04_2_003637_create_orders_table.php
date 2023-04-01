@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('member_id')->unsigned();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->string('recipient_name');
             $table->string('recipient_tel');
             $table->string('recipient_address');
-            $table->bigInteger('sender_id')->unsigned();
             $table->integer('total');
             $table->integer('status');
-            $table->date('confirmed_date');
             $table->integer('deleted');
             $table->timestamps();
         });

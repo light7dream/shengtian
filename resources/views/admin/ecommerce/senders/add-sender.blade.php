@@ -61,6 +61,7 @@
 					<!--end::Thumbnail settings-->
 					<!--begin::Status-->
 					
+					
 					<!--end::Template settings-->
 				</div>
 				<!--end::Aside column-->

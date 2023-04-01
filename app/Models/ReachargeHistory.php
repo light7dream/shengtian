@@ -5,7 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shipping extends Model
+class ReachargeHistory extends Model
 {
     use HasFactory;
+
+    public function members()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }
+
+

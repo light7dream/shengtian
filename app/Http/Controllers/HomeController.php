@@ -9,10 +9,10 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Invoice;
 use App\Models\OrderProduct;
-use App\Models\About_point;
+use App\Models\About;
 use App\Models\Rule;
 use App\Models\Quiz;
-use App\Models\Online_service;
+use App\Models\OnlineService;
 use DNS2D;
 use Zxing\QrReader;
 class HomeController extends Controller
@@ -28,14 +28,14 @@ class HomeController extends Controller
     public function index(Request $req){
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->user_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
         }     
         $banners = Category::all();
-        if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        if($req->session()->has('Member'))
+        $carts = Cart::where('member_id', $req->session()->get('user')->user_id)->get();
         else $carts = [];
 
         $best_products = Product::paginate(8);
@@ -46,12 +46,12 @@ class HomeController extends Controller
 
     public function viewCartPage(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->user_id)->get();
         else
         $carts =[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->user_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -77,7 +77,7 @@ class HomeController extends Controller
     }
 
     public function viewHelpPage(Request $req){
-        $content1 = About_point::all();
+        $content1 = About::all();
         if(count($content1) ==0)
            $help_one = "";
         else       
@@ -97,7 +97,7 @@ class HomeController extends Controller
           $help_three = $content3;
 
 
-        $content4 = Online_service::all();
+        $content4 = OnlineService::all();
             if(count($content4) ==0)
                 $help_four =[];
             else       
@@ -337,7 +337,7 @@ class HomeController extends Controller
         {
             array_push($product->subImages , url('/storage/uploads/catalog/products/'.$product_->id.'/sub'.$i.'.png'));
         }   
-        $content1 = About_point::all();
+        $content1 = About::all();
         if(count($content1) ==0)
            $help_one = "";
         else       
@@ -357,7 +357,7 @@ class HomeController extends Controller
           $help_three = $content3;
 
 
-        $content4 = Online_service::all();
+        $content4 = OnlineService::all();
             if(count($content4) ==0)
                 $help_four =[];
         else       

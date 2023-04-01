@@ -8,10 +8,11 @@ use App\Models\Order;
 use App\Models\Sender;
 use App\Models\Stock;
 use App\Models\Invoice;
-use App\Models\About_point;
+use App\Models\About;
 use App\Models\Rule;
 use App\Models\Quiz;
-use App\Models\Online_service;
+use App\Models\OnlineService;
+use App\Models\Member;
 
 use Image;
 
@@ -178,7 +179,7 @@ class AdminController extends Controller
 
     public function viewOnlineServicePage(){
         $title = 'Online Service';
-        $data = Online_service::all();
+        $data = OnlineService::all();
         return view('admin.supports.online-service',  ['title'=>$title, 'services'=>$data]);
     }
 
@@ -200,14 +201,67 @@ class AdminController extends Controller
         $title = 'Account Setting';
         return view('admin.account.setting', ['title'=>$title]);
     }
+    
     public function viewOverviewPage(Request $req){
         $title = 'Overview';
         return view('admin.account.overview', ['title'=>$title]);
     }
+    
     public function viewSecurityPage(Request $req){
         $title = 'Security';
         return view('admin.account.security', ['title'=>$title]);
     }
+
+    public function viewMembersPage(Request $req){
+        $members = Member::all();
+        return view('admin.ecommerce.members.listing', ['members'=>$members, 'title'=>'Members Listing']);
+    }
+
+    public function viewEditMemberPage($id){
+        $member = Member::find($id);
+        if(!$member)return view('404');
+        return view('admin.ecommerce.members.edit-member', ['member'=>$member, 'title'=>'Edit a member']);
+    }
+
+    public function addMember(Request $req){
+        $this->validate($req, [
+            'name'=>'required',
+            'password'=>'required',
+            'points'=>'required'
+        ]);
+        $member = new Member;
+        $member->name=$req->name;
+        $member->password= $req->password;
+        $member->points = $req->points;
+        $member->last_exchange_at = date('Y-m-d');
+        $member->save();
+    }
+
+    public function editMember(Request $req){
+        $this->validate($req, [
+            'id'=>'required'
+        ]);
+
+        $member = Member::find($req->id);
+        if(!$member)return view('404');
+        $member->name=$req->member_name;
+        $member->password= $req->member_password;
+        $member->created_at = $req->member_created_at;
+        $member->last_exchange_at = $req->member_last_exchange_at;
+        $member->points = $req->member_total_points;
+        $member->used_points = $req->member_used_points;
+        $member->save();
+    }
+
+    public function deleteMember(Request $req){
+        $this->validate($req, [
+            'id'=>'required'
+        ]);
+
+        Member::where('id', $req->id)->delete();
+    }
+
+
     /**
      * 
      * API
@@ -536,8 +590,8 @@ class AdminController extends Controller
     
 
     public function aboutPoint(Request $req){
-        $content = About_point::all();
-        $data = new About_point;
+        $content = About::all();
+        $data = new About;
 
         if(count($content) ==0)
         {
@@ -547,7 +601,7 @@ class AdminController extends Controller
         } 
         else{        
               $id =  $content[0]->id;
-               $new_data =  About_point::find($id);
+               $new_data =  About::find($id);
                $new_data->content = $req->content;
                $new_data->save();
             return  "updated";
@@ -556,7 +610,7 @@ class AdminController extends Controller
 
 
     public function getAboutContent(){
-        $content = About_point::all();
+        $content = About::all();
         if(count($content) ==0)
             return  null;
         else       
@@ -630,7 +684,7 @@ class AdminController extends Controller
             'service_email'=>'required',
             'service_description'=>'required'
         ]);
-        $newService = new Online_service;
+        $newService = new OnlineService;
         $newService->name = $req->input('service_name');
         $newService->email = $req->input('service_email');
         $newService->description = $req->input('service_description');
@@ -656,7 +710,7 @@ class AdminController extends Controller
         $this->validate($req, [
             'id' => 'required',
         ]);
-        $service = Online_service::find($req->id);
+        $service = OnlineService::find($req->id);
         if(!is_null($service)){
             if($req->input('service_name'))
             $service->name= $req->input('service_name');
@@ -691,7 +745,7 @@ class AdminController extends Controller
         $this->validate($req, [
             'id' => 'required',
         ]);
-        $service = Online_service::find($req->id);
+        $service = OnlineService::find($req->id);
         if($service){
             $service->delete();
             $destinationPath = storage_path('/app/public/uploads/service');

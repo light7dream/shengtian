@@ -20,4 +20,9 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function members()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }

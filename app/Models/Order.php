@@ -12,7 +12,7 @@ class Order extends Model
         'confirmed_date' => '2100-01-01 00:00:00',
         'status'=>0,
         'deleted'=>0,
-        'sender_id'=>0,
+        'member_id'=>0,
     ];
 
     /**
@@ -30,18 +30,18 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function invoice()
-    {
-        return $this->hasOne(Invoice::class);
-    }
+    // public function invoice()
+    // {
+    //     return $this->hasOne(Invoice::class);
+    // }
 
     /**
      * Get the sender associated with the Order
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function sender()
+    public function members()
     {
-        return $this->hasOne(Sender::class);
+        return $this->belongsTo(Member::class);
     }
 }

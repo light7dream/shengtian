@@ -66,6 +66,17 @@ Route::get('/admin/members/sender-details/{id}', [AdminController::class, 'viewS
 Route::get('/admin/members/add-sender', [AdminController::class, 'viewAddSenderPage']);
 Route::get('/admin/members/edit-sender/{id}', [AdminController::class, 'viewEditSenderPage']);
 
+/**
+ * 
+ * 2023/4/2
+ */
+Route::get('/admin/members', [AdminController::class, 'viewMembersPage']);
+Route::get('/admin/members/edit-member/{id}', [AdminController::class, 'viewEditMemberPage']);
+Route::post('/api/members/add-member', [AdminController::class, 'addMember']);
+Route::post('/api/members/edit-member', [AdminController::class, 'editMember']);
+Route::post('/api/members/delete-member', [AdminController::class, 'deleteMember']);
+
+
 Route::get('/admin/sales/orders', [AdminController::class, 'viewSalesPage']);
 Route::get('/admin/sales/add-order', [AdminController::class, 'viewAddOrderPage']);
 Route::get('/admin/sales/details/{id}', [AdminController::class, 'viewOrderDetailsPage']);
@@ -84,6 +95,8 @@ Route::get('/admin/supports/online-service', [AdminController::class, 'viewOnlin
 Route::get('/admin/account/settings', [AdminController::class, 'viewAccountSettingsPage']);
 Route::get('/admin/account/overview', [AdminController::class, 'viewOverviewPage']);
 Route::get('/admin/account/security', [AdminController::class, 'viewSecurityPage']);
+
+
 /**
  * API
  */
