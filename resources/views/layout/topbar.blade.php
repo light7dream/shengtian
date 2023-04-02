@@ -246,19 +246,21 @@
                                     </div>
                                 </div> --}}
                                 <style>
-                                .goog-te-gadget-simple {
-                                    background-color: #fff !important;
-                                    border: 0 !important;
-                                    font-size: 5pt;
-                                    font-weight: 500;
-                                    display: inline-block;
-                                    padding: 2px 2px !important;
-                                    cursor: pointer;
-                                    zoom: 1;
-                                }
+                                    
+    .goog-te-menu-frame,.goog-te-balloon-frame{
+    box-shadow:none!important
+    }
+  .goog-te-gadget-simple{
+    background-color:transparent;
+    border:2px solid #eee;
+    border-radius:5px;
+    padding:5px 10px;
+    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+    font-size:0;
+    }
                                 </style>
 
-                                <div class='header_account-list top_links container'>
+                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px">
                                     {{-- <a href="javascript:void(0)" style="padding: 1em" id="lang"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a> --}}
                                     <div id="google_translate_element" ></div>
                                 </div>
