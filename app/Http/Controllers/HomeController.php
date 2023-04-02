@@ -28,14 +28,14 @@ class HomeController extends Controller
     public function index(Request $req){
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
         }     
         $banners = Category::all();
-        if($req->session()->has('Member'))
-        $carts = Cart::where('member_id', $req->session()->get('user')->user_id)->get();
+        if($req->session()->has('user'))
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else $carts = [];
 
         $best_products = Product::paginate(8);
@@ -46,12 +46,12 @@ class HomeController extends Controller
 
     public function viewCartPage(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('member_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts =[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -103,12 +103,12 @@ class HomeController extends Controller
             else       
             $help_four = $content4;
             if($req->session()->has('user'))
-            $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+            $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
             else
             $carts = [];
             $used_points = 0;
             if($req->session()->has('user')){
-                $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+                $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
                 foreach($orders as $order){
                     $used_points+=$order->total;
                 }
@@ -116,61 +116,14 @@ class HomeController extends Controller
         return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts, 'used_points'=>$used_points]);
     }
 
-    // public function viewHelpPage(Request $req){
-    //     $help_one = [
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //         (object)['title'=>'关于奖励积分计划', 'content'=>'欢迎来到胜天娱乐奖励积分商'],
-    //     ];
-    //     $help_two = [
-    //         (object)['title'=>'规则与条款', 'contents'=>[
-    //             '胜天娱乐保留在任何时间修改商城使用条款和兑换规则的权利',
-    //             '会员在使用积分和兑换物品时，若存在任何欺诈行为，或使用任何恶意手段获取利益，违背胜天娱乐商城的使用条款，胜天娱乐拥有冻结或关闭相应账户的权利。 
-
-    //             会员可以使用积分兑换商城中所有的奖品，除非在商城的使用条款中针对参加资格有特别说明。'
-    //         ]],
-    //     ];
-    //     $help_three = [
-    //         (object)['title'=>'商城和积分的问题', 'content'=>'积分计划不仅仅是奖励会员的投注行为，更多的是建立在对会员忠诚认同的一种回馈。同时也为阁下提供兑换免费筹码或其他众多
-    //         您所喜爱的礼品的乐趣体验。'],
-    //         (object)['title'=>'商城和积分的问题', 'content'=>'积分计划不仅仅是奖励会员的投注行为，更多的是建立在对会员忠诚认同的一种回馈。同时也为阁下提供兑换免费筹码或其他众多
-    //         您所喜爱的礼品的乐趣体验。'],
-    //         (object)['title'=>'商城和积分的问题', 'content'=>'积分计划不仅仅是奖励会员的投注行为，更多的是建立在对会员忠诚认同的一种回馈。同时也为阁下提供兑换免费筹码或其他众多
-    //         您所喜爱的礼品的乐趣体验。'],
-    //     ];
-    //     $help_four = [
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //         (object)['image'=>'assets/img/service/kf2.jpg', 'url'=>'#', 'content'=>'VIP官方客服  莉莉', 'id'=>'15854865'],
-    //     ];
-    //     $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
-    //     $used_points = 0;
-    //     if($req->session()->has('user')){
-    //         $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
-    //         foreach($orders as $order){
-    //             $used_points+=$order->total;
-    //         }
-    //     }     
-    //     return view('help', ['used_points'=>$used_points,'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'carts'=>$carts]);
-    // }
-
     public function viewMinePage(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts =[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -253,13 +206,13 @@ class HomeController extends Controller
         if(!$order)return view('404');
 
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
 
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -277,11 +230,11 @@ class HomeController extends Controller
     
     public function viewNewOrderPage(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
         if($req->session()->has('user'))
-        $carts_ = Cart::where('checked',1)->where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts_ = Cart::where('checked',1)->where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts_=[];
         $total_points = 0;
@@ -296,7 +249,7 @@ class HomeController extends Controller
         ];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -310,13 +263,13 @@ class HomeController extends Controller
 
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
         }     
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else 
         $carts = [];
         $product = (object)[
@@ -369,13 +322,13 @@ class HomeController extends Controller
     public function viewProductListPage(Request $req){
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
         }    
         if($req->session()->has('user')) 
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
         if($req->input('type'))
@@ -395,7 +348,7 @@ class HomeController extends Controller
 
     public function addCart(Request $req){
         $cart = new Cart;
-        $cart->user_id=1;
+        $cart->member_id=1;
         $cart->product_id = $req->id;
         $cart->quantity=$req->quantity;
         $cart->size = $req->size!=''?$req->size:'Medium';
@@ -413,7 +366,7 @@ class HomeController extends Controller
 
     public function readyOrder(Request $req){
         if($req->session()->has('user')) 
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
 
@@ -443,7 +396,7 @@ class HomeController extends Controller
             'address' => 'required',
         ]);
         if($req->session()->has('user'))
-        $carts = Cart::where('checked',1)->where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('checked',1)->where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
         $consump_points = 0;
@@ -453,7 +406,7 @@ class HomeController extends Controller
         if($consump_points>$req->session()->get('user')->bet_amount)
         return back()->withErrors(['message'=>'Not enough bet amounts!']);
         $newOrder= new Order;
-        $newOrder->user_id=$req->session()->get('user')->user_id;
+        $newOrder->member_id=$req->session()->get('user')->member_id;
         $newOrder->recipient_name=$req->input('name');
         $newOrder->recipient_tel=$req->input('tel');
         $newOrder->recipient_address=$req->input('address');
@@ -500,7 +453,7 @@ class HomeController extends Controller
             $order->save();
             //Make invoice
             $invoice = new Invoice;
-            $invoice->user_id = $order->user_id;
+            $invoice->member_id = $order->member_id;
             $orders = [];
             foreach($order->order_products as $op){
                 $order_ = (object)[
@@ -522,7 +475,7 @@ class HomeController extends Controller
             $invoice->order_id = $order->id;
             $invoice->ended_date=date('Y-m-d');
             $invoice->save();
-            $req->session()->put('qrcode',$order->user_id);
+            $req->session()->put('qrcode',$order->member_id);
             return $invoice->id;
         }
         else 
@@ -537,7 +490,7 @@ class HomeController extends Controller
         $order->save();
         //Make invoice
         $invoice = new Invoice;
-        $invoice->user_id = $req->session()->get('user')->user_id;
+        $invoice->member_id = $req->session()->get('user')->member_id;
         $orders = [];
         foreach($order->order_products as $op){
             $order_ = (object)[
@@ -566,12 +519,12 @@ class HomeController extends Controller
         $invoice = Invoice::find($id);
         if(!$invoice)return view('404');
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('user_id', $req->session()->get('user')->user_id)->get();
+            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
             foreach($orders as $order){
                 $used_points+=$order->total;
             }
@@ -601,11 +554,9 @@ class HomeController extends Controller
 
     public function getOpenCarts(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('user_id', $req->session()->get('user')->user_id)->get();
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
         return $carts;
     }
-
-
 }

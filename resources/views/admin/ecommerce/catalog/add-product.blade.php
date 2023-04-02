@@ -3,7 +3,7 @@
 @section('styles')
 @parent
 <link href="{{asset('admin/assets/css/jquery-minicolors.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('admin/assets/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/css/color-picker.min.css')}}" rel="stylesheet" type="text/css" />
 
 @endsection
 @section('content')
@@ -237,8 +237,17 @@
 							<div class="card card-flush py-4">
 								<!--begin::Card header-->
 								<div class="card-header">
-									<div class="card-title">
+									{{-- <div class="card-title">
 										<h2>General</h2>
+									</div> --}}
+									<div class="d-flex flex-stack">
+									</div>
+									<div class="d-flex checkbox-inline">
+										<label class="checkbox checkbox-outline checkbox-outline-2x checkbox-primary checkbox-disabled">
+											<input type="checkbox" checked="checked" name="Checkboxes3_1"/>
+											<span></span>
+											Option 1
+										</label>
 									</div>
 								</div>
 								<!--end::Card header-->

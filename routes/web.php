@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
@@ -26,7 +26,7 @@ Route::get('/help', [HomeController::class, 'viewHelpPage']);
 Route::get('/identify-by-qrcode', [HomeController::class, 'viewIdentifyByQRCodePage']);
 Route::post('/api/invoice/sign', [HomeController::class, 'signInvoice']);
 Route::post('/api/identify-by-qrcode', [HomeController::class, 'identifyByQRCode']);
-Route::middleware(['customer'])->group(function () {
+Route::middleware(['member'])->group(function () {
     Route::get('/login', [HomeController::class, 'viewLoginPage']);
     Route::get('/cart', [HomeController::class, 'viewCartPage']);
     Route::get('/mine', [HomeController::class, 'viewMinePage']);
@@ -110,16 +110,11 @@ Route::post('/api/catalog/delete-product',[AdminController::class, 'deleteProduc
 Route::post('/api/edit-order', [AdminController::class, 'editOrder']);
 Route::post('/api/delete-order', [AdminController::class, 'deleteOrder']);
 Route::post('/api/deliver', [AdminController::class, 'deliver']);
-Route::post('/api/members/add-sender', [AdminController::class, 'addSender']);
-Route::post('/api/members/edit-sender', [AdminController::class, 'editSender']);
-Route::post('/api/members/delete-sender', [AdminController::class, 'deleteSender']);
 
 Route::post('/api/support/about-point',[AdminController::class, 'aboutPoint']);
 Route::get('/api/support/about-point',[AdminController::class, 'getAboutContent']);  
-
 Route::post('/api/support/rules-clauses',[AdminController::class, 'rulesAndClauses']);
 Route::get('/api/support/rules-clauses',[AdminController::class, 'getRulesAndClauses']);  
-
 Route::post('/api/support/add-faq',[AdminController::class, 'addFaq']);
 Route::post('/api/support/edit-faq',[AdminController::class, 'editFaq']);
 Route::post('/api/support/delete-faq',[AdminController::class, 'deleteFaq']);
@@ -136,8 +131,8 @@ Route::post('/api/online-service/delete-service',[AdminController::class, 'delet
  * 
  * 
  */
-Route::post('/api/customer/login', [CustomerController::class, 'login']);
-Route::post('/api/customer/logout', [CustomerController::class, 'logout']);
+Route::post('/api/member/login', [AuthController::class, 'login']);
+Route::post('/api/member/logout', [AuthController::class, 'logout']);
 
 /** */
 

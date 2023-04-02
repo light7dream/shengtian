@@ -33,8 +33,8 @@
                 <!--end::Breadcrumb-->
             </div>
             <!--end::Toolbar wrapper=-->
-            <!--begin::Toolbar wrapper=-->
-            <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-13">
+            <!--begin::Toolbar wrapper flex-stack =-->
+            <div class="d-flex flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-13">
                 <!--begin::Page title-->
                 <div class="page-title d-flex align-items-center me-3">
                     <img alt="Logo" src="{{asset('admin/assets/media/svg/misc/layer.svg')}}" class="h-60px me-5" />
@@ -47,48 +47,33 @@
                 </div>
                 <!--end::Page title-->
                 <!--begin::Items-->
-                {{-- <div class="d-flex gap-4 gap-lg-13">
+                <div class="d-flex gap-4">
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <!--begin::Number-->
-                        <span class="text-white fw-bold fs-3 mb-1">$23,467.92</span>
-                        <!--end::Number-->
-                        <!--begin::Section-->
-                        <div class="text-white opacity-50 fw-bold">Avg. Monthly Sales</div>
-                        <!--end::Section-->
+                        <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <!--begin::Number-->
-                        <span class="text-white fw-bold fs-3 mb-1">$1,748.03</span>
-                        <!--end::Number-->
-                        <!--begin::Section-->
-                        <div class="text-white opacity-50 fw-bold">Today Spending</div>
-                        <!--end::Section-->
+                        <a href="/admin/catalog/products?type=0" class="btn  {{request()->query('type') == 0?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <!--begin::Number-->
-                        <span class="text-white fw-bold fs-3 mb-1">3.8%</span>
-                        <!--end::Number-->
-                        <!--begin::Section-->
-                        <div class="text-white opacity-50 fw-bold">Overall Share</div>
-                        <!--end::Section-->
+                        <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <!--begin::Number-->
-                        <span class="text-white fw-bold fs-3 mb-1">-7.4%</span>
-                        <!--end::Number-->
-                        <!--begin::Section-->
-                        <div class="text-white opacity-50 fw-bold">7 Days</div>
-                        <!--end::Section-->
+                        <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
                     </div>
                     <!--end::Item-->
-                </div> --}}
+                    <!--begin::Item-->
+                    <div class="d-flex flex-column">
+                        <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
+                    </div>
+                    <!--end::Item-->
+                </div>
                 <!--end::Items-->
             </div>
             <!--end::Toolbar wrapper=-->

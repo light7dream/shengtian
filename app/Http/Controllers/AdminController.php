@@ -23,9 +23,28 @@ class AdminController extends Controller
         return view('admin.index', ['title'=>'Dashboard']);
     }
 
-    public function viewProductsPage(){
+    public function viewProductsPage(Request $req){
+
         $title = 'Products Listing';
+        if(!isset($req->type))
         $products = Product::all();
+        else{
+            if($req->type == 0){
+                $products = Product::where('category_id', 0)->get();
+            }
+            else if($req->type == 1){
+                $products = Product::where('category_id', 1)->get();
+            }
+            else if($req->type == 2){
+                $products = Product::where('category_id', 2)->get();
+            }
+            else if($req->type == 3){
+                $products = Product::where('category_id', 3)->get();
+            }
+            else{
+                $products = [];
+            }
+        }
         return view('admin.ecommerce.catalog.products', [
             'title'=>$title,
             'products'=>$products
@@ -79,27 +98,6 @@ class AdminController extends Controller
         $title = 'Reports';
         return view('admin.ecommerce.reports.view', ['title'=>$title]);
     }
-
-    public function viewCustomersPage(){
-        $title = 'Customers Listing';
-        return view('admin.ecommerce.customers.listing', ['title'=>$title]);
-    }   
-
-    public function viewCustomerDetailsPage(){
-        $title = 'Customer Details';
-        return view('admin.ecommerce.customers.details', ['title'=>$title]);
-    }   
-
-    public function viewSendersPage(){
-        $senders = Sender::all();
-        $title= 'Senders Listing';
-        return view('admin.ecommerce.senders.listing', ['senders'=>$senders, 'title'=>$title]);
-    }   
-
-    public function viewSenderDetailsPage($id){
-        $title = 'Sender Details';
-        return view('admin.ecommerce.senders.details', ['title'=>$title]);
-    }   
 
     public function viewSalesPage(Request $req){
         $orders = Order::all();
@@ -586,9 +584,6 @@ class AdminController extends Controller
         }
     }
 
-
-    
-
     public function aboutPoint(Request $req){
         $content = About::all();
         $data = new About;
@@ -608,7 +603,6 @@ class AdminController extends Controller
         }
     }
 
-
     public function getAboutContent(){
         $content = About::all();
         if(count($content) ==0)
@@ -617,7 +611,6 @@ class AdminController extends Controller
             return  $content[0]->content;
     }
     
-
     public function rulesAndClauses(Request $req){
         $content = Rule::all();
         $data = new Rule;

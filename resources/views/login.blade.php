@@ -17,7 +17,7 @@
                 <div class="col-lg-6 col-md-6" style="margin: 8px auto;">
                     <div class="account_form">
                         <h2 style="text-align: center;">登录</h2>
-                        <form action="/api/customer/login" method="post">
+                        <form action="/api/member/login" method="post">
                             @csrf
                             <p>   
                                 <label>账号 <span>*</span></label>
