@@ -22,6 +22,7 @@ return new class extends Migration
             $table->json('colors');
             $table->json('sizes');
             $table->bigInteger('quantity');
+            $table->integer('virtual');
             $table->timestamps();
         });
     }

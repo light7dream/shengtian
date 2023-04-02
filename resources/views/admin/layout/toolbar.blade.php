@@ -55,22 +55,22 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=0" class="btn  {{request()->query('type') == 0?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
+                        <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
+                        <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
+                        <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
+                        <a href="/admin/catalog/products?type=4" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
                     </div>
                     <!--end::Item-->
                 </div>

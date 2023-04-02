@@ -131,7 +131,7 @@
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="menu-item px-3">
-										<a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Delete</a>
+										<a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">Delete</a>
 									</div>
 									<!--end::Menu item-->
 								</div>
@@ -166,11 +166,39 @@
 	<script src="{{asset('admin/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
 	<!--end::Vendors Javascript-->
 	<!--begin::Custom Javascript(used for this page only)-->
-	<script src="{{asset('admin/assets/js/custom/apps/ecommerce/catalog/products.js')}}"></script>
-	<script src="{{asset('admin/assets/js/widgets.bundle.js')}}"></script>
-	<script src="{{asset('admin/assets/js/custom/widgets.js')}}"></script>
-	<script src="{{asset('admin/assets/js/custom/apps/chat/chat.js')}}"></script>
-	<script src="{{asset('admin/assets/js/custom/utilities/modals/upgrade-plan.js')}}"></script>
-	<script src="{{asset('admin/assets/js/custom/utilities/modals/create-app.js')}}"></script>
-	<script src="{{asset('admin/assets/js/custom/utilities/modals/users-search.js')}}"></script>
+	<script>
+		"use strict";var KTAppEcommerceProducts=function(){var t,e,n=()=>{
+			t.querySelectorAll('[data-kt-ecommerce-product-filter="delete_row"]').forEach(
+				(t=>{
+					t.addEventListener("click",(function(t){
+						t.preventDefault();
+						var id = $(this).attr('data-id')
+						const n=t.target.closest("tr"),
+						r=n.querySelector('[data-kt-ecommerce-product-filter="product_name"]').innerText;
+						Swal.fire({
+							text:"Are you sure you want to delete "+r+"?",
+							icon:"warning",showCancelButton:!0,
+							buttonsStyling:!1,
+							confirmButtonText:"Yes, delete!",
+							cancelButtonText:"No, cancel",
+							customClass:{confirmButton:"btn fw-bold btn-danger",
+							cancelButton:"btn fw-bold btn-active-light-primary"}})
+							.then((function(t){
+								t.value?(
+									$.post('/api/catalog/delete-product', {_token: '{{csrf_token()}}', id: id})
+										.done(function(){
+											Swal.fire(
+												{text:"You have deleted "+r+"!.",
+												icon:"success",
+												buttonsStyling:!1,
+												confirmButtonText:"Ok, got it!",
+												customClass:{confirmButton:"btn fw-bold btn-primary"}})
+												.then((function(){e.row($(n)).remove().draw()}))
+										})
+										.fail(function(){
+											Swal.fire({text:r+" was not deleted.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn fw-bold btn-primary"}})
+										})
+									
+									):"cancel"===t.dismiss&&Swal.fire({text:r+" was not deleted.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn fw-bold btn-primary"}})}))}))}))};return{init:function(){(t=document.querySelector("#kt_ecommerce_products_table"))&&((e=$(t).DataTable({info:!1,order:[],pageLength:10,columnDefs:[{render:DataTable.render.number(",",".",2),targets:4},{orderable:!1,targets:0},{orderable:!1,targets:5}]})).on("draw",(function(){n()})),document.querySelector('[data-kt-ecommerce-product-filter="search"]').addEventListener("keyup",(function(t){e.search(t.target.value).draw()})),(()=>{const t=document.querySelector('[data-kt-ecommerce-product-filter="status"]');$(t).on("change",(t=>{let n=t.target.value;"all"===n&&(n=""),e.column(6).search(n).draw()}))})(),n())}}}();KTUtil.onDOMContentLoaded((function(){KTAppEcommerceProducts.init()}));
+	</script>
 @endsection

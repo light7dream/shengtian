@@ -68,7 +68,7 @@
 				
 				<!--end::Status-->
 				<!--begin::Category & tags-->
-				<div class="card card-flush py-4">
+				<div class="card card-flush py-4" id="details">
 					<!--begin::Card header-->
 					<div class="card-header">
 						<!--begin::Card title-->
@@ -80,25 +80,8 @@
 					<!--end::Card header-->
 					<!--begin::Card body-->
 					<div class="card-body pt-0">
-						<div class="fv-row  mb-7">
-						<!--begin::Input group-->
-						<!--begin::Label-->
-						<label class="required form-label">Categories</label>
-						<!--end::Label-->
-						<!--begin::Select2-->
-						<select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" name="product_category" value="{{$product->category}}">
-							<option></option>
-							@foreach ($categories as $category)
-							<option value="{{$category->id}}" {{$category->id==$product->category->id?'selected="selected"':''}}">{{$category->name}}</option>
-							@endforeach
-						</select>
-						<!--end::Select2-->
-						<!--begin::Description-->
-						<div class="text-muted fs-7">Add product to a category.</div>
-						<!--end::Description-->
-						<!--end::Input group-->
-						</div>
-						<!--begin::Button-->
+						
+						{{-- <!--begin::Button-->
 						<a href="/admin/catalog/add-category" class="btn btn-light-primary btn-sm mb-10">
 						<!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
 						<span class="svg-icon svg-icon-2">
@@ -107,21 +90,9 @@
 								<rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor" />
 							</svg>
 						</span>
-						<!--end::Svg Icon-->Create new category</a>
+						<!--end::Svg Icon-->Create new category</a> --}}
 						<!--end::Button-->
-						<div class="fv-row mb-2">
-							<!--begin::Input group-->
-							<!--begin::Label-->
-							<label class="required form-label d-block">Pricing</label>
-							<!--end::Label-->
-							<!--begin::Input-->
-							<input name="product_price" class="form-control mb-2" value="{{$product->points}}" type="number" />
-							<!--end::Input-->
-							<!--begin::Description-->
-							<div class="text-muted fs-7">Enter price of a product.</div>
-							<!--end::Description-->
-							<!--end::Input group-->
-						</div>
+						
 						<div class="fv-row mb-2">
 							<!--begin::Input group-->
 							<!--begin::Label-->
@@ -235,8 +206,15 @@
 							<div class="card card-flush py-4">
 								<!--begin::Card header-->
 								<div class="card-header">
-									<div class="card-title">
-										<h2>General</h2>
+									{{-- <div class="card-title"> --}}
+										{{-- <h2>General</h2> --}}
+									{{-- </div> --}}
+									<div class="d-flex flex-stack">
+									</div>
+									<div class="d-flex checkbox-inline">
+										<div class="form-check form-check-lg form-check-custom form-check-outline mt-3 form-label">
+											<input class="form-check-input" name="virtual" type="checkbox" value="1" id="virtual"> <label class="ms-2 fs-3">Virtual Goods</label>
+										</div>
 									</div>
 								</div>
 								<!--end::Card header-->
@@ -268,7 +246,37 @@
 										<!--end::Description-->
 									</div>
 									<!--end::Input group-->
-									
+									<div class="fv-row  mb-7">
+										<!--begin::Input group-->
+										<!--begin::Label-->
+										<label class="required form-label">Categories</label>
+										<!--end::Label-->
+										<!--begin::Select2-->
+										<select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" name="product_category" value="{{$product->category}}">
+											<option></option>
+											@foreach ($categories as $category)
+											<option value="{{$category->id}}" {{$category->id==$product->category->id?'selected="selected"':''}}">{{$category->name}}</option>
+											@endforeach
+										</select>
+										<!--end::Select2-->
+										<!--begin::Description-->
+										<div class="text-muted fs-7">Add product to a category.</div>
+										<!--end::Description-->
+										<!--end::Input group-->
+									</div>
+									<div class="fv-row mb-2">
+										<!--begin::Input group-->
+										<!--begin::Label-->
+										<label class="required form-label d-block">Pricing</label>
+										<!--end::Label-->
+										<!--begin::Input-->
+										<input name="product_price" class="form-control mb-2" value="{{$product->points}}" type="number" />
+										<!--end::Input-->
+										<!--begin::Description-->
+										<div class="text-muted fs-7">Enter price of a product.</div>
+										<!--end::Description-->
+										<!--end::Input group-->
+									</div>
 									<!--begin::Input group-->
 									<div class="fv-row">
 										<!--begin::Label-->
@@ -287,7 +295,7 @@
 							</div>
 							<!--end::General options-->
 							<!--begin::Media-->
-							<div class="card card-flush py-4">
+							<div class="card card-flush py-4" id="preview">
 								<!--begin::Card header-->
 								<div class="card-header">
 									<div class="card-title">
@@ -795,5 +803,20 @@
 
 		}));
 	</script>
-
+<script>
+	if(Number({{$product->virtual}})){
+		$('#details').hide();
+		$('#preview').hide();
+		$('#virtual').checked=true;
+	}
+	$('#virtual').change(function(){
+		if(this.checked){
+			$('#details').hide();
+			$('#preview').hide();
+		}else{
+			$('#details').show();
+			$('#preview').show();
+		}
+	})
+</script>
 @endsection

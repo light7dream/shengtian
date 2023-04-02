@@ -29,16 +29,16 @@ class AdminController extends Controller
         if(!isset($req->type))
         $products = Product::all();
         else{
-            if($req->type == 0){
+            if($req->type == 1){
                 $products = Product::where('category_id', 0)->get();
             }
-            else if($req->type == 1){
+            else if($req->type == 2){
                 $products = Product::where('category_id', 1)->get();
             }
-            else if($req->type == 2){
+            else if($req->type == 3){
                 $products = Product::where('category_id', 2)->get();
             }
-            else if($req->type == 3){
+            else if($req->type == 4){
                 $products = Product::where('category_id', 3)->get();
             }
             else{
@@ -369,9 +369,10 @@ class AdminController extends Controller
         $newProduct->description=$req->input('product_description');
         $newProduct->points=$req->input('product_price');
         $newProduct->category_id=$req->input('product_category');
-        $newProduct->sizes=$req->input('product_sizes');
         $newProduct->quantity=$req->input('product_quantity');
-        $newProduct->colors=$req->input('product_colors');
+        $newProduct->virtual=$req->input('virtual');
+        $newProduct->sizes=$req->input('product_sizes');
+        $newProduct->colors=$req->input('product_colors')==null?[]:$req->input('product_colors');
         $result = $newProduct->save();
 
         if($result)
@@ -411,6 +412,7 @@ class AdminController extends Controller
             $product->description=$req->input('product_description');
             $product->points=$req->input('product_price');
             $product->quantity=$req->input('product_quantity');
+            $product->virtual=$req->input('virtual');
             $product->category_id=$req->input('product_category');
             $sizes = array_filter($req->input('product_sizes'), function($k){
                 return $k!=null;
