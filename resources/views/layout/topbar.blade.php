@@ -1,5 +1,6 @@
 @section('topbar')
 
+
     <!--offcanvas menu area start-->
     <div class="off_canvars_overlay">
                 
@@ -150,12 +151,12 @@
 
                 <div class="header_container">
                     <div class="row align-items-center">
-                        <div class="col-lg-2">
+                        <div class="col-md-2">
                             <div class="logo">
                                 <a href="/"><img src="{{asset('assets/img/logo/logo.svg')}}" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-md-8">
                             <!--main menu start-->
                             <div class="main_menu menu_position"> 
                                 <nav>  
@@ -192,9 +193,9 @@
                             </div>
                             <!--main menu end-->
                         </div>
+                        
                         <div class="col-lg-2">
                             <div class="header_account_area">
-                                
                                 <div class="header_account-list top_links">
                                     @if (Session::has('user'))
                                     <a href="/mine" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>{{Session::get('user')->user_name}}</a>
@@ -231,19 +232,35 @@
                                     </div>
                                 </div>
                                 
-                                <div class="header_account-list top_links">
+                                {{-- <div class="header_account-list top_links">
                                     <a href="javascript:void(0)"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a>
                                     <div class="dropdown_links" style="width: 150px">
                                         
-                                        <div class="dropdown_links_list" >
+                                        <div id="google_translate_element" class="dropdown_links_list" >
                                             <h3> 简体中文</h3>
                                             <ul>
                                                 <li><a href="#"> English</a></li>
                                                 <li><a href="#">  繁體中文</a></li>
                                             </ul>
                                         </div>
-                                       
                                     </div>
+                                </div> --}}
+                                <style>
+                                .goog-te-gadget-simple {
+                                    background-color: #fff !important;
+                                    border: 0 !important;
+                                    font-size: 5pt;
+                                    font-weight: 500;
+                                    display: inline-block;
+                                    padding: 2px 2px !important;
+                                    cursor: pointer;
+                                    zoom: 1;
+                                }
+                                </style>
+
+                                <div class='header_account-list top_links container'>
+                                    {{-- <a href="javascript:void(0)" style="padding: 1em" id="lang"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a> --}}
+                                    <div id="google_translate_element" ></div>
                                 </div>
                                 
                                 <div class="header_account-list mini_cart_wrapper">
@@ -294,6 +311,6 @@
                 </div>
             </div>
         </div> 
-
+        
     </header>
 @endsection

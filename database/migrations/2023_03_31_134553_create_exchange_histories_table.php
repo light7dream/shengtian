@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('size');
             $table->integer('quantity');
             $table->integer('points');
-            $table->date('exchange_date');
             $table->timestamps();
         });
     }

@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
-use App\Models\Sender;
 use App\Models\Stock;
 use App\Models\Invoice;
 use App\Models\About;
@@ -13,6 +12,9 @@ use App\Models\Rule;
 use App\Models\Quiz;
 use App\Models\OnlineService;
 use App\Models\Member;
+use App\Models\ReachargeHistory;
+use App\Models\PasswordChangeHistory;
+use App\Models\Setting;
 
 use Image;
 
@@ -30,16 +32,16 @@ class AdminController extends Controller
         $products = Product::all();
         else{
             if($req->type == 1){
-                $products = Product::where('category_id', 0)->get();
-            }
-            else if($req->type == 2){
                 $products = Product::where('category_id', 1)->get();
             }
-            else if($req->type == 3){
+            else if($req->type == 2){
                 $products = Product::where('category_id', 2)->get();
             }
-            else if($req->type == 4){
+            else if($req->type == 3){
                 $products = Product::where('category_id', 3)->get();
+            }
+            else if($req->type == 4){
+                $products = Product::where('category_id', 4)->get();
             }
             else{
                 $products = [];
@@ -101,18 +103,18 @@ class AdminController extends Controller
 
     public function viewSalesPage(Request $req){
         $orders = Order::all();
-        foreach($orders as $order){
-            if($order->status == 0){
-                $status = 0;
-                foreach($order->order_products as $op){
-                    if($op->quantity < $op->product->quantity){
-                        $status = 1;
-                        break;
-                    }
-                }
-                $order->status = $status;
-            }
-        }
+        // foreach($orders as $order){
+        //     if($order->status == 0){
+        //         $status = 0;
+        //         foreach($order->order_products as $op){
+        //             if($op->quantity < $op->product->quantity){
+        //                 $status = 1;
+        //                 break;
+        //             }
+        //         }
+        //         $order->status = $status;
+        //     }
+        // }
         $title = 'Sales Listing';
         return view('admin.ecommerce.sales.listing', ['orders'=>$orders, 'status'=>$req->status, 'title'=>$title]);
     }
@@ -125,8 +127,7 @@ class AdminController extends Controller
     public function viewOrderDetailsPage($id){
         $order = Order::find($id);
         $title = 'Order details';
-        $senders = Sender::all();
-        return view('admin.ecommerce.sales.details', ['order'=>$order, 'senders'=>$senders, 'title'=>$title]);
+        return view('admin.ecommerce.sales.details', ['order'=>$order, 'title'=>$title]);
     }
 
     public function viewEditOrderPage($id){
@@ -244,11 +245,33 @@ class AdminController extends Controller
         if(!$member)return view('404');
         $member->name=$req->member_name;
         $member->password= $req->member_password;
-        $member->created_at = $req->member_created_at;
-        $member->last_exchange_at = $req->member_last_exchange_at;
         $member->points = $req->member_total_points;
-        $member->used_points = $req->member_used_points;
         $member->save();
+
+        $last_password =new PasswordChangeHistory;
+         $last_password->last_password = $req->last_password;
+        $last_password->member_id = $req->id;
+        $last_password->current_password = $req->member_password;
+        $last_password->save();
+    }
+
+
+
+
+    public function recharge(Request $req){
+        $this->validate($req, [
+            'id'=>'required'
+        ]);
+
+        $member = Member::find($req->id);
+        if(!$member)return view('404');
+        $member->points = $member->points + $req->recharge;
+        $member->save();
+
+        $recharge_history =new ReachargeHistory;
+        $recharge_history->member_id = $req->id;
+        $recharge_history->charge_points = $req->recharge;
+        $recharge_history->save();
     }
 
     public function deleteMember(Request $req){
@@ -412,7 +435,7 @@ class AdminController extends Controller
             $product->description=$req->input('product_description');
             $product->points=$req->input('product_price');
             $product->quantity=$req->input('product_quantity');
-            $product->virtual=$req->input('virtual');
+            $newProduct->virtual=$req->input('virtual');
             $product->category_id=$req->input('product_category');
             $sizes = array_filter($req->input('product_sizes'), function($k){
                 return $k!=null;
@@ -750,6 +773,58 @@ class AdminController extends Controller
             return ';)';
         }
         return ';(';
+    }
+
+
+    public function viewAdminPasswordChange(){
+        return view('admin.password.edit-password', ['title'=>'Change Password']);
+    }
+
+    public function editPassword(Request $req){
+
+        $member = Member::where('role', 0)->get();
+         if(!$member)return view('404');
+         if($member[0]->password != $req->current_password)
+           return false;
+
+        $member[0]->password=$req->new_password;
+        $member[0]->save();
+          return true;
+    }
+
+    public function viewOfficialSite(){
+        $member = Setting::all();
+        if(count($member) != 0)
+         $official = $member[0]->game_official_site;
+        else
+        $official = "";
+
+         return view('admin.setting.official_site', ['title'=>'Game Official Site', 'official' => $official]);
+    }
+
+    
+    public function editOfficialSite(Request $req){
+        $official = Setting::all();
+        if(count($official) != 0)
+        {
+            $official[0]->game_official_site=$req->official_site;
+            $official[0]->save();
+        }
+        else
+        {
+          $newOfficial = new Setting;
+          $newOfficial->game_official_site=$req->official_site;
+          $newOfficial->banner_images = [];
+          $newOfficial->banner_time = 0;
+          $newOfficial->save();
+        }
+        return $req;
+    }
+
+    public function viewBannerImage(){
+        $banner = Setting::all();
+
+        return view('admin.setting.banner', ['title'=>'Banner Settings', 'banner' => $banner]);
     }
 
 }

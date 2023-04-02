@@ -138,9 +138,9 @@
 					<div class="card card-flush py-4">
 						<!--begin::Card header-->
 						<div class="card-header">
-							<div class="card-title">
+							{{-- <div class="card-title">
 								<h2>General</h2>
-							</div>
+							</div> --}}
 						</div>
 						<!--end::Card header-->
 						<!--begin::Card body-->

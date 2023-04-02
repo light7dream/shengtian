@@ -6,7 +6,7 @@
 <html class="no-js" lang="en">
 @yield('header')
 <body>
-
+    
     <!--header area start-->
     @yield('topbar')
     <!--header area end-->

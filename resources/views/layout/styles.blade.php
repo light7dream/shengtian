@@ -28,6 +28,29 @@
 <!-- Main Style CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
+<style>
+.goog-te-gadget-icon {
+  display:none;
+}
+
+
+.goog-te-gadget-simple {
+    background-color: #ecebf0 !important;
+    border:0 !important;
+    font-size: 5pt;
+    font-weight:500;
+    display: inline-block;
+    padding:2px 2px !important;
+    cursor: pointer;
+    zoom: 1;
+}
+
+.goog-te-gadget-simple  span {
+   color:#3e3065 !important;
+}
+</style>
+
+
 <!--modernizr min js here-->
 <script src="{{asset('assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>
 @endsection

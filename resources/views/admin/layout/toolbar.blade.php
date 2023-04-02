@@ -49,30 +49,84 @@
                 <!--begin::Items-->
                 <div class="d-flex gap-4">
                     <!--begin::Item-->
-                    <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
-                    </div>
+                    @if(Request::url() === 'http://localhost:8000/admin/catalog/products')    
+
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products?type=4" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
+                        </div>
                     <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type=4" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
-                    </div>
-                    <!--end::Item-->
+                    @endif
+
+
+                    @if(Request::url() === 'http://localhost:8000/admin/sales/orders')    
+
+                        <div class="d-flex flex-column">
+                            <a href="/admin/sales/orders" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >Total Order</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/sales/orders?status=0" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Unprocessed</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/sales/orders?status=1" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Preparation</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/sales/orders?status=2" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Shipped</a>
+                        </div>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex flex-column">
+                            <a href="/admin/sales/orders?status=3" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Completed</a>
+                        </div>
+                        <!--end::Item-->
+                    @endif
+
+                        @if(Request::url() === 'http://localhost:8000/admin/supports/about-points' || Request::url() === 'http://localhost:8000/admin/supports/rule-clause' ||  Request::url() === 'http://localhost:8000/admin/supports/faq' || Request::url() === 'http://localhost:8000/admin/supports/online-service' )    
+
+                            <div class="d-flex flex-column">
+                                <a href="/admin/supports/about-points" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >About points</a>
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <div class="d-flex flex-column">
+                                <a href="/admin/supports/rule-clause" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Rule and Clauses</a>
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <div class="d-flex flex-column">
+                                <a href="/admin/supports/faq" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Frequently Asked</a>
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <div class="d-flex flex-column">
+                                <a href="/admin/supports/online-service" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Online Service</a>
+                            </div>
+                    @endif
                 </div>
                 <!--end::Items-->
             </div>

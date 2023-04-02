@@ -17,7 +17,7 @@
             <div class="card-toolbar">
                 <!--begin::Menu-->
                 <button id="saveData" class="btn btn-primary fw-bold fs-8 fs-lg-base">
-                    <i class="bi bi-save"></i> Save
+                    <i class="bi bi-save"></i> Edit
                 </a>
                 <!--end::Menu-->
             </div>

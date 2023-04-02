@@ -33,9 +33,6 @@
 			</a>
 			<!--end::Button-->
 			<!--begin::Button-->
-			@if($order->status==1)
-			<a href="#" class="btn btn-success btn-md me-lg-n7" id="deliver">Deliver</a>
-			@endif
 			<!--end::Button-->
 			<!--begin::Button-->
 			{{-- <a href="#" class="btn btn-primary btn-sm">Add New Order</a> --}}
@@ -246,28 +243,6 @@
 							</div>
 							<!--end::Card header-->
 							<!--begin::Card body-->
-							@if($order->status==1)
-							<div class="card-body pt-0">
-								<div class="fv-row  col-4 mb-3">
-									<!--begin::Input group-->
-									<!--begin::Label-->
-									<label class="required form-label">Sender</label>
-									<!--end::Label-->
-									<!--begin::Select2-->
-									<select class="form-select mb-2" id="sender" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" name="sender">
-										<option></option>
-										@foreach ($senders as $sender)
-											<option value="{{$sender->id}}">{{$sender->name.'	 +'.$sender->phone}}</option>
-										@endforeach
-									</select>
-									<!--end::Select2-->
-									<!--begin::Description-->
-									<div class="text-muted fs-7">Choose a sender.</div>
-									<!--end::Description-->
-									<!--end::Input group-->
-								</div>
-							</div>
-							@endif
 							<!--end::Card body-->
 						</div>
 						<!--end::Shipping address-->
@@ -391,38 +366,7 @@
 	<script src="{{asset('admin/assets/js/widgets.bundle.js')}}"></script>
 	
 	<script>
-		$('#deliver').click(function(){
-			var sender = $('#sender').val();
-			$.post('/api/deliver', {_token:'{{csrf_token()}}', id:'{{$order->id}}', sender:sender})
-			.done(function(){
-				Swal.fire({
-					text:"Form has been successfully submitted!",
-					icon:"success",
-					buttonsStyling:!1,
-					confirmButtonText:"Ok, got it!",
-					customClass:{
-						confirmButton:"btn btn-primary"
-					}
-					}).then((function(e){
-					e.isConfirmed&&(o.disabled=!1,
-						window.location=t.getAttribute("data-kt-redirect"))
-				}))
-			}).fail(function(){
-				Swal.fire({
-
-					html:"Sorry, looks like there are some errors detected, please try again. ",
-					icon:"error",
-					buttonsStyling:!1,
-					confirmButtonText:"Ok, got it!",
-					customClass:{
-
-						confirmButton:"btn btn-primary"
-
-					}
-
-				})
-			})
-		})
+		
 	</script>
 	<!--end::Custom Javascript-->
 @endsection

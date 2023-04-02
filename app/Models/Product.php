@@ -44,5 +44,16 @@ class Product extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
+
+    /**
+     * Get all of the exchangehistory for the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function exchangehistory()
+    {
+        return $this->hasMany(ExchangeHistory::class);
+    }
+
  
 }

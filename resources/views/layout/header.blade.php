@@ -9,6 +9,7 @@
 
 	@yield('styles')
 
+    
 </head>
 
 @endsection

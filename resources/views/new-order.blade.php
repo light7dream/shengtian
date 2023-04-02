@@ -49,13 +49,14 @@
                             <figcaption class="product_content">
                                 <h4 class="product_name"><a href="/product-details/{{$cart->product->id}}">{{$cart->product->name}}</a></h4>
                                 <div>
+                                    @if(!$cart->product->virtual)
                                     <span class="cart-color">
                                       {{$cart->color}}
                                     </span>
                                     <span class="cart-size">
-                                    {{$cart->size}}
-                                    
+                                        {{$cart->size}}
                                     </span>
+                                    @endif
                                     <span class="cart-num"> X{{$cart->quantity}}</span>
                                     <span class="cart-price">
                                     {{$cart->product->points*$cart->quantity}}

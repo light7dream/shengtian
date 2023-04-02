@@ -13,6 +13,9 @@ use App\Models\About;
 use App\Models\Rule;
 use App\Models\Quiz;
 use App\Models\OnlineService;
+use App\Models\ExchangeHistory;
+
+
 use DNS2D;
 use Zxing\QrReader;
 class HomeController extends Controller
@@ -275,6 +278,7 @@ class HomeController extends Controller
         $product = (object)[
             'id'=>$product_->id,
             'name'=>$product_->name,
+            'virtual'=>$product_->virtual,
             'description'=>$product_->description,
             'mainImage'=>url('/storage/uploads/catalog/products/'.$product_->id.'/main.png'),
             'colors'=>$product_->colors,
@@ -403,7 +407,7 @@ class HomeController extends Controller
         foreach($carts as $cart){
             $consump_points += $cart->quantity*$cart->product->points;
         }
-        if($consump_points>$req->session()->get('user')->bet_amount)
+        if($consump_points>$req->session()->get('user')->points)
         return back()->withErrors(['message'=>'Not enough bet amounts!']);
         $newOrder= new Order;
         $newOrder->member_id=$req->session()->get('user')->member_id;
@@ -412,13 +416,21 @@ class HomeController extends Controller
         $newOrder->recipient_address=$req->input('address');
         $newOrder->total = 0;
         $newOrder->save();
+
+
+        $exchage_history =new ExchangeHistory;
+        $exchage_history->member_id = $req->session()->get('user')->member_id;
         $status = 1;
         foreach($carts as $cart){
             $newOrderProduct = new OrderProduct;
             $newOrderProduct->product_id=$cart->product->id;
+            $exchage_history->name = $cart->product->name;
             $newOrderProduct->quantity = $cart->quantity;
+            $exchage_history->quantity = $cart->quantity;
             $newOrderProduct->color = $cart->color;
+            $exchage_history->color = $cart->color;
             $newOrderProduct->size = $cart->size;
+            $exchage_history->size = $cart->size;
             $newOrderProduct->order_id=$newOrder->id;
             $newOrderProduct->save();
             if($newOrderProduct->quantity>$newOrderProduct->product->quantity){
@@ -428,7 +440,9 @@ class HomeController extends Controller
         }
         $newOrder->status = $status;
         $newOrder->total = $consump_points;
+        $exchage_history->points = $consump_points;
         $newOrder->save();
+        $exchage_history->save();
         \Storage::disk('public')->put('uploads/orders/qrcode_'.$newOrder->id.'.png',base64_decode(DNS2D::getBarcodePNG(md5($newOrder->id.'shengtian'), "QRCODE")));
         $order_info = (object)[
             'no'=>$newOrder->id,

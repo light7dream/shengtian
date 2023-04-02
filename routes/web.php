@@ -75,6 +75,7 @@ Route::get('/admin/members/edit-member/{id}', [AdminController::class, 'viewEdit
 Route::post('/api/members/add-member', [AdminController::class, 'addMember']);
 Route::post('/api/members/edit-member', [AdminController::class, 'editMember']);
 Route::post('/api/members/delete-member', [AdminController::class, 'deleteMember']);
+Route::post('/api/members/recharge', [AdminController::class, 'recharge']);
 
 
 Route::get('/admin/sales/orders', [AdminController::class, 'viewSalesPage']);
@@ -95,6 +96,9 @@ Route::get('/admin/supports/online-service', [AdminController::class, 'viewOnlin
 Route::get('/admin/account/settings', [AdminController::class, 'viewAccountSettingsPage']);
 Route::get('/admin/account/overview', [AdminController::class, 'viewOverviewPage']);
 Route::get('/admin/account/security', [AdminController::class, 'viewSecurityPage']);
+Route::get('/admin/password/change', [AdminController::class, 'viewAdminPasswordChange']);
+Route::get('/admin/game-official-site', [AdminController::class, 'viewOfficialSite']);
+Route::get('/admin/setting/banner', [AdminController::class, 'viewBannerImage']);
 
 
 /**
@@ -123,7 +127,9 @@ Route::get('/api/support/get-all-faq',[AdminController::class, 'getAllFaq']);
 Route::post('/api/online-service/add-service',[AdminController::class, 'addOnlineService']);
 Route::post('/api/online-service/edit-service',[AdminController::class, 'editOnlineService']);
 Route::post('/api/online-service/delete-service',[AdminController::class, 'deleteOnlineService']);
+Route::post('/api/admin/edit-password', [AdminController::class, 'editPassword']);
 
+Route::post('/api/admin/edit-game-official-site', [AdminController::class, 'editOfficialSite']);
 });
 
 
@@ -133,6 +139,8 @@ Route::post('/api/online-service/delete-service',[AdminController::class, 'delet
  */
 Route::post('/api/member/login', [AuthController::class, 'login']);
 Route::post('/api/member/logout', [AuthController::class, 'logout']);
+
+
 
 /** */
 

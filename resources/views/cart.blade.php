@@ -55,6 +55,7 @@
                                 </div>
                                 <figcaption class="product_content">
                                     <h4 class="product_name"><a href="{{'/product-details/'.$cart->product->id}}">{{$cart->product->name}}</a></h4>
+                                    @if(!$cart->product->virtual)
                                     <div>
                                         <select  class="cart-color">
                                             <option>{{$cart->color}}</option>
@@ -63,6 +64,7 @@
                                             <option>{{$cart->size}}</option>
                                           </select>
                                     </div>
+                                    @endif
                                     <div class="price_box" > 
                                         <span class="current_price">
                                            {{$cart->product->points.'积分'}}

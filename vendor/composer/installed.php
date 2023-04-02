@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6a60f8ef3b0486a84628a52882b14d7066a6e9dd',
+        'reference' => '68fbfbe214d0a7a58e914b0986537767c4fbc0f8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -391,7 +391,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6a60f8ef3b0486a84628a52882b14d7066a6e9dd',
+            'reference' => '68fbfbe214d0a7a58e914b0986537767c4fbc0f8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -973,6 +973,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-ignition',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'stichoza/google-translate-php' => array(
+            'pretty_version' => 'v5.1.1',
+            'version' => '5.1.1.0',
+            'reference' => '7f528ab7e8dad78d0cfa261e4a4cac1b187f63df',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stichoza/google-translate-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'symfony/console' => array(
             'pretty_version' => 'v6.2.7',

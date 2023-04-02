@@ -55,6 +55,7 @@
                         </div>
                         <div class="single-zoom-thumb">
                             <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
+                                @if(!$product->virtual)
                                 @foreach ($product->subImages as $subImage)
                                 <li>
                                     <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{asset($subImage)}}" data-zoom-image="{{asset($subImage)}}">
@@ -62,8 +63,8 @@
                                     </a>
 
                                 </li>
-                                    
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -72,14 +73,15 @@
                     <div class="product_d_right">
                        <form action="/api/add-cart" method="POST" id="my_form"> 
                         @csrf
+                        <input type="hidden" name="virtual" value="{{$product->virtual}}" />
                         <input type="hidden" value="{{$product->id}}" name="id">
                             <h1><a href="#">{{$product->name}}</a></h1>
-                            <div class="product_nav">
+                            {{-- <div class="product_nav">
                                 <ul>
                                     <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                     <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                           
                             <div class="price_box">
                                 <span class="current_price">{{$product->price}}</span>
@@ -89,12 +91,7 @@
                             <div class="product_desc">
                                 <p>{{$product->description}}</p>
                             </div>
-                            {{-- <style> 
-                                .product_variant ul li {display: inline-block; border: 1px solid #ccc; padding: '3px'; margin: 2px;transition: all 0.1s ease 0s;cursor: pointer;} 
-                                .product_variant ul li span {display: block;} 
-                                .product_variant ul li input{display: none;}
-                                .product_variant ul li span:hover{background-color: rgba(0,0,0,0.6);}
-                            </style> --}}
+                            @if(!$product->virtual)
                             <div class="product_variant color" id="product_color">
                                 <label>颜色</label>
                                 <ul>
@@ -103,9 +100,8 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            
                             <div class="product_variant size">
-                                <label>size</label>
+                                <label>尺寸</label>
                                 <select class="select_option" name="size" id='size'>
                                     {{-- <option value="" selected> 尺寸</option>   --}}
                                     @foreach ($product->sizes as $key=> $size)
@@ -113,6 +109,7 @@
                                     @endforeach      
                                 </select>   
                             </div>
+                            @endif
                             <div class="product_variant quantity">
                                 <label>数量</label>
                                 <input min="1" max="100" value="1" type="number" name="quantity" id='qty'>
@@ -176,8 +173,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <img src="{{asset('/assets/img/product/product1.jpg')}}" alt="">
-                                    <img src="{{asset('/assets/img/product/product2.jpg')}}" alt="">
+                                    {{-- <img src="{{asset('/assets/img/product/product1.jpg')}}" alt=""> --}}
+                                    {{-- <img src="{{asset('/assets/img/product/product2.jpg')}}" alt=""> --}}
 
                                 </div>    
                             </div>

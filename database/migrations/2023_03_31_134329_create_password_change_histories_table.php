@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->string('last_password');
             $table->string('current_password');
-            $table->date('change_date');
             $table->timestamps();
         });
     }

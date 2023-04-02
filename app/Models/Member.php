@@ -15,7 +15,7 @@ class Member extends Model
     ];
     public function reacharge_histories()
     {
-        return $this->hasMany(Reacharge_histori::class);
+        return $this->hasMany(ReachargeHistory::class);
     }
 
     public function orders()
@@ -25,12 +25,12 @@ class Member extends Model
 
     public function password_change_histories()
     {
-        return $this->hasMany(Password_change_history::class);
+        return $this->hasMany(PasswordChangeHistory::class);
     }
 
     public function exchange_histories()
     {
-        return $this->hasMany(Exchange_history::class);
+        return $this->hasMany(ExchangeHistory::class);
     }
 
     public function carts()

@@ -80,13 +80,30 @@
 									{{-- <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_sales_table .form-check-input" value="1" /> --}}
 								</div>
 							</th>
-							<th class="min-w-100px">Order ID</th>
-							<th class="min-w-175px">Customer</th>
+							{{-- <th class="min-w-100px">Order ID</th>
+							<th class="min-w-175px">Redemption Date</th>
+							<th class="text-end min-w-70px">Exchange items</th>
+							<th class="text-end min-w-70px">color</th>
+							<th class="text-end min-w-70px">Specification</th>
+							<th class="text-end min-w-100px">Use Points</th>
+							<th class="text-end min-w-100px">Remaining Points</th>
+							<th class="text-end min-w-100px">Address</th>
+							<th class="text-end min-w-100px">Telephone</th>
+							<th class="text-end min-w-100px">Recipient</th>
 							<th class="text-end min-w-70px">Status</th>
-							<th class="text-end min-w-100px">Total</th>
-							<th class="text-end min-w-100px">Date Added</th>
-							<th class="text-end min-w-100px">Date Modified</th>
-							<th class="text-end min-w-100px">Actions</th>
+							<th class="text-end min-w-100px">Processing Orders</th> --}}
+
+							<th>Order ID</th>
+							<th>Redemption Date</th>
+							<th class="text-end">Exchange items</th>
+							<th class="text-end">color</th>
+							<th class="text-end">Use Points</th>
+							<th class="text-end">Remaining Points</th>
+							<th class="text-end">Address</th>
+							<th class="text-end">Telephone</th>
+							<th class="text-end">Recipient</th>
+							<th class="text-end">Status</th>
+							<th class="text-end">Processing Orders</th>
 						</tr>
 						<!--end::Table row-->
 					</thead>
@@ -95,7 +112,7 @@
 					<tbody class="fw-semibold text-gray-600">
 						<!--begin::Table row-->
 						@foreach ($orders as $order)
-							@if($order->status == $status)
+						    @if($status =="")
 								<tr data-id="{{$order->id}}" >
 									<!--begin::Checkbox-->
 									<td>
@@ -108,29 +125,32 @@
 									<td data-kt-ecommerce-order-filter="order_id">
 										<a href="/admin/sales/details/{{$order->id}}" class="text-gray-800 text-hover-primary fw-bold">#{{$order->id}}</a>
 									</td>
-									<!--end::Order ID=-->
-									<!--begin::Customer=-->
+									<td data-order="{{$order->updated_at}}">
+										<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
+									</td>								
+								@foreach ($order->order_products as $order_product)
 									<td>
-										<div class="d-flex align-items-center">
-											{{-- <!--begin:: Avatar -->
-											<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-												<a href="../../demo1/dist/apps/user-management/users/view.html">
-													<div class="symbol-label">
-														<img src="{{asset('admin/assets/media/avatars/300-12.jpg')}}" alt="Ana Crown" class="w-100" />
-													</div>
-												</a>
-											</div>
-											<!--end::Avatar--> --}}
-											<div class="ms-5">
-												<!--begin::Title-->
-												<a href="#" class="text-gray-800 text-hover-primary fs-5 fw-bold">{{$order->recipient_name}}</a>
-												<span class="d-flex fs-9">{{$order->recipient_tel}}, {{$order->recipient_address}}</span>
-												<!--end::Title-->
-											</div>
-										</div>
+										{{$order_product->product->name}},
 									</td>
-									<!--end::Customer=-->
-									<!--begin::Status=-->
+									<td>
+										{{$order_product->color}},
+									</td>
+								@endforeach
+									<td class="text-end">
+										{{$order->total}}
+									</td>
+									<td class="text-end">
+										{{$order->member->points - $order->member->used_points - $order->total}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_address}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_tel}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_name}}
+									</td>								
 									<td class="text-end pe-0" data-order="">
 										<!--begin::Badges-->
 										@if($order->status==0)
@@ -144,49 +164,116 @@
 										@endif
 										<!--end::Badges-->
 									</td>
-									<!--end::Status=-->
-									<!--begin::Total=-->
-									<td class="text-end pe-0">
-										<span class="fw-bold">${{$order->total}}</span>
-									</td>
-									<!--end::Total=-->
-									<!--begin::Date Added=-->
-									<td class="text-end" data-order="{{$order->created_at}}">
-										<span class="fw-bold">{{explode(' ', $order->created_at)[0]}}</span>
-									</td>
-									<!--end::Date Added=-->
-									<!--begin::Date Modified=-->
-									<td class="text-end" data-order="{{$order->updated_at}}">
-										<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
-									</td>
-									<!--end::Date Modified=-->
-									<!--begin::Action=-->
 									<td class="text-end">
-										<a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-										<!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
-										<span class="svg-icon svg-icon-5 m-0">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
-											</svg>
-										</span>
-										<!--end::Svg Icon--></a>
-										<!--begin::Menu-->
-										<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="/admin/sales/details/{{$order->id}}" class="menu-link px-3">View</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											{{-- <div class="menu-item px-3">
-												<a href="/admin/sales/edit-order/{{$order->id}}" class="menu-link px-3">Edit</a>
-											</div> --}}
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="#" class="menu-link px-3" data-kt-ecommerce-order-filter="delete_row">Delete</a>
-											</div>
-											<!--end::Menu item-->
+										<div style="display: flex">
+										<select class="btn btn-sm btn-light" class="status">
+											@if($order->status==0)
+												<option value="0" selected>Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3">Completed</option>
+											@elseif($order->status==1)
+												<option value="0">Unprocessed</option>
+												<option value="1" selected>Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3">Completed</option>
+											@elseif($order->status==2)
+												<option value="0">Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2" selected>Shipped</option>
+												<option value="3">Completed</option>
+											@else
+												<option value="0">Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3" selected>Completed</option>
+											@endif
+										</select>
+										<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
+										</div>
+										<!--end::Menu-->
+									</td>
+									<!--end::Action=-->
+								</tr>
+							@endif
+							@if($order->status == $status)
+								<tr data-id="{{$order->id}}" >
+									<!--begin::Checkbox-->
+									<td>
+										<div class="form-check form-check-sm form-check-custom form-check-solid">
+											{{-- <input class="form-check-input" type="checkbox" value="1" /> --}}
+										</div>
+									</td>
+									<!--end::Checkbox-->
+									<!--begin::Order ID=-->
+									<td data-kt-ecommerce-order-filter="order_id">
+										<a href="/admin/sales/details/{{$order->id}}" class="text-gray-800 text-hover-primary fw-bold">#{{$order->id}}</a>
+									</td>
+									<td data-order="{{$order->updated_at}}">
+										<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
+									</td>								
+								@foreach ($order->order_products as $order_product)
+									<td>
+										{{$order_product->product->name}},
+									</td>
+									<td>
+										{{$order_product->color}},
+									</td>
+								@endforeach
+									<td class="text-end">
+										{{$order->total}}
+									</td>
+									<td class="text-end">
+										{{$order->member->points - $order->member->used_points - $order->total}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_address}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_tel}}
+									</td>	
+									<td class="text-end">
+										{{$order->recipient_name}}
+									</td>								
+									<td class="text-end pe-0" data-order="">
+										<!--begin::Badges-->
+										@if($order->status==0)
+										<div class="badge badge-light-danger">Unprocessed</div>
+										@elseif($order->status==1)
+										<div class="badge badge-light-warning">Preparation</div>
+										@elseif($order->status==2)
+										<div class="badge badge-light-info">Shipped</div>
+										@else
+										<div class="badge badge-light-success">Completed</div>
+										@endif
+										<!--end::Badges-->
+									</td>
+									<td class="text-end">
+										<div style="display: flex">
+										<select class="btn btn-sm btn-light" class="status">
+											@if($order->status==0)
+												<option value="0" selected>Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3">Completed</option>
+											@elseif($order->status==1)
+												<option value="0">Unprocessed</option>
+												<option value="1" selected>Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3">Completed</option>
+											@elseif($order->status==2)
+											    <option value="0">Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2" selected>Shipped</option>
+												<option value="3">Completed</option>
+											@else
+											    <option value="0">Unprocessed</option>
+												<option value="1">Preparation</option>
+												<option value="2">Shipped</option>
+												<option value="3" selected>Completed</option>
+											@endif
+										</select>
+										<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
 										</div>
 										<!--end::Menu-->
 									</td>
@@ -209,18 +296,9 @@
 
 @section('scripts')
 @parent
-	<!--begin::Vendors Javascript(used for this page only)-->
 	<script src="{{asset('admin/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-	<!--end::Vendors Javascript-->
-	<!--begin::Custom Javascript(used for this page only)-->
-	{{-- <script src="{{asset('admin/assets/js/custom/apps/ecommerce/sales/listing.js')}}"></script> --}}
 	<script src="{{asset('admin/assets/js/widgets.bundle.js')}}"></script>
 	<script src="{{asset('admin/assets/js/custom/widgets.js')}}"></script>
-	{{-- <script src="{{asset('admin/assets/js/custom/apps/chat/chat.js')}}"></script> --}}
-	{{-- <script src="{{asset('admin/assets/js/custom/utilities/modals/upgrade-plan.js')}}"></script> --}}
-	{{-- <script src="{{asset('admin/assets/js/custom/utilities/modals/create-app.js')}}"></script> --}}
-	{{-- <script src="{{asset('admin/assets/js/custom/utilities/modals/users-search.js')}}"></script> --}}
-	<!--end::Custom Javascript-->
 	<script>
 		"use strict";
 var KTAppEcommerceSalesListing=function(){
@@ -254,6 +332,42 @@ var KTAppEcommerceSalesListing=function(){
 								confirmButton:"btn fw-bold btn-primary"
 							}
 						})
+					}))
+				})
+				.fail(function(){
+					Swal.fire({
+						html:"Sorry, looks like there are some errors detected, please try again.",
+						icon:"error",
+						buttonsStyling:!1,
+						confirmButtonText:"Ok, got it!",
+						customClass:{
+							confirmButton:"btn btn-primary"
+						}
+					})
+				})
+				
+			}))
+		}));
+
+
+		e.querySelectorAll('[name = "change_status_button"]').forEach((e=>{
+			e.addEventListener("click",(function(e){
+				e.preventDefault();
+				const n=e.target.closest("tr"),
+				id=$(n).attr('data-id');
+				status = $(n).find("td:last-child").find("select").val();
+				$.post('/api/edit-order', {_token: '{{csrf_token()}}', id: id, status : status})
+				.done(function(){
+					Swal.fire({
+						text:"Status has been successfully changed!",
+						icon:"success",
+						buttonsStyling:!1,
+						confirmButtonText:"Ok, got it!",
+						customClass:{
+						confirmButton:"btn btn-primary"
+						}
+					}).then((function(){
+						window.location='/admin/sales/orders'
 					}))
 				})
 				.fail(function(){

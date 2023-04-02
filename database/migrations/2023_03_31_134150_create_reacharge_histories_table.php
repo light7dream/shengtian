@@ -16,7 +16,6 @@ return new class extends Migration
             $table->bigInteger('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->integer('charge_points');
-            $table->date('charge_date');
             $table->timestamps();
         });
     }

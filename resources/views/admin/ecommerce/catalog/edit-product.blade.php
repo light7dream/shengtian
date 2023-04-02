@@ -2,7 +2,7 @@
 @section('styles')
 @parent
 <link href="{{asset('admin/assets/css/jquery-minicolors.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('admin/assets/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/css/color-picker.min.css')}}" rel="stylesheet" type="text/css" />
 
 @endsection
 @section('content')
@@ -807,7 +807,7 @@
 	if(Number({{$product->virtual}})){
 		$('#details').hide();
 		$('#preview').hide();
-		$('#virtual').checked=true;
+		$('#virtual').attr('checked','"checked"');
 	}
 	$('#virtual').change(function(){
 		if(this.checked){
