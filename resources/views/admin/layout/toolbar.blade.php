@@ -49,32 +49,16 @@
                 <!--begin::Items-->
                 <div class="d-flex gap-4">
                     <!--begin::Item-->
-                    @if(Request::url() === 'http://localhost:8000/admin/catalog/products')    
-
-                        <div class="d-flex flex-column">
-                            <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="d-flex flex-column">
-                            <a href="/admin/catalog/products?type=1" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Digital Goods</a>
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="d-flex flex-column">
-                            <a href="/admin/catalog/products?type=2" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Bonus Exchage Goods</a>
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="d-flex flex-column">
-                            <a href="/admin/catalog/products?type=3" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Lifestyle</a>
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="d-flex flex-column">
-                            <a href="/admin/catalog/products?type=4" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Luxury goods</a>
-                        </div>
-                    <!--end::Item-->
+                    @if(Request::url() === 'http://localhost:8000/admin/catalog/products')   
+                    <div class="d-flex flex-column">
+                        <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
+                    </div> 
+                      @foreach($categories as $category)
+                      <div class="d-flex flex-column">
+                        <a href="/admin/catalog/products?type={{$category->id}}" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >{{$category->name}}</a>
+                    </div>
+                      @endforeach
+                        
                     @endif
 
 

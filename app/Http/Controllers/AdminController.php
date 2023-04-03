@@ -21,8 +21,9 @@ use Image;
 class AdminController extends Controller
 {
     public function index(){
-           
-        return view('admin.index', ['title'=>'Dashboard']);
+        $categories = Category::all();
+
+         return view('admin.index', ['title'=>'Dashboard', 'categories' => $categories]);
     }
 
     public function viewProductsPage(Request $req){
@@ -47,9 +48,11 @@ class AdminController extends Controller
                 $products = [];
             }
         }
+        $categories = Category::all();
         return view('admin.ecommerce.catalog.products', [
             'title'=>$title,
-            'products'=>$products
+            'products'=>$products,
+            'categories' => $categories
         ]);
     }
 
