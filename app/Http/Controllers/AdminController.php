@@ -429,7 +429,7 @@ class AdminController extends Controller
             $product->description=$req->input('product_description');
             $product->points=$req->input('product_price');
             $product->quantity=$req->input('product_quantity');
-            $newProduct->virtual=$req->input('virtual');
+            $product->virtual=$req->input('virtual');
             $product->category_id=$req->input('product_category');
             $sizes = array_filter($req->input('product_sizes'), function($k){
                 return $k!=null;

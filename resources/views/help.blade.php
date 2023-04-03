@@ -116,11 +116,11 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-12">
+                            <!-- <div class="col-lg-6 col-md-12">
                                 <center>
                                     <button type="button" class="btn btn-primary" style="background-color: #35a2f8;color: aliceblue;margin: 30px auto;">开始咨询</button>
                                 </center>
-                            </div>
+                            </div> -->
                             
                         </div>
                         
