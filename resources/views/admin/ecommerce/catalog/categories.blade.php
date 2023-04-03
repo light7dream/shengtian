@@ -26,7 +26,7 @@
 				<!--begin::Card toolbar-->
 				<div class="card-toolbar">
 					<!--begin::Add customer-->
-					<a href="/admin/catalog/add-category" class="btn btn-primary">Add Category</a>
+					{{-- <a href="/admin/catalog/add-category" class="btn btn-primary">Add Category</a> --}}
 					<!--end::Add customer-->
 				</div>
 				<!--end::Card toolbar-->

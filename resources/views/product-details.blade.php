@@ -136,7 +136,7 @@
                                     <a class="active" data-toggle="tab" href="#cpsm" role="tab" aria-controls="cpsm" aria-selected="false">产品说明</a>
                                 </li>
                               
-                                <li>
+                                {{-- <li>
                                    <a data-toggle="tab" href="#dhjl" role="tab" aria-controls="dhjl" aria-selected="false">兑换记录</a>
                                 </li>
                                 <li>
@@ -150,7 +150,7 @@
                                  </li>
                                  <li>
                                     <a data-toggle="tab" href="#zxkf" role="tab" aria-controls="zxkf" aria-selected="false">在线客服</a>
-                                 </li>
+                                 </li> --}}
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -178,7 +178,7 @@
 
                                 </div>    
                             </div>
-                            <div class="tab-pane fade" id="dhjl" role="tabpanel" >
+                            {{-- <div class="tab-pane fade" id="dhjl" role="tabpanel" >
                                 <div class="cart-list">
                                     <div class="shop_sidebar_product">
                                         @foreach ($exchange_records as $product)
@@ -299,7 +299,7 @@
                                     </center>
                                     
                                 </div>
-                            </div>
+                            </div> --}}
 
                             
                         </div>

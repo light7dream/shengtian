@@ -49,7 +49,7 @@
                 <!--begin::Items-->
                 <div class="d-flex gap-4">
                     <!--begin::Item-->
-                    @if(Request::url() === 'http://localhost:8000/admin/catalog/products')   
+                    @if(Request::is('admin/catalog/products'))   
                     <div class="d-flex flex-column">
                         <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
                     </div> 
@@ -62,7 +62,7 @@
                     @endif
 
 
-                    @if(Request::url() === 'http://localhost:8000/admin/sales/orders')    
+                    @if(Request::is('admin/sales/orders'))    
 
                         <div class="d-flex flex-column">
                             <a href="/admin/sales/orders" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >Total Order</a>
@@ -90,7 +90,7 @@
                         <!--end::Item-->
                     @endif
 
-                        @if(Request::url() === 'http://localhost:8000/admin/supports/about-points' || Request::url() === 'http://localhost:8000/admin/supports/rule-clause' ||  Request::url() === 'http://localhost:8000/admin/supports/faq' || Request::url() === 'http://localhost:8000/admin/supports/online-service' )    
+                        @if(Request::is('admin/supports/about-points') || Request::is('admin/supports/rule-clause') ||  Request::is('admin/supports/faq') || Request::is('admin/supports/online-service') )    
 
                             <div class="d-flex flex-column">
                                 <a href="/admin/supports/about-points" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >About points</a>

@@ -54,7 +54,7 @@ Route::get('/admin/catalog/products', [AdminController::class, 'viewProductsPage
 Route::get('/admin/catalog/add-product', [AdminController::class, 'viewAddProductPage']);
 Route::get('/admin/catalog/edit-product/{id}', [AdminController::class, 'viewEditProductPage']);
 Route::get('/admin/catalog/categories', [AdminController::class, 'viewCategoriesPage']);
-Route::get('/admin/catalog/add-category', [AdminController::class, 'viewAddCategoryPage']);
+// Route::get('/admin/catalog/add-category', [AdminController::class, 'viewAddCategoryPage']);
 Route::get('/admin/catalog/edit-category/{id}', [AdminController::class, 'viewEditCategoryPage']);
 
 Route::get('/admin/reports', [AdminController::class, 'viewReportsPage']);
