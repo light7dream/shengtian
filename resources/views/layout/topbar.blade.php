@@ -119,15 +119,29 @@
                         </div>
 
                         <div class="offcanvas_footer">
-                            <ul>
-                                <li class="facebook"><a href="#">En</a></li>
-                                <li class="twitter"><a href="#">简</a></li>
-                                <li class="pinterest"><a href="#">繁</a></li>
-                            
-                            </ul>
+                                <style>
+                                .goog-te-menu-frame,.goog-te-balloon-frame{
+                                    box-shadow:none!important
+                                    }
+                                .goog-te-gadget-simple{
+                                    background-color:transparent;
+                                    border:2px solid #eee;
+                                    border-radius:5px;
+                                    padding:5px 10px;
+                                    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+                                    font-size:0;
+                                    }
+                                    .goog-te-gadget-icon{
+                                        display: none;
+                                    }
+                                </style>
+
+                                <div class='d-flex m-10 text-center' style="height: 40px">
+                                    <div id="google_translate_element0" style="margin:auto" ></div>
+                                </div>
                             <div class="cart_button mt-30">
                                 @if (Session::has('user'))
-                                    <form action="/api/customer/logout" method="post">
+                                    <form action="/api/member/logout" method="post">
                                         @csrf
                                     <a href="#" class="signout"><i class="fa fa-sign-out"></i> 退出登录</a>
                                     </form>
