@@ -57,8 +57,8 @@
                         
                        
                         <div class="niceselect__option"  >
-                            <form class="select___option" action="#">
-                                <select name="orderby" id="mySort">
+                            <form class="" action="#">
+                                <select name="orderby" class="form-control" id="mySort">
                                     <option  value="1">按热度</option>
                                     <option  value="2">按价格</option>
                                     <option value="3">按时间</option>
