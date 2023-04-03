@@ -20,7 +20,7 @@
                         <p>订单号：{{$order_info->no}}</p>
                         <p>消耗积分：{{$order_info->consumption_points}}</p>
                         <p>您的余额：{{$order_info->your_balance}}</p>
-                        <img src="{{url('storage/uploads/orders/qrcode_'.$order_info->no.'.png')}}" />
+                        <a href="{{url('storage/uploads/orders/qrcode_'.$order_info->no.'.png')}}" download><img src="{{url('storage/uploads/orders/qrcode_'.$order_info->no.'.png')}}" /></a>
                         <div class="mt-30">
                             <a href="/mine?type=3" class="btn btn-dark" role="button">查看订单</a>
                             <a href="/" class="btn btn-info" role="button">继续购买</a>

@@ -167,7 +167,7 @@
 								</tr>
 								<tr>
 									<td>
-										<img width="100" class="align-items-center" src="{{url('/storage/uploads/orders/qrcode_'.$order->id.'.png')}}">
+										<a href="{{url('/storage/uploads/orders/qrcode_'.$order->id.'.png')}}" download><img width="100" class="align-items-center" src="{{url('/storage/uploads/orders/qrcode_'.$order->id.'.png')}}"></a>
 									</td>
 								</tr>
 								<!--end::Invoice-->

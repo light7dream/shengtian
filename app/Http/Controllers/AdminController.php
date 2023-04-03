@@ -860,10 +860,25 @@ class AdminController extends Controller
                 mkdir($destinationPath, 0777, true);
             foreach($images as $key=>$image)
             {
-                $imgFile = Image::make($image->getRealPath());
-                $imgFile->resize(1920, 480, function ($constraint) {
-                $constraint->aspectRatio();
-                })->save($destinationPath.''.($key).'.png');
+                if($image){
+                    
+                    $imgFile = Image::make($image->getRealPath());
+                    $imgFile->resize(1920, 480, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath.''.($key).'.png');
+                }else{
+                    $banners = $setting->banner_images;
+                    foreach($banners as$key =>  $banner){
+                        if($banner==$key){
+                            unset($banners[$key]);
+                            break;
+                        }
+                    }
+                    $setting->banner_images = $banners;
+                    $setting->save();
+                    if(file_exists($destinationPath.''.($key).'.png'))
+                    unlink(file_exists($destinationPath.''.($key).'.png'));
+                }
             }
         }
         return back();
@@ -879,6 +894,7 @@ class AdminController extends Controller
         foreach($banners as$key =>  $banner){
             if($banner==$req->id){
                 unset($banners[$key]);
+                break;
             }
         }
         $setting->banner_images = $banners;
