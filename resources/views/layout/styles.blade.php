@@ -48,6 +48,23 @@
 .goog-te-gadget-simple  span {
    color:#3e3065 !important;
 }
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 </style>
 
 
