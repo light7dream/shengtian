@@ -103,7 +103,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content dashboard_content">
                         <div class="tab-pane fade show" id="mine1">
-                            <h3>Alodn235</h3>
+                            <h3>{{Session::get('user')->user_name}}</h3>
 
                             <div style="text-align: center;width: 100%!important;">
                                 <div class="alert alert-primary col-6 col-lg-3 fl" role="alert" >
@@ -167,34 +167,13 @@
                             <h3>积分明细</h3>
                             <div>
                                 <div>
-                                    <div class="fl mr-20">总积分 483,548,000</div>
-                                    <div class="fl mr-20">已消耗 4,548,000</div>
+                                    <div class="fl mr-20">总积分 {{$personal_info->total_points}}</div>
+                                    <div class="fl mr-20">已消耗 {{$personal_info->used_points}}</div>
 
-                                    <div class="fl mr-20">剩余 28,500</div>
+                                    <div class="fl mr-20">剩余 {{$personal_info->remaining_points}}</div>
 
                                 </div>
                                 <br>
-
-                                    
-                            
-                                <select class="form-control" style="width: 65px;font-size: 15px;padding: 2px 3px;float: right;margin-bottom: 5px;margin-left: 5px;">
-                                    <option>全部</option>
-                                    <option>收入</option>
-                                    <option>支出</option>
-                                    </select>
-                                    <select class="form-control" style="width: 65px;font-size: 15px;padding: 2px 3px;float: right;margin-bottom: 5px;margin-left: 5px;">
-                                    <option>时间</option>
-                                    <option>2023.1</option>
-                                    <option>2023.2</option>
-                                    <option>2023.3</option>
-
-
-                                    
-                                    </select>
-                            
-                                
-                                
-                                
                             </div>
                             
                             <table class="table">
@@ -208,32 +187,18 @@
                                     @foreach ($point_details->records as $record)
                                     <tr>
                                         <td>
-                                            {{$record->content}}
+                                            {{$record->name}}
                                             <div class="jf-time">
-                                                {{$record->date}}
+                                                {{$record->created_at}}
                                             </div>
                                         </td>
-                                        @if($record->points>=0)
-                                        <td class="jf-plus">+{{$record->points}}</td>
-                                        @else
-                                        <td class="jf-minus">-{{$record->points}}</td>
-                                        @endif
+                                        <td class="jf-plus">-{{$record->points}}</td>
+                                       
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                                <!--shop toolbar end-->
-                                <div class="shop_toolbar t_bottom">
-                                <div class="pagination">
-                                    <ul>
-                                        <li class="current">1</li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li class="next"><a href="#">next</a></li>
-                                        <li><a href="#">>></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                               
                             <!--shop wrapper end-->
                             
                         </div>

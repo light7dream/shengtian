@@ -29,6 +29,7 @@ Route::post('/api/identify-by-qrcode', [HomeController::class, 'identifyByQRCode
 
 Route::middleware(['member'])->group(function () {
     Route::get('/login', [HomeController::class, 'viewLoginPage']);
+    Route::get('/register', [HomeController::class, 'viewRegisterPage']);
     Route::get('/cart', [HomeController::class, 'viewCartPage']);
     Route::get('/mine', [HomeController::class, 'viewMinePage']);
     Route::get('/new-order', [HomeController::class, 'viewNewOrderPage']);
@@ -144,6 +145,7 @@ Route::post('/api/setting/delete-banner', [AdminController::class, 'deleteBanner
  */
 Route::post('/api/member/login', [AuthController::class, 'login']);
 Route::post('/api/member/logout', [AuthController::class, 'logout']);
+Route::post('/api/member/register', [AuthController::class, 'register']);
 
 
 

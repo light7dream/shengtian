@@ -133,6 +133,7 @@
                                     </form>
                                     @else
                                     <a href="/login"><i class="fa fa-sign-in"></i> 登入</a>
+                                    <a href="/register"><i class="fa fa-sign-in"></i> 登记</a>
                                     <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a>
                                 @endif
                             </div>
@@ -224,6 +225,7 @@
                                                     </form>
                                                     @else
                                                     <a href="/login"><i class="fa fa-sign-in"></i> 登入</a>
+                                                    <a href="/register"><i class="fa fa-sign-in"></i> 登记</a>
                                                     <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a>
                                                      @endif
                                                  </div>
@@ -231,33 +233,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                {{-- <div class="header_account-list top_links">
-                                    <a href="javascript:void(0)"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a>
-                                    <div class="dropdown_links" style="width: 150px">
-                                        
-                                        <div id="google_translate_element" class="dropdown_links_list" >
-                                            <h3> 简体中文</h3>
-                                            <ul>
-                                                <li><a href="#"> English</a></li>
-                                                <li><a href="#">  繁體中文</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <style>
-                                    
-    .goog-te-menu-frame,.goog-te-balloon-frame{
-    box-shadow:none!important
-    }
-  .goog-te-gadget-simple{
-    background-color:transparent;
-    border:2px solid #eee;
-    border-radius:5px;
-    padding:5px 10px;
-    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
-    font-size:0;
-    }
+                                .goog-te-menu-frame,.goog-te-balloon-frame{
+                                    box-shadow:none!important
+                                    }
+                                .goog-te-gadget-simple{
+                                    background-color:transparent;
+                                    border:2px solid #eee;
+                                    border-radius:5px;
+                                    padding:5px 10px;
+                                    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+                                    font-size:0;
+                                    }
+                                    .goog-te-gadget-icon{
+                                        display: none;
+                                    }
                                 </style>
 
                                 <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px">

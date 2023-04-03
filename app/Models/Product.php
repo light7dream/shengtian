@@ -13,7 +13,9 @@ class Product extends Model
         'colors' => 'array', 
         'sizes' => 'array', 
     ];
-    
+    protected $attributes = [
+        'virtual'=>0
+    ];
     /**
      * Get the category that owns the Product
      *

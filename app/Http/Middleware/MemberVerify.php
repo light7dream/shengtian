@@ -18,17 +18,20 @@ class MemberVerify
         if(!$request->session()->has('user'))
         {
             if($request->session()->has('qrcode')){
-                $keys = ['invoices', 'login'];
+                $keys = ['invoices', 'login', 'register'];
                 $key = explode('/', $request->path())[0];
                 if(!in_array($key, $keys, true)){
                     return redirect('/login');
                 }
             }else{
-                if($request->path()!='login')
+                $keys = ['login', 'register'];
+                $key = explode('/', $request->path())[0];
+                if(!in_array($key, $keys, true)){
                     return redirect('/login');
+                }
             }
         }
-        if($request->path()=='login' && $request->session()->has('user')){
+        if(($request->path()=='login' ||$request->path()=='register') && $request->session()->has('user')){
             return redirect('/');
         }
         return $next($request);

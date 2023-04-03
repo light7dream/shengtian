@@ -56,9 +56,9 @@
                         </div>
                         
                        
-                        <div class=" niceselect_option"  >
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short" >
+                        <div class="niceselect__option"  >
+                            <form class="select___option" action="#">
+                                <select name="orderby" id="mySort">
                                     <option  value="1">按热度</option>
                                     <option  value="2">按价格</option>
                                     <option value="3">按时间</option>
@@ -133,6 +133,29 @@
   
 @section('scripts')
 @parent
+
+<script>
+
+        $('#mySort').change(function(e){
+            var val = Number($(this).val().trim());
+            var url = location.href.split('&')[0];
+            console.log(val)
+            switch(val){
+                case 1:
+                    location.href = url + '&filter=0';
+                    break;
+                case 2:
+                    location.href = url + '&filter=1';
+                    break;
+                case 3:
+                    location.href = url + '&filter=2';
+                    break;
+                default:
+                    location.href = url;
+                    break;
+            }
+        })
+    </script>
 <script>
     $(".p-type .lab").click(function () {
            $(this).addClass("on").siblings().removeClass("on");
@@ -165,11 +188,7 @@
         {
             $("#type0").addClass("on");
         }
-      
-        
-        
-            
-        
+   
     }
 </script>
 @endsection

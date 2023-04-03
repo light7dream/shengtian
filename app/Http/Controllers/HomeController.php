@@ -16,6 +16,7 @@ use App\Models\Setting;
 use App\Models\Member;
 use App\Models\OnlineService;
 use App\Models\ExchangeHistory;
+use App\Models\ReachargeHistory;
 
 
 use DNS2D;
@@ -162,27 +163,41 @@ class HomeController extends Controller
                 $used_points+=$order->total;
             }
         }     
+        
+        $yesterday = date('Y-m-d',strtotime("-1 days"));
+        $month = date('Y-m');
+        $last_month = date('Y-m',strtotime("-1 month"));
+        $member = Member::find($req->session()->get('user')->member_id);
+        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->get();
+        $charge_hisotries = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->get();
+        $yesterday_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$yesterday.'%')->get();
+        $obtained_yesterday_points = 0;
+        foreach($yesterday_histories as $yh){
+        $obtained_yesterday_points += $yh->charge_points;
+        }
+        $accumulated_points_permonth =0;
+
+        $month_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$month.'%')->get();
+        foreach($month_histories as $mh){
+            $accumulated_points_permonth = $mh->charge_points;
+        }
         $personal_info = (object)[
-            'obtained_yesterday_points'=>8586,
-            'accumulated_points_permonth'=>186200,
-            'total_points'=>84863000,
-            'used_points'=>29384,
-            'remaining_points'=>498294293,
+            'obtained_yesterday_points'=>$obtained_yesterday_points,
+            'accumulated_points_permonth'=>$accumulated_points_permonth,
+            'total_points'=>$member->points,
+            'used_points'=>$member->used_points,
+            'remaining_points'=>$member->points-$member->used_points,
             'exchanged_goods' => [
-                (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
+                // (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
+                // (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
             ]
         ];
             
         $point_details = (object)[
-            'total_points'=>434521231,
-            'consumed_points'=>23512432352,
-            'remaining_points'=>2412342,
-            'records'=>[
-                (object)['content'=>'捕鱼达人大满贯','date'=>'2023.1.19 22:45','points'=>129382],
-                (object)['content'=>'捕鱼达人大满贯','date'=>'2023.1.19 22:45','points'=>129382],
-                (object)['content'=>'捕鱼达人大满贯','date'=>'2023.1.19 22:45','points'=>129382],
-            ]
+            'total_points'=>$member->points,
+            'consumed_points'=>$member->used_points,
+            'remaining_points'=>$member->points-$member->used_points,
+            'records'=>$exchanged_goods
         ];
 
         $my_orders = [
@@ -390,10 +405,41 @@ class HomeController extends Controller
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts=[];
+        $products = [];
+        $filter = $req->input('filter');
         if($req->input('type'))
-        $products = Product::where('category_id', $req->input('type'))->paginate(8);
-        else
-        $products = Product::paginate(8);
+        {
+            switch($filter){
+                case 0: 
+                    $products = Product::where('category_id', $req->input('type'))->orderBy('updated_at', 'desc')->paginate(8);
+                    break;
+                case 1: 
+                    $products = Product::where('category_id', $req->input('type'))->orderBy('points', 'asc')->paginate(8);
+                    break;
+                case 2: 
+                    $products = Product::where('category_id', $req->input('type'))->orderBy('created_at', 'desc')->paginate(8);
+                    break;
+                default: 
+                $products = Product::where('category_id', $req->input('type'))->paginate(8);
+
+                break;
+            }
+        }else{
+            switch($filter){
+                case 0: 
+                    $products = Product::orderBy('updated_at', 'desc')->paginate(8);
+                    break;
+                case 1: 
+                    $products = Product::orderBy('points', 'asc')->paginate(8);
+                    break;
+                case 2: 
+                    $products = Product::orderBy('created_at', 'desc')->paginate(8);
+                    break;
+                default: 
+                $products = Product::paginate(8);
+                break;
+            }
+        }
 
         $official = Setting::all();
         if(count($official) !=0)
@@ -403,9 +449,7 @@ class HomeController extends Controller
         return view('product-list', ['used_points'=>$used_points,'products'=>$products, 'carts'=>$carts, 'official' => $data]);
     }
 
-    /**
-     * TEST LOGIN
-     */
+   
     public function viewLoginPage(){
         $official = Setting::all();
         if(count($official) !=0)
@@ -415,10 +459,21 @@ class HomeController extends Controller
 
         return view('login',['carts'=>[], 'official' => $data]);
     }
+    public function viewRegisterPage(){
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+
+        return view('register',['carts'=>[], 'official' => $data]);
+    }
 
     public function addCart(Request $req){
         $cart = new Cart;
-        $cart->member_id=1;
+       
+        $cart->member_id= $req->session()->get('user')->member_id;
+  
         $cart->product_id = $req->id;
         $cart->quantity=$req->quantity;
         $cart->size = $req->size!=''?$req->size:'Medium';
@@ -441,10 +496,13 @@ class HomeController extends Controller
         $carts=[];
 
         $selected_carts = $req->input('carts');
-       
+        $arr_filter = [];
+        foreach($selected_carts as $sc){
+         array_push($arr_filter, $sc['id']);   
+        }
         foreach($carts as $cart){
             foreach($selected_carts as $sc){
-                if($cart->id==$sc['id']){
+                if(in_array($cart->id, $arr_filter)){
                     $cart->checked = 1;
                     $cart->quantity=$sc['qty'];
                     $cart->save();

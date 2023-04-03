@@ -105,7 +105,10 @@ class AdminController extends Controller
     }
 
     public function viewSalesPage(Request $req){
-        $orders = Order::all();
+        if(!isset($req->status)){
+            $orders = Order::all();
+        }else
+        $orders = Order::where('status', $req->status)->get();
         $title = 'Sales Listing';
         return view('admin.ecommerce.sales.listing', ['orders'=>$orders, 'status'=>$req->status, 'title'=>$title]);
     }
@@ -384,7 +387,7 @@ class AdminController extends Controller
         $newProduct->points=$req->input('product_price');
         $newProduct->category_id=$req->input('product_category');
         $newProduct->quantity=$req->input('product_quantity');
-        $newProduct->virtual=$req->input('virtual');
+        $newProduct->virtual=$req->input('virtual')==null?0:$req->input('virtual');
         $newProduct->sizes=$req->input('product_sizes');
         $newProduct->colors=$req->input('product_colors')==null?[]:$req->input('product_colors');
         $result = $newProduct->save();

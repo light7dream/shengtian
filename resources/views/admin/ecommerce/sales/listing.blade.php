@@ -27,41 +27,6 @@
 				<!--end::Card title-->
 				<!--begin::Card toolbar-->
 				<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-					<!--begin::Flatpickr-->
-					{{-- <div class="input-group w-250px">
-						<input class="form-control form-control-solid rounded rounded-end-0" placeholder="Pick date range" id="kt_ecommerce_sales_flatpickr" />
-						<button class="btn btn-icon btn-light" id="kt_ecommerce_sales_flatpickr_clear">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr088.svg-->
-							<span class="svg-icon svg-icon-2">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<rect opacity="0.5" x="7.05025" y="15.5356" width="12" height="2" rx="1" transform="rotate(-45 7.05025 15.5356)" fill="currentColor" />
-									<rect x="8.46447" y="7.05029" width="12" height="2" rx="1" transform="rotate(45 8.46447 7.05029)" fill="currentColor" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-					</div> --}}
-					<!--end::Flatpickr-->
-					{{-- <div class="w-100 mw-150px">
-						<!--begin::Select2-->
-						<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Status" data-kt-ecommerce-order-filter="status">
-							<option></option>
-							<option value="all">All</option>
-							<option value="Cancelled">Cancelled</option>
-							<option value="Completed">Completed</option>
-							<option value="Denied">Denied</option>
-							<option value="Expired">Expired</option>
-							<option value="Failed">Failed</option>
-							<option value="Pending">Pending</option>
-							<option value="Processing">Processing</option>
-							<option value="Refunded">Refunded</option>
-							<option value="Delivered">Delivered</option>
-							<option value="Delivering">Delivering</option>
-						</select>
-						<!--end::Select2-->
-					</div> --}}
-					<!--begin::Add product-->
-					{{-- <a href="/catalog/add-product" class="btn btn-primary">Add Order</a> --}}
 					<!--end::Add product-->
 				</div>
 				<!--end::Card toolbar-->
@@ -80,23 +45,10 @@
 									{{-- <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_sales_table .form-check-input" value="1" /> --}}
 								</div>
 							</th>
-							{{-- <th class="min-w-100px">Order ID</th>
-							<th class="min-w-175px">Redemption Date</th>
-							<th class="text-end min-w-70px">Exchange items</th>
-							<th class="text-end min-w-70px">color</th>
-							<th class="text-end min-w-70px">Specification</th>
-							<th class="text-end min-w-100px">Use Points</th>
-							<th class="text-end min-w-100px">Remaining Points</th>
-							<th class="text-end min-w-100px">Address</th>
-							<th class="text-end min-w-100px">Telephone</th>
-							<th class="text-end min-w-100px">Recipient</th>
-							<th class="text-end min-w-70px">Status</th>
-							<th class="text-end min-w-100px">Processing Orders</th> --}}
-
 							<th>Order ID</th>
 							<th>Redemption Date</th>
 							<th class="text-end">Exchange items</th>
-							<th class="text-end">color</th>
+							{{-- <th class="text-end">Color</th> --}}
 							<th class="text-end">Use Points</th>
 							<th class="text-end">Remaining Points</th>
 							<th class="text-end">Address</th>
@@ -112,174 +64,85 @@
 					<tbody class="fw-semibold text-gray-600">
 						<!--begin::Table row-->
 						@foreach ($orders as $order)
-						    @if($status =="")
-								<tr data-id="{{$order->id}}" >
-									<!--begin::Checkbox-->
-									<td>
-										<div class="form-check form-check-sm form-check-custom form-check-solid">
-											{{-- <input class="form-check-input" type="checkbox" value="1" /> --}}
-										</div>
-									</td>
-									<!--end::Checkbox-->
-									<!--begin::Order ID=-->
-									<td data-kt-ecommerce-order-filter="order_id">
-										<a href="/admin/sales/details/{{$order->id}}" class="text-gray-800 text-hover-primary fw-bold">#{{$order->id}}</a>
-									</td>
-									<td data-order="{{$order->updated_at}}">
-										<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
-									</td>								
+							<tr data-id="{{$order->id}}" >
+								<!--begin::Checkbox-->
+								<td>
+									<div class="form-check form-check-sm form-check-custom form-check-solid">
+										{{-- <input class="form-check-input" type="checkbox" value="1" /> --}}
+									</div>
+								</td>
+								<!--end::Checkbox-->
+								<!--begin::Order ID=-->
+								<td data-kt-ecommerce-order-filter="order_id">
+									<a href="/admin/sales/details/{{$order->id}}" class="text-gray-800 text-hover-primary fw-bold">#{{$order->id}}</a>
+								</td>
+								<td data-order="{{$order->updated_at}}">
+									<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
+								</td>								
+								<td>
 								@foreach ($order->order_products as $order_product)
-									<td>
-										{{$order_product->product->name}},
-									</td>
-									<td>
-										{{$order_product->color}},
-									</td>
+									{{$order_product->product->name.''.$order_product->color}}
 								@endforeach
-									<td class="text-end">
-										{{$order->total}}
-									</td>
-									<td class="text-end">
-										{{$order->member->points - $order->member->used_points - $order->total}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_address}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_tel}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_name}}
-									</td>								
-									<td class="text-end pe-0" data-order="">
-										<!--begin::Badges-->
+								</td>
+								<td class="text-end">
+									{{$order->total}}
+								</td>
+								<td class="text-end">
+									{{$order->member->points - $order->member->used_points - $order->total}}
+								</td>	
+								<td class="text-end">
+									{{$order->recipient_address}}
+								</td>	
+								<td class="text-end">
+									{{$order->recipient_tel}}
+								</td>	
+								<td class="text-end">
+									{{$order->recipient_name}}
+								</td>								
+								<td class="text-end pe-0" data-order="">
+									<!--begin::Badges-->
+									@if($order->status==0)
+									<div class="badge badge-light-danger">Unprocessed</div>
+									@elseif($order->status==1)
+									<div class="badge badge-light-warning">Preparation</div>
+									@elseif($order->status==2)
+									<div class="badge badge-light-info">Shipped</div>
+									@else
+									<div class="badge badge-light-success">Completed</div>
+									@endif
+									<!--end::Badges-->
+								</td>
+								<td class="text-end">
+									<div style="display: flex">
+									<select class="btn btn-sm btn-light" class="status">
 										@if($order->status==0)
-										<div class="badge badge-light-danger">Unprocessed</div>
+											<option value="0" selected>Unprocessed</option>
+											<option value="1">Preparation</option>
+											<option value="2">Shipped</option>
+											<option value="3">Completed</option>
 										@elseif($order->status==1)
-										<div class="badge badge-light-warning">Preparation</div>
+											<option value="0">Unprocessed</option>
+											<option value="1" selected>Preparation</option>
+											<option value="2">Shipped</option>
+											<option value="3">Completed</option>
 										@elseif($order->status==2)
-										<div class="badge badge-light-info">Shipped</div>
+											<option value="0">Unprocessed</option>
+											<option value="1">Preparation</option>
+											<option value="2" selected>Shipped</option>
+											<option value="3">Completed</option>
 										@else
-										<div class="badge badge-light-success">Completed</div>
+											<option value="0">Unprocessed</option>
+											<option value="1">Preparation</option>
+											<option value="2">Shipped</option>
+											<option value="3" selected>Completed</option>
 										@endif
-										<!--end::Badges-->
-									</td>
-									<td class="text-end">
-										<div style="display: flex">
-										<select class="btn btn-sm btn-light" class="status">
-											@if($order->status==0)
-												<option value="0" selected>Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3">Completed</option>
-											@elseif($order->status==1)
-												<option value="0">Unprocessed</option>
-												<option value="1" selected>Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3">Completed</option>
-											@elseif($order->status==2)
-												<option value="0">Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2" selected>Shipped</option>
-												<option value="3">Completed</option>
-											@else
-												<option value="0">Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3" selected>Completed</option>
-											@endif
-										</select>
-										<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
-										</div>
-										<!--end::Menu-->
-									</td>
-									<!--end::Action=-->
-								</tr>
-							@endif
-							@if($order->status == $status)
-								<tr data-id="{{$order->id}}" >
-									<!--begin::Checkbox-->
-									<td>
-										<div class="form-check form-check-sm form-check-custom form-check-solid">
-											{{-- <input class="form-check-input" type="checkbox" value="1" /> --}}
-										</div>
-									</td>
-									<!--end::Checkbox-->
-									<!--begin::Order ID=-->
-									<td data-kt-ecommerce-order-filter="order_id">
-										<a href="/admin/sales/details/{{$order->id}}" class="text-gray-800 text-hover-primary fw-bold">#{{$order->id}}</a>
-									</td>
-									<td data-order="{{$order->updated_at}}">
-										<span class="fw-bold">{{explode(' ', $order->updated_at)[0]}}</span>
-									</td>								
-								@foreach ($order->order_products as $order_product)
-									<td>
-										{{$order_product->product->name}},
-									</td>
-									<td>
-										{{$order_product->color}},
-									</td>
-								@endforeach
-									<td class="text-end">
-										{{$order->total}}
-									</td>
-									<td class="text-end">
-										{{$order->member->points - $order->member->used_points - $order->total}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_address}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_tel}}
-									</td>	
-									<td class="text-end">
-										{{$order->recipient_name}}
-									</td>								
-									<td class="text-end pe-0" data-order="">
-										<!--begin::Badges-->
-										@if($order->status==0)
-										<div class="badge badge-light-danger">Unprocessed</div>
-										@elseif($order->status==1)
-										<div class="badge badge-light-warning">Preparation</div>
-										@elseif($order->status==2)
-										<div class="badge badge-light-info">Shipped</div>
-										@else
-										<div class="badge badge-light-success">Completed</div>
-										@endif
-										<!--end::Badges-->
-									</td>
-									<td class="text-end">
-										<div style="display: flex">
-										<select class="btn btn-sm btn-light" class="status">
-											@if($order->status==0)
-												<option value="0" selected>Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3">Completed</option>
-											@elseif($order->status==1)
-												<option value="0">Unprocessed</option>
-												<option value="1" selected>Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3">Completed</option>
-											@elseif($order->status==2)
-											    <option value="0">Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2" selected>Shipped</option>
-												<option value="3">Completed</option>
-											@else
-											    <option value="0">Unprocessed</option>
-												<option value="1">Preparation</option>
-												<option value="2">Shipped</option>
-												<option value="3" selected>Completed</option>
-											@endif
-										</select>
-										<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
-										</div>
-										<!--end::Menu-->
-									</td>
-									<!--end::Action=-->
-								</tr>
-							@endif
+									</select>
+									<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
+									</div>
+									<!--end::Menu-->
+								</td>
+								<!--end::Action=-->
+							</tr>
 						@endforeach
 						<!--end::Table row-->
 					</tbody>

@@ -320,13 +320,29 @@
 
     $('[data-kt-image-input-action="remove"]').click(function(){
         var id = $(this).attr('data-id');
+        Swal.fire({text:"Are you sure you want to delete?",
+        icon:"warning",showCancelButton:!0,
+        buttonsStyling:!1,
+        confirmButtonText:"Ok, got it!",
+        cancelButtonText:"No, cancel",
+        customClass:{
+            confirmButton:"btn btn-primary",
+            cancelButton:"btn fw-bold btn-active-light-primary"
+        }
+        }).then((function(e){
+        e.isConfirmed&&(
         $.post('/api/setting/delete-banner', {_token: '{{csrf_token()}}', id:id})
         .done(function(){
-            location.reload();
+        location.reload();
         })
         .fail(function(){
-            console.log('')
+        console.log('')
         })
+
+        )
+        }))
+        
     })
+
 </script>
 @endsection

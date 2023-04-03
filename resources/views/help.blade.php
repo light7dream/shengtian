@@ -107,16 +107,12 @@
                                                 <img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt="">
                                             </div>
                                             <div class="post_info">
-                                                <span> <a href="#">{{$help->description}}</a> </span>
+                                                <span> <a href="mailto:{{$help->email}}">{{$help->description}}</a> </span>
                                                 <span>ID #{{$help->id}}</span>
                                             </div>
                                         </div>
-                                        
                                         @endforeach
                                     </div>
-                                    
-                            
-                                    
                                 </div>
                             </div>
 
@@ -124,9 +120,7 @@
                                 <center>
                                     <button type="button" class="btn btn-primary" style="background-color: #35a2f8;color: aliceblue;margin: 30px auto;">开始咨询</button>
                                 </center>
-                                
                             </div>
-                            
                             
                         </div>
                         
@@ -147,23 +141,8 @@
 @parent
 <script src="{{asset('plugins/ckeditor5-build-classic/ckeditor.js')}}"></script>
 <script>
-    // $(".p-type .lab").click(function () {
-    //        $(this).addClass("on").siblings().removeClass("on");
-    // })
+
     window.onload=function(){
-
-        // ClassicEditor
-		// .create( document.querySelector( '#help_one' ), {
-		// } )
-		// .then( editor => {
-        //     window.editor = editor;
-        //     var helpOne = '{{$help_one}}';
-        //     window.editor.setData(helpOne);
-        // });
-
-
-
-
         var purl=document.location.search;
         purl=purl.substring(1,purl.length);
         var ptype=purl.split("=");

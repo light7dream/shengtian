@@ -84,14 +84,40 @@
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
                
-                
+                <style>
+                    .goog-te-menu-frame,.goog-te-balloon-frame{
+                        box-shadow:none!important
+                        }
+                    .goog-te-gadget-simple{
+                        background-color:transparent;
+                        border:2px solid #eee;
+                        border-radius:5px;
+                        padding:5px 10px;
+                        box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+                        font-size:0;
+                    }
+                    .goog-te-gadget-icon{
+                        display: none;
+                    }
+                    </style>
+
+                    <div class='app-navbar-item ms-5'>
+                        {{-- <a href="javascript:void(0)" style="padding: 1em" id="lang"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a> --}}
+                        <div id="google_translate_element" ></div>
+                    </div>
                 <!--end::Quick links-->
                 
                 <!--begin::User menu-->
                 <div class="app-navbar-item ms-5" id="kt_header_user_menu_toggle">
                     <!--begin::Menu wrapper-->
                     <div class="cursor-pointer symbol symbol-35px symbol-md-45px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <img class="symbol symbol-circle symbol-35px symbol-md-45px" src="{{asset('admin/assets/media/avatars/300-13.jpg')}}" alt="user" />
+                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/User.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24"/>
+                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#aaaaaa" fill-rule="nonzero"/>
+                            </g>
+                        </svg><!--end::Svg Icon--></span>   
                     </div>
                     <!--begin::User account menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -100,14 +126,20 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="{{asset('admin/assets/media/avatars/300-13.jpg')}}" />
+                                    <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/User.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <polygon points="0 0 24 0 24 24 0 24"/>
+                                            <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                            <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#aaaaaa" fill-rule="nonzero"/>
+                                        </g>
+                                    </svg><!--end::Svg Icon--></span> 
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
                                     <div class="fw-bold d-flex align-items-center fs-5">@if(Session::get('user')){{Session::get('user')->user_name}}@endif
                                     <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"></span></div>
-                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7"></a>
                                 </div>
                                 <!--end::Username-->
                             </div>
@@ -243,13 +275,13 @@
                         </div> --}}
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5 my-1">
+                        {{-- <div class="menu-item px-5 my-1">
                             <a href="/admin/account/settings" class="menu-link px-5">Account Settings</a>
-                        </div>
+                        </div> --}}
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <form action="/api/customer/logout" id="logout_form" method="POST">
+                            <form action="/api/member/logout" id="logout_form" method="POST">
                                 @csrf
                                 <a href="javascript::(0);" id="signout" class="menu-link px-5">Sign Out</a>
                             </form>

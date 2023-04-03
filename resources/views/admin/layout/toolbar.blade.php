@@ -51,12 +51,12 @@
                     <!--begin::Item-->
                     @if(Request::is('admin/catalog/products'))   
                     <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
+                        <a href="/admin/catalog/products" class="btn {{request()->query('type') === null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
                     </div> 
                       @foreach($categories as $category)
-                      <div class="d-flex flex-column">
-                        <a href="/admin/catalog/products?type={{$category->id}}" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >{{$category->name}}</a>
-                    </div>
+                        <div class="d-flex flex-column">
+                            <a href="/admin/catalog/products?type={{$category->id}}" class="btn  {{request()->query('type') == ''.$category->id?'bg-blue':'bg-black'}} btn-primary" >{{$category->name}}</a>
+                        </div>
                       @endforeach
                         
                     @endif
@@ -65,27 +65,27 @@
                     @if(Request::is('admin/sales/orders'))    
 
                         <div class="d-flex flex-column">
-                            <a href="/admin/sales/orders" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >Total Order</a>
+                            <a href="/admin/sales/orders" class="btn {{request()->query('status') === null?'bg-blue':'bg-black'}} btn-primary" >Total Order</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="d-flex flex-column">
-                            <a href="/admin/sales/orders?status=0" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Unprocessed</a>
+                            <a href="/admin/sales/orders?status=0" class="btn  {{request()->query('status') === '0'?'bg-blue':'bg-black'}} btn-primary" >Unprocessed</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="d-flex flex-column">
-                            <a href="/admin/sales/orders?status=1" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Preparation</a>
+                            <a href="/admin/sales/orders?status=1" class="btn  {{request()->query('status') === '1'?'bg-blue':'bg-black'}} btn-primary" >Preparation</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="d-flex flex-column">
-                            <a href="/admin/sales/orders?status=2" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Shipped</a>
+                            <a href="/admin/sales/orders?status=2" class="btn  {{request()->query('status') === '2'?'bg-blue':'bg-black'}} btn-primary" >Shipped</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="d-flex flex-column">
-                            <a href="/admin/sales/orders?status=3" class="btn  {{request()->query('type') == 4?'bg-blue':'bg-black'}} btn-primary" >Completed</a>
+                            <a href="/admin/sales/orders?status=3" class="btn  {{request()->query('status') === '3'?'bg-blue':'bg-black'}} btn-primary" >Completed</a>
                         </div>
                         <!--end::Item-->
                     @endif
@@ -93,22 +93,22 @@
                         @if(Request::is('admin/supports/about-points') || Request::is('admin/supports/rule-clause') ||  Request::is('admin/supports/faq') || Request::is('admin/supports/online-service') )    
 
                             <div class="d-flex flex-column">
-                                <a href="/admin/supports/about-points" class="btn {{request()->query('type') == null?'bg-blue':'bg-black'}} btn-primary" >About points</a>
+                                <a href="/admin/supports/about-points" class="btn {{Request::is('admin/supports/about-points')?'bg-blue':'bg-black'}} btn-primary" >About points</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="d-flex flex-column">
-                                <a href="/admin/supports/rule-clause" class="btn  {{request()->query('type') == 1?'bg-blue':'bg-black'}} btn-primary" >Rule and Clauses</a>
+                                <a href="/admin/supports/rule-clause" class="btn  {{Request::is('admin/supports/rule-clause')?'bg-blue':'bg-black'}} btn-primary" >Rule and Clauses</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="d-flex flex-column">
-                                <a href="/admin/supports/faq" class="btn  {{request()->query('type') == 2?'bg-blue':'bg-black'}} btn-primary" >Frequently Asked</a>
+                                <a href="/admin/supports/faq" class="btn  {{Request::is('admin/supports/faq')?'bg-blue':'bg-black'}} btn-primary" >Frequently Asked</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="d-flex flex-column">
-                                <a href="/admin/supports/online-service" class="btn  {{request()->query('type') == 3?'bg-blue':'bg-black'}} btn-primary" >Online Service</a>
+                                <a href="/admin/supports/online-service" class="btn {{Request::is('admin/supports/online-service')?'bg-blue':'bg-black'}} btn-primary" >Online Service</a>
                             </div>
                     @endif
                 </div>

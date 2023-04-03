@@ -32,17 +32,13 @@
 
 
 @section('content')
- 
     <!--cart area start-->
     <div class="container">
-        
             <div class="cart-list">
                 <div class="shop_sidebar_product">
                     @foreach ($carts_ as $cart)
-                        
                     <article class="single_product col-12 col-lg-12" >
                         <figure>
-                          
                            <div class="product_thumb">
                                 <a class="primary_img" href="/product-details/{{$cart->product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$cart->product->id.'/main.png')}}" alt=""></a>
                             </div>
@@ -61,18 +57,11 @@
                                     <span class="cart-price">
                                     {{$cart->product->points*$cart->quantity}}
                                     </span>
-                                        
                                 </div>
-                              
                             </figcaption>
-                           
-                          
                         </figure>
                 </article>
-
                 @endforeach
-                                      
-               
                 </div>
             </div>
              <!--coupon code area start-->
@@ -101,6 +90,7 @@
                               
                             </div>
                         </div>
+                        
                     </div>
                     <div class="col-lg-8 col-md-8">
                         <div class="coupon_code left">
@@ -132,7 +122,11 @@
                             </div>    
                         </div>
                     </div>
-                    
+                    @if($errors->any())
+                        <div class="col-lg-12 col-md-12">
+                        <h3 style="color: #c92d2d">{{$errors->first()}}</h3>
+                        </div>
+                    @endif
                 </div>
             </div>
             <!--coupon code area end-->
@@ -150,9 +144,7 @@
 <script src="{{asset('/assets/js/dist/jquery.validate.js')}}"></script>
 
 <script>
-    @if($errors->any())
-    alert('{{$errors->first()}}');
-    @endif
+
     $("#checkout_form").validate({
 			rules: {
 				name: "required",

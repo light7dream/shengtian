@@ -24,8 +24,6 @@ class AuthController extends Controller
             return back();
         }
         
-     
-
         if($member->role){
             $user = (object)[
                 'member_id'=>$member->id,
@@ -49,6 +47,23 @@ class AuthController extends Controller
         }
         
     }
+
+    public function register(Request $req){
+        $this->validate($req, [
+            'username'=>'required',
+            'password'=>'required'
+        ]);
+        $member= new Member;
+        $member->name=$req->username;
+        $member->password=$req->password;
+        $member->points=0;
+        $member->used_points=0;
+        $member->role=0;
+        $member->save();
+        return redirect('/login');
+    }
+
+
     public function logout(){
         Session::flush();
         return redirect('/');
