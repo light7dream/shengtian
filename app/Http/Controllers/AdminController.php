@@ -434,9 +434,12 @@ class AdminController extends Controller
             $sizes = array_filter($req->input('product_sizes'), function($k){
                 return $k!=null;
             });
+            if($req->input('product_colors'))
             $colors = array_filter($req->input('product_colors'), function($k){
                 return $k!=null;
             });
+            else
+            $colors=[];
             $product->sizes=$sizes;
             $product->colors=$colors;
             $product->save();
