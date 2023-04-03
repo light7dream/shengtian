@@ -130,6 +130,9 @@
                                 <li class="menu-item-has-children">
                                     <a href="/help?type=4">联系客服</a>
                                 </li>
+                                @if (Session::has('user')&&Session::get('user')->role)
+                                    <li class="menu-item-has-children"><a href="/admin/catalog/categories">去管理页面</a></li>
+                                @endif
                             </ul>
                         </div>
 

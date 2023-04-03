@@ -18,7 +18,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->
-						<input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search Product" />
+						<input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid ps-14" placeholder="Search Product" />
 					</div>
 					<!--end::Search-->
 				</div>

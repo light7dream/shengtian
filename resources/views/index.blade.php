@@ -202,7 +202,7 @@
                                             <span class="label_sale">hot!</span>
                                         </div>
                                         <a class="primary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/main.png')}}" alt=""></a>
-                                        <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png')}}" alt=""></a>
+                                        <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{file_exists(url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'))?url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'):''}}" alt=""></a>
 
                                     </div>
                                     <div class="product_content grid_content">
@@ -266,7 +266,7 @@
                                             <span class="label_sale">hot!</span>
                                         </div>
                                         <a class="primary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/main.png')}}" alt=""></a>
-                                        <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png')}}" alt=""></a>
+                                        <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{file_exists(url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'))?url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'):''}}" alt=""></a>
 
                                     </div>
                                     <div class="product_content grid_content">

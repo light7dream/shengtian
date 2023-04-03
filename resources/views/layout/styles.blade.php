@@ -55,7 +55,11 @@
 
 </style>
 
+<style>
 
+
+
+</style>
 <!--modernizr min js here-->
 <script src="{{asset('assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>
 @endsection

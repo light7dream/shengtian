@@ -17,5 +17,11 @@
     max-width: 90%;
 }
 
+.my {
+    display: inline-block;
+    margin-top: 1px;
+}
+
+
 </style>
 @endsection
