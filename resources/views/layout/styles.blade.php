@@ -48,6 +48,10 @@
 .goog-te-gadget-simple  span {
    color:#3e3065 !important;
 }
+
+.skiptranslate :first{
+  display:none !important;
+}
 .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
     display: none !important;
 }

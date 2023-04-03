@@ -81,7 +81,6 @@
         setTimeout(function(){
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').parent().prepend('<img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="30px" style="margin: 1em">')
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').hide()
-            $('.skiptranslate').eq(0).hide();
         }, 1000);
     </script>
 @endsection
