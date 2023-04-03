@@ -173,8 +173,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    {{-- <img src="{{asset('/assets/img/product/product1.jpg')}}" alt=""> --}}
-                                    {{-- <img src="{{asset('/assets/img/product/product2.jpg')}}" alt=""> --}}
 
                                 </div>    
                             </div>

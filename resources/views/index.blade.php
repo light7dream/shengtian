@@ -211,9 +211,9 @@
                                         <div class="price_box">
                                             <span class="current_price">{{$product->points}}积分</span>
                                         </div>
-                                        <a href="/product-details/{{$product->id}}" class="add_to_cart">
-                                            <a href="/product-details/{{$product->id}}">Add to Cart</a>
-</a>
+                                        <div class="add_to_cart">
+                                            <a href="/product-details/{{$product->id}}" title="Add to Cart" >Add to Cart</a>
+</div>
                                         <div class="swatches-colors">
                                             <ul>
                                                 @foreach ($product->colors as $color)
@@ -275,9 +275,9 @@
                                         <div class="price_box">
                                             <span class="current_price">{{$product->points}}积分</span>
                                         </div>
-                                        <a href="/product-details/{{$product->id}}" class="add_to_cart">
-                                            <a href="/product-details/{{$product->id}}">Add to Cart</a>
-                                        </a>
+                                        <div class="add_to_cart">
+                                            <a href="/product-details/{{$product->id}}" title="Add to Cart">Add to Cart</a>
+</div>
                                         <div class="swatches-colors">
                                             <ul>
                                                 @foreach ($product->colors as $color)
