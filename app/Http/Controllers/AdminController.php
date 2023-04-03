@@ -782,7 +782,7 @@ class AdminController extends Controller
 
     public function editPassword(Request $req){
 
-        $member = Member::where('role', 0)->get();
+        $member = Member::where('role', 1)->get();
          if(!$member)return view('404');
          if($member[0]->password != $req->current_password)
            return false;
@@ -822,9 +822,76 @@ class AdminController extends Controller
     }
 
     public function viewBannerImage(){
-        $banner = Setting::all();
-
-        return view('admin.setting.banner', ['title'=>'Banner Settings', 'banner' => $banner]);
+        $banners = [];
+        $setting = Setting::first();
+        if($setting)
+            $banners = $setting->banner_images;
+        return view('admin.setting.banner', ['title'=>'Banner Settings', 'banners' => $banners]);
     }
 
+    public function addBanner(Request $req){
+        $setting = Setting::first();
+        if(!$setting) return back();
+        $id = count($setting->banner_images);
+        $banners = $setting->banner_images;
+        array_push($banners, $id);
+        $setting->banner_images=$banners;
+        $setting->save();
+        if($req->hasFile('banner_image')){
+            $image = $req->file('banner_image');
+            $destinationPath = storage_path('/app/public/uploads/banners/');
+            if(!file_exists($destinationPath))
+                mkdir($destinationPath, 0777, true);
+            $imgFile = Image::make($image->getRealPath());
+            $imgFile->resize(1920, 480, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.$id.'.png');
+        }
+        return back();
+    }
+
+    public function editBanner(Request $req){
+        $this->validate($req, [
+            // 'id'=>'required',
+            'banner_time'=>'required',
+        ]);
+        $setting = Setting::first();
+        if(!$setting) return back();
+        $setting->banner_time=$req->banner_time;
+        $setting->save();
+        if($req->hasFile('banner_images')){
+            $images = $req->file('banner_images');
+            $destinationPath = storage_path('/app/public/uploads/banners/');
+            if(!file_exists($destinationPath))
+                mkdir($destinationPath, 0777, true);
+            foreach($images as $key=>$image)
+            {
+                $imgFile = Image::make($image->getRealPath());
+                $imgFile->resize(1920, 480, function ($constraint) {
+                $constraint->aspectRatio();
+                })->save($destinationPath.''.($key).'.png');
+            }
+        }
+        return back();
+    }
+
+    public function deleteBanner(Request $req){
+        $this->validate($req, [
+            'id'=>'required'
+        ]);
+        $setting = Setting::first();
+        if(!$setting) return back();
+        $banners = $setting->banner_images;
+        foreach($banners as$key =>  $banner){
+            if($banner==$req->id){
+                unset($banners[$key]);
+            }
+        }
+        $setting->banner_images = $banners;
+        $setting->save();
+        $destinationPath = storage_path('/app/public/uploads/banners/'.$req->id.'.png');
+        if(file_exists($destinationPath)){
+            unlink($destinationPath);
+        }
+    }
 }

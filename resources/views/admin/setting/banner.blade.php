@@ -10,7 +10,8 @@
             <!--begin::Card title-->
             <div class="card-title">
                 <!--begin::Search-->
-                <div class="d-flex align-items-center position-relative my-1">
+                <h2  class="fw-bold">Banners</h2>
+                {{-- <div class="d-flex align-items-center position-relative my-1">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                     <span class="svg-icon svg-icon-1 position-absolute ms-6">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,25 +20,25 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" data-kt-service-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Service" />
-                </div>
+                    <input type="text" data-kt-banner-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search banner" />
+                </div> --}}
                 <!--end::Search-->
             </div>
             <!--begin::Card title-->
             <!--begin::Card toolbar-->
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
-                <div class="d-flex justify-content-end" data-kt-service-table-toolbar="base">
-                    <!--begin::Add service-->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_service">Add Service</button>
-                    <!--end::Add service-->
+                <div class="d-flex justify-content-end" data-kt-banner-table-toolbar="base">
+                    <!--begin::Add banner-->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_banner">Add Banner</button>
+                    <!--end::Add banner-->
                 </div>
                 <!--end::Toolbar-->
                 <!--begin::Group actions-->
-                <div class="d-flex justify-content-end align-items-center d-none" data-kt-service-table-toolbar="selected">
+                <div class="d-flex justify-content-end align-items-center d-none" data-kt-banner-table-toolbar="selected">
                     <div class="fw-bold me-5">
-                    <span class="me-2" data-kt-service-table-select="selected_count"></span>Selected</div>
-                    <button type="button" class="btn btn-danger" data-kt-service-table-select="delete_selected">Delete Selected</button>
+                    <span class="me-2" data-kt-banner-table-select="selected_count"></span>Selected</div>
+                    <button type="button" class="btn btn-danger" data-kt-banner-table-select="delete_selected">Delete Selected</button>
                 </div>
                 <!--end::Group actions-->
             </div>
@@ -45,69 +46,89 @@
         </div>
         <!--end::Card header-->
         <!--begin::Card body-->
-        <div class="card-body pt-0">
-
-            <!--begin::Table-->
-            {{-- <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_services_table">
-                <thead>
-                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">Name</th>
-                        <th class="text-end min-w-70px">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="fw-semibold text-gray-600">
-                    @foreach($banner->banner_images as $key=> $banner_image)
-                    <tr>
-                        <input type="hidden" value="{{$banner_image}}">
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <a href="#" class="symbol symbol-50px">
-                                    <span class="symbol-label" style="background-image:url({{url('/storage/uploads/service/'.$banner_image.'.png')}});"></span>
-                                </a>
-                            </div>
-                        </td>
-                        <td class="text-end">
-                            <a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                            <span class="svg-icon svg-icon-5 m-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
-                                </svg>
-                            </span>
-                            </a>
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                <div class="menu-item px-3">
-                                    <a href="javascript:(0);" data-kt-service-table-filter="edit_row" class="menu-link px-3"  data-bs-toggle="modal" data-bs-target="#kt_modal_edit_service">Edit</a>
-                                </div>
-                                <div class="menu-item px-3">
-                                    <a href="#" class="menu-link px-3" data-id="{{$banner->id}}" data-kt-service-table-filter="delete_row">Delete</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table> --}}
-            <!--end::Table-->
+        <form action="/api/setting/edit-banner" enctype="multipart/form-data" method="post" id="kt_edit_banner_form">
+        <div class="card-body pt-10 mb-10">
+                @csrf
+            <div class="pb-4 border-bottom">
+                <label class="fs-6 fw-semibold form-label mt-3 d-flex ms-10 me-10">
+                    <div class="col-md-4 col-sm-6 col-lg-2 text-center pt-3">
+                        <span class="form-label text-gray-700 fs-6 fw-semibold">横条广告 轮番时间 </span>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-2 fv-row">
+                        <input class="form-control" type="number" value="5" min="1" name="banner_time"/>
+                    </div>
+                </label>
+            </div>      
+            @foreach ($banners as $key=> $banner)
+            <div class="col-12 text-center mt-20">
+                <!--begin::Image input-->
+                <!--begin::Image input placeholder-->
+                <style>
+                .image-input-placeholder { background-image: url('{{url("storage/uploads/banners/".$banner.".png")}}')!important ; } [data-bs-theme="dark"] 
+                .image-input-placeholder { background-image: url('{{url("storage/uploads/banners/".$banner.".png")}}'); }
+                .image-input {
+                    width: 90%!important;
+                }
+                .image-input .image-input-wrapper{
+                    width: 100%!important;
+                    height: 22em;
+                }
+                </style>
+                <!--end::Image input placeholder-->
+                <div class="image-input image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                    <!--begin::Preview existing avatar-->
+                    <div class="image-input-wrapper col-12" style="background-image: url('{{url("storage/uploads/banners/".$banner.".png")}}"></div>
+                    <!--end::Preview existing avatar-->
+                    <!--begin::Label-->
+                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
+                        <i class="bi bi-pencil-fill fs-7"></i>
+                        <!--begin::Inputs-->
+                        <input type="file" name="banner_images[]" accept=".png, .jpg, .jpeg">
+                        <input type="hidden" name="avatar_remove">
+                        <!--end::Inputs-->
+                    </label>
+                    <!--end::Label-->
+                    <!--begin::Cancel-->
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-bs-original-title="Cancel avatar" data-kt-initialized="1">
+                        <i class="bi bi-x fs-2"></i>
+                    </span>
+                    <!--end::Cancel-->
+                    <!--begin::Remove-->
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-id='{{$key}}' data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-bs-original-title="Remove avatar" data-kt-initialized="1">
+                        <i class="bi bi-x fs-2"></i>
+                    </span>
+                    <!--end::Remove-->
+                </div>
+                <!--end::Image input-->
+                <!--begin::Description-->
+                {{-- <div class="text-muted fs-7">Set the avatar image. Only *.png, *.jpg and *.jpeg image files are accepted</div> --}}
+                <!--end::Description-->
+            </div>
+            @endforeach
         </div>
         <!--end::Card body-->
+        <div class="card-footer text-end me-20">
+            <button class="btn btn-primary" type="submit" id="kt_banner_edit_submit">Save Data</button>
+        </div>
+        </form>
     </div>
     <!--end::Card-->
     <!--begin::Modals-->
-    <!--begin::Modal - services - Add-->
-    <div class="modal fade" id="kt_modal_add_service" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal - banners - Add-->
+    <div class="modal fade" id="kt_modal_add_banner" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <!--begin::Modal content-->
             <div class="modal-content">
                 <!--begin::Form-->
-                <form class="form" action="#" id="kt_modal_add_service_form" data-kt-redirect="/">
+                <form class="form" enctype="multipart/form-data" action="/api/setting/add-banner" method="post" id="kt_modal_add_banner_form" data-kt-redirect="/">
                     <!--begin::Modal header-->
-                    <div class="modal-header" id="kt_modal_add_service_header">
+                    <div class="modal-header" id="kt_modal_add_banner_header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Add a Service</h2>
+                        <h2 class="fw-bold">Add a Banner</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
-                        <div id="kt_modal_add_service_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                        <div id="kt_modal_add_banner_close" class="btn btn-icon btn-sm btn-active-icon-primary">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                             <span class="svg-icon svg-icon-1">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,38 +142,38 @@
                     </div>
                     <!--end::Modal header-->
                     <!--begin::Modal body-->
-                    <div class="modal-body py-10 px-lg-17">
+                    <div class="modal-body py-10 px-lg-17 ">
                         <!--begin::Scroll-->
-                        <div class="scroll-y me-n7 pe-7" id="kt_modal_add_service_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_service_header" data-kt-scroll-wrappers="#kt_modal_add_service_scroll" data-kt-scroll-offset="300px">
-                            <form id="kt_add_service_form" class="form d-flex flex-column flex-row fv-plugins-bootstrap5 fv-plugins-framework" data-kt-redirect="">
+                        <div class="scroll-y me-n7 pe-7" id="kt_modal_add_banner_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_banner_header" data-kt-scroll-wrappers="#kt_modal_add_banner_scroll" data-kt-scroll-offset="300px">
                                 <!--begin::Aside column-->
+                                @csrf
                                 <div class="d-flex flex-column gap-7 gap-lg-10 mb-7 me-lg-10">
                                     <!--begin::Thumbnail settings-->
-                                    <div class="card card-flush py-4">
+                                    <div class="card card-flush py-4" style="border: 0">
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <!--begin::Card title-->
                                             <div class="card-title">
-                                                <h2>Photo</h2>
+                                                {{-- <h2>Banner</h2> --}}
                                             </div>
                                             <!--end::Card title-->
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body text-center pt-0">
+                                        <div class="card-body text-center fv-row pt-0" style="border: none">
                                             <!--begin::Image input-->
                                             <!--begin::Image input placeholder-->
-                                            <style>.image-input-placeholder { background-image: url('{{asset("admin/assets/media/svg/files/blank-image.svg")}}'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
+                                            <style>.image-input-placeholder { background-image: url(''); background: none!important } [data-bs-theme="dark"] .image-input-placeholder { background-image: url(''); }</style>
                                             <!--end::Image input placeholder-->
                                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-150px h-150px"></div>
+                                                <div class="image-input-wrapper w-900px h-300px"></div>
                                                 <!--end::Preview existing avatar-->
                                                 <!--begin::Label-->
                                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
                                                     <i class="bi bi-pencil-fill fs-7"></i>
                                                     <!--begin::Inputs-->
-                                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                                    <input type="file" name="banner_image" accept=".png, .jpg, .jpeg">
                                                     <input type="hidden" name="avatar_remove">
                                                     <!--end::Inputs-->
                                                 </label>
@@ -179,64 +200,8 @@
                                 </div>
                                 <!--end::Aside column-->
                                 <!--begin::Main column-->
-                                <div class="d-flex flex-column gap-7 gap-lg-10">
-                                    <!--begin::General options-->
-                                    <div class="card card-flush py-4">
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <div class="card-title">
-                                                <h2>Service</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body pt-0">
-                                            <!--begin::Input group-->
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Name</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" id="service_name" name="service_name" class="form-control mb-2" placeholder="Name" value="">
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                {{-- <div class="text-muted fs-7">A name is required and recommended to be unique.</div> --}}
-                                                <!--end::Description-->
-                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Email</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="email" id="service_email" name="service_email" class="form-control mb-2" placeholder="Email" value="">
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
-                                                <!--end::Description-->
-                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div>
-                                                <!--begin::Label-->
-                                                <label class="form-label">Description</label>
-                                                <!--end::Label-->
-                                                <!--begin::Editor-->
-                                                <div id="editor"></div> 
-                                                <!--end::Editor-->
-                                                <!--begin::Description-->
-                                                <textarea name="service_description" class="form-control mb-2" placeholder="Description" value="" rows="5"></textarea>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                        </div>
-                                        <!--end::Card header-->
-                                    </div>
-                                    <!--end::General options-->
-                                </div>
+                              
                                 <!--end::Main column-->
-                            </form>
                         </div>
                         <!--end::Scroll-->
                     </div>
@@ -244,10 +209,7 @@
                     <!--begin::Modal footer-->
                     <div class="modal-footer flex-center">
                         <!--begin::Button-->
-                        <button type="reset" id="kt_modal_add_service_cancel" class="btn btn-light me-3">Discard</button>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <button type="submit" id="kt_modal_add_service_submit" class="btn btn-primary">
+                        <button type="submit" id="kt_modal_add_banner_submit" class="btn btn-primary">
                             <span class="indicator-label">Submit</span>
                         </button>
                         <!--end::Button-->
@@ -258,175 +220,12 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="kt_modal_edit_service" tabindex="-1" aria-hidden="true">
-        <!--begin::Modal dialog-->
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <!--begin::Modal content-->
-            <div class="modal-content">
-                <!--begin::Form-->
-                <form class="form" action="#" id="kt_modal_edit_service_form" data-kt-redirect="/">
-                    <!--begin::Modal header-->
-                    <div class="modal-header" id="kt_modal_edit_service_header">
-                        <!--begin::Modal title-->
-                        <h2 class="fw-bold">Edit a Service</h2>
-                        <!--end::Modal title-->
-                        <!--begin::Close-->
-                        <div id="kt_modal_edit_service_close" class="btn btn-icon btn-sm btn-active-icon-primary">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-                            <span class="svg-icon svg-icon-1">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                                    <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </div>
-                        <!--end::Close-->
-                    </div>
-                    <!--end::Modal header-->
-                    <!--begin::Modal body-->
-                    <div class="modal-body py-10 px-lg-17">
-                        <!--begin::Scroll-->
-                        <div class="scroll-y me-n7 pe-7" id="kt_modal_edit_service_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_edit_service_header" data-kt-scroll-wrappers="#kt_modal_edit_service_scroll" data-kt-scroll-offset="300px">
-                            <form id="kt_edit_service_form" class="form d-flex flex-column flex-row fv-plugins-bootstrap5 fv-plugins-framework" data-kt-redirect="">
-                                <!--begin::Aside column-->
-                                <div class="d-flex flex-column gap-7 gap-lg-10 mb-7 me-lg-10">
-                                    <!--begin::Thumbnail settings-->
-                                    <div class="card card-flush py-4">
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <!--begin::Card title-->
-                                            <div class="card-title">
-                                                <h2>Photo</h2>
-                                            </div>
-                                            <!--end::Card title-->
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body text-center pt-0">
-                                            <!--begin::Image input-->
-                                            <!--begin::Image input placeholder-->
-                                            <style>.image-input-placeholder { background-image: url('{{asset("admin/assets/media/svg/files/blank-image.svg")}}'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
-                                            <!--end::Image input placeholder-->
-                                            <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
-                                                <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-150px h-150px"></div>
-                                                <!--end::Preview existing avatar-->
-                                                <!--begin::Label-->
-                                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
-                                                    <i class="bi bi-pencil-fill fs-7"></i>
-                                                    <!--begin::Inputs-->
-                                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
-                                                    <input type="hidden" name="avatar_remove">
-                                                    <!--end::Inputs-->
-                                                </label>
-                                                <!--end::Label-->
-                                                <!--begin::Cancel-->
-                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-bs-original-title="Cancel avatar" data-kt-initialized="1">
-                                                    <i class="bi bi-x fs-2"></i>
-                                                </span>
-                                                <!--end::Cancel-->
-                                                <!--begin::Remove-->
-                                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-bs-original-title="Remove avatar" data-kt-initialized="1">
-                                                    <i class="bi bi-x fs-2"></i>
-                                                </span>
-                                                <!--end::Remove-->
-                                            </div>
-                                            <!--end::Image input-->
-                                            <!--begin::Description-->
-                                            {{-- <div class="text-muted fs-7">Set the avatar image. Only *.png, *.jpg and *.jpeg image files are accepted</div> --}}
-                                            <!--end::Description-->
-                                        </div>
-                                        <!--end::Card body-->
-                                    </div>
-                                    <!--end::Thumbnail settings-->
-                                </div>
-                                <!--end::Aside column-->
-                                <!--begin::Main column-->
-                                <div class="d-flex flex-column gap-7 gap-lg-10">
-                                    <!--begin::General options-->
-                                    <div class="card card-flush py-4">
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <div class="card-title">
-                                                <h2>Service</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body pt-0">
-                                            <!--begin::Input group-->
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Name</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" id="edit_service_name" name="service_name" class="form-control mb-2" placeholder="Name" value="">
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                {{-- <div class="text-muted fs-7">A name is required and recommended to be unique.</div> --}}
-                                                <!--end::Description-->
-                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10 fv-row fv-plugins-icon-container">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Email</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="email" id="edit_service_email" name="service_email" class="form-control mb-2" placeholder="Email" value="">
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
-                                                <!--end::Description-->
-                                            <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div>
-                                                <!--begin::Label-->
-                                                <label class="form-label">Description</label>
-                                                <!--end::Label-->
-                                                <!--begin::Editor-->
-                                                <div id="editor"></div> 
-                                                <!--end::Editor-->
-                                                <!--begin::Description-->
-                                                <textarea name="service_description" id="edit_service_description" class="form-control mb-2" placeholder="Description" value="" rows="5"></textarea>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                        </div>
-                                        <!--end::Card header-->
-                                    </div>
-                                    <!--end::General options-->
-                                </div>
-                                <!--end::Main column-->
-                            </form>
-                        </div>
-                        <!--end::Scroll-->
-                    </div>
-                    <!--end::Modal body-->
-                    <!--begin::Modal footer-->
-                    <div class="modal-footer flex-center">
-                        <!--begin::Button-->
-                        <button type="reset" id="kt_modal_edit_service_cancel" class="btn btn-light me-3">Discard</button>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <button type="submit" id="kt_modal_edit_service_submit" class="btn btn-primary">
-                            <span class="indicator-label">Submit</span>
-                        </button>
-                        <!--end::Button-->
-                    </div>
-                    <!--end::Modal footer-->
-                </form>
-                <!--end::Form-->
-            </div>
-        </div>
-    </div>
-    <!--end::Modal - services - Add-->
+   
+    <!--end::Modal - banners - Add-->
     
     <!--end::Modals-->
 </div>
-<!--end::Content container-->
+<!--end::Content container-->   
 @endsection
 
 @section('scripts')
@@ -436,161 +235,98 @@
 
 <script>
     "use strict";
-    var tF = document.getElementById("kt_modal_add_service_form");
-    var tF_ = document.getElementById("kt_modal_edit_service_form");
-    $('#kt_modal_add_service_close').click(function(){
-				$('#kt_modal_add_service').modal('hide');
-    })
-    $('#kt_modal_edit_service_close').click(function(){
-				$('#kt_modal_edit_service').modal('hide');
-    })
-    $('#kt_modal_add_service_cancel').click(function(){
-        $("#service_name").val('');
-        $("#service_email").val('');
-        $("#service_description").val('');
-    })
-    $('#kt_modal_edit_service_cancel').click(function(){
-        $("#edit_service_name").val('');
-        $("#edit_service_email").val('');
-        $("#edit_service_description").val('');
-    })
-    $('[data-kt-service-table-filter="edit_row"]').click(function(){
-        var id =$(this.closest("tr")).find("input[type='hidden']").val();
-        $('#kt_modal_edit_service_form .image-input-wrapper').css('background-image',$(this.closest("tr")).find("td").eq(0).find('span').css('background-image'));
-        $('#kt_modal_edit_service_form').append('<input type="hidden" name="id" value = "'+id+'" >')
-        $("#edit_service_name").val($(this.closest("tr")).find("td").eq(0).text().trim());
-        $("#edit_service_email").val($(this.closest("tr")).find("td").eq(1).text().trim());
-        $("#edit_service_description").val($(this.closest("tr")).find("td").eq(2).text().trim());
-        $("#edit_service_description").text($(this.closest("tr")).find("td").eq(2).text().trim());
-    });
-    $("#kt_modal_add_service_submit").click
-        (() => { 
-          var formData= new FormData(tF);
-          formData.append('_token' , '{{csrf_token()}}');
-          $.ajax({
-            type: 'POST',
-            url:"/api/online-service/add-service",
-            data: formData,
-            processData: false, 
-            contentType: false, 
-            success: function(data) {
-                Swal.fire({text:"Form has been successfully added!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
-                    customClass:{confirmButton:"btn btn-primary"}
-                }).then(function(){
-                    location.reload() 
-                })
-            },
-            error: function(request, status, error){
-                Swal.fire({
-                text:"Sorry, you must input name and email correctly, please try again.",
-                icon:"error",
-                buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
-                customClass:{
-                    confirmButton:"btn btn-primary"
-                }
+    var tf = document.getElementById("kt_modal_add_banner_form");
+    var tfe = document.getElementById("kt_edit_banner_form");
+    let e=FormValidation.formValidation(tf,{
+        fields:{
+            banner_image:{
+                validators:{
+                    notEmpty:{
+                        message:"Banner Image is required"}
+                    }
+                },
+        },
+        plugins:{
+            trigger:new FormValidation.plugins.Trigger,
+            bootstrap:new FormValidation.plugins.Bootstrap5({
+                rowSelector:".fv-row",
+                eleInvalidClass:"",
+                eleValidClass:""
             })
-            }
-          })
-           
-    })
-    
-    $("#kt_modal_edit_service_submit").click
-        (() => { 
-          var formData= new FormData(tF_);
-          formData.append('_token' , '{{csrf_token()}}');
-          $.ajax({
-            type: 'POST',
-            url:"/api/online-service/edit-service",
-            data: formData,
-            processData: false, 
-            contentType: false, 
-            success: function(data) {
-                Swal.fire({text:"Form has been successfully added!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
-                    customClass:{confirmButton:"btn btn-primary"}
-                }).then(function(){
-                    location.reload() 
-                })
-            },
-            error: function(request, status, error){
-                Swal.fire({
-                text:"Sorry, you must input name and email correctly, please try again.",
-                icon:"error",
-                buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
-                customClass:{
-                    confirmButton:"btn btn-primary"
-                }
-            })
-            }
-          })
-           
-    })
-    var KTAppEcommerceCategories=function(){var t,e,n=()=>{
-    t.querySelectorAll('[data-kt-service-table-filter="delete_row"]').forEach((t=>{t
-    .addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
-        o=n.querySelector('[data-kt-service-filter="service"]').innerText,
-        id=n.querySelector('input[type="hidden"]').value;
-        Swal.fire({text:"Are you sure you want to delete "+o+"?",
-            icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-            confirmButtonText:"Yes, delete!",
-            cancelButtonText:"No, cancel",
-            customClass:{confirmButton:"btn fw-bold btn-danger",
-            cancelButton:"btn fw-bold btn-active-light-primary"}
-        }).then((function(t){
-            t.value?(
-                $.post('/api/online-service/delete-service', {_token: '{{csrf_token()}}', id: id})
-                    .done(function(){
-                        Swal.fire({text:"You have deleted "+o+"!.",
-                        icon:"success",
-                            buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
-                            customClass:{confirmButton:"btn fw-bold btn-primary"}
-                        }).then((function(){e.row($(n)).remove().draw()}))
-                    })
-                    .fail(function(){
-                        Swal.fire({
-                            text:o+" was not deleted.",
-                            icon:"error",
-                            buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
-                            customClass:{confirmButton:"btn fw-bold btn-primary"}
-                        })
-                    })
-
-                ):"cancel"===t.dismiss&&Swal.fire({
-                text:o+" was not deleted.",
-                icon:"error",
-                buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
-                customClass:{confirmButton:"btn fw-bold btn-primary"}
-            })
-            }))
-    }))}))};
-    return{
-        init:function(){
-            (t=document.querySelector("#kt_services_table"))&&((
-            e=$(t).DataTable({
-                info:!1,
-                order:[],
-                pageLength:10,
-                columnDefs:[
-                {orderable:!1,targets:0},
-                {orderable:!1,targets:3}
-            ]})).on("draw",(function(){n()})
-            ),
-            document.querySelector('[data-kt-service-table-filter="search"]').addEventListener("keyup",
-            (function(t){
-            e.search(t.target.value).draw()
-            })),n())
         }
-    }
-    }();
-    KTUtil.onDOMContentLoaded((function(){KTAppEcommerceCategories.init()}));
-	
+    });
+    let ee=FormValidation.formValidation(tfe,{
+        fields:{
+            banner_time:{
+                validators:{
+                    notEmpty:{
+                        message:"Banner time is required"}
+                    }
+                },
+        },
+        plugins:{
+            trigger:new FormValidation.plugins.Trigger,
+            bootstrap:new FormValidation.plugins.Bootstrap5({
+                rowSelector:".fv-row",
+                eleInvalidClass:"",
+                eleValidClass:""})
+        }
+    });
+    $('#kt_modal_add_banner_close').click(function(){
+				$('#kt_modal_add_banner').modal('hide');
+    })
+   
+    $("#kt_modal_add_banner_submit").click
+        ((ev) => { 
+            ev.preventDefault();
+            e&&e.validate().then(function(e_){
+                if(e_=="Valid"){
+                    tf.submit();
+                }
+                else{
+                    Swal.fire({
+                        text:"Sorry, you must input file correctly, please try again.",
+                        icon:"error",
+                        buttonsStyling:!1,
+                        confirmButtonText:"Ok, got it!",
+                        customClass:{
+                            confirmButton:"btn btn-primary"
+                        }
+                    })
+                }
+            })
+    })
 
-    
 
+    $('#kt_banner_edit_submit').click(function(e){
+        e.preventDefault(); 
+        ee&&ee.validate().then(function(re){
+            if(re=='Valid'){
+                tfe.submit();
+            }
+            else{
+                Swal.fire({
+                    text:"Sorry, you must input time correctly, please try again.",
+                    icon:"error",
+                    buttonsStyling:!1,
+                    confirmButtonText:"Ok, got it!",
+                    customClass:{
+                        confirmButton:"btn btn-primary"
+                    }
+                })
+            }
+        })
+    })
 
+    $('[data-kt-image-input-action="remove"]').click(function(){
+        var id = $(this).attr('data-id');
+        $.post('/api/setting/delete-banner', {_token: '{{csrf_token()}}', id:id})
+        .done(function(){
+            location.reload();
+        })
+        .fail(function(){
+            console.log('')
+        })
+    })
 </script>
 @endsection

@@ -12,6 +12,7 @@ use App\Models\OrderProduct;
 use App\Models\About;
 use App\Models\Rule;
 use App\Models\Quiz;
+use App\Models\Setting;
 use App\Models\Member;
 use App\Models\OnlineService;
 use App\Models\ExchangeHistory;
@@ -37,7 +38,7 @@ class HomeController extends Controller
                 $used_points+=$order->total;
             }
         }     
-        $banners = Category::all();
+        $categories = Category::all();
         if($req->session()->has('user'))
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else $carts = [];
@@ -45,7 +46,15 @@ class HomeController extends Controller
         $best_products = Product::paginate(8);
         /**MISSING */
         $new_products = Product::paginate(8);
-        return view('index', ['banners'=>$banners,'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts]);
+
+        $setting = Setting::first();
+        $banners = [];
+        $banner_time = 4000;
+        if($setting){
+            $banners=$setting->banner_images;
+            $banner_time=$setting->banner_time;
+        }
+        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts]);
     }
 
     public function viewCartPage(Request $req){

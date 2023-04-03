@@ -12,7 +12,7 @@
 					<!--begin::Card header-->
 					<div class="card-header" style="display: flex">
 						<div class="card-title">
-							<h2>gmae Official site</h2>
+							<h2>Game Official site</h2>
 						</div>
 						<div class="d-flex justify-content-end" style="margin-top: 5px; height : 50px">
 							<!--begin::Button-->

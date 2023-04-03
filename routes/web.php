@@ -131,6 +131,10 @@ Route::post('/api/online-service/delete-service',[AdminController::class, 'delet
 Route::post('/api/admin/edit-password', [AdminController::class, 'editPassword']);
 
 Route::post('/api/admin/edit-game-official-site', [AdminController::class, 'editOfficialSite']);
+Route::post('/api/setting/add-banner', [AdminController::class, 'addBanner']);
+Route::post('/api/setting/edit-banner', [AdminController::class, 'editBanner']);
+Route::post('/api/setting/delete-banner', [AdminController::class, 'deleteBanner']);
+
 });
 
 
