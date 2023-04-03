@@ -16,8 +16,6 @@
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 90%;
 }
-.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
-    display: none !important;
-}
+
 </style>
 @endsection
