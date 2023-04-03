@@ -84,7 +84,7 @@
                         <i class="bi bi-pencil-fill fs-7"></i>
                         <!--begin::Inputs-->
                         <input type="file" name="banner_images[]" accept=".png, .jpg, .jpeg">
-                        <input type="hidden" name="avatar_remove">
+                        <input type="hidden" name="banner_removes[]">
                         <!--end::Inputs-->
                     </label>
                     <!--end::Label-->
@@ -94,7 +94,7 @@
                     </span>
                     <!--end::Cancel-->
                     <!--begin::Remove-->
-                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-id='{{$key}}' data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-bs-original-title="Remove avatar" data-kt-initialized="1">
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-id='{{$banner}}' data-kt-image-input-action="remove" data-bs-toggle="tooltip" aria-label="Remove avatar" data-bs-original-title="Remove avatar" data-kt-initialized="1">
                         <i class="bi bi-x fs-2"></i>
                     </span>
                     <!--end::Remove-->

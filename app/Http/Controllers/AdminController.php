@@ -826,8 +826,8 @@ class AdminController extends Controller
     public function addBanner(Request $req){
         $setting = Setting::first();
         if(!$setting) return back();
-        $id = count($setting->banner_images);
         $banners = $setting->banner_images;
+        $id=date('Y-m-d-h-i-s');
         array_push($banners, $id);
         $setting->banner_images=$banners;
         $setting->save();
@@ -854,6 +854,7 @@ class AdminController extends Controller
         $setting->banner_time=$req->banner_time;
         $setting->save();
         if($req->hasFile('banner_images')){
+            $banners = $setting->banner_images;
             $images = $req->file('banner_images');
             $destinationPath = storage_path('/app/public/uploads/banners/');
             if(!file_exists($destinationPath))
@@ -861,25 +862,21 @@ class AdminController extends Controller
             foreach($images as $key=>$image)
             {
                 if($image){
-                    
                     $imgFile = Image::make($image->getRealPath());
                     $imgFile->resize(1920, 480, function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save($destinationPath.''.($key).'.png');
+                    })->save($destinationPath.''.$setting->banner_images[$key].'.png');
                 }else{
-                    $banners = $setting->banner_images;
-                    foreach($banners as$key =>  $banner){
-                        if($banner==$key){
-                            unset($banners[$key]);
-                            break;
-                        }
+                    if(file_exists($destinationPath.''.$setting->banner_images[$key].'.png'))
+                    unlink(file_exists($destinationPath.''.$setting->banner_images[$key].'.png'));
+                    if (($key_ = array_search($id, $banners)) !== false) {
+                        unset($banners[$key_]);
                     }
-                    $setting->banner_images = $banners;
-                    $setting->save();
-                    if(file_exists($destinationPath.''.($key).'.png'))
-                    unlink(file_exists($destinationPath.''.($key).'.png'));
                 }
             }
+            $setting->banner_images = $banners;
+            $setting->save();
+          
         }
         return back();
     }
@@ -888,14 +885,12 @@ class AdminController extends Controller
         $this->validate($req, [
             'id'=>'required'
         ]);
+        $id=$req->id;
         $setting = Setting::first();
         if(!$setting) return back();
         $banners = $setting->banner_images;
-        foreach($banners as$key =>  $banner){
-            if($banner==$req->id){
-                unset($banners[$key]);
-                break;
-            }
+        if (($key = array_search($id, $banners)) !== false) {
+            unset($banners[$key]);
         }
         $setting->banner_images = $banners;
         $setting->save();
