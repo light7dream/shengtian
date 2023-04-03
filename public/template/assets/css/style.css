@@ -2679,7 +2679,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   position: absolute;
   left: 0;
   right: 0;
-  top: 17px;
+  top: 20px;
   background: #fff;
   transition: .3s;
   opacity: 0;
