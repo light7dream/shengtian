@@ -26,6 +26,7 @@ Route::get('/help', [HomeController::class, 'viewHelpPage']);
 Route::get('/identify-by-qrcode', [HomeController::class, 'viewIdentifyByQRCodePage']);
 Route::post('/api/invoice/sign', [HomeController::class, 'signInvoice']);
 Route::post('/api/identify-by-qrcode', [HomeController::class, 'identifyByQRCode']);
+
 Route::middleware(['member'])->group(function () {
     Route::get('/login', [HomeController::class, 'viewLoginPage']);
     Route::get('/cart', [HomeController::class, 'viewCartPage']);

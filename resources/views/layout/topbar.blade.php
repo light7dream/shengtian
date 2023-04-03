@@ -218,7 +218,7 @@
                                             <div class="mini_cart_footer">
                                                  <div class="cart_button">
                                                     @if (Session::has('user'))
-                                                    <form action="/api/customer/logout" method="post">
+                                                    <form action="/api/member/logout" method="post">
                                                         @csrf
                                                     <a href="#" class="signout"><i class="fa fa-sign-out"></i> 退出登录</a>
                                                     </form>

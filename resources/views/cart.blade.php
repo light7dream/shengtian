@@ -74,7 +74,7 @@
                                
                                 <span class="cart-num">
                                     X
-                                    <input class="cart-qty" min="1" max="100" data-price="{{$cart->product->points}}" data-id="{{$cart->id}}" value="{{$cart->quantity}}" type="number">
+                                    <input class="cart-qty" min="1" max="100" data-price="{{$cart->product->points}}" data-id="{{$cart->id}}" value="{{$cart->quantity}}" disabled type="number">
                                 </span>
                             </figure>
                     </article>

@@ -12,6 +12,7 @@ use App\Models\OrderProduct;
 use App\Models\About;
 use App\Models\Rule;
 use App\Models\Quiz;
+use App\Models\Member;
 use App\Models\OnlineService;
 use App\Models\ExchangeHistory;
 
@@ -49,7 +50,10 @@ class HomeController extends Controller
 
     public function viewCartPage(Request $req){
         if($req->session()->has('user'))
-        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
+        {
+            $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
+            $member = Member::find($req->session()->get('user')->member_id);
+        }
         else
         $carts =[];
         $used_points = 0;
@@ -61,14 +65,14 @@ class HomeController extends Controller
         }     
         $selected_points = 0;
         $total_points = 0;
-        $my_balace = 0;
+        $my_balace = $member==null?0:$member->points;
         /**
          * 
          * 
          */
         foreach($carts as $cart){
             if($cart->checked)
-            $selected_points+=$cart->product->points*$cart->quantity;
+                $selected_points+=$cart->product->points*$cart->quantity;
             $total_points+=$cart->product->points*$cart->quantity;
         }
         $cart_info = (object)[
