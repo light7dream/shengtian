@@ -145,7 +145,7 @@
     
     <!--offcanvas menu area end-->
     <header>
-        <div class="main_header sticky-header color_four">
+        <div class="main_header sticky-header color_four" style="padding-left:0px!important">
             <!-- <div class="container-fluid"> -->
             <div class="container">
 
@@ -161,7 +161,7 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a href="#">游戏官网</a></li>
+                                        <li><a href="{{$official}}">游戏官网</a></li>
                                         <li><a class="active"  href="/">首页</a></li>
                                         
                                         <li><a  href="/product-list">礼品目录<i class="fa fa-angle-down"></i></a>

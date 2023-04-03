@@ -54,7 +54,13 @@ class HomeController extends Controller
             $banners=$setting->banner_images;
             $banner_time=$setting->banner_time;
         }
-        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts, "official" => $data]);
     }
 
     public function viewCartPage(Request $req){
@@ -89,7 +95,13 @@ class HomeController extends Controller
             'selected_points'=>$selected_points,
             'my_balance'=>$my_balace
         ];
-        return view('cart', ['used_points'=>$used_points,'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'Dashboard']);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('cart', ['used_points'=>$used_points,'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'Dashboard', 'official' =>$data]);
     }
 
     public function viewHelpPage(Request $req){
@@ -129,7 +141,13 @@ class HomeController extends Controller
                     $used_points+=$order->total;
                 }
             }  
-        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts, 'used_points'=>$used_points]);
+
+            $official = Setting::all();
+            if(count($official) !=0)
+             $data = $official[0]->game_official_site;
+            else
+              $data = "#";
+        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts, 'used_points'=>$used_points, 'official' => $data]);
     }
 
     public function viewMinePage(Request $req){
@@ -214,7 +232,13 @@ class HomeController extends Controller
 
         $orders = Order::all();
 
-        return view('mine', ['used_points'=>$used_points,'personal_info'=>$personal_info, 'point_details'=>$point_details, 'my_orders'=>$orders, 'carts'=>$carts]);
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+
+        return view('mine', ['used_points'=>$used_points,'personal_info'=>$personal_info, 'point_details'=>$point_details, 'my_orders'=>$orders, 'carts'=>$carts, 'official' =>$data]);
     }
 
     public function viewOrderBackPage(Request $req, $id){
@@ -241,7 +265,13 @@ class HomeController extends Controller
             'consumption_points'=>$order->total,
             'your_balance'=>$my_points
         ];
-        return view('order-back', ['used_points'=>$used_points,'order_info'=>$order_info, 'carts'=>$carts]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('order-back', ['used_points'=>$used_points,'order_info'=>$order_info, 'carts'=>$carts, "official" => $data]);
     }
     
     public function viewNewOrderPage(Request $req){
@@ -270,7 +300,13 @@ class HomeController extends Controller
                 $used_points+=$order->total;
             }
         }     
-        return view('new-order', ['used_points'=>$used_points,'carts'=>$carts, 'carts_'=>$carts_, 'book_keeping'=>$book_keeping]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('new-order', ['used_points'=>$used_points,'carts'=>$carts, 'carts_'=>$carts_, 'book_keeping'=>$book_keeping, 'official' => $data]);
     }
     
     public function viewProductDetailsPage(Request $req, $id){
@@ -332,8 +368,14 @@ class HomeController extends Controller
                 $help_four =[];
         else       
             $help_four = $content4;
+
+            $official = Setting::all();
+            if(count($official) !=0)
+             $data = $official[0]->game_official_site;
+            else
+              $data = "#";
         
-        return view('product-details', ['used_points'=>$used_points,'product'=>$product, 'carts'=>$carts, 'exchange_records'=>[], 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four]);
+        return view('product-details', ['used_points'=>$used_points,'product'=>$product, 'carts'=>$carts, 'exchange_records'=>[], 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'official' => $data]);
     }
     
     public function viewProductListPage(Request $req){
@@ -352,15 +394,26 @@ class HomeController extends Controller
         $products = Product::where('category_id', $req->input('type'))->paginate(8);
         else
         $products = Product::paginate(8);
-        return view('product-list', ['used_points'=>$used_points,'products'=>$products, 'carts'=>$carts]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('product-list', ['used_points'=>$used_points,'products'=>$products, 'carts'=>$carts, 'official' => $data]);
     }
 
     /**
      * TEST LOGIN
      */
     public function viewLoginPage(){
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
 
-        return view('login',['carts'=>[]]);
+        return view('login',['carts'=>[], 'official' => $data]);
     }
 
     public function addCart(Request $req){
@@ -466,7 +519,12 @@ class HomeController extends Controller
     }
 
     public function viewIdentifyByQRCodePage(){
-        return view('identify-by-qr',['carts'=>[]]);
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('identify-by-qr',['carts'=>[], 'official' => $data]);
     }
 
     public function identifyByQRCode(Request $req){
@@ -556,7 +614,13 @@ class HomeController extends Controller
                 $used_points+=$order->total;
             }
         }     
-        return view('invoice', ['used_points'=>$used_points,'invoice'=>$invoice, 'carts'=>$carts]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return view('invoice', ['used_points'=>$used_points,'invoice'=>$invoice, 'carts'=>$carts, 'official' => $data]);
     }
 
     public function signInvoice(Request $req){
@@ -576,7 +640,13 @@ class HomeController extends Controller
         }
         $file = $filePath.''.$invoice->id.'.'.$imageType;
         file_put_contents($file, $imageBase64);
-        return back()->withInput(['invoice'=>$invoice]);
+
+        $official = Setting::all();
+        if(count($official) !=0)
+         $data = $official[0]->game_official_site;
+        else
+          $data = "#";
+        return back()->withInput(['invoice'=>$invoice, 'official' => $data]);
     }
 
     public function getOpenCarts(Request $req){
