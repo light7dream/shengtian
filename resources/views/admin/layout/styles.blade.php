@@ -23,5 +23,9 @@
 }
 
 
+@media (max-width: 991.98px)
+[data-kt-app-header-fixed-mobile=true] .app-header {
+    position: fixed;
+}
 </style>
 @endsection
