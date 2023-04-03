@@ -51,7 +51,7 @@
 .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
     display: none !important;
 }
-body .skiptranslate:first{
+body>.skiptranslate{
   display:none !important;
 }
 </style>
