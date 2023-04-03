@@ -49,9 +49,28 @@
    
     
     <script>
+          var m = false;
     function googleTranslateElementInit1() {
         new google.translate.TranslateElement({includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        setTimeout(() => {
+            if (jQuery( window ).width() < 768 && m == false){
+            m = true;
+            jQuery('#g_translater').detach().appendTo('#mobile_translator');                            
+        } else if (jQuery( window ).width() >= 768 && m == true){
+            m = false;
+            jQuery('#g_translater').detach().prependTo('#translator');                            
+        }
+        }, 2000);
     }
+    jQuery( window ).resize(function() {
+        if (jQuery( window ).width() < 768 && m == false){
+            m = true;
+            jQuery('#g_translater').detach().appendTo('#mobile_translator');                            
+        } else if (jQuery( window ).width() >= 768 && m == true){
+            m = false;
+            jQuery('#g_translater').detach().prependTo('#translator');                            
+        }
+    });
     </script>
     
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit1"></script>

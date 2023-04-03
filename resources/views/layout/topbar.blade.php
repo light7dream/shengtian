@@ -1,6 +1,21 @@
 @section('topbar')
 
-
+<style>
+    .goog-te-menu-frame,.goog-te-balloon-frame{
+        box-shadow:none!important
+        }
+    .goog-te-gadget-simple{
+        background-color:transparent;
+        border:2px solid #eee;
+        border-radius:5px;
+        padding:5px 10px;
+        box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+        font-size:0;
+        }
+        .goog-te-gadget-icon{
+            display: none;
+        }
+    </style>
     <!--offcanvas menu area start-->
     <div class="off_canvars_overlay">
                 
@@ -119,25 +134,11 @@
                         </div>
 
                         <div class="offcanvas_footer">
-                                <style>
-                                .goog-te-menu-frame,.goog-te-balloon-frame{
-                                    box-shadow:none!important
-                                    }
-                                .goog-te-gadget-simple{
-                                    background-color:transparent;
-                                    border:2px solid #eee;
-                                    border-radius:5px;
-                                    padding:5px 10px;
-                                    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
-                                    font-size:0;
-                                    }
-                                    .goog-te-gadget-icon{
-                                        display: none;
-                                    }
-                                </style>
+                                
+
 
                                 <div class='d-flex m-10 text-center' style="height: 40px">
-                                    <div id="google_translate_element0" style="margin:auto" ></div>
+                                    <div style="margin:auto" id="mobile_translator"></div>
                                 </div>
                             <div class="cart_button mt-30">
                                 @if (Session::has('user'))
@@ -264,9 +265,10 @@
                                     }
                                 </style>
 
-                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px">
-                                    {{-- <a href="javascript:void(0)" style="padding: 1em" id="lang"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a> --}}
-                                    <div id="google_translate_element" ></div>
+                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px" id="translator">
+                                    <div id="g_translater">
+                                        <div id="google_translate_element" ></div>
+                                    </div>
                                 </div>
                                 
                                 <div class="header_account-list mini_cart_wrapper">
