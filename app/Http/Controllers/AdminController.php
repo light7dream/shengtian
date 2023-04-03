@@ -106,18 +106,6 @@ class AdminController extends Controller
 
     public function viewSalesPage(Request $req){
         $orders = Order::all();
-        // foreach($orders as $order){
-        //     if($order->status == 0){
-        //         $status = 0;
-        //         foreach($order->order_products as $op){
-        //             if($op->quantity < $op->product->quantity){
-        //                 $status = 1;
-        //                 break;
-        //             }
-        //         }
-        //         $order->status = $status;
-        //     }
-        // }
         $title = 'Sales Listing';
         return view('admin.ecommerce.sales.listing', ['orders'=>$orders, 'status'=>$req->status, 'title'=>$title]);
     }
