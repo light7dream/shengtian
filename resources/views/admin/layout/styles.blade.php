@@ -23,9 +23,30 @@
 }
 
 
-@media (max-width: 991.98px)
 [data-kt-app-header-fixed-mobile=true] .app-header {
-    position: fixed;
+    position: relative !important;
+}
+
+[data-kt-app-header-fixed-mobile=true] .app-wrapper {
+    margin-top: 0!important;
+}
+
+.drawer{
+    padding-top: 40px;
+}
+.goog-te-menu-frame,.goog-te-balloon-frame{
+    box-shadow:none!important
+    }
+.goog-te-gadget-simple{
+    background-color:transparent;
+    border: 0 !important;;
+    border-radius:5px;
+    padding:5px 10px;
+    /* box-shadow:0 2px 10px -7px rgba(0,0,0,0.2); */
+    font-size:0;
+    }
+.goog-te-gadget-icon{
+    display: none;
 }
 </style>
 @endsection

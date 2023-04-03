@@ -1,5 +1,5 @@
 @section('toolbar')
-<div id="kt_app_toolbar" class="app-toolbar">
+<div id="kt_app_toolbar" class="app-toolbar pt-6">
     <!--begin::Toolbar container-->
     <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex align-items-start">
         <!--begin::Toolbar container-->

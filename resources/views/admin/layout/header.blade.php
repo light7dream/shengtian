@@ -77,6 +77,11 @@
                           <a class="menu-title" href="/">进入用户页面</a>
                         </span>
                     </div>
+                    <div class='menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2' style="margin-right: 0px; margin-top:-5px" id="translator">
+                    <div id="g_translater">
+                        <div id="google_translate_element" ></div>
+                    </div>
+                </div>
                 </div>
                 <!--end::Menu-->
             </div>
@@ -84,27 +89,9 @@
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
                
-                <style>
-                    .goog-te-menu-frame,.goog-te-balloon-frame{
-                        box-shadow:none!important
-                        }
-                    .goog-te-gadget-simple{
-                        background-color:transparent;
-                        border:2px solid #eee;
-                        border-radius:5px;
-                        padding:5px 10px;
-                        box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
-                        font-size:0;
-                    }
-                    .goog-te-gadget-icon{
-                        display: none;
-                    }
-                    </style>
+         
 
-                    <div class='app-navbar-item ms-5'>
-                        {{-- <a href="javascript:void(0)" style="padding: 1em" id="lang"><img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="40px"></a> --}}
-                        <div id="google_translate_element" ></div>
-                    </div>
+               
                 <!--end::Quick links-->
                 
                 <!--begin::User menu-->
