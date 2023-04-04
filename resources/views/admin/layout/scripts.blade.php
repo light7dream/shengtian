@@ -39,6 +39,13 @@
             jQuery('#logout_form').detach().prependTo('#desktop_logout');                            
         }
     });
+  $(document).ready(function(){
+    var i=0;
+    $(window).bind('DOMNodeInserted', function(event) {
+        $('iframe[id=":2.container"]').parent().hide();
+    });
+  });
+</script>
     </script>
 <!--end::Javascript-->
 @endsection

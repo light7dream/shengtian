@@ -52,5 +52,12 @@
 .goog-te-gadget-icon{
     display: none;
 }
+
+body {
+    top: 0!important;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    } 
 </style>
 @endsection
