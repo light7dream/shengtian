@@ -14,7 +14,7 @@
 <!--end::Global Stylesheets Bundle-->
 <style>
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .my {
