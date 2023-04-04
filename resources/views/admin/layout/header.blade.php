@@ -115,13 +115,6 @@
                         </div>
                     </div> -->
                     </div>
-                    
-                    <div class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 text-end" id="mobile_logout">
-                        <form action="/api/member/logout" id="logout_form" method="POST">
-                            @csrf
-                            <a href="javascript::(0);" id="signout" class="menu-link">登出</a>
-                        </form>
-                    </div>
                     <div class="menu-item" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                         <a href="#" class="menu-link">
                             <span class="menu-title position-relative">Mode
@@ -216,6 +209,13 @@
                             <!--end::Menu item-->
                         </div>
                         <!--end::Menu-->
+                    </div>
+                    
+                    <div class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 text-end" id="mobile_logout">
+                        <form action="/api/member/logout" id="logout_form" method="POST">
+                            @csrf
+                            <a href="javascript::(0);" id="signout" class="menu-link">登出</a>
+                        </form>
                     </div>
                 </div>
                 <!--end::Menu-->
