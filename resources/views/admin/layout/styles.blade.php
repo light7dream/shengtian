@@ -36,7 +36,7 @@
 }
 
 .drawer .menu-item{
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px dashed #999;
 }
 .goog-te-menu-frame,.goog-te-balloon-frame{
     box-shadow:none!important
