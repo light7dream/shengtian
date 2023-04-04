@@ -170,6 +170,9 @@
 	<!-- end::Invoice 1-->
 @endsection
 
+@section('drawers')
+
+@endsection
 @section('scripts')
 @parent
 

@@ -9,7 +9,6 @@
     $('#signout').click(function(){
         $('#logout_form').submit();
     })
-    
 </script>
 <script>
     function googleTranslateElementInit() {

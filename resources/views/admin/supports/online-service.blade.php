@@ -442,6 +442,9 @@
 <!--end::Content container-->
 @endsection
 
+@section('drawers')
+
+@endsection
 @section('scripts')
 @parent
 <script src="{{asset('admin/assets/plugins/custom/formrepeater/formrepeater.bundle.js')}}"></script>

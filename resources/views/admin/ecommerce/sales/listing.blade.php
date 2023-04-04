@@ -113,8 +113,8 @@
 									<!--end::Badges-->
 								</td>
 								<td class="text-end">
-									<div style="display: flex">
-									<select class="btn btn-sm btn-light" class="status">
+									<div style="col-md-12 col-sm-12 text-center">
+									<select class="btn btn-sm btn-light mb-2" class="status">
 										@if($order->status==0)
 											<option value="0" selected>Unprocessed</option>
 											<option value="1">Preparation</option>
@@ -137,7 +137,7 @@
 											<option value="3" selected>Completed</option>
 										@endif
 									</select>
-									<button name="change_status_button" class="btn btn-sm btn-light btn-active-light-primary" style="margin-left: 5px" >Sure</button>
+									<button name="change_status_button" class="btn btn-sm btn-primary btn-active-light-primary" style="margin-left: 5px" >Sure</button>
 									</div>
 									<!--end::Menu-->
 								</td>
@@ -157,6 +157,11 @@
 <!--end::Content container-->
 @endsection
 
+@section('drawers')
+
+@endsection
+@section('modals')
+@endsection
 @section('scripts')
 @parent
 	<script src="{{asset('admin/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>

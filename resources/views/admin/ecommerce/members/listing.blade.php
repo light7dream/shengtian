@@ -19,7 +19,7 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" data-kt-member-table-filter="search" class="form-control form-control-solid ps-15" placeholder="Search Service" />
+                    <input type="text" data-table-filter="search" class="form-control form-control-solid ps-15" placeholder="Search Service" />
                 </div>
                 <!--end::Search-->
             </div>
@@ -27,16 +27,16 @@
             <!--begin::Card toolbar-->
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
-                <div class="d-flex justify-content-end" data-kt-member-table-toolbar="base">
+                <div class="d-flex justify-content-end" data-kt_member_table-toolbar="base">
                     <!--begin::Add service-->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_member">Add Member</button>
                     <!--end::Add service-->
                 </div>
                 <!--end::Toolbar-->
                 <!--begin::Group actions-->
-                <div class="d-flex justify-content-end align-items-center d-none" data-kt-member-table-toolbar="selected">
+                <div class="d-flex justify-content-end align-items-center d-none" data-kt_member_table-toolbar="selected">
                     <div class="fw-bold me-5">
-                    <span class="me-2" data-kt-member-table-select="selected_count"></span>Selected</div>
+                    <span class="me-2" data-kt_member_table-select="selected_count"></span>Selected</div>
                 </div>
                 <!--end::Group actions-->
             </div>
@@ -57,7 +57,7 @@
                         <th class="min-w-125px">Used Points</th>
                         <th class="min-w-125px">Remain Points</th>
                         <th class="min-w-125px">Last exchange time</th>
-                        <th class="text-end min-w-70px">Actions</th>
+                        <th class="text-center min-w-70px">Actions</th>
                     </tr>
                     <!--end::Table row-->
                 </thead>
@@ -69,9 +69,6 @@
                         <input type="hidden" value="{{$member->id}}">
                         <td>
                             <div class="d-flex align-items-center">
-                                {{-- <a href="#" class="symbol symbol-50px">
-                                    <span class="symbol-label" style="background-image:url({{url('/storage/uploads/members/'.$member->id.'.png')}});"></span>
-                                </a> --}}
                                 <div class="ms-5">
                                    <h4 data-kt-member-filter="member">{{$member->name}}</h4>
                                 </div>
@@ -92,16 +89,9 @@
                         <td>
                             <div>{{$member->last_exchange_at}}</div>
                         </td>
-                        <td class="text-end d-flex flex-end">
-                                <div class="d-flex">
-                                    <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning" data-kt-member-table-filter="edit_row">Edit</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="d-flex" style="margin-left: 1em">
-                                    <a href="#" class="btn btn-sm btn-dark" data-id="{{$member->id}}" data-kt-member-table-filter="delete_row">Delete</a>
-                                </div>
-                            </div>
+                        <td class="col-md-12 col-sm-12 text-center">
+                                    <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-dark" data-id="{{$member->id}}" data-table-filter="delete_row">Delete</a>
                         </td>
                     </tr>
                     @endforeach
@@ -216,13 +206,18 @@
 <!--end::Content container-->
 @endsection
 
+@section('drawers')
+
+@endsection
+@section('modals')
+		
+@endsection
 @section('scripts')
 @parent
 <script src="{{asset('admin/assets/plugins/custom/formrepeater/formrepeater.bundle.js')}}"></script>
 <script src="{{asset('admin/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
 
 <script>
-    "use strict";
     var f = document.getElementById("kt_modal_add_member_form");
     var e=FormValidation.formValidation(f,{
         fields:{
@@ -307,8 +302,8 @@
             })
     })
     
-    var KTAppEcommerceCategories=function(){var t,e,n=()=>{
-    t.querySelectorAll('[data-kt-member-table-filter="delete_row"]').forEach((t=>{t
+    var KTAPPMembers=function(){var t,e,n=()=>{
+    t.querySelectorAll('[data-table-filter="delete_row"]').forEach((t=>{t
     .addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
         o=n.querySelector('[data-kt-member-filter="member"]').innerText,
         id=n.querySelector('input[type="hidden"]').value;
@@ -360,18 +355,14 @@
                 {orderable:!1,targets:3}
             ]})).on("draw",(function(){n()})
             ),
-            document.querySelector('[data-kt-member-table-filter="search"]').addEventListener("keyup",
+            document.querySelector('[data-table-filter="search"]').addEventListener("keyup",
             (function(t){
             e.search(t.target.value).draw()
             })),n())
         }
     }
     }();
-    KTUtil.onDOMContentLoaded((function(){KTAppEcommerceCategories.init()}));
+    KTUtil.onDOMContentLoaded((function(){KTAPPMembers.init()}));
 	
-
-    
-
-
 </script>
 @endsection

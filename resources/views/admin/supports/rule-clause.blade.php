@@ -35,6 +35,9 @@
 </div>
 @endsection
 
+@section('drawers')
+
+@endsection
 @section('modals')
 
 @endsection

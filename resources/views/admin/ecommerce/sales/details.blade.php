@@ -357,6 +357,9 @@
 
 @endsection
 
+@section('drawers')
+
+@endsection
 @section('scripts')
 @parent
 	<!--begin::Vendors Javascript(used for this page only)-->
