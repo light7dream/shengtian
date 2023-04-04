@@ -19,9 +19,9 @@
         <!--begin::Logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
             <a href="/">
-                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.svg')}}" class="h-36px d-sm-none" />
-                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.svg')}}" class="h-36px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
-                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.svg')}}" class="h-36px d-none d-sm-inline app-sidebar-logo-default theme-dark-show " />
+                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.png')}}" class="h-24px d-sm-none" />
+                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.png')}}" class="h-36px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
+                <img alt="Logo" src="{{asset('admin/assets/media/logos/logo.png')}}" class="h-36px d-none d-sm-inline app-sidebar-logo-default theme-dark-show " />
             </a>
         </div>
         <!--end::Logo-->
