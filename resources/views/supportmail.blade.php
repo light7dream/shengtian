@@ -4,7 +4,8 @@
     <title>{{$details['title']}}</title>
 </head>
 <body>
-    <h1>{{$details['from']}}</h1>
+    <h1>{{$details['title']}}</h1>
     <p>{{$details['message']}}</p>
+    <h5>From : {{$details['from']}}</h5>
 </body>
 </html>

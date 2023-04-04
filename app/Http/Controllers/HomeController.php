@@ -719,11 +719,12 @@ class HomeController extends Controller
         $this->validate($req, [
             'to'=>'required',
             'from'=>'required',
+            'title'=>'required',
             'message'=>'required',
         ]);
    
             $details = [
-                'title' => 'Mail from Shengtian',
+                'title' => $req->title,
                 'from' => $req->from,
                 'message' => $req->message
             ];

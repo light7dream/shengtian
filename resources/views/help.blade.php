@@ -160,8 +160,12 @@
                 <input class="form-control" placeholder="Enter your email" type="email" name="from" required />
                 <label for="name" style="display:none"></label>
             </div>
+            <div class="col-sm-12 mt-20">
+                <input class="form-control" placeholder="Enter subject" type="text" name="title" required />
+                <label for="title" style="display:none"></label>
+            </div>
             <div class="col-sm-12 mt-10">
-                <textarea name="message" class="form-control" rows="5" placeholder="Enter message" required></textarea>
+                <textarea name="message" class="form-control" rows="5" placeholder="Enter content" required></textarea>
                 <label for="message" style="display:none"></label>
             </div>
                 </fieldset>
@@ -211,6 +215,10 @@ setTimeout(() => {
     $("#mailForm").validate({
 			rules: {
 				message: {
+                    required: true,
+                    minlength: 1
+                },
+				title: {
                     required: true,
                     minlength: 1
                 },
