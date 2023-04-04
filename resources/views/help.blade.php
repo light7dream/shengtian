@@ -228,11 +228,6 @@ setTimeout(() => {
 				}
 				
 			},
-			messages: {
-				message: "Please enter message",
-				email: "Please enter a valid email address",
-				
-			}
 		});
 </script>
 <script>
