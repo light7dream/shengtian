@@ -4,6 +4,7 @@
 @parent
 <style>
     p{line-height: 18px;}
+    .error{color: #f00}
 </style>
 @endsection
 
@@ -17,15 +18,17 @@
                 <div class="col-lg-6 col-md-6" style="margin: 8px auto;">
                     <div class="account_form">
                         <h2 style="text-align: center;">登录</h2>
-                        <form action="/api/member/login" method="post">
+                        <form action="/api/member/login" method="post" id="loginForm">
                             @csrf
                             <p>   
                                 <label>账号 <span>*</span></label>
                                 <input type="text" name="username">
-                             </p>
-                             <p>   
+                                <label for="username"></label>
+                            </p>
+                            <p>   
                                 <label>密码 <span>*</span></label>
                                 <input type="password" name="password">
+                                <label for="password"></label>
                              </p>   
                             <div class="login_submit">
                                 <label for="remember">
@@ -54,5 +57,23 @@
 
 @section('scripts')
 @parent
-
+<script src="{{asset('/plugins/dist/jquery.validate.js')}}"></script>
+<script>
+$("#loginForm").validate({
+    rules: {
+        username: {
+            required: true,
+        },
+        password: {
+            required: true,
+        }
+        
+    },
+    messages: {
+        username: "Please enter name",
+        password: "Please enter password",
+        
+    }
+});
+</script>
 @endsection
