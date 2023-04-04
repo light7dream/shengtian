@@ -260,7 +260,7 @@
 					<!--end::Button-->
 					<!--begin::Button-->
 					<button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary">
-						<span class="indicator-label">Save Changes</span>
+						<span class="indicator-label">Save</span>
 						<span class="indicator-progress">Please wait...
 						<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 					</button>

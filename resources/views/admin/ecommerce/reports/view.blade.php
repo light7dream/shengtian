@@ -3865,7 +3865,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin::Actions-->
 												<div class="d-flex justify-content-end pt-7">
 													<button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="preferences-dismiss">Cancel</button>
-													<button type="submit" class="btn btn-sm fw-bold btn-primary">Save Changes</button>
+													<button type="submit" class="btn btn-sm fw-bold btn-primary">Save</button>
 												</div>
 												<!--end::Actions-->
 											</form>
