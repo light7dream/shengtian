@@ -52,7 +52,9 @@
 .goog-te-gadget-icon{
     display: none;
 }
-
+#goog-gt- {
+  display: none !important;
+}
 body {
     top: 0!important;
 }
