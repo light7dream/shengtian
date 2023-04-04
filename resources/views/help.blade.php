@@ -14,6 +14,7 @@
 .post_wrapper a{font-size: 15px;margin-right: 20px;color: black!important;}
 .post_wrapper a:hover{color: rgb(3, 83, 148)!important;}
 .dashboard_tab_button{text-align: center;}
+.error{color:#f00}
 </style>
 @endsection
 
@@ -147,8 +148,9 @@
       <div class="modal-body">
 
         <div class="row">
-            <form action="/api/mail/send" method="POST" id="mailForm" style="width: 100%">
+            <form action="/api/mail/send" method="POST" id="mailForm" class="needs-validation" novalidate="novalidate" style="width: 100%">
                 @csrf
+            <fieldset>
             <input class="form-control" type="hidden" placeholder="Email" name="to" required />
 
             <div class="col-sm-12">
@@ -156,13 +158,15 @@
             </div>
             <div class="col-sm-12 mt-20">
                 <input class="form-control" placeholder="Enter your email" type="email" name="from" required />
+                <label for="name" style="display:none"></label>
             </div>
             <div class="col-sm-12 mt-10">
                 <textarea name="message" class="form-control" rows="5" placeholder="Enter message" required></textarea>
+                <label for="message" style="display:none"></label>
             </div>
-            
-            <div class="col-sm-12 mt-10">
-                <button type="button" class="btn btn-info btn-md" type="submit" id="sendBtn">Send</button>
+                </fieldset>
+            <div class="row mt-10">
+                <button class="btn btn-info btn-md m-auto" type="submit" id="sendBtn">Send</button>
             </div>
             </form>
         </div>
@@ -172,26 +176,56 @@
   </div>
 </div>
 <!--Modal: modalRelatedContent-->
+@if(Session::has('message'))
+<div classs="container p-5" id="alert">
+	<div class="row no-gutters">
+		<div class="col-lg-6 col-md-12 m-auto">
+			<div class="alert alert-success fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    	<span aria-hidden="True">&times;</span>
+			  	</button>
+			 	<h4 class="alert-heading">Well done!</h4>
+                
+			  	<p>{{Session::get('message')}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+@endif
 @endsection
     
 @section('scripts') 
 @parent
-
+<script src="{{asset('/plugins/dist/jquery.validate.js')}}"></script>
 <script>
+@if(Session::has('message'))
+setTimeout(() => {
+    $('#alert').fadeOut(1000);
+}, 2000);   
+@endif
     var mailTo = function(email){
         $('#showEmail').text(email);
         $('input[name="to"]').val(email);
     }
-   
-   $('#sendBtn').click(function(e){
-    e.preventDefault();
-    var from = $('input[name="to"]').val();
-    var message = $('textarea[name="message"]').val();
-    if(from==''||message==''||from==undefined||message==undefined){
-        return;
-    }
-    $('#mailForm').submit();
-   })
+
+    $("#mailForm").validate({
+			rules: {
+				message: {
+                    required: true,
+                    minlength: 1
+                },
+				from: {
+					required: true,
+					email: true
+				}
+				
+			},
+			messages: {
+				message: "Please enter message",
+				email: "Please enter a valid email address",
+				
+			}
+		});
 </script>
 <script>
 
