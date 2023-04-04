@@ -9,6 +9,15 @@
     $('#signout').click(function(){
         $('#logout_form').submit();
     })
+    window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted || 
+            ( typeof window.performance != "undefined" && 
+            window.performance.navigation.type === 2 );
+    if ( historyTraversal ) {
+        // Handle page restore.
+        window.location.reload();
+    }
+    });
 </script>
 <script>
     function googleTranslateElementInit() {
@@ -43,11 +52,7 @@
     $(window).bind('DOMNodeInserted', function(event) {
         $('iframe[id=":2.container"]').parent().hide();
     });
-    $(window).on('popstate', function() {
-          setTimeout(() => {
-              location.reload();
-          }, 100);
-      });
+  
   });
 </script>
     </script>
