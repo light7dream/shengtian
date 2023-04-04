@@ -34,7 +34,16 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-    // var fi = "{{csrf_token()}}";
+    window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted || 
+            ( typeof window.performance != "undefined" && 
+            window.performance.navigation.type === 2 );
+    if ( historyTraversal ) {
+        // Handle page restore.
+        window.location.reload();
+    }
+    });
+
     $(document).ready(function(){
         (()=>{
             $('.cart_remove a').click(function(){
@@ -77,7 +86,6 @@
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit1"></script>
     
     <script>
-        var i =0
         setTimeout(function(){
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').parent().prepend('<img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="30px" style="margin: 1em">')
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').hide()
@@ -87,12 +95,9 @@
             $(window).bind('DOMNodeInserted', function(event) {
                 $('iframe[id=":2.container"]').parent().hide();
             });
-            $(window).on('popstate', function() {
-                setTimeout(() => {
-                    location.reload();
-                }, 100);
-            });
         });
 
+        
+  
     </script>
 @endsection
