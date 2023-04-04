@@ -19,7 +19,7 @@
 
 .my {
     display: inline-block;
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 
