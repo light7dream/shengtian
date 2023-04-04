@@ -22,9 +22,6 @@
 
     <hr>
 
-
-
-  
     <!-- my account start  -->
     <section class="main_content_area" style="min-height: ;">
     <div class="container">   
@@ -78,7 +75,7 @@
                                                 </div>
                                                 <div id="collapse{{$key}}" class="collapse {{$key==0?'show':''}}" aria-labelledby="heading{{$key}}" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <p>{{$help->answer}}</p>
+                                                    <p>{!!$help->answer!!}</p>
                                                 </div>
                                                 </div>
                                             </div>
@@ -107,7 +104,7 @@
                                                 <img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt="">
                                             </div>
                                             <div class="post_info">
-                                                <span> <a href="mailto:{{$help->email}}">{{$help->description}}</a> </span>
+                                                <span> <a href="#" data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');">{{$help->description}}</a> </span>
                                                 <span>ID #{{$help->id}}</span>
                                             </div>
                                         </div>
@@ -116,11 +113,11 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="col-lg-6 col-md-12">
-                                <center>
-                                    <button type="button" class="btn btn-primary" style="background-color: #35a2f8;color: aliceblue;margin: 30px auto;">开始咨询</button>
-                                </center>
-                            </div> -->
+                            <div class="">
+                                
+
+
+                            </div>
                             
                         </div>
                         
@@ -131,15 +128,71 @@
     </div>        	
     </section>			
     <!-- my account end   --> 
+<!--Modal: modalRelatedContent-->
+<div class="modal fade right" id="modalRelatedContent" tabindex="-1" role="dialog" style="background-color: rgba(0,0,0,0.6)"
+  aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading"></p>
 
-    
-  
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
 
+      <!--Body-->
+      <div class="modal-body">
+
+        <div class="row">
+            <form action="/api/mail/send" method="POST" id="mailForm">
+                @csrf
+            <input class="form-control" type="hidden" placeholder="Email" name="to" required />
+
+            <div class="col-sm-12">
+                To : <span style="font-size: 16px;" id="showEmail"></span>
+            </div>
+            <div class="col-sm-12 mt-20">
+                <input class="form-control" placeholder="Enter your email" type="email" name="from" required />
+            </div>
+            <div class="col-sm-12 mt-10">
+                <textarea name="message" class="form-control" rows="5" placeholder="Enter message" required></textarea>
+            </div>
+            
+            <div class="col-sm-12 mt-10">
+                <button type="button" class="btn btn-info btn-md" type="submit" id="sendBtn">Send</button>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalRelatedContent-->
 @endsection
     
 @section('scripts') 
 @parent
-<script src="{{asset('plugins/ckeditor5-build-classic/ckeditor.js')}}"></script>
+
+<script>
+    var mailTo = function(email){
+        $('#showEmail').text(email);
+        $('input[name="to"]').val(email);
+    }
+   
+   $('#sendBtn').click(function(e){
+    e.preventDefault();
+    var from = $('input[name="to"]').val();
+    var message = $('textarea[name="message"]').val();
+    if(from==''||message==''||from==undefined||message==undefined){
+        return;
+    }
+    $('#mailForm').submit();
+   })
+</script>
 <script>
 
     window.onload=function(){

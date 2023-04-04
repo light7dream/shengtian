@@ -9679,7 +9679,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .modal-content button.close {
-  position: absolute;
+  /* position: absolute;
   left: 94%;
   width: 35px;
   height: 35px;
@@ -9690,7 +9690,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border-radius: 50%;
   cursor: pointer;
   font-size: 18px;
-  z-index: 9;
+  z-index: 9; */
 }
 @media only screen and (max-width: 767px) {
   .modal-content button.close {

@@ -45,6 +45,7 @@ Route::middleware(['member'])->group(function () {
     Route::post('/api/confirm-order', [HomeController::class, 'confirmOrder']);
     Route::post('/api/open-carts', [HomeController::class, 'getOpenCarts']);
 });
+Route::post('/api/mail/send', [HomeController::class, 'sendMail']);
 /**
  * ADMIN
  */

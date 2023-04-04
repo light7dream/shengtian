@@ -17,7 +17,7 @@ use App\Models\Member;
 use App\Models\OnlineService;
 use App\Models\ExchangeHistory;
 use App\Models\ReachargeHistory;
-
+use Mail;
 
 use DNS2D;
 use Zxing\QrReader;
@@ -713,5 +713,23 @@ class HomeController extends Controller
         else
         $carts=[];
         return $carts;
+    }
+
+    public function sendMail(Request $req){
+        $this->validate($req, [
+            'to'=>'required',
+            'from'=>'required',
+            'message'=>'required',
+        ]);
+   
+            $details = [
+                'title' => 'Mail from Shengtian',
+                'from' => $req->from,
+                'message' => $req->message
+            ];
+           
+            \Mail::to($req->to)->send(new \App\Mail\SupportMail($details));
+           
+            return back()->with('message', 'We sent your mail');
     }
 }
