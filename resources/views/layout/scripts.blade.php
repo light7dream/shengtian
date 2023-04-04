@@ -87,6 +87,12 @@
             $(window).bind('DOMNodeInserted', function(event) {
                 $('iframe[id=":2.container"]').parent().hide();
             });
+            $(window).on('popstate', function() {
+                setTimeout(() => {
+                    location.reload();
+                }, 100);
+            });
         });
+
     </script>
 @endsection
