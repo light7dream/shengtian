@@ -54,6 +54,9 @@
   display:none !important;
 }
 
+#goog-gt- {
+  display: none !important;
+}
 </style>
 
 <style>
