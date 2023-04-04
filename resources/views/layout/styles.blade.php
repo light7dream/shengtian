@@ -33,7 +33,6 @@
   display:none;
 }
 
-
 .goog-te-gadget-simple {
     background-color: #ecebf0 !important;
     border:0 !important;
@@ -42,6 +41,8 @@
     display: inline-block;
     padding:2px 2px !important;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
     zoom: 1;
 }
 
@@ -59,6 +60,13 @@
 
 body {
     top: 0!important;
+}
+
+.single_product:hover .add_to_cart {
+    /* opacity: 1; */
+    /* visibility: visible; */
+    /* bottom: 27px; */
+    z-index: 1000;
 }
 
 </style>
