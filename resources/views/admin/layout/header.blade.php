@@ -115,7 +115,8 @@
                         </div>
                     </div> -->
                     </div>
-                    <div class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 text-end">
+                    
+                    <div class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 text-end" id="mobile_logout">
                         <form action="/api/member/logout" id="logout_form" method="POST">
                             @csrf
                             <a href="javascript::(0);" id="signout" class="menu-link">登出</a>
@@ -127,7 +128,8 @@
             <!--end::Menu wrapper-->
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
-               
+                    <div class="app-navbar-item ms-1 ms-lg-5 fs-bold fs-4 gray-600"  id="desktop_logout">
+                    </div>
                 <!--end::Quick links-->
                 
                 <!--begin::User menu-->

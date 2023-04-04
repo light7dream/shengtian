@@ -12,7 +12,7 @@
 </script>
 <script>
     function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        new google.translate.TranslateElement({includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
     }
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -22,6 +22,23 @@
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').parent().prepend('<img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="30px" style="margin: 1em">')
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').hide()
         }, 1000);
+        var m = true;
+        if (jQuery( window ).width() < 992 && m == false){
+            m = true;
+            jQuery('#logout_form').detach().appendTo('#mobile_logout');                            
+        } else if (jQuery( window ).width() >= 992 && m == true){
+            m = false;
+            jQuery('#logout_form').detach().prependTo('#desktop_logout');                            
+        }
+        jQuery( window ).resize(function() {
+        if (jQuery( window ).width() < 992 && m == false){
+            m = true;
+            jQuery('#logout_form').detach().appendTo('#mobile_logout');                            
+        } else if (jQuery( window ).width() >= 992 && m == true){
+            m = false;
+            jQuery('#logout_form').detach().prependTo('#desktop_logout');                            
+        }
+    });
     </script>
 <!--end::Javascript-->
 @endsection

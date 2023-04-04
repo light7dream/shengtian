@@ -2,13 +2,13 @@
 <div id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row align-items-center flex-center flex-md-stack py-2 py-lg-4">
   
     <div class="container">
-               <div class="row align-items-center">
-                   <div class="col-lg-6 col-md-6">
+               <div class="row text-center">
+                   <!-- <div class="col-lg-6 col-md-6">
                        <div class="footer_social">
-                            <!-- <a href="#"><img src="{{asset('assets/img/partner/footer_icon.png')}}" alt=""></a> -->
+                            <a href="#"><img src="{{asset('assets/img/partner/footer_icon.png')}}" alt=""></a>
                        </div>
-                   </div>    
-                   <div class="col-lg-6 col-md-6 text-center">    
+                   </div>     -->
+                   <div class="col-lg-12 col-md-12 text-center">    
                            <a href="#"><img src="{{asset('assets/img/partner/bbin.png')}}" alt=""></a>
                            <a href="#"><img src="{{asset('assets/img/partner/dfjt.png')}}" alt=""></a>
                            <a href="#"><img src="{{asset('assets/img/partner/mg.png')}}" alt=""></a>

@@ -51,7 +51,7 @@
     <script>
           var m = false;
     function googleTranslateElementInit1() {
-        new google.translate.TranslateElement({pageLanguage: 'zh-CN',includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        new google.translate.TranslateElement({includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         setTimeout(() => {
             if (jQuery( window ).width() < 768 && m == false){
             m = true;
