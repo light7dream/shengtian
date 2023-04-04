@@ -77,8 +77,8 @@
                           <a class="menu-title" href="/">进入用户页面</a>
                         </span>
                     </div>
-                    <div class='menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2' style="margin-right: 0px; margin-top:-5px" id="translator">
-                    <div id="g_translater">
+                    <div class='menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 text-center' style="border-bottom:0" id="translator">
+                    <div id="g_translater" style="margin: auto">
                         <div id="google_translate_element" ></div>
                     </div>
                 </div>

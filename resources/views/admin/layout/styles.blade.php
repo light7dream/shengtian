@@ -34,6 +34,10 @@
 .drawer{
     padding-top: 40px;
 }
+
+.drawer .menu-item{
+    border-bottom: 1px solid #eee;
+}
 .goog-te-menu-frame,.goog-te-balloon-frame{
     box-shadow:none!important
     }
