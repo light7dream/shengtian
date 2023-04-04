@@ -136,10 +136,10 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <p class="heading"></p>
+        <p class="heading">Send Mail</p>
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">&times;</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:auto; height:auto">
+          <span aria-hidden="true" class="white-tex">&times;</span>
         </button>
       </div>
 
@@ -147,7 +147,7 @@
       <div class="modal-body">
 
         <div class="row">
-            <form action="/api/mail/send" method="POST" id="mailForm">
+            <form action="/api/mail/send" method="POST" id="mailForm" style="width: 100%">
                 @csrf
             <input class="form-control" type="hidden" placeholder="Email" name="to" required />
 
