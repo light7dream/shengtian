@@ -74,7 +74,7 @@
     });
     </script>
     
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit1"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit1"></script>
     
     <script>
         var i =0
