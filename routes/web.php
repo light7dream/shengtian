@@ -23,9 +23,8 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/product-list', [HomeController::class, 'viewProductListPage']);
 Route::get('/help', [HomeController::class, 'viewHelpPage']);
-Route::get('/identify-by-qrcode', [HomeController::class, 'viewIdentifyByQRCodePage']);
-Route::post('/api/invoice/sign', [HomeController::class, 'signInvoice']);
-Route::post('/api/identify-by-qrcode', [HomeController::class, 'identifyByQRCode']);
+// Route::get('/identify-by-qrcode', [HomeController::class, 'viewIdentifyByQRCodePage']);
+// Route::post('/api/identify-by-qrcode', [HomeController::class, 'identifyByQRCode']);
 
 Route::middleware(['member'])->group(function () {
     Route::get('/login', [HomeController::class, 'viewLoginPage']);
@@ -36,6 +35,7 @@ Route::middleware(['member'])->group(function () {
     Route::get('/order-back/{id}', [HomeController::class, 'viewOrderBackPage']);
     Route::get('/product-details/{id}', [HomeController::class, 'viewProductDetailsPage']);
     Route::get('/invoices/{id}', [HomeController::class, 'viewInvoicePage']);
+    Route::post('/api/invoice/sign', [HomeController::class, 'signInvoice']);
 
     Route::post('/api/add-cart',[HomeController::class, 'addCart']);
     Route::post('/api/delete-cart',[HomeController::class, 'deleteCart']);
@@ -58,15 +58,11 @@ Route::get('/admin/catalog/categories', [AdminController::class, 'viewCategories
 Route::get('/admin/catalog/add-category', [AdminController::class, 'viewAddCategoryPage']);
 Route::get('/admin/catalog/edit-category/{id}', [AdminController::class, 'viewEditCategoryPage']);
 
-Route::get('/admin/reports', [AdminController::class, 'viewReportsPage']);
 
-// Route::get('/admin/customers', [AdminController::class, 'viewCustomersPage']);
-// Route::get('/admin/customer-details', [AdminController::class, 'viewCustomerDetailsPage']);
-
-Route::get('/admin/members/senders', [AdminController::class, 'viewSendersPage']);
-Route::get('/admin/members/sender-details/{id}', [AdminController::class, 'viewSenderDetailsPage']);
-Route::get('/admin/members/add-sender', [AdminController::class, 'viewAddSenderPage']);
-Route::get('/admin/members/edit-sender/{id}', [AdminController::class, 'viewEditSenderPage']);
+// Route::get('/admin/members/senders', [AdminController::class, 'viewSendersPage']);
+// Route::get('/admin/members/sender-details/{id}', [AdminController::class, 'viewSenderDetailsPage']);
+// Route::get('/admin/members/add-sender', [AdminController::class, 'viewAddSenderPage']);
+// Route::get('/admin/members/edit-sender/{id}', [AdminController::class, 'viewEditSenderPage']);
 
 /**
  * 
@@ -85,7 +81,6 @@ Route::get('/admin/sales/add-order', [AdminController::class, 'viewAddOrderPage'
 Route::get('/admin/sales/details/{id}', [AdminController::class, 'viewOrderDetailsPage']);
 Route::get('/admin/sales/edit-order/{id}', [AdminController::class, 'viewEditOrderPage']);
 
-// Route::get('/admin/invoices', [AdminController::class, 'viewInvoicesPage']);
 Route::get('/admin/invoices/{id}', [AdminController::class, 'viewInvoicePage']);
 Route::get('/admin/invoices/create', [AdminController::class, 'viewCreateInvoicePage']);
 
@@ -145,7 +140,7 @@ Route::post('/api/setting/delete-banner', [AdminController::class, 'deleteBanner
  */
 Route::post('/api/member/login', [AuthController::class, 'login']);
 Route::post('/api/member/logout', [AuthController::class, 'logout']);
-Route::post('/api/member/register', [AuthController::class, 'register']);
+// Route::post('/api/member/register', [AuthController::class, 'register']);
 
 
 

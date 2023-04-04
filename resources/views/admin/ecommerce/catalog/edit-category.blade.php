@@ -91,7 +91,7 @@
 							<label class="form-label">Description</label>
 							<!--end::Label-->
 							<!--begin::Editor-->
-							<textarea name="category_description" class="form-control mb-2" placeholder="Description" rows="6" id='category_desc' value="Hi">{{$category->description}}</textarea>
+							<textarea name="category_description" class="form-control mb-2" placeholder="Description" rows="6" id='category_desc' value="Hi">{!!$category->description!!}</textarea>
 							{{-- <div id="kt_add_category_description" name="kt_add_category_description" class="min-h-200px mb-2"></div> --}}
 							<!--end::Editor-->
 							<!--begin::Description-->
@@ -134,6 +134,13 @@
 	<!--begin::Vendors Javascript(used for this page only)-->
 	<script src="{{asset('admin/assets/plugins/custom/formrepeater/formrepeater.bundle.js')}}"></script>
 	<!--end::Vendors Javascript-->
+	<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+	<script>
+		CKEDITOR.replace('category_desc');
+		for (var i in CKEDITOR.instances) {
+			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
+        }
+	</script>
 	<script>
 		var KTAppEcommerceSaveCategory = function(){
 			return{

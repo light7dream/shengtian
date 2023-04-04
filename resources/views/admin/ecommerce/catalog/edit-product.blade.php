@@ -239,7 +239,7 @@
 										<label class="required form-label">Description</label>
 										<!--end::Label-->
 										<!--begin::Editor-->
-										<textarea class="form-control" name="product_description" rows="4" placeholder="Product description">{{$product->description}}</textarea>
+										<textarea class="form-control" name="product_description" rows="4" placeholder="Product description" id="product_description">{!!$product->description!!}</textarea>
 										<!--end::Editor-->
 										<!--begin::Description-->
 										<div class="text-muted fs-7">Set a description to the product for better visibility.</div>
@@ -479,6 +479,13 @@
 	<!--end::Vendors Javascript-->
 	<script src="{{asset('admin/assets/js/custom/bootstrap-colorpicker.min.js')}}"></script>
 	<script src="{{asset('admin/assets/js/custom/jquery-minicolors.min.js')}}"></script>
+	<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+	<script>
+		CKEDITOR.replace('product_description');
+		for (var i in CKEDITOR.instances) {
+			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
+        }
+	</script>
 	<script>
 		var KTAppEcommerceSaveProduct = function(){
 

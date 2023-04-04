@@ -139,10 +139,19 @@
 @parent
 		<!--begin::Vendors Javascript(used for this page only)-->
 		<script src="{{asset('admin/assets/plugins/custom/formrepeater/formrepeater.bundle.js')}}"></script>
+		
+		<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+	<script>
+		CKEDITOR.replace('category_desc');
+		for (var i in CKEDITOR.instances) {
+			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
+        }
+	</script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
 		<!--end::Custom Javascript-->
 		<script>
+			
 			var KTAppEcommerceSaveCategory = function(){
 				return{
 					init:function(){

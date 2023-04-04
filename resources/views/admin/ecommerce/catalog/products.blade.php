@@ -65,7 +65,6 @@
 							<!--begin::Checkbox-->
 							<td>
 								<div class="form-check form-check-sm form-check-custom form-check-solid">
-									{{-- <input class="form-check-input" type="checkbox" value="1" /> --}}
 									<input type="hidden" value="{{$product->id}}" />
 								</div>
 							</td>
@@ -88,7 +87,7 @@
 							<!--end::Category=-->
 							<!--begin::SKU=-->
 							<td class="">
-								<span class="fw-bold">{{$product->description}}</span>
+								<span class="fw-bold">{!!$product->description!!}</span>
 							</td>
 							<!--end::SKU=-->
 							<!--begin::Qty=-->

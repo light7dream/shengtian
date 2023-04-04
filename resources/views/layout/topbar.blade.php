@@ -151,8 +151,8 @@
                                     </form>
                                     @else
                                     <a href="/login"><i class="fa fa-sign-in"></i> 登入</a>
-                                    <a href="/register"><i class="fa fa-sign-in"></i> 登记</a>
-                                    <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a>
+                                    <!-- <a href="/register"><i class="fa fa-sign-in"></i> 登记</a> -->
+                                    <!-- <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a> -->
                                 @endif
                             </div>
                         </div>
@@ -243,8 +243,8 @@
                                                     </form>
                                                     @else
                                                     <a href="/login"><i class="fa fa-sign-in"></i> 登入</a>
-                                                    <a href="/register"><i class="fa fa-sign-in"></i> 登记</a>
-                                                    <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a>
+                                                    <!-- <a href="/register"><i class="fa fa-sign-in"></i> 登记</a> -->
+                                                    <!-- <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a> -->
                                                      @endif
                                                  </div>
                                              </div>
