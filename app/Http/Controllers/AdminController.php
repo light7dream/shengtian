@@ -212,8 +212,11 @@ class AdminController extends Controller
 
     public function viewEditMemberPage($id){
         $member = Member::find($id);
+        $used_points = 0;
+        foreach($member->orders as $order)
+            $used_points+=$order->total;
         if(!$member)return view('404');
-        return view('admin.ecommerce.members.edit-member', ['member'=>$member, 'title'=>'Edit a member']);
+        return view('admin.ecommerce.members.edit-member', ['member'=>$member, 'title'=>'Edit a member', 'used_points'=>$used_points]);
     }
 
     public function addMember(Request $req){
@@ -243,7 +246,7 @@ class AdminController extends Controller
         $member->save();
 
         $last_password =new PasswordChangeHistory;
-         $last_password->last_password = $req->last_password;
+        $last_password->last_password = $req->last_password;
         $last_password->member_id = $req->id;
         $last_password->current_password = $req->member_password;
         $last_password->save();

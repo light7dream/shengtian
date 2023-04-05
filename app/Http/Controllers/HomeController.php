@@ -33,11 +33,10 @@ class HomeController extends Controller
      */
     public function index(Request $req){
         $used_points = 0;
+        $total_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $total_points=Member::find($req->session()->get('user')->member_id)->points;
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
         }     
         $categories = Category::all();
         if($req->session()->has('user'))
@@ -61,10 +60,11 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts, "official" => $data]);
+        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'total_points'=>$total_points, 'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts, "official" => $data]);
     }
 
     public function viewCartPage(Request $req){
+        $member=null;
         if($req->session()->has('user'))
         {
             $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
@@ -102,7 +102,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('cart', ['used_points'=>$used_points,'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'Dashboard', 'official' =>$data]);
+        return view('cart', ['used_points'=>$used_points, 'total_points'=>$my_balace, 'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'Dashboard', 'official' =>$data]);
     }
 
     public function viewHelpPage(Request $req){
@@ -127,28 +127,27 @@ class HomeController extends Controller
 
 
         $content4 = OnlineService::all();
-            if(count($content4) ==0)
-                $help_four =[];
-            else       
-            $help_four = $content4;
-            if($req->session()->has('user'))
-            $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
-            else
-            $carts = [];
-            $used_points = 0;
-            if($req->session()->has('user')){
-                $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-                foreach($orders as $order){
-                    $used_points+=$order->total;
-                }
-            }  
+        if(count($content4) ==0)
+            $help_four =[];
+        else       
+        $help_four = $content4;
+        if($req->session()->has('user'))
+        $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
+        else
+        $carts = [];
+        $my_points = 0;
+        $used_points = 0;
+        if($req->session()->has('user')){
+            $my_points = Member::find($req->session()->get('user')->member_id)->points;
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+        }  
 
-            $official = Setting::all();
-            if(count($official) !=0)
-             $data = $official[0]->game_official_site;
-            else
-              $data = "#";
-        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts, 'used_points'=>$used_points, 'official' => $data]);
+        $official = Setting::all();
+        if(count($official) !=0)
+            $data = $official[0]->game_official_site;
+        else
+            $data = "#";
+        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts,'total_points'=>$my_points, 'used_points'=>$used_points, 'official' => $data]);
     }
 
     public function viewMinePage(Request $req){
@@ -158,10 +157,7 @@ class HomeController extends Controller
         $carts =[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
         }     
         
         $yesterday = date('Y-m-d',strtotime("-1 days"));
@@ -185,11 +181,9 @@ class HomeController extends Controller
             'obtained_yesterday_points'=>$obtained_yesterday_points,
             'accumulated_points_permonth'=>$accumulated_points_permonth,
             'total_points'=>$member->points,
-            'used_points'=>$member->used_points,
-            'remaining_points'=>$member->points-$member->used_points,
+            'used_points'=>$used_points,
+            'remaining_points'=>$member->points-$used_points,
             'exchanged_goods' => [
-                // (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                // (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
             ]
         ];
             
@@ -200,51 +194,6 @@ class HomeController extends Controller
             'records'=>$exchanged_goods
         ];
 
-        $my_orders = [
-                (object)[
-                'content'=>'Rolex 格林尼治型 II  机械腕表等 ',
-                'cart_num'=>2,
-                'status'=>'已完成',
-                'no'=>2324923424,
-                'date'=>'2023.3.15 16:21',
-                'cart_items'=>[
-                    (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                    (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                ],
-                'points'=> 35238,
-                'delivery_info'=> '',
-                'supplier'=>'王某某',
-                'supplier_phone'=> '138 4000 8888',
-                'supplier_address'=> '辽宁省 沈阳市 大东区 xxxx xxxxx小区102',
-                'express_no'=> 'SF1569422654892226',
-                'events'=>[
-                    (object)['date'=>'3.16 09:49', 'content'=>'快递达到辽宁中转站'],
-                    (object)['date'=>'3.16 09:49', 'content'=>'快递达到辽宁中转站'],
-                ]
-                ],
-                (object)[
-                    'content'=>'格林尼治型 II  机械腕表等',
-                    'cart_num'=>2,
-                    'status'=>'待收货',
-                    'no'=>2324923424,
-                    'date'=>'2023.3.15 16:21',
-                    'cart_items'=>[
-                        (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                        (object)['primary_image'=>'assets/img/product/product1.jpg', 'url'=>'#', 'name'=>'Rolex 格林尼治型 II 机械腕表Rolex 格林尼治型 II 机械腕表', 'color'=>'黑色', 'size'=>'S码', 'price'=>'80,000 积分', 'cart_num'=>'1'],
-                    ],
-                    'points'=> 35238,
-                    'delivery_info'=> '',
-                    'supplier'=>'王某某',
-                    'supplier_phone'=> '138 4000 8888',
-                    'supplier_address'=> '辽宁省 沈阳市 大东区 xxxx xxxxx小区102',
-                    'express_no'=> 'SF1569422654892226',
-                    'events'=>[
-                        (object)['date'=>'3.16 09:49', 'content'=>'快递达到辽宁中转站'],
-                        (object)['date'=>'3.16 09:49', 'content'=>'快递达到辽宁中转站'],
-                    ]
-                ]
-        ];
-
         $orders = Order::all();
 
         $official = Setting::all();
@@ -253,7 +202,7 @@ class HomeController extends Controller
         else
           $data = "#";
 
-        return view('mine', ['used_points'=>$used_points,'personal_info'=>$personal_info, 'point_details'=>$point_details, 'my_orders'=>$orders, 'carts'=>$carts, 'official' =>$data]);
+        return view('mine', ['used_points'=>$used_points, 'total_points'=>$member->points, 'personal_info'=>$personal_info, 'point_details'=>$point_details, 'my_orders'=>$orders, 'carts'=>$carts, 'official' =>$data]);
     }
 
     public function viewOrderBackPage(Request $req, $id){
@@ -267,13 +216,10 @@ class HomeController extends Controller
 
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
         }     
-        
-        $my_points = 0;
+        $member = Member::find($req->session()->get('user')->member_id);
+        $my_points = $member->points;
 
         $order_info = (object)[
             'no'=>$order->id,
@@ -286,7 +232,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('order-back', ['used_points'=>$used_points,'order_info'=>$order_info, 'carts'=>$carts, "official" => $data]);
+        return view('order-back', ['used_points'=>$used_points,'total_points'=>$member->points, 'order_info'=>$order_info, 'carts'=>$carts, "official" => $data]);
     }
     
     public function viewNewOrderPage(Request $req){
@@ -298,8 +244,9 @@ class HomeController extends Controller
         $carts_ = Cart::where('checked',1)->where('member_id', $req->session()->get('user')->member_id)->get();
         else
         $carts_=[];
+        $member = Member::find($req->session()->get('user')->member_id);
         $total_points = 0;
-        $my_points = 0;
+        $my_points = $member->points;
         foreach($carts_ as $cart){
             $total_points+=$cart->quantity*$cart->product->points;
         }        
@@ -310,10 +257,8 @@ class HomeController extends Controller
         ];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+            
         }     
 
         $official = Setting::all();
@@ -321,20 +266,22 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('new-order', ['used_points'=>$used_points,'carts'=>$carts, 'carts_'=>$carts_, 'book_keeping'=>$book_keeping, 'official' => $data]);
+        return view('new-order', ['used_points'=>$used_points,'total_points'=>$member->points,'carts'=>$carts, 'carts_'=>$carts_, 'book_keeping'=>$book_keeping, 'official' => $data]);
     }
     
     public function viewProductDetailsPage(Request $req, $id){
         $product_ = Product::find($id);
         if(!$product_)return view('404');
-
+        $member = null;
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+           
         }     
+        if($req->session()->has('user'))
+            $member = Member::find($req->session()->get('user')->member_id);
+
+        $my_points=$member?$member->points:0;
         if($req->session()->has('user'))
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else 
@@ -390,16 +337,16 @@ class HomeController extends Controller
             else
               $data = "#";
         
-        return view('product-details', ['used_points'=>$used_points,'product'=>$product, 'carts'=>$carts, 'exchange_records'=>[], 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'official' => $data]);
+        return view('product-details', ['used_points'=>$used_points,'total_points'=>$my_points, 'product'=>$product, 'carts'=>$carts, 'exchange_records'=>[], 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'official' => $data]);
     }
     
     public function viewProductListPage(Request $req){
         $used_points = 0;
+        $my_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $my_points=Member::find($req->session()->get('user')->member_id)->points;
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+           
         }    
         if($req->session()->has('user')) 
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
@@ -446,7 +393,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('product-list', ['used_points'=>$used_points,'products'=>$products, 'carts'=>$carts, 'official' => $data]);
+        return view('product-list', ['used_points'=>$used_points,'total_points'=>$my_points, 'products'=>$products, 'carts'=>$carts, 'official' => $data]);
     }
 
    
@@ -459,6 +406,7 @@ class HomeController extends Controller
 
         return view('login',['carts'=>[], 'official' => $data]);
     }
+
     public function viewRegisterPage(){
         $official = Setting::all();
         if(count($official) !=0)
@@ -531,8 +479,11 @@ class HomeController extends Controller
         foreach($carts as $cart){
             $consump_points += $cart->quantity*$cart->product->points;
         }
-        if($consump_points>$req->session()->get('user')->points)
+        $member=Member::find($req->session()->get('user')->member_id);
+        if($consump_points>$member->points)
         return back()->withErrors(['message'=>'Not enough bet amounts!']);
+        $member->used_points=$member->used_point+$consump_points;
+        $member->save();
         $newOrder= new Order;
         $newOrder->member_id=$req->session()->get('user')->member_id;
         $newOrder->recipient_name=$req->input('name');
@@ -660,6 +611,7 @@ class HomeController extends Controller
 
     public function viewInvoicePage(Request $req,$id){
         $invoice = Invoice::find($id);
+        $my_points = Member::find($req->session()->get('user')->member_id)->points;
         if(!$invoice)return view('404');
         if($req->session()->has('user'))
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
@@ -667,10 +619,8 @@ class HomeController extends Controller
         $carts=[];
         $used_points = 0;
         if($req->session()->has('user')){
-            $orders = Order::where('member_id', $req->session()->get('user')->member_id)->get();
-            foreach($orders as $order){
-                $used_points+=$order->total;
-            }
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+           
         }     
 
         $official = Setting::all();
@@ -678,7 +628,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('invoice', ['used_points'=>$used_points,'invoice'=>$invoice, 'carts'=>$carts, 'official' => $data]);
+        return view('invoice', ['used_points'=>$used_points,'total_points'=>$my_points, 'invoice'=>$invoice, 'carts'=>$carts, 'official' => $data]);
     }
 
     public function signInvoice(Request $req){

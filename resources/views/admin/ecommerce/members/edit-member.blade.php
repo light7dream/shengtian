@@ -7,57 +7,7 @@
 			@csrf
 			<input type='hidden' name="id" value="{{$member->id}}">
 			<!--begin::Aside column-->
-			{{-- <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
-				<!--begin::Thumbnail settings-->
-				<div class="card card-flush py-4">
-					<!--begin::Card header-->
-					<div class="card-header">
-						<!--begin::Card title-->
-						<div class="card-title required">
-							<h2>Photo</h2>
-						</div>
-						<!--end::Card title-->
-					</div>
-					<!--end::Card header-->
-					<!--begin::Card body-->
-					<div class="card-body text-center pt-0 fv-row">
-						<!--begin::Image input-->
-						<!--begin::Image input-->
-						<div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
-							<!--begin::Preview existing avatar-->
-							<div class="image-input-wrapper w-150px h-150px" style="background-image: url({{url('/storage/uploads/members/members/'.$member->id.'.png')}})"></div>
-							<!--end::Preview existing avatar-->
-							<!--begin::Label-->
-							<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-								<!--begin::Icon-->
-								<i class="bi bi-pencil-fill fs-7"></i>
-								<!--end::Icon-->
-								<!--begin::Inputs-->
-								<input type="file" name="member_image" accept=".png, .jpg, .jpeg" />
-								<input type="hidden" name="image_remove" />
-								<!--end::Inputs-->
-							</label>
-							<!--end::Label-->
-							<!--begin::Cancel-->
-							<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-								<i class="bi bi-x fs-2"></i>
-							</span>
-							<!--end::Cancel-->
-							<!--begin::Remove-->
-							<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-								<i class="bi bi-x fs-2"></i>
-							</span>
-							<!--end::Remove-->
-						</div>
-						<!--end::Image input-->
-						<!--begin::Description-->
-						<div class="text-muted fs-7">Set the member thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
-						<!--end::Description-->
-					</div>
-					<!--end::Card body-->
-				</div>
-				<!--end::Thumbnail settings-->
-			</div> --}}
+		
 			<!--end::Aside column-->
 			<!--begin::Main column-->
 			<div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
@@ -151,7 +101,7 @@
 									<label class="required form-label">Used Points</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled type="number" min="0" max="{{$member->points}}" name="member_used_points" class="form-control mb-2" placeholder="Used Points" value="{{$member->used_points}}" id='member_used_points'></textarea>
+									<input disabled type="number" min="0" max="{{$member->points}}" name="member_used_points" class="form-control mb-2" placeholder="Used Points" value="{{$member->orders->sum('total')}}" id='member_used_points'></textarea>
 									<!--end::Editor-->
 								</div>
 							</div>
@@ -161,7 +111,7 @@
 									<label class="required form-label">Remain Points</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled type="number" name="member_remain_points" class="form-control mb-2" placeholder="Remain Points" value="{{$member->points-$member->used_points}}" id='member_remain_points'></textarea>
+									<input disabled type="number" name="member_remain_points" class="form-control mb-2" placeholder="Remain Points" value="{{$member->points-$member->orders->sum('total')}}" id='member_remain_points'></textarea>
 									<!--end::Editor-->
 								</div>
 							</div>

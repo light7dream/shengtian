@@ -28,7 +28,6 @@ class AuthController extends Controller
             $user = (object)[
                 'member_id'=>$member->id,
                 'user_name'=>$member->name,
-                'points'=>$member->points,
                 'role'=>1
             ];
             Session::put('user', $user);
@@ -39,7 +38,6 @@ class AuthController extends Controller
             $user = (object)[
                 'member_id'=>$member->id,
                 'user_name'=>$member->name,
-                'points'=>$member->points,
                 'role'=>0
             ];
             Session::put('user', $user);

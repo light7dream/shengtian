@@ -81,17 +81,17 @@
                             <div>{{$member->points}}</div>
                         </td>
                         <td>
-                            <div>{{$member->used_points}}</div>
+                            <div>{{$member->orders->sum('total')}}</div>
                         </td>
                         <td>
-                            <div>{{$member->points-$member->used_points}}</div>
+                            <div>{{$member->points-$member->orders->sum('total')}}</div>
                         </td>
                         <td>
                             <div>{{$member->last_exchange_at}}</div>
                         </td>
                         <td class="col-md-12 col-sm-12 text-center">
-                                    <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2">Edit</a>
-                                    <a href="#" class="btn btn-sm btn-dark" data-id="{{$member->id}}" data-table-filter="delete_row">Delete</a>
+                            <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2">Edit</a>
+                            <a href="#" class="btn btn-sm btn-dark mb-2" data-id="{{$member->id}}" data-table-filter="delete_row">Delete</a>
                         </td>
                     </tr>
                     @endforeach

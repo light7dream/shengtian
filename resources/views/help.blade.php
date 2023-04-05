@@ -15,6 +15,13 @@
 .post_wrapper a:hover{color: rgb(3, 83, 148)!important;}
 .dashboard_tab_button{text-align: center;}
 .error{color:#f00}
+
+.modal-header{
+    background-color: rgba(51, 65, 255, 0.6);
+    color: #fff;
+    border-top-left-radius: 0!important; 
+    border-top-right-radius: 0!important;
+}
 </style>
 @endsection
 
@@ -137,9 +144,9 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <p class="heading">Send Mail</p>
+        <h4 class="heading">Send Mail</h4>
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:auto; height:auto">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:auto; height:auto; color: #fff">
           <span aria-hidden="true" class="white-tex">&times;</span>
         </button>
       </div>

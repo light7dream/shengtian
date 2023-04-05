@@ -50,7 +50,6 @@
 							<th class="text-end">Exchange items</th>
 							{{-- <th class="text-end">Color</th> --}}
 							<th class="text-end">Use Points</th>
-							<th class="text-end">Remaining Points</th>
 							<th class="text-end">Address</th>
 							<th class="text-end">Telephone</th>
 							<th class="text-end">Recipient</th>
@@ -87,9 +86,6 @@
 								<td class="text-end">
 									{{$order->total}}
 								</td>
-								<td class="text-end">
-									{{$order->member->points - $order->member->used_points - $order->total}}
-								</td>	
 								<td class="text-end">
 									{{$order->recipient_address}}
 								</td>	

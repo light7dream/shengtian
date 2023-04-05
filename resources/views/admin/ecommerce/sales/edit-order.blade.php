@@ -32,23 +32,7 @@
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
-							{{-- <div class="fv-row">
-								<!--begin::Label-->
-								<label class="required form-label">Payment Method</label>
-								<!--end::Label-->
-								<!--begin::Select2-->
-								<select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" name="payment_method" id="kt_ecommerce_edit_order_payment">
-									<option></option>
-									<option value="cod">Cash on Delivery</option>
-									<option value="visa" selected="selected">Credit Card (Visa)</option>
-									<option value="mastercard">Credit Card (Mastercard)</option>
-									<option value="paypal">Paypal</option>
-								</select>
-								<!--end::Select2-->
-								<!--begin::Description-->
-								<div class="text-muted fs-7">Set the date of the order to process.</div>
-								<!--end::Description-->
-							</div> --}}
+							
 							<!--end::Input group-->
 							
 							<!--begin::Input group-->

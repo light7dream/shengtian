@@ -96,9 +96,9 @@
                                     @if (Session::has('user'))
                                             <h3><i class="icon icon-User"style="margin-right:10px"></i>{{Session::get('user')->user_name}}</h3>
                                         <ul>
-                                            <li><a href="#">我的积分  <span style="float: right;">{{Session::get('user')->points}}</span></a></li>
+                                            <li><a href="#">我的积分  <span style="float: right;">{{$total_points}}</span></a></li>
                                             <li><a href="#">已用积分  <span style="float: right;">{{$used_points}}</span></a></li>
-                                            <li><a href="#">剩余积分  <span style="float: right;">{{Session::get('user')->points-$used_points}}</span></a></li>
+                                            <li><a href="#">剩余积分  <span style="float: right;">{{$total_points-$used_points}}</span></a></li>
                                         </ul>
                                         @endif
                                 </li>
@@ -226,9 +226,9 @@
                                             @if (Session::has('user'))
                                             <h3><i class="icon icon-User"style="margin-right:10px"></i>{{Session::get('user')->user_name}}</h3>
                                             <ul>
-                                                <li><a href="#">我的积分  <span style="float: right;">{{Session::get('user')->points}}</span></a></li>
+                                                <li><a href="#">我的积分  <span style="float: right;">{{$total_points}}</span></a></li>
                                                 <li><a href="#">已用积分  <span style="float: right;">{{$used_points}}</span></a></li>
-                                                <li><a href="#">剩余积分  <span style="float: right;">{{Session::get('user')->points-$used_points}}</span></a></li>
+                                                <li><a href="#">剩余积分  <span style="float: right;">{{$total_points-$used_points}}</span></a></li>
                                             </ul>
                                             @endif
                                         </div>

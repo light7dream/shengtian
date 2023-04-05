@@ -167,8 +167,8 @@
                 <!--begin::Wrapper-->
                 <div class="d-flex flex-column gap-7 gap-md-10">
                     <!--begin::Message-->
-                    <div class="fw-bold fs-2">{{$invoice->recipient_name}}
-                    <span class="fs-6">(+{{$invoice->recipient_phone}})</span>,
+                    <div class="fw-bold fs-2">{{$invoice->order->member->name}},
+                    <span class="fs-6">ID-#{{$invoice->order->member->id}}</span>
                     <br />
                     <span class="text-muted fs-5">Here are your order details. We thank you for your purchase.</span></div>
                     <!--begin::Message-->
