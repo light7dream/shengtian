@@ -480,7 +480,8 @@ class HomeController extends Controller
             $consump_points += $cart->quantity*$cart->product->points;
         }
         $member=Member::find($req->session()->get('user')->member_id);
-        if($consump_points>$member->points)
+        $used_points = $member->orders->sum('total');
+        if($consump_points>$member->points-$used_points)
         return back()->withErrors(['message'=>'Not enough bet amounts!']);
         $member->used_points=$member->used_point+$consump_points;
         $member->save();
