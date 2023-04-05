@@ -246,7 +246,11 @@ class HomeController extends Controller
         $carts_=[];
         $member = Member::find($req->session()->get('user')->member_id);
         $total_points = 0;
-        $my_points = $member->points;
+        $used_points = 0;
+        if($req->session()->has('user')){
+            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
+        }    
+        $my_points = $member->points-$used_points;
         foreach($carts_ as $cart){
             $total_points+=$cart->quantity*$cart->product->points;
         }        
@@ -255,11 +259,7 @@ class HomeController extends Controller
             'my_scores'=>$my_points,
             'need_scores'=>$my_points<$total_points?$total_points-$my_points:0
         ];
-        $used_points = 0;
-        if($req->session()->has('user')){
-            $used_points = Order::where('member_id', $req->session()->get('user')->member_id)->sum('total');
-            
-        }     
+         
 
         $official = Setting::all();
         if(count($official) !=0)
