@@ -201,7 +201,7 @@
 										text:"抱歉，看起来有一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"好的，我知道了！
+										confirmButtonText:"好的，我知道了！"
 										customClass:{
 												confirmButton:"btn btn-primary"
 										}
