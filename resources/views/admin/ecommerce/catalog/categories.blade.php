@@ -91,9 +91,9 @@
 							</td>
 							<!--end::Type=-->
 							<!--begin::Action=-->
-							<td class="text-end d-flex flex-end">
+							<td class="text-end flex-end">
 								
-									<div class="d-flex">
+									<div class="text-muted fs-7 fw-bold">
 										<a href="/admin/catalog/edit-category/{{$category->id}}" class="btn btn-sm btn-warning">Edit</a>
 									</div>
 									<!--end::Menu item-->

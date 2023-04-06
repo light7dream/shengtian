@@ -112,14 +112,14 @@
 							</td>
 							<!--end::Status=-->
 							<!--begin::Action=-->
-							<td class="text-end d-flex flex-end">
+							<td class="text-end">
 								
-									<div class="d-flex">
+									<div style="display: inline-block">
 										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">Edit</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
-									<div class="d-flex" style="margin-left: 1em">
+									<div style="display: inline-block">
 										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">Delete</a>
 									</div>
 									<!--end::Menu item-->
