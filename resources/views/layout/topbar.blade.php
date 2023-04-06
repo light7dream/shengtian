@@ -16,6 +16,7 @@
             display: none;
         }
     </style>
+   
     <!--offcanvas menu area start-->
     <div class="off_canvars_overlay">
                 
@@ -137,12 +138,15 @@
                         </div>
 
                         <div class="offcanvas_footer">
-                                
+                            <ul>
+                                <li class="twitter m-4"><a href="#" translate="no" class="zh-CN">简</a></li>
+                                <li class="pinterest m-4"><a href="#" translate="no" class="zh-TW">繁</a></li>
+                                <li class="facebook m-4"><a href="#" translate="no" class="En">En</a></li>
+                            </ul>
 
-
-                                <div class='d-flex m-10 text-center' style="height: 40px">
-                                    <div style="margin:auto" id="mobile_translator"></div>
-                                </div>
+                            <div class='d-flex m-10 text-center' style="height: 40px">
+                                <div style="margin:auto" id="mobile_translator"></div>
+                            </div>
                             <div class="cart_button mt-30">
                                 @if (Session::has('user'))
                                     <form action="/api/member/logout" method="post">
@@ -151,8 +155,6 @@
                                     </form>
                                     @else
                                     <a href="/login"><i class="fa fa-sign-in"></i> 登入</a>
-                                    <!-- <a href="/register"><i class="fa fa-sign-in"></i> 登记</a> -->
-                                    <!-- <a href="/identify-by-qrcode" style="font-size: 14px;margin-top: 8px;"><img src="{{asset('assets/img/qrcodescan_120401.svg')}}"></a> -->
                                 @endif
                             </div>
                         </div>
@@ -268,10 +270,21 @@
                                     }
                                 </style>
 
-                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px" id="translator">
-                                    <div id="g_translater">
-                                        <div id="google_translate_element" ></div>
+                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px; display:inline" id="translator">
+                                    <div id="g_translater" style="display:none">
+                                        <div id="google_translate_element"></div>
+                                    </div>  
+                                    <a href="javascript:void(0)"><img src="{{asset('assets/img/icon/fy.png')}}" alt="" width="30px"></a>
+                                    <div class="dropdown_links" style="width: 150px">
+                                        <div class="dropdown_links_list" >
+                                            <ul>
+                                                <li><a href="#" translate="no" class="zh-CN">简体中文</a></li>
+                                                <li><a href="#" translate="no" class="zh-TW">繁體中文</a></li>
+                                                <li><a href="#" translate="no" class="En">English</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                  
                                 </div>
                                 
                                 <div class="header_account-list mini_cart_wrapper">

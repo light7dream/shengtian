@@ -98,6 +98,24 @@
         });
 
         
-  
+        $('a[class="zh-CN"]').click(function(){
+            var el=$($("iframe")[2]).contents();
+            var bdy = $(el[0].body);
+            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).click();
+           
+        })
+        
+        $('a[class="zh-TW"]').click(function(){
+            var el=$($("iframe")[2]).contents();
+            var bdy = $(el[0].body);
+            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[1]).children()[0]).click();
+        })
+        
+        $('a[class="En"]').click(function(){
+            var el=$($("iframe")[2]).contents();
+            var bdy = $(el[0].body);
+            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[2]).children()[0]).click();
+        })
     </script>
+  
 @endsection
