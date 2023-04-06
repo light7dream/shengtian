@@ -12,16 +12,16 @@
 					<!--begin::Card header-->
 					<div class="card-header" style="display: flex">
 						<div class="card-title">
-							<h2>Game Official site</h2>
+							<h2>游戏官方网站</h2>
 						</div>
 						<div class="d-flex justify-content-end" style="margin-top: 5px; height : 50px">
 							<!--begin::Button-->
-							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">Reset</a>
+							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">重置</a>
 							<!--end::Button-->
 							<!--begin::Button-->
 							<button type="submit" id="kt_edit_member_submit" class="btn btn-primary">
-								<span class="indicator-label">Save</span>
-								<span class="indicator-progress">Please wait...
+								<span class="indicator-label">节省</span>
+								<span class="indicator-progress">请稍等...
 								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 							</button>
 							<!--end::Button-->
@@ -33,8 +33,8 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-12">
 								<div class="mb-10 fv-row">
-									<label class="required form-label">link</label>
-									<input name="official_site" class="form-control mb-2" placeholder="game official site link"  id='official_site' value="{{$official}}">
+									<label class="required form-label">关联</label>
+									<input name="official_site" class="form-control mb-2" placeholder="游戏官方网站链接"  id='official_site' value="{{$official}}">
 								</div>	
 							</div>	
 						</div>	
@@ -79,7 +79,7 @@
 								official_site:{
 									validators:{
 										notEmpty:{
-											message:"Link is required"
+											message:"需要链接"
 										}
 									}
 								}
@@ -106,7 +106,7 @@
 										success: function(data) {
 											o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
-											Swal.fire({text:"Link has been successfully updated!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+											Swal.fire({text:"链接已成功更新！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											})
 										},
@@ -115,10 +115,10 @@
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
 											Swal.fire({
-											text:"Sorry, looks like there are some errors detected, please try again.",
+											text:"抱歉，看起来有一些错误，请重试。",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
@@ -130,10 +130,10 @@
 
 									o.removeAttribute("data-kt-indicator"),
 									Swal.fire({
-										text:"Sorry, looks like there are some errors detected, please try again.",
+										text:"抱歉，看起来有一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 												confirmButton:"btn btn-primary"
 										}
