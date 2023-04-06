@@ -89,9 +89,9 @@
                         <td>
                             <div>{{$member->last_exchange_at}}</div>
                         </td>
-                        <td class="col-md-12 col-sm-12 text-center">
-                            <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2">Edit</a>
-                            <a href="#" class="btn btn-sm btn-dark mb-2" data-id="{{$member->id}}" data-table-filter="delete_row">Delete</a>
+                        <td class="text-end">
+                            <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2" style="display: inline-block">Edit</a>
+                            <a href="#" class="btn btn-sm btn-dark mb-2" data-id="{{$member->id}}" data-table-filter="delete_row" style="display: inline-block">Delete</a>
                         </td>
                     </tr>
                     @endforeach
