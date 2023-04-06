@@ -110,10 +110,10 @@
 							</div>
 							<!--begin::Input-->
 							<div class="d-flex">
-								<div class="col-md-9 col-sm-12">
+								<div class="col-md-9 col-sm-9">
 									<input type="text" id="hue" class="demo mb-3 form-control" data-control="hue" value="#ff0000">
 								</div>
-								<div class="col-md-2 ms-1 mt-1">
+								<div class="col-md-3 col-sm-3 ms-1 mt-1">
 								<button type="button" class="btn btn-light-primary btn-sm mb-7" id="my-add-color">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor" />
