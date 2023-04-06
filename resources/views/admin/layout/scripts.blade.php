@@ -23,9 +23,9 @@
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({includedLanguages: "zh-CN,en,zh-TW", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
     }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
         var i =0
         setTimeout(function(){
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').parent().prepend('<img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="30px" style="margin: 1em">')
@@ -55,6 +55,53 @@
   
   });
 </script>
-    </script>
+<script>
+    
+    $('span.zh-CN').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-3]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+           
+        })
+        
+        $('span.zh-TW').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-2]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+        })
+        
+        $('span.En').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-1]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+        })
+</script>
 <!--end::Javascript-->
 @endsection
