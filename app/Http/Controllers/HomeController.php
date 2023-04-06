@@ -45,9 +45,9 @@ class HomeController extends Controller
 
         $best_products = [];
         $products = Product::all();
-        $products = array_values(array_sort($products, function ($value) {
-            return $value->order_products->count();
-        }));
+        // $products = array_values(array_sort($products, function ($value) {
+        //     return $value->order_products->count();
+        // }));
         $best_products = array_slice($products, 8, null, true);
         /**MISSING */
         $new_products = Product::orderBy('created_at', 'desc')->paginate(8);
