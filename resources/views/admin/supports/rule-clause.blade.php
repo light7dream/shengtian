@@ -26,7 +26,8 @@
         <!--begin::Body-->
         <div class="card-body pt-5">
             <!--begin::Item-->
-            <div class="border border-dashed border-primary" id="editor"></div>
+            <textarea class="form-control mb-2" placeholder="描述" rows="6" id='editor'></textarea>
+
             <!--end::Item-->
         </div>
         <!--end::Body-->
@@ -44,38 +45,34 @@
 
 @section('scripts')
 @parent
-<script src="{{asset('plugins/ckeditor5-build-classic/ckeditor.js')}}"></script>
+<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+	<script>
+		CKEDITOR.replace('editor')
+		for (var i in CKEDITOR.instances) {
+			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
+        }
+        const editor=CKEDITOR.instances.editor;
 
-<script>
-    ClassicEditor
-		.create( document.querySelector( '#editor' ), {
-		} )
-		.then( editor => {
-			window.editor = editor;
+        $.get('/api/support/rules-clauses')
+                .then((function(response){ 
+                if(response != null)
+                editor.setData(response);
+        }));           
 
-            $.get('/api/support/rules-clauses')
-                  .then((function(response){ 
-                    if(response != null)
-                    window.editor.setData(response);
-            }));           
-    
-            $("#saveData").click(function (){
-                var data = window.editor.getData();
-                
-                $.post('/api/support/rules-clauses', {_token: '{{csrf_token()}}', content: data})
-                  .then((function(){ 
-                    Swal.fire({text:"您已经成功保存了！",
-                    icon:"success",
-                        buttonsStyling:!1,
-                        confirmButtonText:"好的，我知道了！",
-                        customClass:{confirmButton:"btn fw-bold btn-primary"}
-                    });
-                  }))
-				})
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
+        $("#saveData").click(function (){
+            var data = editor.getData();
+            
+            $.post('/api/support/rules-clauses', {_token: '{{csrf_token()}}', content: data})
+                .then((function(){ 
+                Swal.fire({text:"您已经成功保存了！",
+                icon:"success",
+                    buttonsStyling:!1,
+                    confirmButtonText:"好的，我知道了！",
+                    customClass:{confirmButton:"btn fw-bold btn-primary"}
+                });
+                }))
+            })
+	
 </script>
 
 @endsection
