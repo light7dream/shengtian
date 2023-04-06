@@ -99,22 +99,49 @@
 
         
         $('a[class="zh-CN"]').click(function(){
-            var el=$($("iframe")[2]).contents();
-            var bdy = $(el[0].body);
-            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).click();
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0];
+                if(t)
+                {
+                    console.log(t)
+                    break;
+                }
+            }
+            $(t).click();
            
         })
         
         $('a[class="zh-TW"]').click(function(){
-            var el=$($("iframe")[2]).contents();
-            var bdy = $(el[0].body);
-            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[1]).children()[0]).click();
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[1]).children()[0];
+                if(t)
+                {
+                    console.log(t)
+                    break;
+                }
+            }
+            $(t).click();
         })
         
         $('a[class="En"]').click(function(){
-            var el=$($("iframe")[2]).contents();
-            var bdy = $(el[0].body);
-            $($($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[2]).children()[0]).click();
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[2]).children()[0];
+                if(t)
+                {
+                    console.log(t)
+                    break;
+                }
+            }
+            $(t).click();
         })
     </script>
   
