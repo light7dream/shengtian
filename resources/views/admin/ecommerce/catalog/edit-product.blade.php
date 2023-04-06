@@ -481,6 +481,7 @@
 	<script src="{{asset('admin/assets/js/custom/jquery-minicolors.min.js')}}"></script>
 	<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 	<script>
+
 		CKEDITOR.replace('product_description');
 		for (var i in CKEDITOR.instances) {
 			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });

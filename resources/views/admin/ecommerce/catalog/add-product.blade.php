@@ -484,6 +484,7 @@
 	<!--end::Vendors Javascript-->
 	
 	<script>
+
 		CKEDITOR.replace('product_description');
 		for (var i in CKEDITOR.instances) {
                 

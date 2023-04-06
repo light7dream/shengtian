@@ -142,6 +142,7 @@
 		
 		<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 	<script>
+		
 		CKEDITOR.replace('category_desc');
 		for (var i in CKEDITOR.instances) {
 			CKEDITOR.instances[i].on('change', function() { CKEDITOR.instances[i].updateElement() });
