@@ -51,6 +51,9 @@ class AuthController extends Controller
             'username'=>'required',
             'password'=>'required'
         ]);
+        $is_exists = Member::where('name', $req->username)->count() > 0;
+        if($is_exists)
+            return back()->withErrors(['message'=>'User is aleady exists']);
         $member= new Member;
         $member->name=$req->username;
         $member->password=$req->password;
