@@ -80,7 +80,7 @@
                             <div>{{$service->email}}</div>
                         </td>
                         <td>
-                            <div>{{$service->description}}</div>
+                            <div>{{Str::limit($service->description,120)}}</div>
                         </td>
                         <td>{{$service->created_at}}</td>
                         <td class="text-end">

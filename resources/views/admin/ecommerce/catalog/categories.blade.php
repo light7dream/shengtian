@@ -86,7 +86,7 @@
 							<!--begin::Type=-->
 							<td>
 								<!--begin::Badges-->
-								<div class="text-muted fs-7 fw-bold">{!!$category->description!!}</div>
+								<div class="text-muted fs-7 fw-bold">{!!Str::limit($category->description,120)!!}</div>
 								<!--end::Badges-->
 							</td>
 							<!--end::Type=-->
