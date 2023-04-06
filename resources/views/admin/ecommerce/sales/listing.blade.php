@@ -46,7 +46,7 @@
 								</div>
 							</th>
 							<th>Order ID</th>
-							<th>Redemption Date</th>
+							<th>Purchase Date</th>
 							<th class="text-end">Exchange items</th>
 							{{-- <th class="text-end">Color</th> --}}
 							<th class="text-end">Use Points</th>
@@ -98,13 +98,13 @@
 								<td class="text-end pe-0" data-order="">
 									<!--begin::Badges-->
 									@if($order->status==0)
-									<div class="badge badge-light-danger">Unprocessed</div>
+									<div class="badge badge-light-danger">未处理</div>
 									@elseif($order->status==1)
 									<div class="badge badge-light-warning">Preparation</div>
 									@elseif($order->status==2)
 									<div class="badge badge-light-info">Shipped</div>
 									@else
-									<div class="badge badge-light-success">Completed</div>
+									<div class="badge badge-light-success">已完成</div>
 									@endif
 									<!--end::Badges-->
 								</td>
@@ -112,28 +112,28 @@
 									<div style="col-md-12 col-sm-12 text-center">
 									<select class="btn btn-sm btn-light mb-2" class="status">
 										@if($order->status==0)
-											<option value="0" selected>Unprocessed</option>
+											<option value="0" selected>未处理</option>
 											<option value="1">Preparation</option>
 											<option value="2">Shipped</option>
-											<option value="3">Completed</option>
+											<option value="3">已完成</option>
 										@elseif($order->status==1)
-											<option value="0">Unprocessed</option>
+											<option value="0">未处理</option>
 											<option value="1" selected>Preparation</option>
 											<option value="2">Shipped</option>
-											<option value="3">Completed</option>
+											<option value="3">已完成</option>
 										@elseif($order->status==2)
-											<option value="0">Unprocessed</option>
+											<option value="0">未处理</option>
 											<option value="1">Preparation</option>
 											<option value="2" selected>Shipped</option>
-											<option value="3">Completed</option>
+											<option value="3">已完成</option>
 										@else
-											<option value="0">Unprocessed</option>
+											<option value="0">未处理</option>
 											<option value="1">Preparation</option>
 											<option value="2">Shipped</option>
-											<option value="3" selected>Completed</option>
+											<option value="3" selected>已完成</option>
 										@endif
 									</select>
-									<button name="change_status_button" class="btn btn-sm btn-primary btn-active-light-primary" style="margin-left: 5px" >Sure</button>
+									<button name="change_status_button" class="btn btn-sm btn-primary btn-active-light-primary" style="margin-left: 5px" >确定</button>
 									</div>
 									<!--end::Menu-->
 								</td>

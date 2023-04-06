@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="post_info">
                                                 <span> <a href="#" data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');">{{$help->description}}</a> </span>
-                                                <span>ID #{{$help->id}}</span>
+                                                {{-- <span>ID #{{$help->id}}</span> --}}
                                             </div>
                                         </div>
                                         @endforeach

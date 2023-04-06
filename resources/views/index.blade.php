@@ -180,7 +180,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title">
-                       <h2>Best <span>seller</span></h2>
+                       <h2>热门商品</h2>
                        <!-- <p>Lorem ipsum dolor sit amet, consectetur elit.</p> -->
                     </div>
                 </div>
@@ -198,8 +198,8 @@
                                 <figure>
                                     <div class="product_thumb">
                                        <div class="label_product">
-                                            <span class="label_new">new</span>
-                                            <span class="label_sale">hot!</span>
+                                            <span class="label_new">新的</span>
+                                            <span class="label_sale">热的!</span>
                                         </div>
                                         <a class="primary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/main.png')}}" alt=""></a>
                                         <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{file_exists(url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'))?url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'):''}}" alt=""></a>

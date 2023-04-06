@@ -47,7 +47,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="my flex-column">
-                            <a href="/admin/sales/orders?status=0" class="btn  {{request()->query('status') === '0'?'bg-blue':'bg-black'}} btn-primary" >Unprocessed</a>
+                            <a href="/admin/sales/orders?status=0" class="btn  {{request()->query('status') === '0'?'bg-blue':'bg-black'}} btn-primary" >未处理</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
