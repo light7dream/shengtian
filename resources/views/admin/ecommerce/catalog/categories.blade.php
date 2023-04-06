@@ -142,35 +142,35 @@
 		.addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
 			o=n.querySelector('[data-kt-ecommerce-category-filter="category_name"]').innerText,
 			id=n.querySelector('input[type="hidden"]').value;
-			Swal.fire({text:"你确定你要删除
+			Swal.fire({text:"你确定你要删除",
 				icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-				confirmButtonText:"是的，删除！
-				cancelButtonText:"不，取消
+				confirmButtonText:"是的，删除！",
+				cancelButtonText:"不，取消",
 				customClass:{confirmButton:"btn fw-bold btn-danger",
 				cancelButton:"btn fw-bold btn-active-light-primary"}
 			}).then((function(t){
 				t.value?(
 					$.post('/api/catalog/delete-category', {_token: '{{csrf_token()}}', id: id})
 						.done(function(){
-							Swal.fire({text:"您已删除
+							Swal.fire({text:"您已删除",
 							icon:"success",
 								buttonsStyling:!1,
-								confirmButtonText:"好的，我知道了！
+								confirmButtonText:"好的，我知道了！",
 								customClass:{confirmButton:"btn fw-bold btn-primary"}
 							}).then((function(){e.row($(n)).remove().draw()}))
 						})
 						.fail(function(){
 							Swal.fire({
-								text:o+"没有被删除。
+								text:o+"没有被删除。",
 								icon:"error",
 								buttonsStyling:!1,
-								confirmButtonText:"好的，我知道了！
+								confirmButtonText:"好的，我知道了！",
 								customClass:{confirmButton:"btn fw-bold btn-primary"}
 							})
 						})
 
 					):"cancel"===t.dismiss&&Swal.fire({
-					text:o+"没有被删除。
+					text:o+"没有被删除。",
 					icon:"error",
 					buttonsStyling:!1,
 					confirmButtonText:"好的，我知道了！",
