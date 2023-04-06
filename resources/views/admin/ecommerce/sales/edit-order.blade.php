@@ -14,7 +14,7 @@
 					<!--begin::Card header-->
 					<div class="card-header">
 						<div class="card-title">
-							<h2>Order Details</h2>
+							<h2>订单详细信息</h2>
 						</div>
 					</div>
 					<!--end::Card header-->
@@ -24,7 +24,7 @@
 							<!--begin::Input group-->
 							<div class="fv-row">
 								<!--begin::Label-->
-								<label class="form-label">Order ID</label>
+								<label class="form-label">订单编号</label>
 								<!--end::Label-->
 								<!--begin::Auto-generated ID-->
 								<div class="fw-bold fs-3">#{{$order->id}}</div>
@@ -38,10 +38,10 @@
 							<!--begin::Input group-->
 							<div class="fv-row">
 								<!--begin::Label-->
-								<label class="form-label">Order Date</label>
+								<label class="form-label">订购日期</label>
 								<!--end::Label-->
 								<!--begin::Editor-->
-								<input id="kt_ecommerce_edit_order_date" name="order_date" disabled placeholder="Select a date" class="form-control mb-2" value="{{$order->created_at}}" />
+								<input id="kt_ecommerce_edit_order_date" name="order_date" disabled placeholder="选择日期" class="form-control mb-2" value="{{$order->created_at}}" />
 								<!--end::Editor-->
 								<!--begin::Description-->
 								<!--end::Description-->
@@ -50,18 +50,18 @@
 							<!--begin::Input group-->
 							<div class="fv-row">
 								<!--begin::Label-->
-								<label class="form-label">Status</label>
+								<label class="form-label">地位</label>
 								<!--end::Label-->
 								<!--begin::Select2-->
-								<select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" name="status" id="kt_ecommerce_edit_order_status">
-									<option value="0" {{$order->status==0?'selected="selected"':''}}>Unprocessed</option>
-									<option value="1" {{$order->status==1?'selected="selected"':''}}>Preparation</option>
-									<option value="2" {{$order->status==2?'selected="selected"':''}}>Shipped</option>
-									<option value="3" {{$order->status==3?'selected="selected"':''}}>Completed</option>
+								<select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="选择一个选项" name="status" id="kt_ecommerce_edit_order_status">
+									<option value="0" {{$order->status==0?'selected="selected"':''}}>未处理</option>
+									<option value="1" {{$order->status==1?'selected="selected"':''}}>准备</option>
+									<option value="2" {{$order->status==2?'selected="selected"':''}}>发货</option>
+									<option value="3" {{$order->status==3?'selected="selected"':''}}>已完成</option>
 								</select>
 								<!--end::Select2-->
 								<!--begin::Description-->
-								<div class="text-muted fs-7">Set the date of the order to process.</div>
+								<div class="text-muted fs-7">设置要处理的订单日期。</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Input group-->
@@ -79,7 +79,7 @@
 					<!--begin::Card header-->
 					<div class="card-header">
 						<div class="card-title">
-							<h2>Products</h2>
+							<h2>产品</h2>
 						</div>
 					</div>
 					<!--end::Card header-->
@@ -93,7 +93,7 @@
 								<!--begin::Selected products-->
 								<!--begin::Selected products-->
 								<!--begin::Total price-->
-								<div class="fw-bold fs-4">Total Cost: $
+								<div class="fw-bold fs-4">总成本: $
 								<span id="kt_ecommerce_edit_order_total_price">{{$order->total}}</span></div>
 								<!--end::Total price-->
 							</div>
@@ -111,7 +111,7 @@
 									</svg>
 								</span>
 								<!--end::Svg Icon-->
-								<input type="text" data-kt-ecommerce-edit-order-filter="search" class="form-control form-control-solid w-100 w-lg-50 ps-14" placeholder="Search Products" />
+								<input type="text" data-kt-ecommerce-edit-order-filter="search" class="form-control form-control-solid w-100 w-lg-50 ps-14" placeholder="搜索产品" />
 							</div>
 							<!--end::Search products-->
 							<!--begin::Table-->
@@ -121,7 +121,7 @@
 									<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
 										{{-- <th class="w-25px pe-2"></th> --}}
 										<th class="min-w-200px">Product</th>
-										<th class="min-w-100px text-end pe-5">Qty</th>
+										<th class="min-w-100px text-end pe-5">数量</th>
 									</tr>
 								</thead>
 								<!--end::Table head-->
@@ -150,7 +150,7 @@
 													<a href="/admin/catalog/edit-product/{{$op->product_id}}" class="text-gray-800 text-hover-primary fs-5 fw-bold">{{$op->product->name}}</a>
 													<!--end::Title-->
 													<!--begin::Price-->
-													<div class="fw-semibold fs-7">Price: $
+													<div class="fw-semibold fs-7">价格: $
 													<span data-kt-ecommerce-edit-order-filter="price">{{$op->product->points}}</span></div>
 													<!--end::Price-->
 													<!--begin::SKU-->
@@ -183,7 +183,7 @@
 					<!--begin::Card header-->
 					<div class="card-header">
 						<div class="card-title">
-							<h2>Delivery Details</h2>
+							<h2>送货详情</h2>
 						</div>
 					</div>
 					<!--end::Card header-->
@@ -195,24 +195,24 @@
 							<!--begin::Shipping address-->
 							<div class="d-flex flex-column gap-5 gap-md-7" id="kt_ecommerce_edit_order_shipping_form">
 								<!--begin::Title-->
-								<div class="fs-4 fw-bold mb-n2">Shipping Address</div>
+								<div class="fs-4 fw-bold mb-n2">收件地址</div>
 								<!--end::Title-->
 								<!--begin::Input group-->
 								<div class="d-flex flex-column flex-md-row gap-5">
 									<div class="flex-row-fluid">
 										<!--begin::Label-->
-										<label class="form-label">Recipient Name</label>
+										<label class="form-label">收件人姓名</label>
 										<!--end::Label-->
 										<!--begin::Input-->
-										<input class="form-control" name="" placeholder="" value="{{$order->recipient_name}}" disabled />
+										<input class="form-control" name="" placeholder="收件人姓名" value="{{$order->recipient_name}}" disabled />
 										<!--end::Input-->
 									</div>
 									<div class="fv-row flex-row-fluid">
 										<!--begin::Label-->
-										<label class="form-label">Tel</label>
+										<label class="form-label">收件人电话</label>
 										<!--end::Label-->
 										<!--begin::Input-->
-										<input class="form-control" name="" placeholder="" value="{{$order->recipient_tel}}" disabled />
+										<input class="form-control" name="" placeholder="收件人电话" value="{{$order->recipient_tel}}" disabled />
 										<!--end::Input-->
 									</div>
 								</div>
@@ -221,10 +221,10 @@
 								<div class="d-flex flex-column flex-md-row gap-5">
 									<div class="fv-row flex-row-fluid">
 										<!--begin::Label-->
-										<label class="form-label">Address Line</label>
+										<label class="form-label">收件人地址</label>
 										<!--end::Label-->
 										<!--begin::Input-->
-										<input class="form-control" name="" placeholder="Address Line" value="{{$order->recipient_address}}" disabled />
+										<input class="form-control" name="" placeholder="收件人地址" value="{{$order->recipient_address}}" disabled />
 										<!--end::Input-->
 									</div>
 								</div>
@@ -240,12 +240,12 @@
 				<!--end::Order details-->
 				<div class="d-flex justify-content-end">
 					<!--begin::Button-->
-					<a href="/catalog/products" id="kt_ecommerce_edit_order_cancel" class="btn btn-light me-5">Cancel</a>
+					<a href="/catalog/products" id="kt_ecommerce_edit_order_cancel" class="btn btn-light me-5">取消</a>
 					<!--end::Button-->
 					<!--begin::Button-->
 					<button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary">
-						<span class="indicator-label">Save</span>
-						<span class="indicator-progress">Please wait...
+						<span class="indicator-label">节省</span>
+						<span class="indicator-progress">请稍等...
 						<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 					</button>
 					<!--end::Button-->
@@ -296,10 +296,10 @@
 									.done(function(){
 										r.removeAttribute("data-kt-indicator"),
 										Swal.fire({
-											text:"Form has been successfully submitted!",
+											text:"表单已成功提交！",
 											icon:"success",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
@@ -309,20 +309,20 @@
 									})
 									.fail(function(err){
 										Swal.fire({
-											html:"Sorry, looks like there are some errors detected, please try again.",
+											html:"抱歉，似乎检测到一些错误，请重试。",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
 										})
 									})
 								):Swal.fire({
-										html:"Sorry, looks like there are some errors detected, please try again.",
+										html:"抱歉，似乎检测到一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 											confirmButton:"btn btn-primary"
 										}

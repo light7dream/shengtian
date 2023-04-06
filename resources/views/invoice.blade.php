@@ -145,7 +145,7 @@
         <div class="mw-lg-950px mx-auto w-100">
             <!-- begin::Header-->
             <div class="d-flex justify-content-between flex-column flex-sm-row mb-19">
-                <h4 class="fw-bolder text-gray-800 fs-2qx pe-5 pb-7">INVOICE</h4>
+                <h4 class="fw-bolder text-gray-800 fs-2qx pe-5 pb-7">发票</h4>
                 <!--end::Logo-->
                 <div class="text-sm-end">
                     <!--begin::Logo-->
@@ -155,8 +155,8 @@
                     <!--end::Logo-->
                     <!--begin::Text-->
                     <div class="text-sm-end fw-semibold fs-4 text-muted mt-7">
-                        <div>Cecilia Chapman, 711-2880 Nulla St, Mankato</div>
-                        <div>Mississippi 96522</div>
+                        <!-- <div>Cecilia Chapman, 711-2880 Nulla St, Mankato</div> -->
+                        <!-- <div>Mississippi 96522</div> -->
                     </div>
                     <!--end::Text-->
                 </div>
@@ -170,7 +170,7 @@
                     <div class="fw-bold fs-2">{{$invoice->order->member->name}},
                     <span class="fs-6">ID-#{{$invoice->order->member->id}}</span>
                     <br />
-                    <span class="text-muted fs-5">Here are your order details. We thank you for your purchase.</span></div>
+                    <span class="text-muted fs-5">这是您的订单详细信息。我们感谢您购买。</span></div>
                     <!--begin::Message-->
                     <!--begin::Separator-->
                     <div class="separator"></div>
@@ -178,15 +178,15 @@
                     <!--begin::Order details-->
                     <div class="d-flex flex-column flex-sm-row gap-7 gap-md-10 fw-bold">
                         <div class="flex-root d-flex flex-column">
-                            <span class="text-muted">Order ID</span>
+                            <span class="text-muted">订购ID</span>
                             <span class="fs-5">#{{$invoice->order_id}}</span>
                         </div>
                         <div class="flex-root d-flex flex-column">
-                            <span class="text-muted">Date</span>
+                            <span class="text-muted">日期</span>
                             <span class="fs-5">{{$invoice->ended_date}}</span>
                         </div>
                         <div class="flex-root d-flex flex-column">
-                            <span class="text-muted">Invoice ID</span>
+                            <span class="text-muted">发票ID</span>
                             <span class="fs-5">#INV-{{$invoice->id}}</span>
                         </div>
                        
@@ -195,14 +195,14 @@
                     <!--begin::Billing & shipping-->
                     <div class="d-flex flex-column flex-sm-row gap-7 gap-md-10 fw-bold">
                         <div class="flex-root d-flex flex-column">
-                            <span class="text-muted">Billing Address</span>
-                            <span class="fs-6">Unit 1/23 Hastings Road,
-                            <br />Melbourne 3000,
-                            <br />Victoria,
-                            <br />Australia.</span>
+                            <span class="text-muted">帐单地址</span>
+                            <span class="fs-6">XXXX, XXXXX XXXX,
+                            <br />XXXXX,
+                            <br />XXXXXX,
+                            <br />中国.</span>
                         </div>
                         <div class="flex-root d-flex flex-column">
-                            <span class="text-muted">Shipping Address</span>
+                            <span class="text-muted">收件地址</span>
                             <span class="fs-6">{{$invoice->recipient_name}},
                             <br />+{{$invoice->recipient_phone}},
                             <br />{{$invoice->recipient_address}}
@@ -218,10 +218,10 @@
                             <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
                                 <thead>
                                     <tr class="border-bottom fs-6 fw-bold text-muted">
-                                        <th class="min-w-175px pb-2">Products</th>
-                                        <th class="min-w-70px text-end pb-2">Category</th>
-                                        <th class="min-w-80px text-end pb-2">QTY</th>
-                                        <th class="min-w-100px text-end pb-2">Total</th>
+                                        <th class="min-w-175px pb-2">产品</th>
+                                        <th class="min-w-70px text-end pb-2">类别</th>
+                                        <th class="min-w-80px text-end pb-2">数量</th>
+                                        <th class="min-w-100px text-end pb-2">全部的</th>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-semibold text-gray-600">
@@ -266,7 +266,7 @@
                                     <!--end::Shipping-->
                                     <!--begin::Grand total-->
                                     <tr>
-                                        <td colspan="3" class="fs-3 text-dark fw-bold text-end" style="padding:1em">Grand Total</td>
+                                        <td colspan="3" class="fs-3 text-dark fw-bold text-end" style="padding:1em">累计</td>
                                         <td class="text-dark fs-3 fw-bolder text-end">${{$invoice->total}}</td>
                                     </tr>
                                     <!--end::Grand total-->
@@ -287,14 +287,14 @@
             </div>
             @else
             <div class="mt-5 mb-1">
-                <h5>Signature <span style="color:#ff0000">*</span></h5>
+                <h5>签名 <span style="color:#ff0000">*</span></h5>
                  <form action="/api/invoice/sign" id="signature-form" method="POST">
                     @csrf
                     <input type="hidden" value="{{$invoice->id}}" name="invoice_id">
                     <div id="sig"></div><input type="hidden" id="input-sign" value="" name="signature" />
                 </form>
                 <button type="button" class="btn btn-primary" style="padding:.6em 1.2em;font-size:.75rem;" id="clear">
-                Clear</button>
+                清除</button>
             </div>
             @endif
             <!-- begin::Footer-->
@@ -302,7 +302,7 @@
                 <!-- begin::Actions-->
                 <div class="my-1 me-5">
                     <!-- begin::Pint-->
-                    <button type="button" class="btn btn-success my-1 me-12" onclick="window.print();">Print Invoice</button>
+                    <button type="button" class="btn btn-success my-1 me-12" onclick="window.print();">打印发票</button>
                     <!-- end::Pint-->
                     <!-- begin::Download-->
                     <!-- end::Download-->
@@ -310,7 +310,7 @@
                 <!-- end::Actions-->
                 <!-- begin::Action-->
                 @if(!$invoice->status)
-                <button class="btn btn-primary my-1" id="save-invoice">Save</button>
+                <button class="btn btn-primary my-1" id="save-invoice">节省</button>
                 @endif
                 <!-- end::Action-->
             </div>

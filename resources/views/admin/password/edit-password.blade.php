@@ -12,16 +12,16 @@
 					<!--begin::Card header-->
 					<div class="card-header" style="display: flex">
 						<div class="card-title">
-							<h2>Password Setting</h2>
+							<h2>密码设置</h2>
 						</div>
 						<div class="d-flex justify-content-end" style="margin-top: 5px; height : 50px">
 							<!--begin::Button-->
-							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">Reset</a>
+							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">重置</a>
 							<!--end::Button-->
 							<!--begin::Button-->
 							<button type="submit" id="kt_edit_member_submit" class="btn btn-primary">
-								<span class="indicator-label">Save</span>
-								<span class="indicator-progress">Please wait...
+								<span class="indicator-label">节省</span>
+								<span class="indicator-progress">请稍等...
 								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 							</button>
 							<!--end::Button-->
@@ -34,20 +34,20 @@
 							<!--begin::Input group-->
 							<div class="col-md-4 col-sm-12">
 							<div class="mb-10 fv-row">
-								<label class="required form-label">Current Password</label>
+								<label class="required form-label">当前密码</label>
 								<input type="text" name="current_password" class="form-control mb-2" placeholder="Current Password" id='current_password' />
 							</div>
 							</div>
 							<div class="col-md-4 col-sm-12">
 							<div class="mb-10 fv-row">
-								<label class="required form-label">New Password</label>
-								<input name="new_password" class="form-control mb-2" placeholder="new password"  id='new_password'>
+								<label class="required form-label">新密码</label>
+								<input name="new_password" class="form-control mb-2" placeholder="新密码"  id='new_password'>
 							</div>	
 							</div>	
 							<div class="col-md-4 col-sm-12">
 								<div class="mb-10 fv-row">
-									<label class="required form-label">Password Confirm</label>
-									<input name="password_confirm" class="form-control mb-2" placeholder="password confirm"  id='password_confirm'>
+									<label class="required form-label">确认密码</label>
+									<input name="password_confirm" class="form-control mb-2" placeholder="确认密码"  id='password_confirm'>
 								</div>	
 							</div>	
 						</div>	
@@ -92,21 +92,21 @@
 								current_password:{
 									validators:{
 										notEmpty:{
-											message:"current password is required"
+											message:"需要当前密码"
 										}
 									}
 								},
 								new_password:{
 									validators:{
 										notEmpty:{
-											message:"new password is required"
+											message:"需要新密码"
 										}
 									}
 								},
 								password_confirm:{
 									validators:{
 										notEmpty:{
-											message:"password confirm is required"
+											message:"需要密码确认"
 										}
 									}
 								}
@@ -125,7 +125,7 @@
 								if(e_=="Valid"){
 									var formData= new FormData(t);
 									if($("#password_confirm").val() != $("#new_password").val()){
-										Swal.fire({text:"Password confirm must be same as new password!",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+										Swal.fire({text:"密码确认必须与新密码相同！",icon:"error",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											})
 									}
@@ -139,14 +139,14 @@
 										success: function(data) {
                                           if(!data)
 										  {
-											Swal.fire({text:"Current password is incorrect!",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+											Swal.fire({text:"当前密码不正确！",icon:"error",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											})
 										  }
 										  else {
 											o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
-											Swal.fire({text:"Form has been successfully submitted!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+											Swal.fire({text:"表格已成功提交！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											})
 										  }
@@ -156,10 +156,10 @@
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
 											Swal.fire({
-											text:"Sorry, looks like there are some errors detected, please try again.",
+											text:"抱歉，看起来有一些错误，请重试。",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
@@ -171,10 +171,10 @@
 
 									o.removeAttribute("data-kt-indicator"),
 									Swal.fire({
-										text:"Sorry, looks like there are some errors detected, please try again.",
+										text:"抱歉，看起来有一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 												confirmButton:"btn btn-primary"
 										}

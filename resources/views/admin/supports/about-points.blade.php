@@ -12,12 +12,12 @@
         <!--begin::Header-->
         <div class="card-header border-0 pt-5">
             <div class="card-title">
-                <h3 class="fw-bold text-gray-800">About points</h3>
+                <h3 class="fw-bold text-gray-800">大约要点</h3>
             </div>
             <div class="card-toolbar">
                 <!--begin::Menu-->
                 <button id="saveData" class="btn btn-primary fw-bold fs-8 fs-lg-base">
-                    <i class="bi bi-save"></i> Save
+                    <i class="bi bi-save"></i> 节省
                 </button>
                 <!--end::Menu-->
             </div>
@@ -60,10 +60,10 @@
                 
                 $.post('/api/support/about-point', {_token: '{{csrf_token()}}', content: data})
                   .then((function(){ 
-                    Swal.fire({text:"You have successfully saved!",
+                    Swal.fire({text:"您已经成功保存了！",
                     icon:"success",
                         buttonsStyling:!1,
-                        confirmButtonText:"Ok, got it!",
+                        confirmButtonText:"好的，我知道了！",
                         customClass:{confirmButton:"btn fw-bold btn-primary"}
                     });
                   }))

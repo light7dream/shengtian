@@ -19,7 +19,7 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" data-kt-service-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Service" />
+                    <input type="text" data-kt-service-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="搜索服务" />
                 </div>
                 <!--end::Search-->
             </div>
@@ -29,15 +29,15 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-service-table-toolbar="base">
                     <!--begin::Add service-->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_service">Add Service</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_service">添加服务</button>
                     <!--end::Add service-->
                 </div>
                 <!--end::Toolbar-->
                 <!--begin::Group actions-->
                 <div class="d-flex justify-content-end align-items-center d-none" data-kt-service-table-toolbar="selected">
                     <div class="fw-bold me-5">
-                    <span class="me-2" data-kt-service-table-select="selected_count"></span>Selected</div>
-                    <button type="button" class="btn btn-danger" data-kt-service-table-select="delete_selected">Delete Selected</button>
+                    <span class="me-2" data-kt-service-table-select="selected_count"></span>选定</div>
+                    <button type="button" class="btn btn-danger" data-kt-service-table-select="delete_selected">删除所选</button>
                 </div>
                 <!--end::Group actions-->
             </div>
@@ -52,11 +52,11 @@
                 <thead>
                     <!--begin::Table row-->
                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">Name</th>
-                        <th class="min-w-125px">Email</th>
-                        <th class="min-w-125px">Description</th>
-                        <th class="min-w-125px">Created Date</th>
-                        <th class="text-end min-w-70px">Actions</th>
+                        <th class="min-w-125px">姓名</th>
+                        <th class="min-w-125px">电子邮件</th>
+                        <th class="min-w-125px">描述</th>
+                        <th class="min-w-125px">创建日期</th>
+                        <th class="text-end min-w-70px">动作</th>
                     </tr>
                     <!--end::Table row-->
                 </thead>
@@ -86,12 +86,12 @@
                         <td class="text-end">
                             
                                 <div class="mb-1" style="display:inline-block">
-                                    <a href="javascript:(0);" data-kt-service-table-filter="edit_row" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#kt_modal_edit_service">Edit</a>
+                                    <a href="javascript:(0);" data-kt-service-table-filter="edit_row" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#kt_modal_edit_service">编辑</a>
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
                                 <div class="mb-1" style="display:inline-block">
-                                    <a href="#" class="btn btn-dark" data-id="{{$service->id}}" data-kt-service-table-filter="delete_row">Delete</a>
+                                    <a href="#" class="btn btn-dark" data-id="{{$service->id}}" data-kt-service-table-filter="delete_row">删除</a>
                                 </div>
                             </div>
                         </td>
@@ -117,7 +117,7 @@
                     <!--begin::Modal header-->
                     <div class="modal-header" id="kt_modal_add_service_header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Add a Service</h2>
+                        <h2 class="fw-bold">添加服务</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
                         <div id="kt_modal_add_service_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -146,7 +146,7 @@
                                         <div class="card-header">
                                             <!--begin::Card title-->
                                             <div class="card-title">
-                                                <h2>Photo</h2>
+                                                <h2>照片</h2>
                                             </div>
                                             <!--end::Card title-->
                                         </div>
@@ -183,7 +183,6 @@
                                             </div>
                                             <!--end::Image input-->
                                             <!--begin::Description-->
-                                            {{-- <div class="text-muted fs-7">Set the avatar image. Only *.png, *.jpg and *.jpeg image files are accepted</div> --}}
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Card body-->
@@ -198,7 +197,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Service</h2>
+                                                <h2>服务</h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -207,10 +206,10 @@
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">Name</label>
+                                                <label class="required form-label">姓名</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" id="service_name" name="service_name" class="form-control mb-2" placeholder="Name" value="">
+                                                <input type="text" id="service_name" name="service_name" class="form-control mb-2" placeholder="姓名" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 {{-- <div class="text-muted fs-7">A name is required and recommended to be unique.</div> --}}
@@ -220,10 +219,10 @@
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">Email</label>
+                                                <label class="required form-label">电子邮件</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="email" id="service_email" name="service_email" class="form-control mb-2" placeholder="Email" value="">
+                                                <input type="email" id="service_email" name="service_email" class="form-control mb-2" placeholder="电子邮件" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
@@ -233,13 +232,13 @@
                                             <!--begin::Input group-->
                                             <div>
                                                 <!--begin::Label-->
-                                                <label class="form-label">Description</label>
+                                                <label class="form-label">描述</label>
                                                 <!--end::Label-->
                                                 <!--begin::Editor-->
                                                 <div id="editor"></div> 
                                                 <!--end::Editor-->
                                                 <!--begin::Description-->
-                                                <textarea name="service_description" class="form-control mb-2" placeholder="Description" value="" rows="5"></textarea>
+                                                <textarea name="service_description" class="form-control mb-2" placeholder="描述" value="" rows="5"></textarea>
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Input group-->
@@ -257,11 +256,11 @@
                     <!--begin::Modal footer-->
                     <div class="modal-footer flex-center">
                         <!--begin::Button-->
-                        <button type="reset" id="kt_modal_add_service_cancel" class="btn btn-light me-3">Discard</button>
+                        <button type="reset" id="kt_modal_add_service_cancel" class="btn btn-light me-3">丢弃</button>
                         <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" id="kt_modal_add_service_submit" class="btn btn-primary">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">提交</span>
                         </button>
                         <!--end::Button-->
                     </div>
@@ -281,7 +280,7 @@
                     <!--begin::Modal header-->
                     <div class="modal-header" id="kt_modal_edit_service_header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Edit a Service</h2>
+                        <h2 class="fw-bold">编辑服务</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
                         <div id="kt_modal_edit_service_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -310,7 +309,7 @@
                                         <div class="card-header">
                                             <!--begin::Card title-->
                                             <div class="card-title">
-                                                <h2>Photo</h2>
+                                                <h2>照片</h2>
                                             </div>
                                             <!--end::Card title-->
                                         </div>
@@ -362,7 +361,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Service</h2>
+                                                <h2>服务</h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -371,23 +370,23 @@
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">Name</label>
+                                                <label class="required form-label">姓名</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" id="edit_service_name" name="service_name" class="form-control mb-2" placeholder="Name" value="">
+                                                <input type="text" id="edit_service_name" name="service_name" class="form-control mb-2" placeholder="姓名" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
-                                                {{-- <div class="text-muted fs-7">A name is required and recommended to be unique.</div> --}}
+                                                {{-- <div class="text-muted fs-7">需要一个名称并建议是唯一的。</div> --}}
                                                 <!--end::Description-->
                                             <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">Email</label>
+                                                <label class="required form-label">电子邮件</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="email" id="edit_service_email" name="service_email" class="form-control mb-2" placeholder="Email" value="">
+                                                <input type="email" id="edit_service_email" name="service_email" class="form-control mb-2" placeholder="电子邮件" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
@@ -397,13 +396,13 @@
                                             <!--begin::Input group-->
                                             <div>
                                                 <!--begin::Label-->
-                                                <label class="form-label">Description</label>
+                                                <label class="form-label">描述</label>
                                                 <!--end::Label-->
                                                 <!--begin::Editor-->
                                                 <div id="editor"></div> 
                                                 <!--end::Editor-->
                                                 <!--begin::Description-->
-                                                <textarea name="service_description" id="edit_service_description" class="form-control mb-2" placeholder="Description" value="" rows="5"></textarea>
+                                                <textarea name="service_description" id="edit_service_description" class="form-control mb-2" placeholder="描述" value="" rows="5"></textarea>
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Input group-->
@@ -421,11 +420,11 @@
                     <!--begin::Modal footer-->
                     <div class="modal-footer flex-center">
                         <!--begin::Button-->
-                        <button type="reset" id="kt_modal_edit_service_cancel" class="btn btn-light me-3">Discard</button>
+                        <button type="reset" id="kt_modal_edit_service_cancel" class="btn btn-light me-3">丢弃</button>
                         <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" id="kt_modal_edit_service_submit" class="btn btn-primary">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">提交</span>
                         </button>
                         <!--end::Button-->
                     </div>
@@ -490,7 +489,7 @@
             processData: false, 
             contentType: false, 
             success: function(data) {
-                Swal.fire({text:"Form has been successfully added!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+                Swal.fire({text:"表格已成功添加！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
                     customClass:{confirmButton:"btn btn-primary"}
                 }).then(function(){
                     location.reload() 
@@ -498,10 +497,10 @@
             },
             error: function(request, status, error){
                 Swal.fire({
-                text:"Sorry, you must input name and email correctly, please try again.",
+                text:"抱歉，您必须正确输入名称并发送电子邮件，请重试。",
                 icon:"error",
                 buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
+                confirmButtonText:"好的，我知道了！",
                 customClass:{
                     confirmButton:"btn btn-primary"
                 }
@@ -522,7 +521,7 @@
             processData: false, 
             contentType: false, 
             success: function(data) {
-                Swal.fire({text:"Form has been successfully added!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+                Swal.fire({text:"表格已成功添加！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
                     customClass:{confirmButton:"btn btn-primary"}
                 }).then(function(){
                     location.reload() 
@@ -530,10 +529,10 @@
             },
             error: function(request, status, error){
                 Swal.fire({
-                text:"Sorry, you must input name and email correctly, please try again.",
+                text:"抱歉，您必须正确输入名称并发送电子邮件，请重试。",
                 icon:"error",
                 buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
+                confirmButtonText:"好的，我知道了！",
                 customClass:{
                     confirmButton:"btn btn-primary"
                 }
@@ -547,38 +546,38 @@
     .addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
         o=n.querySelector('[data-kt-service-filter="service"]').innerText,
         id=n.querySelector('input[type="hidden"]').value;
-        Swal.fire({text:"Are you sure you want to delete "+o+"?",
+        Swal.fire({text:"你确定你要删除 "+o+"?",
             icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-            confirmButtonText:"Yes, delete!",
-            cancelButtonText:"No, cancel",
+            confirmButtonText:"是的，删除！",
+            cancelButtonText:"不，取消",
             customClass:{confirmButton:"btn fw-bold btn-danger",
             cancelButton:"btn fw-bold btn-active-light-primary"}
         }).then((function(t){
             t.value?(
                 $.post('/api/online-service/delete-service', {_token: '{{csrf_token()}}', id: id})
                     .done(function(){
-                        Swal.fire({text:"You have deleted "+o+"!.",
+                        Swal.fire({text:"您已删除 "+o+"!.",
                         icon:"success",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         }).then((function(){e.row($(n)).remove().draw()}))
                     })
                     .fail(function(){
                         Swal.fire({
-                            text:o+" was not deleted.",
+                            text:o+" 没有被删除。",
                             icon:"error",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         })
                     })
 
                 ):"cancel"===t.dismiss&&Swal.fire({
-                text:o+" was not deleted.",
+                text:o+" 没有被删除。",
                 icon:"error",
                 buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
+                confirmButtonText:"好的，我知道了！",
                 customClass:{confirmButton:"btn fw-bold btn-primary"}
             })
             }))

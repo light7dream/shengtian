@@ -18,7 +18,7 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" data-kt-faq-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="search" />
+                    <input type="text" data-kt-faq-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="搜索" />
                 </div>
                 <!--end::Search-->
             </div>
@@ -26,7 +26,7 @@
             <!--begin::Card toolbar-->
             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                 <!--begin::Add product-->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_add_faq" class="btn btn-primary">Add New FAQ</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_add_faq" class="btn btn-primary">添加新的常见问题解答</a>
                 <!--end::Add product-->
             </div>
             <!--end::Card toolbar-->
@@ -40,9 +40,9 @@
                 <thead>
                     <!--begin::Table row-->
                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-100px">Questions</th>
-                        <th class="min-w-200px">Answers</th>
-                        <th class="text-end min-w-70px">Actions</th>
+                        <th class="min-w-100px">问题</th>
+                        <th class="min-w-200px">答案</th>
+                        <th class="text-end min-w-70px">动作</th>
                     </tr>
                     <!--end::Table row-->
                 </thead>
@@ -62,10 +62,10 @@
                         </td>
                         <td class="text-end">
                             <div class="mb-1" style="display:inline-block">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_faq" class="btn btn-warning">Edit</a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_faq" class="btn btn-warning">编辑</a>
                                 </div>
                                 <div class="mb-1" style="display:inline-block">
-                                    <a href="#" class="btn btn-dark" data-kt-faq-filter="delete_row">Delete</a>
+                                    <a href="#" class="btn btn-dark" data-kt-faq-filter="delete_row">删除</a>
                                 </div>
                         </td>
                     </tr>
@@ -92,7 +92,7 @@
 						<!--begin::Modal header-->
 						<div class="modal-header" id="kt_modal_add_faq_header">
 							<!--begin::Modal title-->
-							<h2 class="fw-bold">Add a FAQ</h2>
+							<h2 class="fw-bold">添加一个常见问题解答</h2>
 							<!--end::Modal title-->
 							<!--begin::Close-->
 							<div id="kt_modal_add_faq_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -115,7 +115,7 @@
 								<!--begin::Input group-->
 								<div class="fv-row mb-7">
 									<!--begin::Label-->
-									<label class="required fs-6 fw-semibold mb-2">Question</label>
+									<label class="required fs-6 fw-semibold mb-2">问题</label>
 									<!--end::Label-->
 									<!--begin::Input-->
 									<input type="text" id="add_question" class="form-control form-control-solid" placeholder="" name="question" value="" />
@@ -126,7 +126,7 @@
 								<div class="fv-row mb-7">
 									<!--begin::Label-->
 									<label class="fs-6 fw-semibold mb-2">
-										<span class="required">Answer</span>
+										<span class="required">回答</span>
 									</label>
 									<!--end::Label-->
 									<!--begin::Input-->
@@ -141,11 +141,11 @@
 						<!--begin::Modal footer-->
 						<div class="modal-footer flex-center">
 							<!--begin::Button-->
-							<button type="reset" id="kt_modal_add_faq_cancel" class="btn btn-light me-3">Discard</button>
+							<button type="reset" id="kt_modal_add_faq_cancel" class="btn btn-light me-3">丢弃</button>
 							<!--end::Button-->
 							<!--begin::Button-->
 							<button type="button" id="kt_modal_add_faq_submit" class="btn btn-primary">
-								<span class="indicator-label">Submit</span>
+								<span class="indicator-label">提交</span>
 							</button>
 							<!--end::Button-->
 						</div>
@@ -166,7 +166,7 @@
 						<!--begin::Modal header-->
 						<div class="modal-header" id="kt_modal_edit_faq_header">
 							<!--begin::Modal title-->
-							<h2 class="fw-bold">Edit dfdf a FAQ</h2>
+							<h2 class="fw-bold">编辑常见问题解答</h2>
 							<!--end::Modal title-->
 							<!--begin::Close-->
 							<div id="kt_modal_edit_faq_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -189,7 +189,7 @@
 								<!--begin::Input group-->
 								<div class="fv-row mb-7">
 									<!--begin::Label-->
-									<label class="required fs-6 fw-semibold mb-2">Question</label>
+									<label class="required fs-6 fw-semibold mb-2">问题</label>
 									<!--end::Label-->
 									<!--begin::Input-->
 									<input type="text" id="edit_question" class="form-control form-control-solid" placeholder="" name="question" value="" />
@@ -200,7 +200,7 @@
 								<div class="fv-row mb-7">
 									<!--begin::Label-->
 									<label class="fs-6 fw-semibold mb-2">
-										<span class="required">Answer</span>
+										<span class="required">回答</span>
 									</label>
 									<!--end::Label-->
 									<!--begin::Input-->
@@ -215,11 +215,11 @@
 						<!--begin::Modal footer-->
 						<div class="modal-footer flex-center">
 							<!--begin::Button-->
-							<button type="reset" id="kt_modal_edit_faq_cancel" class="btn btn-light me-3">Discard</button>
+							<button type="reset" id="kt_modal_edit_faq_cancel" class="btn btn-light me-3">丢弃</button>
 							<!--end::Button-->
 							<!--begin::Button-->
 							<button type="button" id="kt_modal_edit_faq_submit" class="btn btn-primary">
-								<span class="indicator-label">Submit</span>
+								<span class="indicator-label">提交</span>
 							</button>
 							<!--end::Button-->
 						</div>
@@ -250,10 +250,10 @@
 	
 				if(question =="" || answer =="")
 				{
-					Swal.fire({text:"You must input question and answer!",
+					Swal.fire({text:"您必须输入问题并回答!",
 					icon:"error",
 					buttonsStyling:!1,
-					confirmButtonText:"Ok, got it!",
+					confirmButtonText:"好的，我知道了！",
 					customClass:{confirmButton:"btn fw-bold btn-primary"}
 					});
 				}
@@ -263,10 +263,10 @@
 						if(response == "added")
 						{
 
-							Swal.fire({text:"You have successfully added!",
+							Swal.fire({text:"您已经成功添加了！",
 							icon:"success",
 							buttonsStyling:!1,
-							confirmButtonText:"Ok, got it!",
+							confirmButtonText:"好的，我知道了！",
 							customClass:{confirmButton:"btn fw-bold btn-primary"}}).then(function(){
 								location.reload()
 							})
@@ -297,10 +297,10 @@
                     })
                     .fail(function(){
                         Swal.fire({
-                            text:"Something went wrong.",
+                            text:"出了些问题。",
                             icon:"error",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         })
                     })
@@ -312,38 +312,38 @@
     .addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
         o=n.querySelector('[data-kt-faq-filter="faq_name"]').innerText,
         id=n.querySelector('input[type="hidden"]').value;
-        Swal.fire({text:"Are you sure you want to delete "+o+"?",
+        Swal.fire({text:"你确定你要删除 "+o+"?",
             icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-            confirmButtonText:"Yes, delete!",
-            cancelButtonText:"No, cancel",
+            confirmButtonText:"是的，删除！",
+            cancelButtonText:"不，取消",
             customClass:{confirmButton:"btn fw-bold btn-danger",
             cancelButton:"btn fw-bold btn-active-light-primary"}
         }).then((function(t){
             t.value?(
                 $.post('/api/support/delete-faq', {_token: '{{csrf_token()}}', id: id})
                     .done(function(){
-                        Swal.fire({text:"You have deleted "+o+"!.",
+                        Swal.fire({text:"您已删除 "+o+"!.",
                         icon:"success",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         }).then((function(){e.row($(n)).remove().draw()}))
                     })
                     .fail(function(){
                         Swal.fire({
-                            text:o+" was not deleted.",
+                            text:o+" 没有被删除。",
                             icon:"error",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         })
                     })
 
                 ):"cancel"===t.dismiss&&Swal.fire({
-                text:o+" was not deleted.",
+                text:o+" 没有被删除。",
                 icon:"error",
                 buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
+                confirmButtonText:"好的，我知道了！",
                 customClass:{confirmButton:"btn fw-bold btn-primary"}
             })
             }))

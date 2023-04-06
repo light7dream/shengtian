@@ -219,7 +219,7 @@
                                     @if (Session::has('user'))
                                     <a href="/mine" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>{{Session::get('user')->user_name}}</a>
                                     @else
-                                    <a href="/mine" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>Account</a>
+                                    <a href="/mine" style="font-size: 14px;"><i class="icon icon-User"style="margin-right:10px"></i>帐户</a>
                                     @endif
                                     <div class="dropdown_links">
                                         <div class="dropdown_links_list">

@@ -244,7 +244,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title">
-                       <h2>New <span>product</span></h2>
+                       <h2>新的 <span>产品</span></h2>
                        <!-- <p>Lorem ipsum dolor sit amet, consectetur elit.</p> -->
                     </div>
                 </div>
@@ -262,8 +262,8 @@
                                 <figure>
                                     <div class="product_thumb">
                                        <div class="label_product">
-                                            <span class="label_new">new</span>
-                                            <span class="label_sale">hot!</span>
+                                            <span class="label_new">新的</span>
+                                            <span class="label_sale">热的!</span>
                                         </div>
                                         <a class="primary_img" href="/product-details/{{$product->id}}"><img src="{{url('/storage/uploads/catalog/products/'.$product->id.'/main.png')}}" alt=""></a>
                                         <a class="secondary_img" href="/product-details/{{$product->id}}"><img src="{{file_exists(url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'))?url('/storage/uploads/catalog/products/'.$product->id.'/sub0.png'):''}}" alt=""></a>
@@ -276,7 +276,7 @@
                                             <span class="current_price">{{$product->points}}积分</span>
                                         </div>
                                         <div class="add_to_cart">
-                                            <a href="/product-details/{{$product->id}}" title="Add to Cart">Add to Cart</a>
+                                            <a href="/product-details/{{$product->id}}" title="添加到购物车">添加到购物车</a>
 </div>
                                         <div class="swatches-colors">
                                             <ul>

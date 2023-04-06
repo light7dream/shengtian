@@ -21,7 +21,7 @@
 					<div class="card-header">
 						<!--begin::Card title-->
 						<div class="card-title required">
-							<h2>Thumbnail</h2>
+							<h2>缩略图</h2>
 						</div>
 						<!--end::Card title-->
 					</div>
@@ -58,7 +58,7 @@
 						</div>
 						<!--end::Image input-->
 						<!--begin::Description-->
-						<div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+						<div class="text-muted fs-7">设置产品缩略图。 仅接受 *.png、*.jpg 和 *.jpeg 图像文件</div>
 						<!--end::Description-->
 					</div>
 					<!--end::Card body-->
@@ -73,7 +73,7 @@
 					<div class="card-header">
 						<!--begin::Card title-->
 						<div class="card-title">
-							<h2>Product Details</h2>
+							<h2>产品详情</h2>
 						</div>
 						<!--end::Card title-->
 					</div>
@@ -96,7 +96,7 @@
 						<div class="fv-row mb-4">
 							<!--begin::Input group-->
 							<!--begin::Label-->
-							<label class="form-label d-block">Colors</label>
+							<label class="form-label d-block">颜色</label>
 							<!--end::Label-->
 							<style> 
 								.color-checker ul li {display: inline-block; margin: 2px;transition: all 0.1s ease 0s;cursor: pointer;} 
@@ -125,14 +125,14 @@
 							
 							<!--end::Input-->
 							<!--begin::Description-->
-							<div class="text-muted fs-7">Add colors to a product.</div>
+							<div class="text-muted fs-7">为产品添加颜色。</div>
 							<!--end::Description-->
 							<!--end::Input group-->
 						</div>
 						<div class="fv-row mb-4">
 							<!--begin::Input group-->
 							<!--begin::Label-->
-							<label class="form-label d-block">Sizes</label>
+							<label class="form-label d-block">尺码</label>
 							<!--end::Label-->
 							<!--begin::Input-->
 							{{-- <select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple" name="product_sizes[]">
@@ -175,7 +175,7 @@
 							</div>
 							<!--end::Input-->
 							<!--begin::Description-->
-							<div class="text-muted fs-7">Add sizes to a product.</div>
+							<div class="text-muted fs-7">为产品添加尺寸。</div>
 							<!--end::Description-->
 							<!--end::Input group-->
 						</div>
@@ -215,7 +215,7 @@
 									</div>
 									<div class="d-flex checkbox-inline">
 										<div class="form-check form-check-lg form-check-custom form-check-outline mt-3 form-label">
-											<input class="form-check-input" name="virtual" type="checkbox" value="1" id="virtual"> <label class="ms-2 fs-3">Virtual Goods</label>
+											<input class="form-check-input" name="virtual" type="checkbox" value="1" id="virtual"> <label class="ms-2 fs-3">虚拟商品</label>
 										</div>
 									</div>
 								</div>
@@ -225,36 +225,36 @@
 									<!--begin::Input group-->
 									<div class="mb-10 fv-row">
 										<!--begin::Label-->
-										<label class="required form-label">Product Name</label>
+										<label class="required form-label">产品名称</label>
 										<!--end::Label-->
 										<!--begin::Input-->
-										<input type="text" name="product_name" class="form-control mb-2" placeholder="Product name" value="" />
+										<input type="text" name="product_name" class="form-control mb-2" placeholder="产品名称" value="" />
 										<!--end::Input-->
 										<!--begin::Description-->
-										<div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+										<div class="text-muted fs-7">产品名称是必需的，建议是唯一的。</div>
 										<!--end::Description-->
 									</div>
 									<!--end::Input group-->
 									<!--begin::Input group-->
 									<div class="mb-10 fv-row">
 										<!--begin::Label-->
-										<label class="required form-label">Description</label>
+										<label class="required form-label">描述</label>
 										<!--end::Label-->
 										<!--begin::Editor-->
-										<textarea class="form-control" name="product_description" rows="4" id="product_description" placeholder="Product description"></textarea>
+										<textarea class="form-control" name="product_description" rows="4" id="product_description" placeholder="产品描述"></textarea>
 										<!--end::Editor-->
 										<!--begin::Description-->
-										<div class="text-muted fs-7">Set a description to the product for better visibility.</div>
+										<div class="text-muted fs-7">为产品设置描述以获得更好的可见性。</div>
 										<!--end::Description-->
 									</div>
 									<!--end::Input group-->
 									<div class="fv-row  mb-10">
 										<!--begin::Input group-->
 										<!--begin::Label-->
-										<label class="required form-label">Categories</label>
+										<label class="required form-label">类别</label>
 										<!--end::Label-->
 										<!--begin::Select2-->
-										<select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" name="product_category">
+										<select class="form-select mb-2" data-control="select2" data-placeholder="选择一个选项" data-allow-clear="true" name="product_category">
 											<option></option>
 											@foreach ($categories as $category)
 											<option value="{{$category->id}}">{{$category->name}}</option>
@@ -262,33 +262,33 @@
 										</select>
 										<!--end::Select2-->
 										<!--begin::Description-->
-										<div class="text-muted fs-7">Add product to a category.</div>
+										<div class="text-muted fs-7">将产品添加到类别。</div>
 										<!--end::Description-->
 										<!--end::Input group-->
 									</div>
 									<div class="fv-row mb-10">
 										<!--begin::Input group-->
 										<!--begin::Label-->
-										<label class="required form-label d-block">Pricing</label>
+										<label class="required form-label d-block">价钱</label>
 										<!--end::Label-->
 										<!--begin::Input-->
 										<input name="product_price" class="form-control mb-2" value="" type="number" />
 										<!--end::Input-->
 										<!--begin::Description-->
-										<div class="text-muted fs-7">Enter price of a product.</div>
+										<div class="text-muted fs-7">输入产品的价格。</div>
 										<!--end::Description-->
 										<!--end::Input group-->
 									</div>
 									<!--begin::Input group-->
 									<div class="fv-row">
 										<!--begin::Label-->
-										<label class="required form-label">Quantity</label>
+										<label class="required form-label">数量</label>
 										<!--end::Label-->
 										<!--begin::Editor-->
-										<input class="form-control" min="0" type="number" name="product_quantity" rows="4" placeholder="Product quantity"/>
+										<input class="form-control" min="0" type="number" name="product_quantity" rows="4" placeholder="产品数量"/>
 										<!--end::Editor-->
 										<!--begin::Description-->
-										<div class="text-muted fs-7">Enter the product quantity.</div>
+										<div class="text-muted fs-7">输入产品数量。</div>
 										<!--end::Description-->
 									</div>
 									<!--end::Input group-->
@@ -301,7 +301,7 @@
 								<!--begin::Card header-->
 								<div class="card-header">
 									<div class="card-title">
-										<h2>Preview</h2>
+										<h2>预览</h2>
 									</div>
 								</div>
 								<!--end::Card header-->
@@ -447,12 +447,12 @@
 				<!--end::Tab content-->
 				<div class="d-flex justify-content-end">
 					<!--begin::Button-->
-					<a href="/admin/catalog/products" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+					<a href="/admin/catalog/products" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">取消</a>
 					<!--end::Button-->
 					<!--begin::Button-->
 					<button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
-						<span class="indicator-label">Save</span>
-						<span class="indicator-progress">Please wait...
+						<span class="indicator-label">节省</span>
+						<span class="indicator-progress">请稍等...
 						<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 					</button>
 					<!--end::Button-->
@@ -589,7 +589,7 @@
 
 										notEmpty:{
 
-											message:"Product name is required"
+											message:"产品名称为必填项"
 
 										}
 
@@ -602,7 +602,7 @@
 
 										notEmpty:{
 
-											message:"Product description is required"
+											message:"需要产品描述"
 
 										}
 
@@ -615,7 +615,7 @@
 
 										notEmpty:{
 
-											message:"Product quantity is required"
+											message:"需要产品数量"
 
 										}
 
@@ -628,7 +628,7 @@
 
 										notEmpty:{
 
-											message:"Product category is required"
+											message:"需要产品类别"
 
 										}
 
@@ -641,7 +641,7 @@
 
 										notEmpty:{
 
-											message:"Product price is required"
+											message:"需要产品价格"
 
 										}
 
@@ -654,7 +654,7 @@
 
 										notEmpty:{
 
-											message:"Product thumbnail is required"
+											message:"需要产品缩略图"
 
 										}
 
@@ -699,10 +699,10 @@
 												o.disabled=!1,
 												Swal.fire({
 
-													text:"Form has been successfully submitted!",
+													text:"表格已成功提交！",
 													icon:"success",
 													buttonsStyling:!1,
-													confirmButtonText:"Ok, got it!",
+													confirmButtonText:"好的，我知道了！",
 													customClass:{
 
 														confirmButton:"btn btn-primary"
@@ -722,10 +722,10 @@
 												o.disabled=!1,
 												Swal.fire({
 
-													html:"Sorry, looks like there are some errors detected, please try again. <br/><br/>Please note that there may be errors in the <strong>General</strong> or <strong>Advanced</strong> tabs",
+													html:"抱歉，看起来有一些错误，请重试。",
 													icon:"error",
 													buttonsStyling:!1,
-													confirmButtonText:"Ok, got it!",
+													confirmButtonText:"好的，我知道了！",
 													customClass:{
 
 														confirmButton:"btn btn-primary"
@@ -738,10 +738,10 @@
 										o.removeAttribute("data-kt-indicator"),
 										Swal.fire({
 
-										html:"Sorry, looks like there are some errors detected, please try again. <br/><br/>Please note that there may be errors in the <strong>General</strong> or <strong>Advanced</strong> tabs",
+										html:"抱歉，看起来有一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 
 											confirmButton:"btn btn-primary"

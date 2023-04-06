@@ -45,9 +45,9 @@
 									{{-- <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_category_table .form-check-input" value="1" /> --}}
 								</div>
 							</th>
-							<th class="min-w-250px">Category</th>
-							<th class="min-w-150px">Category Description</th>
-							<th class="text-end min-w-70px">Actions</th>
+							<th class="min-w-250px">类别</th>
+							<th class="min-w-150px">类别描述</th>
+							<th class="text-end min-w-70px">动作</th>
 						</tr>
 						<!--end::Table row-->
 					</thead>
@@ -94,7 +94,7 @@
 							<td class="text-end flex-end">
 								
 									<div class="text-muted fs-7 fw-bold">
-										<a href="/admin/catalog/edit-category/{{$category->id}}" class="btn btn-sm btn-warning">Edit</a>
+										<a href="/admin/catalog/edit-category/{{$category->id}}" class="btn btn-sm btn-warning">编辑</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
@@ -142,38 +142,38 @@
 		.addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
 			o=n.querySelector('[data-kt-ecommerce-category-filter="category_name"]').innerText,
 			id=n.querySelector('input[type="hidden"]').value;
-			Swal.fire({text:"Are you sure you want to delete "+o+"?",
+			Swal.fire({text:"你确定你要删除
 				icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-				confirmButtonText:"Yes, delete!",
-				cancelButtonText:"No, cancel",
+				confirmButtonText:"是的，删除！
+				cancelButtonText:"不，取消
 				customClass:{confirmButton:"btn fw-bold btn-danger",
 				cancelButton:"btn fw-bold btn-active-light-primary"}
 			}).then((function(t){
 				t.value?(
 					$.post('/api/catalog/delete-category', {_token: '{{csrf_token()}}', id: id})
 						.done(function(){
-							Swal.fire({text:"You have deleted "+o+"!.",
+							Swal.fire({text:"您已删除
 							icon:"success",
 								buttonsStyling:!1,
-								confirmButtonText:"Ok, got it!",
+								confirmButtonText:"好的，我知道了！
 								customClass:{confirmButton:"btn fw-bold btn-primary"}
 							}).then((function(){e.row($(n)).remove().draw()}))
 						})
 						.fail(function(){
 							Swal.fire({
-								text:o+" was not deleted.",
+								text:o+"没有被删除。
 								icon:"error",
 								buttonsStyling:!1,
-								confirmButtonText:"Ok, got it!",
+								confirmButtonText:"好的，我知道了！
 								customClass:{confirmButton:"btn fw-bold btn-primary"}
 							})
 						})
 
 					):"cancel"===t.dismiss&&Swal.fire({
-					text:o+" was not deleted.",
+					text:o+"没有被删除。
 					icon:"error",
 					buttonsStyling:!1,
-					confirmButtonText:"Ok, got it!",
+					confirmButtonText:"好的，我知道了！",
 					customClass:{confirmButton:"btn fw-bold btn-primary"}
 				})
 				}))

@@ -14,7 +14,7 @@
 					<div class="card-header">
 						<!--begin::Card title-->
 						<div class="card-title required">
-							<h2>Thumbnail</h2>
+							<h2>缩略图</h2>
 						</div>
 						<!--end::Card title-->
 					</div>
@@ -51,7 +51,7 @@
 						</div>
 						<!--end::Image input-->
 						<!--begin::Description-->
-						<div class="text-muted fs-7">Set the category thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+						<div class="text-muted fs-7">设置类别缩略图图像。仅 *.png， *.jpg和 *.jpeg映像文件被接受</div>
 						<!--end::Description-->
 					</div>
 					<!--end::Card body-->
@@ -66,7 +66,7 @@
 					<!--begin::Card header-->
 					<div class="card-header">
 						<div class="card-title">
-							<h2>General</h2>
+							<h2>一般的</h2>
 						</div>
 					</div>
 					<!--end::Card header-->
@@ -75,27 +75,27 @@
 						<!--begin::Input group-->
 						<div class="mb-10 fv-row">
 							<!--begin::Label-->
-							<label class="required form-label">Category Name</label>
+							<label class="required form-label">分类名称</label>
 							<!--end::Label-->
 							<!--begin::Input-->
-							<input type="text" name="category_name" class="form-control mb-2" placeholder="Category name" value="{{$category->name}}" />
+							<input type="text" name="category_name" class="form-control mb-2" placeholder="分类名称" value="{{$category->name}}" />
 							<!--end::Input-->
 							<!--begin::Description-->
-							<div class="text-muted fs-7">A category name is required and recommended to be unique.</div>
+							<div class="text-muted fs-7">需要一个类别名称，并建议是唯一的。</div>
 							<!--end::Description-->
 						</div>
 						<!--end::Input group-->
 						<!--begin::Input group-->
 						<div>
 							<!--begin::Label-->
-							<label class="form-label">Description</label>
+							<label class="form-label">描述</label>
 							<!--end::Label-->
 							<!--begin::Editor-->
-							<textarea name="category_description" class="form-control mb-2" placeholder="Description" rows="6" id='category_desc' value="Hi">{!!$category->description!!}</textarea>
+							<textarea name="category_description" class="form-control mb-2" placeholder="描述" rows="6" id='category_desc' value="Hi">{!!$category->description!!}</textarea>
 							{{-- <div id="kt_add_category_description" name="kt_add_category_description" class="min-h-200px mb-2"></div> --}}
 							<!--end::Editor-->
 							<!--begin::Description-->
-							<div class="text-muted fs-7">Set a description to the category for better visibility.</div>
+							<div class="text-muted fs-7">将描述设置为类别以提高可见性。</div>
 							<!--end::Description-->
 						</div>
 						<!--end::Input group-->
@@ -105,12 +105,12 @@
 				<!--end::General options-->
 				<div class="d-flex justify-content-end">
 					<!--begin::Button-->
-					<a href="/admin/catalog/categories" id="kt_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+					<a href="/admin/catalog/categories" id="kt_add_product_cancel" class="btn btn-light me-5">取消</a>
 					<!--end::Button-->
 					<!--begin::Button-->
 					<button type="submit" id="kt_edit_category_submit" class="btn btn-primary">
-						<span class="indicator-label">Save</span>
-						<span class="indicator-progress">Please wait...
+						<span class="indicator-label">节省</span>
+						<span class="indicator-progress">请稍等...
 						<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 					</button>
 					<!--end::Button-->
@@ -149,7 +149,7 @@
 						let e;
 						const t=document.getElementById("kt_edit_category_form"),
 						o=document.getElementById("kt_edit_category_submit");
-						e=FormValidation.formValidation(t,{fields:{category_name:{validators:{notEmpty:{message:"Category name is required"}}}},
+						e=FormValidation.formValidation(t,{fields:{category_name:{validators:{notEmpty:{message:"需要类别名称"}}}},
 						plugins:{
 							trigger:new FormValidation.plugins.Trigger,
 							bootstrap:new FormValidation.plugins.Bootstrap5({
@@ -172,7 +172,7 @@
 										success: function(data) {
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
-											Swal.fire({text:"Form has been successfully submitted!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+											Swal.fire({text:"表格已成功提交！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											}).then((function(e){
 												e.isConfirmed&&(o.disabled=!1,window.location=t.getAttribute("data-kt-redirect"))
@@ -183,10 +183,10 @@
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
 											Swal.fire({
-											text:"Sorry, looks like there are some errors detected, please try again.",
+											text:"抱歉，看起来有一些错误，请重试。",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
@@ -198,10 +198,10 @@
 
 									o.removeAttribute("data-kt-indicator"),
 									Swal.fire({
-										text:"Sorry, looks like there are some errors detected, please try again.",
+										text:"抱歉，看起来有一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！
 										customClass:{
 												confirmButton:"btn btn-primary"
 										}

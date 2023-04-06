@@ -16,16 +16,16 @@
 					<!--begin::Card header-->
 					<div class="card-header" style="display: flex">
 						<div class="card-title">
-							<h2>Member</h2>
+							<h2>成员</h2>
 						</div>
 						<div class="d-flex justify-content-end" style="margin-top: 5px; height : 50px">
 							<!--begin::Button-->
-							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">Reset</a>
+							<a href="javascript:(0);" id="kt_edit_member_reset" class="btn btn-light me-5">重置</a>
 							<!--end::Button-->
 							<!--begin::Button-->
 							<button type="submit" id="kt_edit_member_submit" class="btn btn-primary">
-								<span class="indicator-label">Save</span>
-								<span class="indicator-progress">Please wait...
+								<span class="indicator-label">节省</span>
+								<span class="indicator-progress">请稍等...
 								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 							</button>
 							<!--end::Button-->
@@ -39,20 +39,20 @@
 							<div class="col-md-6 col-sm-12">
 							<div class="mb-10 fv-row">
 								<!--begin::Label-->
-								<label class="required form-label">Member Name</label>
+								<label class="required form-label">成员名字</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<input type="text" name="member_name" class="form-control mb-2" placeholder="Member name" value="{{$member->name}}" id='member_name' />
+								<input type="text" name="member_name" class="form-control mb-2" placeholder="成员名字" value="{{$member->name}}" id='member_name' />
 								<!--end::Input-->
 							</div>
 							</div>
 							<div class="col-md-6 col-sm-12">
 							<div class="mb-10 fv-row">
 								<!--begin::Label-->
-								<label class="required form-label">Password</label>
+								<label class="required form-label">密码</label>
 								<!--end::Label-->
 								<!--begin::Editor-->
-								<input type="hidden" name="last_password" class="form-control mb-2" placeholder="Password" value="{{$member->password}}" id='last_password'>
+								<input type="hidden" name="last_password" class="form-control mb-2" placeholder="密码" value="{{$member->password}}" id='last_password'>
 								<input name="member_password" class="form-control mb-2" placeholder="Password" value="{{$member->password}}" id='member_password'>
 								<!--end::Editor-->
 							</div>	
@@ -64,21 +64,21 @@
 							<div class="col-md-6 col-sm-12">
 								<div class="mb-10 fv-row">
 									<!--begin::Label-->
-									<label class="required form-label">Created Date</label>
+									<label class="required form-label">创建日期</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled name="member_created_at" class="form-control mb-2" placeholder="Created Date" value="{{$member->created_at}}" id='member_created_at'></textarea>
-									<!--end::Editor-->
+									<input disabled name="member_created_at" class="form-control mb-2" placeholder="创建日期" value="{{$member->created_at}}" id='member_created_at'></textarea>
+									<!--end::编辑-->
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-12">
 								<div class="mb-10 fv-row">
 									<!--begin::Label-->
-									<label class="required form-label">Last Exchange Date</label>
+									<label class="required form-label">最后交换日期</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled name="member_last_exchange_at" class="form-control mb-2" placeholder="Last Exchange Date" value="{{$member->last_exchange_at}}" id='member_last_exchange_at'></textarea>
-									<!--end::Editor-->
+									<input disabled name="member_last_exchange_at" class="form-control mb-2" placeholder="最后交换日期" value="{{$member->last_exchange_at}}" id='member_last_exchange_at'></textarea>
+									<!--end::编辑-->
 								</div>
 							</div>
 						</div>
@@ -88,30 +88,30 @@
 							<div class="col-md-4 col-sm-12">
 								<div class="mb-10 fv-row">
 									<!--begin::Label-->
-									<label class="required form-label">Total Points</label>
+									<label class="required form-label">总积分</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input type="number" min="0" name="member_total_points" class="form-control mb-2" placeholder="Total Points" value="{{$member->points}}" id='member_total_points'></textarea>
+									<input type="number" min="0" name="member_total_points" class="form-control mb-2" placeholder="总积分" value="{{$member->points}}" id='member_total_points'></textarea>
 									<!--end::Editor-->
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-12">
 								<div class="mb-10 fv-row">
 									<!--begin::Label-->
-									<label class="required form-label">Used Points</label>
+									<label class="required form-label">二手点</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled type="number" min="0" max="{{$member->points}}" name="member_used_points" class="form-control mb-2" placeholder="Used Points" value="{{$member->orders->sum('total')}}" id='member_used_points'></textarea>
+									<input disabled type="number" min="0" max="{{$member->points}}" name="member_used_points" class="form-control mb-2" placeholder="二手点" value="{{$member->orders->sum('total')}}" id='member_used_points'></textarea>
 									<!--end::Editor-->
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-12">
 								<div class="mb-10 fv-row">
 									<!--begin::Label-->
-									<label class="required form-label">Remain Points</label>
+									<label class="required form-label">仍然是要点</label>
 									<!--end::Label-->
 									<!--begin::Editor-->
-									<input disabled type="number" name="member_remain_points" class="form-control mb-2" placeholder="Remain Points" value="{{$member->points-$member->orders->sum('total')}}" id='member_remain_points'></textarea>
+									<input disabled type="number" name="member_remain_points" class="form-control mb-2" placeholder="仍然是要点" value="{{$member->points-$member->orders->sum('total')}}" id='member_remain_points'></textarea>
 									<!--end::Editor-->
 								</div>
 							</div>
@@ -197,21 +197,21 @@
 								member_name:{
 									validators:{
 										notEmpty:{
-											message:"member name is required"
+											message:"会员姓名为必填项"
 										}
 									}
 								},
 								member_password:{
 									validators:{
 										notEmpty:{
-											message:"member name is required"
+											message:"需要会员密码"
 										}
 									}
 								},
 								member_total_points:{
 									validators:{
 										notEmpty:{
-											message:"member name is required"
+											message:"会员总积分为必填项"
 										}
 									}
 								}
@@ -238,7 +238,7 @@
 										success: function(data) {
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
-											Swal.fire({text:"Form has been successfully submitted!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+											Swal.fire({text:"表单已成功提交！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn btn-primary"}
 											}).then((function(e){
 												e.isConfirmed&&(o.disabled=!1,window.location=t.getAttribute("data-kt-redirect"))
@@ -249,10 +249,10 @@
 												o.disabled=!1,
 											o.removeAttribute("data-kt-indicator"),
 											Swal.fire({
-											text:"Sorry, looks like there are some errors detected, please try again.",
+											text:"抱歉，似乎检测到一些错误，请重试。",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的，我知道了！",
 											customClass:{
 												confirmButton:"btn btn-primary"
 											}
@@ -264,10 +264,10 @@
 
 									o.removeAttribute("data-kt-indicator"),
 									Swal.fire({
-										text:"Sorry, looks like there are some errors detected, please try again.",
+										text:"抱歉，似乎检测到一些错误，请重试。",
 										icon:"error",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 												confirmButton:"btn btn-primary"
 										}
@@ -302,7 +302,7 @@
 							$.post('/api/members/recharge',{_token: '{{csrf_token()}}', id:'{{$member->id}}', recharge: $("#recharge_amount").val()})
 							.then(function(response){
 									Swal.fire({
-										text:"Successfully charged!",
+										text:"充值成功！",
 										icon:"success",
 										buttonsStyling:!1,
 										confirmButtonText:"Ok, got it!",

@@ -19,7 +19,7 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" data-table-filter="search" class="form-control form-control-solid ps-15" placeholder="Search Service" />
+                    <input type="text" data-table-filter="search" class="form-control form-control-solid ps-15" placeholder="搜寻服务" />
                 </div>
                 <!--end::Search-->
             </div>
@@ -29,14 +29,14 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt_member_table-toolbar="base">
                     <!--begin::Add service-->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_member">Add Member</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_member">添加会员</button>
                     <!--end::Add service-->
                 </div>
                 <!--end::Toolbar-->
                 <!--begin::Group actions-->
                 <div class="d-flex justify-content-end align-items-center d-none" data-kt_member_table-toolbar="selected">
                     <div class="fw-bold me-5">
-                    <span class="me-2" data-kt_member_table-select="selected_count"></span>Selected</div>
+                    <span class="me-2" data-kt_member_table-select="selected_count"></span>已选</div>
                 </div>
                 <!--end::Group actions-->
             </div>
@@ -51,13 +51,13 @@
                 <thead>
                     <!--begin::Table row-->
                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">Name</th>
-                        <th class="min-w-125px">Created Date</th>
-                        <th class="min-w-125px">Total Points</th>
-                        <th class="min-w-125px">Used Points</th>
-                        <th class="min-w-125px">Remain Points</th>
-                        <th class="min-w-125px">Last exchange time</th>
-                        <th class="text-center min-w-70px">Actions</th>
+                        <th class="min-w-125px">姓名</th>
+                        <th class="min-w-125px">创建日期</th>
+                        <th class="min-w-125px">总积分</th>
+                        <th class="min-w-125px">使用积分</th>
+                        <th class="min-w-125px">剩余积分</th>
+                        <th class="min-w-125px">最后兑换时间</th>
+                        <th class="text-center min-w-70px">动作</th>
                     </tr>
                     <!--end::Table row-->
                 </thead>
@@ -90,8 +90,8 @@
                             <div>{{$member->last_exchange_at}}</div>
                         </td>
                         <td class="text-end">
-                            <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2" style="display: inline-block">Edit</a>
-                            <a href="#" class="btn btn-sm btn-dark mb-2" data-id="{{$member->id}}" data-table-filter="delete_row" style="display: inline-block">Delete</a>
+                            <a href="/admin/members/edit-member/{{$member->id}}" class="btn btn-sm btn-warning mb-2" style="display: inline-block">编辑</a>
+                            <a href="#" class="btn btn-sm btn-dark mb-2" data-id="{{$member->id}}" data-table-filter="delete_row" style="display: inline-block">删除</a>
                         </td>
                     </tr>
                     @endforeach
@@ -115,7 +115,7 @@
                     <!--begin::Modal header-->
                     <div class="modal-header" id="kt_modal_add_member_header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Add a Member</h2>
+                        <h2 class="fw-bold">添加会员</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
                         <div id="kt_modal_add_member_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -146,27 +146,27 @@
                                     <input type="text" id="name" name="name" class="form-control mb-2" placeholder="ID" value="">
                                     <!--end::Input-->
                                     <!--begin::Description-->
-                                    {{-- <div class="text-muted fs-7">A name is required and recommended to be unique.</div> --}}
+                                    {{-- <div class="text-muted fs-7">ID 是必需的，建议是唯一的。</div> --}}
                                     <!--end::Description-->
                                 <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row fv-plugins-icon-container">
                                     <!--begin::Label-->
-                                    <label class="required form-label">Password</label>
+                                    <label class="required form-label">密码</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="password" id="password" name="password" class="form-control mb-2" placeholder="Password" value="">
+                                    <input type="password" id="password" name="password" class="form-control mb-2" placeholder="密码" value="">
                                     <!--end::Input-->
                                     <!--begin::Description-->
-                                    {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
+                                    {{-- <div class="text-muted fs-7">电子邮件是必需的，建议是唯一的。</div> --}}
                                     <!--end::Description-->
                                 <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">Points</label>
+                                    <label class="required form-label">积分</label>
                                     <!--end::Label-->
                                     <!--begin::Editor-->
                                     <div id="editor"></div> 
@@ -184,11 +184,11 @@
                     <!--begin::Modal footer-->
                     <div class="modal-footer flex-center">
                         <!--begin::Button-->
-                        <button type="reset" id="kt_modal_add_member_cancel" class="btn btn-light me-3">Discard</button>
+                        <button type="reset" id="kt_modal_add_member_cancel" class="btn btn-light me-3">丢弃</button>
                         <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" id="kt_modal_add_member_submit" class="btn btn-primary">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">提交</span>
                         </button>
                         <!--end::Button-->
                     </div>
@@ -224,20 +224,20 @@
             name:{
                 validators:{
                     notEmpty:{
-                        message:"Member ID is required"}
+                        message:"需要会员ID"}
                     }
                 },
             password:{
                 validators:{
                     notEmpty:{
-                        message:"Member password is required"}
+                        message:"需要会员密码"}
                     }
                 },
                 
             points:{
                 validators:{
                     notEmpty:{
-                        message:"Member points is required"}
+                        message:"需要会员积分"}
                     }
                 }
         },
@@ -269,7 +269,7 @@
                     processData: false, 
                     contentType: false, 
                     success: function(data) {
-                        Swal.fire({text:"Form has been successfully added!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+                        Swal.fire({text:"表格已成功添加！",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn btn-primary"}
                         }).then(function(){
                             location.reload() 
@@ -277,10 +277,10 @@
                     },
                     error: function(request, status, error){
                         Swal.fire({
-                        text:"Sorry, you must input name and email correctly, please try again.",
+                        text:"抱歉，似乎检测到一些错误，请重试。",
                         icon:"error",
                         buttonsStyling:!1,
-                        confirmButtonText:"Ok, got it!",
+                        confirmButtonText:"好的，我知道了！",
                         customClass:{
                             confirmButton:"btn btn-primary"
                         }
@@ -290,10 +290,10 @@
                 }
                 else{
                     Swal.fire({
-                        text:"Sorry, looks like there are some errors detected, please try again.",
+                        text:"抱歉，似乎检测到一些错误，请重试。",
                         icon:"error",
                         buttonsStyling:!1,
-                        confirmButtonText:"Ok, got it!",
+                        confirmButtonText:"好的，我知道了！",
                         customClass:{
                                 confirmButton:"btn btn-primary"
                         }
@@ -307,38 +307,38 @@
     .addEventListener("click",(function(t){t.preventDefault();const n=t.target.closest("tr"),
         o=n.querySelector('[data-kt-member-filter="member"]').innerText,
         id=n.querySelector('input[type="hidden"]').value;
-        Swal.fire({text:"Are you sure you want to delete "+o+"?",
+        Swal.fire({text:"你确定你要删除"+o+"?",
             icon:"warning",showCancelButton:!0,buttonsStyling:!1,
-            confirmButtonText:"Yes, delete!",
-            cancelButtonText:"No, cancel",
+            confirmButtonText:"对，删除！",
+            cancelButtonText:"不，取消",
             customClass:{confirmButton:"btn fw-bold btn-danger",
             cancelButton:"btn fw-bold btn-active-light-primary"}
         }).then((function(t){
             t.value?(
                 $.post('/api/members/delete-member', {_token: '{{csrf_token()}}', id: id})
                     .done(function(){
-                        Swal.fire({text:"You have deleted "+o+"!.",
+                        Swal.fire({text:"您已删除"+o+"!.",
                         icon:"success",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         }).then((function(){e.row($(n)).remove().draw()}))
                     })
                     .fail(function(){
                         Swal.fire({
-                            text:o+" was not deleted.",
+                            text:o+" 没有被删除。",
                             icon:"error",
                             buttonsStyling:!1,
-                            confirmButtonText:"Ok, got it!",
+                            confirmButtonText:"好的，我知道了！",
                             customClass:{confirmButton:"btn fw-bold btn-primary"}
                         })
                     })
 
                 ):"cancel"===t.dismiss&&Swal.fire({
-                text:o+" was not deleted.",
+                text:o+" 没有被删除。",
                 icon:"error",
                 buttonsStyling:!1,
-                confirmButtonText:"Ok, got it!",
+                confirmButtonText:"好的，我知道了！",
                 customClass:{confirmButton:"btn fw-bold btn-primary"}
             })
             }))

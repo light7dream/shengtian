@@ -117,7 +117,7 @@
                     </div>
                     <div class="menu-item" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                         <a href="#" class="menu-link">
-                            <span class="menu-title position-relative">Mode
+                            <span class="menu-title position-relative">模式
                             <span class="ms-5 position-absolute translate-middle-y top-50 end-0">
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
                                 <span class="svg-icon theme-light-show svg-icon-2">
@@ -168,7 +168,7 @@
                                         </span>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-title">Light</span>
+                                    <span class="menu-title">光</span>
                                 </a>
                             </div>
                             <!--end::Menu item-->
@@ -187,7 +187,7 @@
                                         </span>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-title">Dark</span>
+                                    <span class="menu-title">黑暗的</span>
                                 </a>
                             </div>
                             <!--end::Menu item-->
@@ -203,7 +203,7 @@
                                         </span>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-title">System</span>
+                                    <span class="menu-title">系统</span>
                                 </a>
                             </div>
                             <!--end::Menu item-->

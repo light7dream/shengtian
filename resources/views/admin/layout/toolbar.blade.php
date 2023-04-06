@@ -29,7 +29,7 @@
                     <!--begin::Item-->
                     @if(Request::is('admin/catalog/products'))   
                         <div class="my flex-column">
-                            <a href="/admin/catalog/products" class="btn {{request()->query('type') === null?'bg-blue':'bg-black'}} btn-primary" >All Goods</a>
+                            <a href="/admin/catalog/products" class="btn {{request()->query('type') === null?'bg-blue':'bg-black'}} btn-primary" >所有商品</a>
                         </div> 
                       @foreach($categories as $category)
                         <div class="my flex-column">
@@ -42,7 +42,7 @@
 
                     @if(Request::is('admin/sales/orders'))    
                         <div class="my flex-column">
-                            <a href="/admin/sales/orders" class="btn {{request()->query('status') === null?'bg-blue':'bg-black'}} btn-primary" >Total Order</a>
+                            <a href="/admin/sales/orders" class="btn {{request()->query('status') === null?'bg-blue':'bg-black'}} btn-primary" >总订单</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -52,17 +52,17 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="my flex-column">
-                            <a href="/admin/sales/orders?status=1" class="btn  {{request()->query('status') === '1'?'bg-blue':'bg-black'}} btn-primary" >Preparation</a>
+                            <a href="/admin/sales/orders?status=1" class="btn  {{request()->query('status') === '1'?'bg-blue':'bg-black'}} btn-primary" >准备</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="my flex-column">
-                            <a href="/admin/sales/orders?status=2" class="btn  {{request()->query('status') === '2'?'bg-blue':'bg-black'}} btn-primary" >Shipped</a>
+                            <a href="/admin/sales/orders?status=2" class="btn  {{request()->query('status') === '2'?'bg-blue':'bg-black'}} btn-primary" >发货</a>
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <div class="my flex-column">
-                            <a href="/admin/sales/orders?status=3" class="btn  {{request()->query('status') === '3'?'bg-blue':'bg-black'}} btn-primary" >Completed</a>
+                            <a href="/admin/sales/orders?status=3" class="btn  {{request()->query('status') === '3'?'bg-blue':'bg-black'}} btn-primary" >已完成</a>
                         </div>
                         <!--end::Item-->
                     @endif
@@ -71,22 +71,22 @@
                     @if(Request::is('admin/supports/about-points') || Request::is('admin/supports/rule-clause') ||  Request::is('admin/supports/faq') || Request::is('admin/supports/online-service') )    
 
                             <div class="my flex-column">
-                                <a href="/admin/supports/about-points" class="btn {{Request::is('admin/supports/about-points')?'bg-blue':'bg-black'}} btn-primary" >About points</a>
+                                <a href="/admin/supports/about-points" class="btn {{Request::is('admin/supports/about-points')?'bg-blue':'bg-black'}} btn-primary" >大约要点</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="my flex-column">
-                                <a href="/admin/supports/rule-clause" class="btn  {{Request::is('admin/supports/rule-clause')?'bg-blue':'bg-black'}} btn-primary" >Rule and Clauses</a>
+                                <a href="/admin/supports/rule-clause" class="btn  {{Request::is('admin/supports/rule-clause')?'bg-blue':'bg-black'}} btn-primary" >规则和条款</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="my flex-column">
-                                <a href="/admin/supports/faq" class="btn  {{Request::is('admin/supports/faq')?'bg-blue':'bg-black'}} btn-primary" >Frequently Asked</a>
+                                <a href="/admin/supports/faq" class="btn  {{Request::is('admin/supports/faq')?'bg-blue':'bg-black'}} btn-primary" >经常询问</a>
                             </div>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <div class="my flex-column">
-                                <a href="/admin/supports/online-service" class="btn {{Request::is('admin/supports/online-service')?'bg-blue':'bg-black'}} btn-primary" >Online Service</a>
+                                <a href="/admin/supports/online-service" class="btn {{Request::is('admin/supports/online-service')?'bg-blue':'bg-black'}} btn-primary" >在线服务</a>
                             </div>
                     @endif
                 </div>

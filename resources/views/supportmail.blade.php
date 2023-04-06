@@ -6,6 +6,6 @@
 <body>
     <h1>{{$details['title']}}</h1>
     <p>{{$details['message']}}</p>
-    <h5>From : {{$details['from']}}</h5>
+    <h5>从 : {{$details['from']}}</h5>
 </body>
 </html>

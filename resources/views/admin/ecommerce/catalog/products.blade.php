@@ -26,7 +26,7 @@
 				<!--begin::Card toolbar-->
 				<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
 					<!--begin::Add product-->
-					<a href="/admin/catalog/add-product" class="btn btn-primary">Add Product</a>
+					<a href="/admin/catalog/add-product" class="btn btn-primary">添加产品</a>
 					<!--end::Add product-->
 				</div>
 				<!--end::Card toolbar-->
@@ -45,14 +45,14 @@
 									{{-- <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1" /> --}}
 								</div>
 							</th>
-							<th class="min-w-200px">Product</th>
-							<th class="min-w-100px">Description</th>
-							<th class="min-w-70px">Category</th>
-							<th class="min-w-100px">Points</th>
+							<th class="min-w-200px">产品</th>
+							<th class="min-w-100px">描述</th>
+							<th class="min-w-70px">类别</th>
+							<th class="min-w-100px">点</th>
 							{{-- <th class="min-w-100px">Colors</th>
 							<th class="min-w-100px">Sizes</th> --}}
-							<th class="min-w-100px">Quantity</th>
-							<th class="text-end min-w-70px">Actions</th>
+							<th class="min-w-100px">数量
+							<th class="text-end min-w-70px">动作
 						</tr>
 						<!--end::Table row-->
 					</thead>
@@ -115,12 +115,12 @@
 							<td class="text-end">
 								
 									<div class="mb-1" style="display: inline-block">
-										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">Edit</a>
+										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">编辑a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="mb-1" style="display: inline-block">
-										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">Delete</a>
+										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">删除
 									</div>
 									<!--end::Menu item-->
 								
@@ -165,11 +165,11 @@
 						const n=t.target.closest("tr"),
 						r=n.querySelector('[data-kt-ecommerce-product-filter="product_name"]').innerText;
 						Swal.fire({
-							text:"Are you sure you want to delete "+r+"?",
+							text:"你确定你要删除"+r+"?",
 							icon:"warning",showCancelButton:!0,
 							buttonsStyling:!1,
-							confirmButtonText:"Yes, delete!",
-							cancelButtonText:"No, cancel",
+							confirmButtonText:"是的，删除！",
+							cancelButtonText:"不，取消",
 							customClass:{confirmButton:"btn fw-bold btn-danger",
 							cancelButton:"btn fw-bold btn-active-light-primary"}})
 							.then((function(t){
@@ -177,17 +177,17 @@
 									$.post('/api/catalog/delete-product', {_token: '{{csrf_token()}}', id: id})
 										.done(function(){
 											Swal.fire(
-												{text:"You have deleted "+r+"!.",
+												{text:"您已删除"+r+"!.",
 												icon:"success",
 												buttonsStyling:!1,
-												confirmButtonText:"Ok, got it!",
+												confirmButtonText:"好的，我知道了！",
 												customClass:{confirmButton:"btn fw-bold btn-primary"}})
 												.then((function(){e.row($(n)).remove().draw()}))
 										})
 										.fail(function(){
-											Swal.fire({text:r+" was not deleted.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn fw-bold btn-primary"}})
+											Swal.fire({text:r+"没有被删除。",icon:"error",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",customClass:{confirmButton:"btn fw-bold btn-primary"}})
 										})
 									
-									):"cancel"===t.dismiss&&Swal.fire({text:r+" was not deleted.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn fw-bold btn-primary"}})}))}))}))};return{init:function(){(t=document.querySelector("#kt_ecommerce_products_table"))&&((e=$(t).DataTable({info:!1,order:[],pageLength:10,columnDefs:[{render:DataTable.render.number(",",".",2),targets:4},{orderable:!1,targets:0},{orderable:!1,targets:5}]})).on("draw",(function(){n()})),document.querySelector('[data-kt-ecommerce-product-filter="search"]').addEventListener("keyup",(function(t){e.search(t.target.value).draw()})),(()=>{const t=document.querySelector('[data-kt-ecommerce-product-filter="status"]');$(t).on("change",(t=>{let n=t.target.value;"all"===n&&(n=""),e.column(6).search(n).draw()}))})(),n())}}}();KTUtil.onDOMContentLoaded((function(){KTAppEcommerceProducts.init()}));
+									):"cancel"===t.dismiss&&Swal.fire({text:r+"没有被删除。",icon:"error",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",customClass:{confirmButton:"btn fw-bold btn-primary"}})}))}))}))};return{init:function(){(t=document.querySelector("#kt_ecommerce_products_table"))&&((e=$(t).DataTable({info:!1,order:[],pageLength:10,columnDefs:[{render:DataTable.render.number(",",".",2),targets:4},{orderable:!1,targets:0},{orderable:!1,targets:5}]})).on("draw",(function(){n()})),document.querySelector('[data-kt-ecommerce-product-filter="search"]').addEventListener("keyup",(function(t){e.search(t.target.value).draw()})),(()=>{const t=document.querySelector('[data-kt-ecommerce-product-filter="status"]');$(t).on("change",(t=>{let n=t.target.value;"all"===n&&(n=""),e.column(6).search(n).draw()}))})(),n())}}}();KTUtil.onDOMContentLoaded((function(){KTAppEcommerceProducts.init()}));
 	</script>
 @endsection

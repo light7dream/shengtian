@@ -22,7 +22,7 @@
                    </div>
                    <div class="col-lg-12 col-md-12" style="margin-top: 20px;">
                        <div class="copyright_area" style="text-align: center;">
-                           <p>Copyright &copy; 2023.shentian All Rights Reserved.<a target="_blank" href="#"></a></p>
+                           <p>Copyright &copy; 2023.胜天 版权所有.<a target="_blank" href="#"></a></p>
                        </div>
                    </div>    
                  

@@ -66,14 +66,14 @@ $('#register_btn').click(function(e){
     e.preventDefault();
     var usn = $('input[name="username"]').val();
     if(!usn && usn.length==0){
-        $('input[name="username"]').parent().next().text("You must input name");
+        $('input[name="username"]').parent().next().text("您必须输入名称");
     }
     var en = $('input[name="password"]').val()===$('input[name="confirm_password"]').val() && $('input[name="password"]').val()
     if(en)
         $('#register_form').submit();
     else {
-        $('input[name="password"]').parent().next().text("Please input correct password");
-        $('input[name="confirm_password"]').parent().next().text("Please input correct password");
+        $('input[name="password"]').parent().next().text("请输入正确的密码");
+        $('input[name="confirm_password"]').parent().next().text("请输入正确的密码");
     }
 })  
 </script>

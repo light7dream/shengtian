@@ -13,7 +13,7 @@
 						<div class="card-header">
 							<!--begin::Card title-->
 							<div class="card-title required">
-								<h2>Thumbnail</h2>
+								<h2>缩略图</h2>
 							</div>
 							<!--end::Card title-->
 						</div>
@@ -53,7 +53,7 @@
 							</div>
 							<!--end::Image input-->
 							<!--begin::Description-->
-							<div class="text-muted fs-7">Set the category thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+							<div class="text-muted fs-7">设置类别缩略图。 仅接受 *.png、*.jpg 和 *.jpeg 图像文件</div>
 							<!--end::Description-->
 						</div>
 						<!--end::Card body-->
@@ -78,27 +78,27 @@
 							<!--begin::Input group-->
 							<div class="mb-10 fv-row">
 								<!--begin::Label-->
-								<label class="required form-label">Category Name</label>
+								<label class="required form-label">分类名称</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<input type="text" name="category_name" class="form-control mb-2" placeholder="Categroy name" value="" id='category_name' />
+								<input type="text" name="category_name" class="form-control mb-2" placeholder="分类名称" value="" id='category_name' />
 								<!--end::Input-->
 								<!--begin::Description-->
-								<div class="text-muted fs-7">A category name is required and recommended to be unique.</div>
+								<div class="text-muted fs-7">类别名称为必填项，建议唯一</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div>
 								<!--begin::Label-->
-								<label class="form-label">Description</label>
+								<label class="form-label">描述</label>
 								<!--end::Label-->
 								<!--begin::Editor-->
-								<textarea name="category_description" class="form-control mb-2" placeholder="Description" rows="6" id='category_desc'></textarea>
+								<textarea name="category_description" class="form-control mb-2" placeholder="描述" rows="6" id='category_desc'></textarea>
 								{{-- <div id="kt_add_category_description" name="kt_add_category_description" class="min-h-200px mb-2"></div> --}}
 								<!--end::Editor-->
 								<!--begin::Description-->
-								<div class="text-muted fs-7">Set a description to the category for better visibility.</div>
+								<div class="text-muted fs-7">为类别设置描述以获得更好的可见性</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Input group-->
@@ -111,12 +111,12 @@
 					<!--end::Automation-->
 					<div class="d-flex justify-content-end">
 						<!--begin::Button-->
-						<a href="/admin/catalog/categories" id="kt_add_category_cancel" class="btn btn-light me-5">Cancel</a>
+						<a href="/admin/catalog/categories" id="kt_add_category_cancel" class="btn btn-light me-5">取消</a>
 						<!--end::Button-->
 						<!--begin::Button-->
 						<button type="submit" id="kt_add_category_submit" class="btn btn-primary">
-							<span class="indicator-label">Save</span>
-							<span class="indicator-progress">Please wait...
+							<span class="indicator-label">节省</span>
+							<span class="indicator-progress">请稍等...
 							<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 						</button>
 						<!--end::Button-->
@@ -164,13 +164,13 @@
 									category_name:{
 										validators:{
 											notEmpty:{
-												message:"Category name is required"}
+												message:"需要类别名称"}
 											}
 										},
 									category_image:{
 										validators:{
 											notEmpty:{
-												message:"Category image is required"}
+												message:"需要类别图像"}
 											}
 										}
 								},
@@ -196,7 +196,7 @@
 											success: function(data) {
 												o.disabled=!1,
 												o.removeAttribute("data-kt-indicator"),
-												Swal.fire({text:"Form has been successfully submitted!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",
+												Swal.fire({text:"表单已成功提交!",icon:"success",buttonsStyling:!1,confirmButtonText:"好的, 我知道了!",
 													customClass:{confirmButton:"btn btn-primary"}
 												}).then((function(e){
 													e.isConfirmed&&(o.disabled=!1,window.location=t.getAttribute("data-kt-redirect"))
@@ -206,10 +206,10 @@
 												console.log(error)
 												o.disabled=!1,
 												Swal.fire({
-												text:"Sorry, looks like there are some errors detected, please try again.",
+												text:"抱歉, 似乎检测到一些错误, 请重试.",
 												icon:"error",
 												buttonsStyling:!1,
-												confirmButtonText:"Ok, got it!",
+												confirmButtonText:"好的, 我知道了!",
 												customClass:{
 													confirmButton:"btn btn-primary"
 												}
@@ -220,10 +220,10 @@
 									else{
 
 										Swal.fire({
-											text:"Sorry, looks like there are some errors detected, please try again.",
+											text:"抱歉, 似乎检测到一些错误, 请重试.",
 											icon:"error",
 											buttonsStyling:!1,
-											confirmButtonText:"Ok, got it!",
+											confirmButtonText:"好的, 我知道了!",
 											customClass:{
 													confirmButton:"btn btn-primary"
 											}

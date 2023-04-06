@@ -13,7 +13,7 @@
 				<!--begin::Card header-->
 				<div class="card-header">
 					<div class="card-title">
-						<h2>Order Details</h2>
+						<h2>订单详细信息</h2>
 					</div>
 				</div>
 				<!--end::Card header-->

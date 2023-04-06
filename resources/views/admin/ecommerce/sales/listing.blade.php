@@ -20,7 +20,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->
-						<input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid ps-14" placeholder="Search Order" />
+						<input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid ps-14" placeholder="搜索顺序" />
 					</div>
 					<!--end::Search-->
 				</div>
@@ -45,16 +45,16 @@
 									{{-- <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_sales_table .form-check-input" value="1" /> --}}
 								</div>
 							</th>
-							<th>Order ID</th>
-							<th>Purchase Date</th>
-							<th class="text-end">Exchange items</th>
+							<th>订购ID</th>
+							<th>购买日期
+							<th class="text-end">交换项目
 							{{-- <th class="text-end">Color</th> --}}
-							<th class="text-end">Use Points</th>
-							<th class="text-end">Address</th>
-							<th class="text-end">Telephone</th>
-							<th class="text-end">Recipient</th>
-							<th class="text-end">Status</th>
-							<th class="text-end">Processing Orders</th>
+							<th class="text-end">使用点
+							<th class="text-end">地址
+							<th class="text-end">电话
+							<th class="text-end">接受者
+							<th class="text-end">地位>
+							<th class="text-end">处理订单
 						</tr>
 						<!--end::Table row-->
 					</thead>
@@ -100,9 +100,9 @@
 									@if($order->status==0)
 									<div class="badge badge-light-danger">未处理</div>
 									@elseif($order->status==1)
-									<div class="badge badge-light-warning">Preparation</div>
+									<div class="badge badge-light-warning">准备</div>
 									@elseif($order->status==2)
-									<div class="badge badge-light-info">Shipped</div>
+									<div class="badge badge-light-info">发货</div>
 									@else
 									<div class="badge badge-light-success">已完成</div>
 									@endif
@@ -113,23 +113,23 @@
 									<select class="btn btn-sm btn-light mb-2" class="status">
 										@if($order->status==0)
 											<option value="0" selected>未处理</option>
-											<option value="1">Preparation</option>
-											<option value="2">Shipped</option>
+											<option value="1">准备</option>
+											<option value="2">发货</option>
 											<option value="3">已完成</option>
 										@elseif($order->status==1)
 											<option value="0">未处理</option>
-											<option value="1" selected>Preparation</option>
-											<option value="2">Shipped</option>
+											<option value="1" selected>准备</option>
+											<option value="2">发货</option>
 											<option value="3">已完成</option>
 										@elseif($order->status==2)
 											<option value="0">未处理</option>
-											<option value="1">Preparation</option>
-											<option value="2" selected>Shipped</option>
+											<option value="1">准备</option>
+											<option value="2" selected>发货</option>
 											<option value="3">已完成</option>
 										@else
 											<option value="0">未处理</option>
-											<option value="1">Preparation</option>
-											<option value="2">Shipped</option>
+											<option value="1">准备</option>
+											<option value="2">发货</option>
 											<option value="3" selected>已完成</option>
 										@endif
 									</select>
@@ -181,18 +181,18 @@ var KTAppEcommerceSalesListing=function(){
 				$.post('/api/delete-order', {_token: '{{csrf_token()}}', id: id})
 				.done(function(){
 					Swal.fire({
-						text:"Are you sure you want to delete order: "+r+"?",icon:"warning",showCancelButton:!0,buttonsStyling:!1,confirmButtonText:"Yes, delete!",cancelButtonText:"No, cancel",customClass:{
+						text:"您确定要删除订单吗: "+r+"?",icon:"warning",showCancelButton:!0,buttonsStyling:!1,confirmButtonText:"是的，删除！",cancelButtonText:"不，取消",customClass:{
 							confirmButton:"btn fw-bold btn-danger",cancelButton:"btn fw-bold btn-active-light-primary"
 						}
 					}).then((function(e){
 						e.value?Swal.fire({
-							text:"You have deleted "+r+"!.",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{
+							text:"您已删除 "+r+"!.",icon:"success",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",customClass:{
 								confirmButton:"btn fw-bold btn-primary"
 							}
 						}).then((function(){
 							t.row($(n)).remove().draw()
 						})):"cancel"===e.dismiss&&Swal.fire({
-							text:r+" was not deleted.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{
+							text:r+" 没有被删除。",icon:"error",buttonsStyling:!1,confirmButtonText:"好的，我知道了！",customClass:{
 								confirmButton:"btn fw-bold btn-primary"
 							}
 						})
@@ -200,10 +200,10 @@ var KTAppEcommerceSalesListing=function(){
 				})
 				.fail(function(){
 					Swal.fire({
-						html:"Sorry, looks like there are some errors detected, please try again.",
+						html:"抱歉，看起来有一些错误，请重试。",
 						icon:"error",
 						buttonsStyling:!1,
-						confirmButtonText:"Ok, got it!",
+						confirmButtonText:"好的，我知道了！",
 						customClass:{
 							confirmButton:"btn btn-primary"
 						}
@@ -223,10 +223,10 @@ var KTAppEcommerceSalesListing=function(){
 				$.post('/api/edit-order', {_token: '{{csrf_token()}}', id: id, status : status})
 				.done(function(){
 					Swal.fire({
-						text:"Status has been successfully changed!",
+						text:"状态已成功改变！",
 						icon:"success",
 						buttonsStyling:!1,
-						confirmButtonText:"Ok, got it!",
+						confirmButtonText:"好的，我知道了！",
 						customClass:{
 						confirmButton:"btn btn-primary"
 						}
@@ -236,10 +236,10 @@ var KTAppEcommerceSalesListing=function(){
 				})
 				.fail(function(){
 					Swal.fire({
-						html:"Sorry, looks like there are some errors detected, please try again.",
+						html:"抱歉，看起来有一些错误，请重试。",
 						icon:"error",
 						buttonsStyling:!1,
-						confirmButtonText:"Ok, got it!",
+						confirmButtonText:"好的，我知道了！",
 						customClass:{
 							confirmButton:"btn btn-primary"
 						}

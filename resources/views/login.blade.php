@@ -70,8 +70,8 @@ $("#loginForm").validate({
         
     },
     messages: {
-        username: "Please enter name",
-        password: "Please enter password",
+        username: "请输入名称",
+        password: "请输入密码",
         
     }
 });

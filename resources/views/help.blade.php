@@ -144,7 +144,7 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <h4 class="heading">Send Mail</h4>
+        <h4 class="heading">发送邮件</h4>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:auto; height:auto; color: #fff">
           <span aria-hidden="true" class="white-tex">&times;</span>
@@ -158,26 +158,26 @@
             <form action="/api/mail/send" method="POST" id="mailForm" class="needs-validation" novalidate="novalidate" style="width: 100%">
                 @csrf
             <fieldset>
-            <input class="form-control" type="hidden" placeholder="Email" name="to" required />
+            <input class="form-control" type="hidden" placeholder="电子邮件" name="to" required />
 
             <div class="col-sm-12">
                 To : <span style="font-size: 16px;" id="showEmail"></span>
             </div>
             <div class="col-sm-12 mt-20">
-                <input class="form-control" placeholder="Enter your email" type="email" name="from" required />
+                <input class="form-control" placeholder="输入你的电子邮箱" type="email" name="from" required />
                 <label for="name" style="display:none"></label>
             </div>
             <div class="col-sm-12 mt-20">
-                <input class="form-control" placeholder="Enter subject" type="text" name="title" required />
+                <input class="form-control" placeholder="输入主题" type="text" name="title" required />
                 <label for="title" style="display:none"></label>
             </div>
             <div class="col-sm-12 mt-10">
-                <textarea name="message" class="form-control" rows="5" placeholder="Enter content" required></textarea>
+                <textarea name="message" class="form-control" rows="5" placeholder="输入内容" required></textarea>
                 <label for="message" style="display:none"></label>
             </div>
                 </fieldset>
             <div class="row mt-10">
-                <button class="btn btn-info btn-md m-auto" type="submit" id="sendBtn">Send</button>
+                <button class="btn btn-info btn-md m-auto" type="submit" id="sendBtn">发送</button>
             </div>
             </form>
         </div>
@@ -195,7 +195,7 @@
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    	<span aria-hidden="True">&times;</span>
 			  	</button>
-			 	<h4 class="alert-heading">Well done!</h4>
+			 	<h4 class="alert-heading">做得好！</h4>
                 
 			  	<p>{{Session::get('message')}}</p>
 			</div>
