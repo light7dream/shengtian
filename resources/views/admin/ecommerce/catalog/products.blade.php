@@ -114,12 +114,12 @@
 							<!--begin::Action=-->
 							<td class="text-end">
 								
-									<div style="display: inline-block">
+									<div class="mb-1" style="display: inline-block">
 										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">Edit</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
-									<div style="display: inline-block">
+									<div class="mb-1" style="display: inline-block">
 										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">Delete</a>
 									</div>
 									<!--end::Menu item-->
