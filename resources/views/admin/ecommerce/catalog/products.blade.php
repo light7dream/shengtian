@@ -18,7 +18,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->
-						<input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid ps-14" placeholder="Search Product" />
+						<input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid ps-14" placeholder="搜索产品" />
 					</div>
 					<!--end::Search-->
 				</div>
@@ -51,8 +51,8 @@
 							<th class="min-w-100px">点</th>
 							{{-- <th class="min-w-100px">Colors</th>
 							<th class="min-w-100px">Sizes</th> --}}
-							<th class="min-w-100px">数量
-							<th class="text-end min-w-70px">动作
+							<th class="min-w-100px">数量</th>
+							<th class="text-end min-w-70px">动作</th>
 						</tr>
 						<!--end::Table row-->
 					</thead>
@@ -115,12 +115,12 @@
 							<td class="text-end">
 								
 									<div class="mb-1" style="display: inline-block">
-										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">编辑a>
+										<a href="/admin/catalog/edit-product/{{$product->id}}" class="btn btn-warning">编辑</a>
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="mb-1" style="display: inline-block">
-										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">删除
+										<a href="#" class="btn btn-dark" data-kt-ecommerce-product-filter="delete_row" data-id="{{$product->id}}">删除</a>
 									</div>
 									<!--end::Menu item-->
 								
