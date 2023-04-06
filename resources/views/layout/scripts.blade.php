@@ -106,7 +106,6 @@
                 t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0];
                 if(t)
                 {
-                    console.log(t)
                     break;
                 }
             }
@@ -122,7 +121,6 @@
                 t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[1]).children()[0];
                 if(t)
                 {
-                    console.log(t)
                     break;
                 }
             }
@@ -137,7 +135,6 @@
                 t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[2]).children()[0];
                 if(t)
                 {
-                    console.log(t)
                     break;
                 }
             }
