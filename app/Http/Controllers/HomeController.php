@@ -43,12 +43,12 @@ class HomeController extends Controller
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else $carts = [];
 
-        $best_products = [];
+        $best_products = Product::orderBy('created_at', 'desc')->paginate(8);
         $products = Product::all();
         // $products = array_values(array_sort($products, function ($value) {
         //     return $value->order_products->count();
         // }));
-        $best_products = array_slice($products, 8);
+        // $best_products = array_slice($products, 8);
         /**MISSING */
         $new_products = Product::orderBy('created_at', 'desc')->paginate(8);
 
