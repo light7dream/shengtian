@@ -87,7 +87,7 @@
 							<!--end::Category=-->
 							<!--begin::SKU=-->
 							<td class="">
-								<span class="fw-bold">{!!Str::limit($product->description, 90)!!}</span>
+								<span class="fw-bold">{!!$product->description!!}</span>
 							</td>
 							<!--end::SKU=-->
 							<!--begin::Qty=-->
