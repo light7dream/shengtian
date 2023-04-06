@@ -29,8 +29,8 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="" />
-		<meta property="og:url" content="https://keenthemes.com/metronic" />
-		<meta property="og:site_name" content="Keenthemes | Metronic" />
+		<meta property="og:url" content="" />
+		<meta property="og:site_name" content="" />
 		@yield('styles')
 		<!--end::Global Stylesheets Bundle-->
 	</head>
