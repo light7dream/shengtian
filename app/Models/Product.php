@@ -31,7 +31,7 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function cart(): HasMany
+    public function carts(): HasMany
     {
         return $this->hasMany(Cart::class);
     }
@@ -41,7 +41,7 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function order_product()
+    public function order_products()
     {
         return $this->hasMany(OrderProduct::class);
     }
@@ -52,7 +52,7 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function exchangehistory()
+    public function exchangehistories()
     {
         return $this->hasMany(ExchangeHistory::class);
     }

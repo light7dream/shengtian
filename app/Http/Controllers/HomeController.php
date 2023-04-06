@@ -18,7 +18,7 @@ use App\Models\OnlineService;
 use App\Models\ExchangeHistory;
 use App\Models\ReachargeHistory;
 use Mail;
-
+use Illuminate\Support\Arr;
 use DNS2D;
 use Zxing\QrReader;
 class HomeController extends Controller
@@ -43,12 +43,20 @@ class HomeController extends Controller
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else $carts = [];
 
-        $best_products = Product::orderBy('created_at', 'desc')->paginate(8);
+        $best_products = [];
         $products = Product::all();
-        // $products = array_values(array_sort($products, function ($value) {
-        //     return $value->order_products->count();
-        // }));
-        // $best_products = array_slice($products, 8);
+        $tmp_products = [];
+        foreach($products as $product){
+            array_push($tmp_products, ['product'=>$product, 'rate'=>$product->order_products->count()]); 
+        }
+        $tmp_best_products = array_values(Arr::sort($tmp_products, function (array $value) {
+            return $value['rate'];
+        }, 'desc'));
+        $len = count($tmp_best_products)>8?8:count($tmp_best_products);
+        for($i = 0;$i<$len;$i++){
+            array_push($best_products, $tmp_products[$i]['product']);
+        }
+        
         /**MISSING */
         $new_products = Product::orderBy('created_at', 'desc')->paginate(8);
 
