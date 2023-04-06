@@ -23,12 +23,12 @@ class AdminController extends Controller
     public function index(){
         $categories = Category::all();
 
-         return view('admin.index', ['title'=>'Dashboard', 'categories' => $categories]);
+         return view('admin.index', ['title'=>'仪表板', 'categories' => $categories]);
     }
 
     public function viewProductsPage(Request $req){
 
-        $title = 'Products Listing';
+        $title = '产品清单';
         if(!isset($req->type))
         $products = Product::all();
         else{
@@ -57,7 +57,7 @@ class AdminController extends Controller
     }
 
     public function viewAddProductPage(){
-        $title = 'Add Product';
+        $title = '添加产品';
         $categories = Category::all();
         return view('admin.ecommerce.catalog.add-product', [
             'title'=>$title,
@@ -66,7 +66,7 @@ class AdminController extends Controller
     }
 
     public function viewEditProductPage($id){
-        $title = 'Edit Product';
+        $title = '编辑产品';
         $product = Product::find($id);
         $categories = Category::all();
         return view('admin.ecommerce.catalog.edit-product', [
@@ -77,7 +77,7 @@ class AdminController extends Controller
     }
 
     public function viewCategoriesPage(){
-        $title = 'Categories Listing';
+        $title = '类别列表';
         $categories = Category::all();
         return view('admin.ecommerce.catalog.categories', [
             'title'=>$title,
@@ -86,12 +86,12 @@ class AdminController extends Controller
     }
 
     public function viewAddCategoryPage(){
-        $title  =  'Add Category';
+        $title  =  '添加类别';
         return view('admin.ecommerce.catalog.add-category', ['title' => $title]);
     }
 
     public function viewEditCategoryPage($id){
-        $title = 'Edit Category';
+        $title = '编辑类别';
         $category = Category::find($id);
         return view('admin.ecommerce.catalog.edit-category', [
             'title'=>$title,
@@ -100,7 +100,7 @@ class AdminController extends Controller
     }
 
     public function viewReportsPage(){
-        $title = 'Reports';
+        $title = '报告';
         return view('admin.ecommerce.reports.view', ['title'=>$title]);
     }
 
@@ -109,18 +109,18 @@ class AdminController extends Controller
             $orders = Order::all();
         }else
         $orders = Order::where('status', $req->status)->get();
-        $title = 'Sales Listing';
+        $title = '销售清单';
         return view('admin.ecommerce.sales.listing', ['orders'=>$orders, 'status'=>$req->status, 'title'=>$title]);
     }
 
     public function viewAddOrderPage(){
-        $title = 'Add Order';
+        $title = '添加订单';
         return view('admin.ecommerce.sales.add-order', ['title'=>$title]);
     }
 
     public function viewOrderDetailsPage($id){
         $order = Order::find($id);
-        $title = 'Order details';
+        $title = '订单详细信息';
         return view('admin.ecommerce.sales.details', ['order'=>$order, 'title'=>$title]);
     }
 
@@ -138,76 +138,76 @@ class AdminController extends Controller
                 $order->status = $status;
             }
         }
-        $title = 'Edit Order';
+        $title = '编辑订单';
         return view('admin.ecommerce.sales.edit-order', ['order'=>$order, 'title'=>$title]);
     }
 
     public function viewInvoicePage($id){
         $invoice= Invoice::find($id);
         if(!$invoice)return '';
-        $title = 'Invoice';
+        $title = '发票';
         return view('admin.invoices.view.invoice-3', ['invoice'=>$invoice, 'title'=>$title]);
     }
 
     public function viewCreateInvoicePage(){
-        $title = 'Add Invoice';
+        $title = '添加发票';
         return view('admin.invoices.create', ['title'=>$title]);
     }
 
     public function viewAboutPointsPage(){
-        $title = 'About Points';
+        $title = '大约要点';
         return view('admin.supports.about-points', ['title'=>$title]);
     }
 
     public function viewRuleClausePage(){
-        $title = 'Rule Clause';
+        $title = '规则条款';
         return view('admin.supports.rule-clause', ['title'=>$title]);
     }
 
     public function viewFAQPage(){
-        $title = 'FAQ';
+        $title = '常问问题';
         $faqs = Quiz::all();
         return view('admin.supports.faq', ['title'=>$title, 'faqs'=>$faqs]);
     }
 
     public function viewOnlineServicePage(){
-        $title = 'Online Service';
+        $title = '在线服务';
         $data = OnlineService::all();
         return view('admin.supports.online-service',  ['title'=>$title, 'services'=>$data]);
     }
 
 
     public function viewAddSenderPage(){
-        $title='Add a sender';
+        $title='添加一个发件人';
         return view('admin.ecommerce.senders.add-sender', [
             'title'=>$title
         ]);
     }
 
     public function viewEditSenderPage($id){
-        $title = 'Edit Sender';
+        $title = '编辑发件人';
         $sender = Sender::find($id);
         return view('admin.ecommerce.senders.edit-sender', ['sender'=>$sender, 'title'=>$title]);
     }
 
     public function viewAccountSettingsPage(Request $req){
-        $title = 'Account Setting';
+        $title = '账户设置';
         return view('admin.account.setting', ['title'=>$title]);
     }
     
     public function viewOverviewPage(Request $req){
-        $title = 'Overview';
+        $title = '概述';
         return view('admin.account.overview', ['title'=>$title]);
     }
     
     public function viewSecurityPage(Request $req){
-        $title = 'Security';
+        $title = '安全';
         return view('admin.account.security', ['title'=>$title]);
     }
 
     public function viewMembersPage(Request $req){
         $members = Member::all();
-        return view('admin.ecommerce.members.listing', ['members'=>$members, 'title'=>'Members Listing']);
+        return view('admin.ecommerce.members.listing', ['members'=>$members, 'title'=>'成员列表']);
     }
 
     public function viewEditMemberPage($id){
@@ -216,7 +216,7 @@ class AdminController extends Controller
         foreach($member->orders as $order)
             $used_points+=$order->total;
         if(!$member)return view('404');
-        return view('admin.ecommerce.members.edit-member', ['member'=>$member, 'title'=>'Edit a member', 'used_points'=>$used_points]);
+        return view('admin.ecommerce.members.edit-member', ['member'=>$member, 'title'=>'编辑成员', 'used_points'=>$used_points]);
     }
 
     public function addMember(Request $req){
@@ -777,7 +777,7 @@ class AdminController extends Controller
 
 
     public function viewAdminPasswordChange(){
-        return view('admin.password.edit-password', ['title'=>'Change Password']);
+        return view('admin.password.edit-password', ['title'=>'更改密码']);
     }
 
     public function editPassword(Request $req){
@@ -799,7 +799,7 @@ class AdminController extends Controller
         else
         $official = "";
 
-         return view('admin.setting.official_site', ['title'=>'Game Official Site', 'official' => $official]);
+         return view('admin.setting.official_site', ['title'=>'游戏官方网站', 'official' => $official]);
     }
 
     
@@ -826,7 +826,7 @@ class AdminController extends Controller
         $setting = Setting::first();
         if($setting)
             $banners = $setting->banner_images;
-        return view('admin.setting.banner', ['title'=>'Banner Settings', 'banners' => $banners]);
+        return view('admin.setting.banner', ['title'=>'横幅设置', 'banners' => $banners]);
     }
 
     public function addBanner(Request $req){

@@ -73,7 +73,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'total_points'=>$total_points, 'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'Dashboard', 'new_products'=>$new_products, 'carts'=>$carts, "official" => $data]);
+        return view('index', ['banners'=>$banners, 'banner_time'=>$banner_time, 'categories'=>$categories,'total_points'=>$total_points, 'used_points'=>$used_points, 'best_products'=>$best_products,'title'=>'仪表板', 'new_products'=>$new_products, 'carts'=>$carts, "official" => $data]);
     }
 
     public function viewCartPage(Request $req){
@@ -115,7 +115,7 @@ class HomeController extends Controller
          $data = $official[0]->game_official_site;
         else
           $data = "#";
-        return view('cart', ['used_points'=>$used_points, 'total_points'=>$my_balace, 'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'Dashboard', 'official' =>$data]);
+        return view('cart', ['used_points'=>$used_points, 'total_points'=>$my_balace, 'carts'=>$carts, 'cart_info'=>$cart_info, 'title'=>'大车', 'official' =>$data]);
     }
 
     public function viewHelpPage(Request $req){
@@ -160,7 +160,7 @@ class HomeController extends Controller
             $data = $official[0]->game_official_site;
         else
             $data = "#";
-        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'Support', 'carts'=>$carts,'total_points'=>$my_points, 'used_points'=>$used_points, 'official' => $data]);
+        return view('help', ['help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'title'=>'支持', 'carts'=>$carts,'total_points'=>$my_points, 'used_points'=>$used_points, 'official' => $data]);
     }
 
     public function viewMinePage(Request $req){
