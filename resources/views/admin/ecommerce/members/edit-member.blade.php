@@ -305,7 +305,7 @@
 										text:"充值成功！",
 										icon:"success",
 										buttonsStyling:!1,
-										confirmButtonText:"Ok, got it!",
+										confirmButtonText:"好的，我知道了！",
 										customClass:{
 										confirmButton:"btn btn-primary"
 										}
@@ -315,10 +315,10 @@
 							})
 							.fail(function(){
 								Swal.fire({
-									html:"Sorry, looks like there are some errors detected, please try again.",
+									html:"抱歉，看起来有一些错误，请重试。",
 									icon:"error",
 									buttonsStyling:!1,
-									confirmButtonText:"Ok, got it!",
+									confirmButtonText:"好的，我知道了！",
 									customClass:{
 										confirmButton:"btn btn-primary"
 									}
