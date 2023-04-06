@@ -103,7 +103,8 @@
             for(var i=0;i<3;i++){
                 var el=$($("iframe")[i]).contents();
                 var bdy = $(el[0].body);
-                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0];
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-3]).children()[0];
                 if(t)
                 {
                     break;
@@ -118,7 +119,8 @@
             for(var i=0;i<3;i++){
                 var el=$($("iframe")[i]).contents();
                 var bdy = $(el[0].body);
-                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[1]).children()[0];
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-2]).children()[0];
                 if(t)
                 {
                     break;
@@ -132,7 +134,8 @@
             for(var i=0;i<3;i++){
                 var el=$($("iframe")[i]).contents();
                 var bdy = $(el[0].body);
-                t=$($($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[2]).children()[0];
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-1]).children()[0];
                 if(t)
                 {
                     break;
