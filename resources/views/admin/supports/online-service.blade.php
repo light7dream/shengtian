@@ -83,14 +83,14 @@
                             <div>{{$service->description}}</div>
                         </td>
                         <td>{{$service->created_at}}</td>
-                        <td class="text-end d-flex flex-end">
+                        <td class="text-end">
                             
-                                <div class="d-flex">
+                                <div class="mb-1" style="display:inline-block">
                                     <a href="javascript:(0);" data-kt-service-table-filter="edit_row" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#kt_modal_edit_service">Edit</a>
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
-                                <div class="d-flex" style="margin-left: 20px">
+                                <div class="mb-1" style="display:inline-block">
                                     <a href="#" class="btn btn-dark" data-id="{{$service->id}}" data-kt-service-table-filter="delete_row">Delete</a>
                                 </div>
                             </div>

@@ -60,11 +60,11 @@
                         <td class="">
                             <span class="fw-bold">{{$faq->answer}}</span>
                         </td>
-                        <td class="text-end d-flex flex-end">
-                            <div class="d-flex">
+                        <td class="text-end">
+                            <div class="mb-1" style="display:inline-block">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_faq" class="btn btn-warning">Edit</a>
                                 </div>
-                                <div class="d-flex" style="margin-left: 20px">
+                                <div class="mb-1" style="display:inline-block">
                                     <a href="#" class="btn btn-dark" data-kt-faq-filter="delete_row">Delete</a>
                                 </div>
                         </td>
