@@ -321,9 +321,6 @@ setTimeout(() => {
         }
 
     }
-
-   
-   
      
 </script>
 

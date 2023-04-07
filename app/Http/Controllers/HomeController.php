@@ -177,16 +177,16 @@ class HomeController extends Controller
         $month = date('Y-m');
         $last_month = date('Y-m',strtotime("-1 month"));
         $member = Member::find($req->session()->get('user')->member_id);
-        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->get();
-        $charge_hisotries = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->get();
-        $yesterday_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$yesterday.'%')->get();
+        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->paginate(20);
+        $charge_hisotries = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->paginate(20);
+        $yesterday_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$yesterday.'%')->paginate(20);
         $obtained_yesterday_points = 0;
         foreach($yesterday_histories as $yh){
         $obtained_yesterday_points += $yh->charge_points;
         }
         $accumulated_points_permonth =0;
 
-        $month_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$month.'%')->get();
+        $month_histories = ReachargeHistory::where('member_id', $req->session()->get('user')->member_id)->where('created_at','like',$month.'%')->paginate(20);
         foreach($month_histories as $mh){
             $accumulated_points_permonth = $mh->charge_points;
         }
@@ -299,6 +299,8 @@ class HomeController extends Controller
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else 
         $carts = [];
+        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->paginate(20);
+
         $product = (object)[
             'id'=>$product_->id,
             'name'=>$product_->name,
@@ -350,7 +352,7 @@ class HomeController extends Controller
             else
               $data = "#";
         
-        return view('product-details', ['used_points'=>$used_points,'total_points'=>$my_points, 'product'=>$product, 'carts'=>$carts, 'exchange_records'=>[], 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'official' => $data]);
+        return view('product-details', ['used_points'=>$used_points,'total_points'=>$my_points, 'product'=>$product, 'carts'=>$carts, 'exchange_records'=> $exchanged_goods, 'help_one'=>$help_one, 'help_two'=>$help_two, 'help_three'=>$help_three, 'help_four'=>$help_four, 'official' => $data]);
     }
     
     public function viewProductListPage(Request $req){
