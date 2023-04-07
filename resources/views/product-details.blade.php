@@ -89,7 +89,7 @@
                                 
                             </div>
                             <div class="product_desc">
-                                <p>{{$product->description}}</p>
+                                <p>{!!$product->description!!}</p>
                             </div>
                             @if(!$product->virtual)
                             <div class="product_variant color" id="product_color">
@@ -136,7 +136,7 @@
                                     <a class="active" data-toggle="tab" href="#cpsm" role="tab" aria-controls="cpsm" aria-selected="false">产品说明</a>
                                 </li>
                               
-                                {{-- <li>
+                                <li>
                                    <a data-toggle="tab" href="#dhjl" role="tab" aria-controls="dhjl" aria-selected="false">兑换记录</a>
                                 </li>
                                 <li>
@@ -150,33 +150,33 @@
                                  </li>
                                  <li>
                                     <a data-toggle="tab" href="#zxkf" role="tab" aria-controls="zxkf" aria-selected="false">在线客服</a>
-                                 </li> --}}
+                                 </li> 
                             </ul>
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="cpsm" role="tabpanel" >
                                 <div class="product_info_content">
-                                    <p>{{$product->description}}</p>
+                                    <p>{!!$product->description!!}</p>
                                     <table class="table">
                                         <tbody>
                                             <tr>
                                                 <td class="first_child">Compositions</td>
-                                                <td>{{$product->compositions}}</td>
+                                                <td>{!!$product->compositions!!}</td>
                                             </tr>
                                             <tr>
                                                 <td class="first_child">Styles</td>
-                                                <td>{{$product->styles}}</td>
+                                                <td>{!!$product->styles!!}</td>
                                             </tr>
                                             <tr>
                                                 <td class="first_child">Properties</td>
-                                                <td>{{{$product->properties}}}</td>
+                                                <td>{!!$product->properties!!}</td>
                                             </tr>
                                         </tbody>
                                     </table>
 
                                 </div>    
                             </div>
-                            {{-- <div class="tab-pane fade" id="dhjl" role="tabpanel" >
+                            <div class="tab-pane fade" id="dhjl" role="tabpanel" >
                                 <div class="cart-list">
                                     <div class="shop_sidebar_product">
                                         @foreach ($exchange_records as $product)
@@ -187,17 +187,17 @@
                                                         <a class="primary_img" href="{{$product->url}}"><img src="{{asset($product->primary_image)}}" alt=""></a>
                                                     </div>
                                                     <figcaption class="product_content">
-                                                        <h4 class="product_name"><a href="{{$product->url}}">{{$product->name}}</a></h4>
+                                                        <h4 class="product_name"><a href="{{$product->url}}">{!!$product->name!!}</a></h4>
                                                         <div>
                                                             <span class="cart-color">
-                                                            {{$product->color}}
+                                                            {!!$product->color!!}
                                                             </span>
                                                             <span class="cart-size">
-                                                            {{$product->size}}
+                                                            {!!$product->size!!}
                                                             
                                                             </span>
                                                             <span class="cart-price">
-                                                               {{$product->price}}
+                                                               {!!$product->price!!}
                                                                 
                                                             </span>
                                                         <span class="cart-num"> X{{$product->cart_num}}</span>
@@ -214,13 +214,13 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="gyjf" role="tabpanel" >
-                                {{$help_one}}
+                                {!!$help_one!!}
                                 <hr>
                                 <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="gztk" role="tabpanel" >
-                                {{$help_two}}
+                                {!!$help_two!!}
                                 <hr>
                                 <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                                 </p>
@@ -238,7 +238,7 @@
                                             <div class="card card_dipult">
                                                 <div class="card-header card_accor" id="heading{{$key}}">
                                                     <button class="btn btn-link {{$key==0?'':'collapsed'}}" data-toggle="collapse" data-target="#collapse{{$key}}" aria-expanded="false" aria-controls="collapse{{$key}}">
-                                                       {{$help->question}}
+                                                       {!!$help->question!!}
     
                                                     <i class="fa fa-plus"></i>
                                                     <i class="fa fa-minus"></i>
@@ -249,7 +249,7 @@
     
                                                 <div id="collapse{{$key}}" class="collapse {{$key==0?'show':''}}" aria-labelledby="heading{{$key}}" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <p>{{$help->answer}}</p>
+                                                    <p>{!!$help->answer!!}</p>
                                                 </div>
                                                 </div>
                                             </div>
@@ -277,7 +277,7 @@
                                                     <a href="{{$help->url}}"><img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt=""></a>
                                                 </div>
                                                 <div class="post_info">
-                                                    <span> <a href="#">{{$help->description}}</a> </span>
+                                                    <span> <a href="#">{!!$help->description!!}</a> </span>
                                                     <span>ID {{$help->id}}</span>
                                                 </div>
                                             </div>
@@ -297,7 +297,7 @@
                                     </center>
                                     
                                 </div>
-                            </div> --}}
+                            </div>
 
                             
                         </div>
