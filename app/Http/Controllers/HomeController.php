@@ -299,7 +299,7 @@ class HomeController extends Controller
         $carts = Cart::where('member_id', $req->session()->get('user')->member_id)->get();
         else 
         $carts = [];
-        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->paginate(20);
+        $exchanged_goods = ExchangeHistory::where('member_id', $req->session()->get('user')->member_id)->paginate(8);
 
         $product = (object)[
             'id'=>$product_->id,
