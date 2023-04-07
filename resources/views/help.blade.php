@@ -77,14 +77,18 @@
                     <!-- Tab panes -->
                     <div class="tab-content dashboard_content">
                         <div class="tab-pane fade show" id="help1">
-                          <p id='help_one'></p>
+                          <div id='help_one'>
+                          {!!$help_one!!}
+                            </div>
                             <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                             </p>
                             
                         </div>
                         <div class="tab-pane fade show" id="help2" style="line-height: 30px;">
                             
-                            <p id='help_two'></p>
+                            <div id='help_two'>
+                                {!!$help_two!!}
+                            </div>
                             <hr>
                             <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                             </p>         
@@ -316,12 +320,6 @@ setTimeout(() => {
             $("#help1").addClass("active");
         }
 
-
-        var helpOne = '{!!$help_one!!}';
-        $("#help_one").html(helpOne);
-
-        var helpTwo = '{!!$help_two!!}';
-        $("#help_two").html(helpTwo);
     }
 
    
