@@ -142,7 +142,7 @@
                                                 <img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt="">
                                             </div>
                                             <div class="post_info">
-                                                <span> <a href="https://vm.providesupport.com/{{$help->email}}" target="blank">{{$help->description}}</a> </span>
+                                                <span> <a href="{{$help->email}}" target="blank">{{$help->description}}</a> </span>
                                                 <!-- data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');" -->
                                             </div>
                                         </div>
