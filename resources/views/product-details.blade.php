@@ -277,7 +277,7 @@
                                                     <a href="{{$help->url}}"><img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt=""></a>
                                                 </div>
                                                 <div class="post_info">
-                                                    <span> <a href="https://vm.providesupport.com/{{$help->email}}">{!!$help->description!!}</a> </span>
+                                                    <span> <a href="{{$help->email}}">{!!$help->description!!}</a> </span>
                                                 </div>
                                             </div>
                                             
