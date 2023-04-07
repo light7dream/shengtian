@@ -277,8 +277,7 @@
                                                     <a href="{{$help->url}}"><img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt=""></a>
                                                 </div>
                                                 <div class="post_info">
-                                                    <span> <a href="#">{!!$help->description!!}</a> </span>
-                                                    <span>ID {{$help->id}}</span>
+                                                    <span> <a href="https://vm.providesupport.com/{{$help->email}}">{!!$help->description!!}</a> </span>
                                                 </div>
                                             </div>
                                             
@@ -292,10 +291,7 @@
                                 </div>
     
                                 <div class="col-lg-6 col-md-12">
-                                    <center>
-                                        <button type="button" class="btn btn-primary" style="background-color: #35a2f8;color: aliceblue;margin: 30px auto;">开始咨询</button>
-                                    </center>
-                                    
+                                  
                                 </div>
                             </div>
 
