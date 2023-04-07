@@ -164,7 +164,7 @@
                                 background: #F53737;
                             }
                         </style>
-                        <div id="mobile_lang">
+                        <div id="mobile_lang" style="display:none">
                             <ul>
                                 <li class="twitter m-4"><a href="#" translate="no" class="zh-CN">简</a></li>
                                 <li class="pinterest m-4"><a href="#" translate="no" class="zh-TW">繁</a></li>
