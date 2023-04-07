@@ -382,10 +382,10 @@
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">电子邮件</label>
+                                                <label class="required form-label">链接URL</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="email" id="edit_service_email" name="service_email" class="form-control mb-2" placeholder="电子邮件" value="">
+                                                <input type="email" id="edit_service_email" name="service_email" class="form-control mb-2" placeholder="链接URL" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 {{-- <div class="text-muted fs-7">A email is required and recommended to be unique.</div> --}}
