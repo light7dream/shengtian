@@ -53,7 +53,7 @@
                     <!--begin::Table row-->
                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                         <th class="min-w-125px">姓名</th>
-                        <th class="min-w-125px">电子邮件</th>
+                        <th class="min-w-125px">链接URL</th>
                         <th class="min-w-125px">描述</th>
                         <th class="min-w-125px">创建日期</th>
                         <th class="text-end min-w-70px">动作</th>
@@ -80,7 +80,7 @@
                             <div>{{$service->email}}</div>
                         </td>
                         <td>
-                            <div>{{Str::limit($service->description,120)}}</div>
+                            <div>{{$service->description}}</div>
                         </td>
                         <td>{{$service->created_at}}</td>
                         <td class="text-end">
@@ -219,10 +219,10 @@
                                             <!--begin::Input group-->
                                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                                 <!--begin::Label-->
-                                                <label class="required form-label">关联</label>
+                                                <label class="required form-label">链接URL</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="email" id="service_email" name="service_email" class="form-control mb-2" placeholder="关联" value="">
+                                                <input type="email" id="service_email" name="service_email" class="form-control mb-2" placeholder="链接URL" value="">
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <!--end::Description-->
