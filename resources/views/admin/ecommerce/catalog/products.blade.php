@@ -46,11 +46,9 @@
 								</div>
 							</th>
 							<th class="min-w-200px">产品</th>
-							<th class="min-w-100px">描述</th>
+							<!-- <th class="min-w-100px">描述</th> -->
 							<th class="min-w-70px">类别</th>
 							<th class="min-w-100px">点</th>
-							{{-- <th class="min-w-100px">Colors</th>
-							<th class="min-w-100px">Sizes</th> --}}
 							<th class="min-w-100px">数量</th>
 							<th class="text-end min-w-70px">动作</th>
 						</tr>
@@ -86,9 +84,9 @@
 							</td>
 							<!--end::Category=-->
 							<!--begin::SKU=-->
-							<td class="">
-								<span class="fw-bold">{!!$product->description!!}</span>
-							</td>
+							<!-- <td class="">
+								<span class="fw-bold"></span>
+							</td> -->
 							<!--end::SKU=-->
 							<!--begin::Qty=-->
 							<td class="0">
