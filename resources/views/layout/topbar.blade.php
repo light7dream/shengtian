@@ -270,7 +270,7 @@
                                     }
                                 </style>
 
-                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px; display:inline" id="translator">
+                                <div class='header_account-list top_links container' style="margin-right: 0px; margin-top:-5px; display:inline; width: 60px;" id="translator">
                                     <div id="g_translater" style="display:none">
                                         <div id="google_translate_element"></div>
                                     </div>  

@@ -31,21 +31,29 @@
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').parent().prepend('<img src="{{asset('/assets/img/icon/fy.png')}}" alt="" width="30px" style="margin: 1em">')
             $('.VIpgJd-ZVi9od-xl07Ob-lTBxed').hide()
         }, 1000);
-        var m = true;
-        if (jQuery( window ).width() < 992 && m == false){
+        var m = false;
+        if (window.innerWidth < 992){
             m = true;
-            jQuery('#logout_form').detach().appendTo('#mobile_logout');                            
-        } else if (jQuery( window ).width() >= 992 && m == true){
+            $('#desktop_lang').hide();                            
+            $('#mobile_lang').show();                          
+            $('#logout_form').detach().appendTo('#mobile_logout');  
+        } else if (window.innerWidth >= 992){
             m = false;
-            jQuery('#logout_form').detach().prependTo('#desktop_logout');                            
+            $('#desktop_lang').show();
+            $('#mobile_lang').hide();
+            $('#logout_form').detach().prependTo('#desktop_logout');                            
         }
         jQuery( window ).resize(function() {
-        if (jQuery( window ).width() < 992 && m == false){
+        if (window.innerWidth < 992 && m == false){
             m = true;
-            jQuery('#logout_form').detach().appendTo('#mobile_logout');                            
-        } else if (jQuery( window ).width() >= 992 && m == true){
+            $('#desktop_lang').hide();                            
+            $('#mobile_lang').show();                          
+            $('#logout_form').detach().appendTo('#mobile_logout');  
+        } else if (window.innerWidth >= 992 && m == true){
             m = false;
-            jQuery('#logout_form').detach().prependTo('#desktop_logout');                            
+            $('#desktop_lang').show();
+            $('#mobile_lang').hide();
+            $('#logout_form').detach().prependTo('#desktop_logout');                            
         }
     });
   $(document).ready(function(){
@@ -57,7 +65,7 @@
 </script>
 <script>
     
-    $('span.zh-CN').click(function(){
+        $('span.zh-CN').click(function(){
             var t;
             for(var i=0;i<3;i++){
                 var el=$($("iframe")[i]).contents();
@@ -89,6 +97,53 @@
         })
         
         $('span.En').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-1]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+        })
+
+        
+        $('a.zh-CN').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-3]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+           
+        })
+        
+        $('a.zh-TW').click(function(){
+            var t;
+            for(var i=0;i<3;i++){
+                var el=$($("iframe")[i]).contents();
+                var bdy = $(el[0].body);
+                var a=$($($($($($(bdy[0]).children()[0]).children()[0]).children()[0]).children()[0]).children()[0]).children();
+                t=$(a[a.length-2]).children()[0];
+                if(t)
+                {
+                    break;
+                }
+            }
+            $(t).click();
+        })
+        
+        $('a.En').click(function(){
             var t;
             for(var i=0;i<3;i++){
                 var el=$($("iframe")[i]).contents();

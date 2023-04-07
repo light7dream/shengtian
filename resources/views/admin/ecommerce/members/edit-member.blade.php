@@ -134,7 +134,7 @@
 
 		<div class="row">
 			<div class="col-md-4 col-sm-6 mt-7 mb-10" style="display: flex">
-				<input type="text" name="member_recharge" class="form-control mb-2" placeholder="Recharge" value="" id='recharge_amount' />
+				<input type="text" name="member_recharge" class="form-control mb-2" placeholder="充电" value="" id='recharge_amount' />
 			</div>
 			<div class="col-md-8 col-sm-6 mt-7 mb-10" style="display: flex">
 				<button style="padding: 7px!important" type="button" id="recharge_change" class="btn btn-primary">Recharge </button>

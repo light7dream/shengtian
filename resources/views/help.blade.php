@@ -22,6 +22,32 @@
     border-top-left-radius: 0!important; 
     border-top-right-radius: 0!important;
 }
+    /* #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw;
+      height: 90vh;
+      background-color: white;
+      z-index: 1;
+    }
+
+    #popup-iframe {
+      width: 100%;
+      height: 100%;
+    } */
 </style>
 @endsection
 
@@ -112,8 +138,8 @@
                                                 <img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt="">
                                             </div>
                                             <div class="post_info">
-                                                <span> <a href="#" data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');">{{$help->description}}</a> </span>
-                                                {{-- <span>ID #{{$help->id}}</span> --}}
+                                                <span> <a href="https://vm.providesupport.com/{{$help->email}}" target="blank">{{$help->description}}</a> </span>
+                                                <!-- data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');" -->
                                             </div>
                                         </div>
                                         @endforeach
@@ -123,7 +149,27 @@
 
                             <div class="">
                                 
+                            <!-- <button id="popup-button">Open Popup</button>
+                            <div id="overlay"></div>
+                            <div id="popup">
+                            <iframe src="https://vm.providesupport.com" id="popup-iframe"></iframe>
+                            </div>
 
+                            <script>
+                            const button = document.getElementById("popup-button");
+                            const overlay = document.getElementById("overlay");
+                            const popup = document.getElementById("popup");
+
+                            button.addEventListener("click", function () {
+                                overlay.style.display = "block";
+                                popup.style.display = "block";
+                            });
+
+                            overlay.addEventListener("click", function () {
+                                overlay.style.display = "none";
+                                popup.style.display = "none";
+                            });
+                            </script> -->
 
                             </div>
                             

@@ -95,33 +95,81 @@
                         <div id="g_translater" style="margin: auto; display:none">
                             <div id="google_translate_element" ></div>
                         </div>
-                        <a href="#" class="menu-link">
-                        <span class="menu-title position-relative"><img src="{{asset('assets/img/icon/fy.png')}}" alt="" width="30px"></span>
-                        </a>
-                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3 my-0">
-                                <a href="#" class="menu-link px-3 py-2">
-                                    <span class="menu-title zh-CN" translate="no" >简体中文</span>
-                                </a>
+                        <div id="desktop_lang">
+                            <a href="#" class="menu-link">
+                            <span class="menu-title position-relative"><img src="{{asset('assets/img/icon/fy.png')}}" alt="" width="30px"></span>
+                            </a>
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg fw-semibold py-4 fs-base w-150px" data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3 my-0">
+                                    <a href="#" class="menu-link px-3 py-2">
+                                        <span class="menu-title zh-CN" translate="no" >简体中文</span>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3 my-0">
+                                    <a href="#" class="menu-link px-3 py-2">
+                                        
+                                        <span class="menu-title zh-TW" translate="no" >繁體中文</span>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3 my-0">
+                                    <a href="#" class="menu-link px-3 py-2">
+                                        
+                                        <span class="menu-title En" translate="no" >English</span>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
                             </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3 my-0">
-                                <a href="#" class="menu-link px-3 py-2">
-                                    
-                                    <span class="menu-title zh-TW" translate="no" >繁體中文</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3 my-0">
-                                <a href="#" class="menu-link px-3 py-2">
-                                    
-                                    <span class="menu-title En" translate="no" >English</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
+                        </div>
+                        <style>
+                            #mobile_lang{
+                                margin-top: 50px;
+                                padding-bottom: 50px;
+                                text-align: center;
+                            }
+                            #mobile_lang ul li {
+                                display: inline-block;
+                                margin-right: 4px;
+                            }
+                            #mobile_lang ul li a {
+                                display: inline-block;
+                                width: 32px;
+                                height: 32px;
+                                text-align: center;
+                                line-height: 30px;
+                                border-radius: 50%!important;
+                                font-size: 13px;
+                                color: #ffffff;
+                            }
+                            #mobile_lang ul li.twitter a {
+                                background: #1DA1F2;
+                            }
+                            #mobile_lang ul li.twitter a:hover {
+                                background: #F53737;
+                            }
+                            #mobile_lang ul li.pinterest a {
+                                background: #BD081B;
+                            }
+                            #mobile_lang ul li.pinterest a:hover {
+                                background: #F53737;
+                            }
+                            #mobile_lang ul li.facebook a {
+                                background: #3c5b9b;
+                            }
+                            #mobile_lang ul li.facebook a:hover {
+                                background: #F53737;
+                            }
+                        </style>
+                        <div id="mobile_lang">
+                            <ul>
+                                <li class="twitter m-4"><a href="#" translate="no" class="zh-CN">简</a></li>
+                                <li class="pinterest m-4"><a href="#" translate="no" class="zh-TW">繁</a></li>
+                                <li class="facebook m-4"><a href="#" translate="no" class="En">En</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="menu-item" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-15px, 0">
