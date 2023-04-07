@@ -317,15 +317,11 @@ setTimeout(() => {
         }
 
 
-        var helpOne = '{{$help_one}}';
+        var helpOne = '{!!$help_one!!}';
         $("#help_one").html(helpOne);
-         var newHTML1 = $("#help_one").text();
-        $("#help_one").html(newHTML1);
 
-        var helpTwo = '{{$help_two}}';
+        var helpTwo = '{!!$help_two!!}';
         $("#help_two").html(helpTwo);
-         var newHTML2 = $("#help_two").text();
-         $("#help_two").html(newHTML2);
     }
 
    
