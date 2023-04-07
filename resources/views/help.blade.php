@@ -82,14 +82,14 @@
                             </p>
                             
                         </div>
-                        <div class="tab-pane fade" id="help2" style="line-height: 30px;">
+                        <div class="tab-pane fade show" id="help2" style="line-height: 30px;">
                             
                             <p id='help_two'></p>
                             <hr>
                             <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                             </p>         
                         </div>
-                        <div class="tab-pane fade" id="help3">
+                        <div class="tab-pane fade show" id="help3">
     
                             <div class="accordion_area">
                                 <div class="container">
@@ -122,7 +122,7 @@
                             <!--Accordion area end-->
                             <!--faq area end-->
                         </div>
-                        <div class="tab-pane" id="help4">
+                        <div class="tab-pane fade show" id="help4">
                             
                             <div class="col-lg-6 col-md-12" style="margin-left: 30px;">
                                 <div class="blog_sidebar_widget">
