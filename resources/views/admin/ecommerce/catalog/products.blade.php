@@ -46,7 +46,6 @@
 								</div>
 							</th>
 							<th class="min-w-200px">产品</th>
-							<th class="min-w-100px"></th>
 							<th class="min-w-70px">类别</th>
 							<th class="min-w-100px">点</th>
 							<th class="min-w-100px">数量</th>
