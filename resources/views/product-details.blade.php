@@ -61,7 +61,6 @@
                                     <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{asset($subImage)}}" data-zoom-image="{{asset($subImage)}}">
                                         <img src="{{asset($subImage)}}" alt="No"/>
                                     </a>
-
                                 </li>
                                 @endforeach
                                 @endif
@@ -76,20 +75,9 @@
                         <input type="hidden" name="virtual" value="{{$product->virtual}}" />
                         <input type="hidden" value="{{$product->id}}" name="id">
                             <h1><a href="#">{{$product->name}}</a></h1>
-                            {{-- <div class="product_nav">
-                                <ul>
-                                    <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                    <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                </ul>
-                            </div> --}}
-                          
                             <div class="price_box">
                                 <span class="current_price">{{$product->price}}</span>
                                 <!-- <span class="old_price">$80.00</span> -->
-                                
-                            </div>
-                            <div class="product_desc">
-                                <p>{!!$product->description!!}</p>
                             </div>
                             @if(!$product->virtual)
                             <div class="product_variant color" id="product_color">
@@ -159,10 +147,6 @@
                                     <p>{!!$product->description!!}</p>
                                     <table class="table">
                                         <tbody>
-                                            <tr>
-                                                <td class="first_child">Compositions</td>
-                                                <td>{!!$product->compositions!!}</td>
-                                            </tr>
                                             <tr>
                                                 <td class="first_child">Styles</td>
                                                 <td>{!!$product->styles!!}</td>

@@ -84,9 +84,9 @@
 							</td>
 							<!--end::Category=-->
 							<!--begin::SKU=-->
-							<td class="">
-								<span class="fw-bold">{!!$product->description!!}</span>
-							</td>
+							<!-- <td class="">
+								<span class="fw-bold"></span>
+							</td> -->
 							<!--end::SKU=-->
 							<!--begin::Qty=-->
 							<td class="0">
