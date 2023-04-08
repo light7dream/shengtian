@@ -144,8 +144,8 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="cpsm" role="tabpanel" >
                                 <div class="product_info_content">
-                                    <p>{!!$product->description!!}</p>
-                                    <table class="table">
+                                    {!!$product->description!!}
+                                    <!-- <table class="table">
                                         <tbody>
                                             <tr>
                                                 <td class="first_child">Styles</td>
@@ -156,7 +156,7 @@
                                                 <td>{!!$product->properties!!}</td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table> -->
 
                                 </div>    
                             </div>
