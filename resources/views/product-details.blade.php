@@ -121,7 +121,7 @@
                         <div class="product_info_button">    
                             <ul class="nav" role="tablist">
                                 <li >
-                                    <a class="active" data-toggle="tab" href="#cpsm" role="tab" aria-controls="cpsm" aria-selected="true">产品说明</a>
+                                    <a class="active" data-toggle="tab" href="#cpsm" role="tab" aria-controls="cpsm" aria-selected="false">产品说明</a>
                                 </li>
                               
                                 <li>
