@@ -80,6 +80,7 @@
                           <div id='help_one'>
                           {!!$help_one!!}
                             </div>
+                            <hr>
                             <p>还有任何问题？胜天娱乐欢迎您随时联系 <a href="/help?type=4">在线客服</a>
                             </p>
                             
