@@ -142,7 +142,7 @@
                                                 <img src="{{url('/storage/uploads/service/'.$help->id.'.png')}}" alt="">
                                             </div>
                                             <div class="post_info">
-                                                <span> <a href="{{$help->email}}" target="blank">{{$help->description}}</a> </span>
+                                                <span> <a href="#" onclick="openNewWindow('{{$help->email}}');">{{$help->description}}</a> </span>
                                                 <!-- data-toggle="modal" data-target="#modalRelatedContent" onclick="mailTo('{{$help->email}}');" -->
                                             </div>
                                         </div>
@@ -258,6 +258,15 @@
 @section('scripts') 
 @parent
 <script src="{{asset('/plugins/dist/jquery.validate.js')}}"></script>
+<script type="text/javascript">
+        function openNewWindow(url) {
+            var w = 400; // Width of the new window
+            var h = 600; // Height of the new window
+            var left = (screen.width/2)-(w/2);
+            var top = (screen.height/2)-(h/2);
+            window.open(url, 'newwindow','width=' + w + ',height=' + h + ',left='+left+',top='+top+',toolbar=no,location=no');
+        }
+    </script>
 <script>
 @if(Session::has('message'))
 setTimeout(() => {
