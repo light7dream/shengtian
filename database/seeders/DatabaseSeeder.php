@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
              'used_points' => 0,
              'role'=> 1
          ]);
-
+/**CATEGORY */
          \App\Models\Category::factory()->create([
             'name' => 'Digital Item',
             'description' => 'Digital Item',
