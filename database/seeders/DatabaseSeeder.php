@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\Member::factory()->create([
+        \App\Models\Member::factory()->truncate();
+        \App\Models\Member::factory()->create([
              'name' => 'admin@doc.com',
              'password' => '12345678',
              'points' => 0,
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
              'role'=> 1
          ]);
 /**CATEGORY */
+         \App\Models\Category::factory()->truncate();
          \App\Models\Category::factory()->create([
             'name' => 'Digital Item',
             'description' => 'Digital Item',
