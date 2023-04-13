@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,7 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Member::factory()->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \App\Models\Member::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         \App\Models\Member::factory()->create([
              'name' => 'admin@doc.com',
              'password' => '12345678',
@@ -21,7 +23,9 @@ class DatabaseSeeder extends Seeder
              'role'=> 1
          ]);
 /**CATEGORY */
-         \App\Models\Category::factory()->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+         \App\Models\Category::truncate();
+         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
          \App\Models\Category::factory()->create([
             'name' => 'Digital Item',
             'description' => 'Digital Item',
